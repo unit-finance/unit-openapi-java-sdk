@@ -23,7 +23,9 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -52,7 +54,7 @@ import org.openapitools.client.JSON;
 /**
  * ExecuteFilterParameter2
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-18T11:36:55.328745700+02:00[Asia/Jerusalem]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ExecuteFilterParameter2 {
   public static final String SERIALIZED_NAME_CUSTOMER_ID = "customerId";
   @SerializedName(SERIALIZED_NAME_CUSTOMER_ID)
@@ -172,7 +174,7 @@ public class ExecuteFilterParameter2 {
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
-  private Object tags;
+  private Map<String, String> tags = new HashMap<>();
 
   public ExecuteFilterParameter2() {
   }
@@ -298,9 +300,17 @@ public class ExecuteFilterParameter2 {
   }
 
 
-  public ExecuteFilterParameter2 tags(Object tags) {
+  public ExecuteFilterParameter2 tags(Map<String, String> tags) {
     
     this.tags = tags;
+    return this;
+  }
+
+  public ExecuteFilterParameter2 putTagsItem(String key, String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new HashMap<>();
+    }
+    this.tags.put(key, tagsItem);
     return this;
   }
 
@@ -309,12 +319,12 @@ public class ExecuteFilterParameter2 {
    * @return tags
   **/
   @javax.annotation.Nullable
-  public Object getTags() {
+  public Map<String, String> getTags() {
     return tags;
   }
 
 
-  public void setTags(Object tags) {
+  public void setTags(Map<String, String> tags) {
     this.tags = tags;
   }
 

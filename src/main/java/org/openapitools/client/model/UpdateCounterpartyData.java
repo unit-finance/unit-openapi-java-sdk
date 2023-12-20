@@ -59,7 +59,7 @@ import com.google.gson.JsonParseException;
 
 import org.openapitools.client.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-18T11:36:55.328745700+02:00[Asia/Jerusalem]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateCounterpartyData extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(UpdateCounterpartyData.class.getName());
 

@@ -4488,7 +4488,7 @@ components:
       required:
       - attributes
       - relationships
-      title: Create ACH Payment
+      title: Create ACH Payment to inline Counterparty
       type: object
     accountRelationship:
       additionalProperties: false
@@ -4502,6 +4502,7 @@ components:
       additionalProperties: false
       properties:
         type:
+          default: achPayment
           type: string
         attributes:
           $ref: '#/components/schemas/CreateAchPaymentCounterparty_attributes'
@@ -4510,7 +4511,7 @@ components:
       required:
       - attributes
       - relationships
-      title: Create ACH Payment
+      title: Create ACH Payment to linked Counterparty
       type: object
     counterpartyRelationship:
       additionalProperties: false
@@ -4524,6 +4525,7 @@ components:
       additionalProperties: false
       properties:
         type:
+          default: achPayment
           type: string
         attributes:
           $ref: '#/components/schemas/CreateAchPaymentPlaid_attributes'
@@ -4532,7 +4534,7 @@ components:
       required:
       - attributes
       - relationships
-      title: Create ACH Payment
+      title: Create ACH Payment with Plaid token
       type: object
     CreateBookPayment:
       additionalProperties: false
@@ -4561,6 +4563,7 @@ components:
       additionalProperties: false
       properties:
         type:
+          default: wirePayment
           type: string
         attributes:
           $ref: '#/components/schemas/CreateWirePayment_attributes'
@@ -4589,6 +4592,7 @@ components:
       additionalProperties: false
       properties:
         type:
+          default: pushToCardPayment
           type: string
         attributes:
           $ref: '#/components/schemas/CreatePushToCardPayment_attributes'
@@ -7648,6 +7652,8 @@ components:
         email:
           type: string
         tags:
+          additionalProperties:
+            type: string
           type: object
       type: object
     UnitApplicationFormsListResponse:
@@ -7713,6 +7719,8 @@ components:
         toBalance:
           type: number
         tags:
+          additionalProperties:
+            type: string
           type: object
       type: object
     UnitAccountsListResponse:
@@ -7765,6 +7773,8 @@ components:
         email:
           type: string
         tags:
+          additionalProperties:
+            type: string
           type: object
       type: object
     UnitCustomersListResponse:
@@ -7853,6 +7863,8 @@ components:
             type: string
           type: array
         tags:
+          additionalProperties:
+            type: string
           type: object
       type: object
     UnitPaymentsListResponse:
@@ -7925,6 +7937,8 @@ components:
             type: string
           type: array
         tags:
+          additionalProperties:
+            type: string
           type: object
       type: object
     UnitCounterpartiesListResponse:
@@ -8011,6 +8025,8 @@ components:
         customerId:
           type: string
         tags:
+          additionalProperties:
+            type: string
           type: object
       type: object
     UnitCardResponseCardsList:
@@ -8255,6 +8271,8 @@ components:
         customerId:
           type: string
         tags:
+          additionalProperties:
+            type: string
           type: object
         status:
           items:
@@ -8436,6 +8454,8 @@ components:
         query:
           type: string
         tags:
+          additionalProperties:
+            type: string
           type: object
         since:
           type: string
@@ -8548,6 +8568,8 @@ components:
         email:
           type: string
         tags:
+          additionalProperties:
+            type: string
           type: object
         since:
           type: string

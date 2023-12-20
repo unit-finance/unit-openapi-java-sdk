@@ -49,7 +49,7 @@ import org.openapitools.client.JSON;
 /**
  * DisableStopPaymentRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-18T11:36:55.328745700+02:00[Asia/Jerusalem]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DisableStopPaymentRequest {
   public static final String SERIALIZED_NAME_STOP_PAYMENT_ID = "stop_payment_id";
   @SerializedName(SERIALIZED_NAME_STOP_PAYMENT_ID)

@@ -39,7 +39,7 @@ public class ApplicationTests {
         filter.setQuery("John");
         filter.setStatus(statuses);
 
-        UnitListApplicationsResponse response = api.execute(page, filter, null);
+        UnitListApplicationsResponse response =  api.execute(page, filter ,null);
         assert response.getData().size() <= 20;
     }
 
@@ -48,16 +48,12 @@ public class ApplicationTests {
         GetListApplicationsApi api = new GetListApplicationsApi();
         ExecuteFilterParameter filter = new ExecuteFilterParameter();
         ListPageParametersObject page = new  ListPageParametersObject();
-        page.setLimit(20);
-        page.setOffset(3);
 
         ArrayList statuses = new ArrayList();
         statuses.add(ExecuteFilterParameter.StatusEnum.APPROVED);
         filter.setQuery("John");
         filter.setStatus(statuses);
 
-//        UnitListApplicationsResponse response = api.execute(null,null, statuses,
-//                null, null , null, null );
         UnitListApplicationsResponse response = api.execute(page, filter ,null);
         assert response.getData().size() != 0;
 
@@ -180,7 +176,7 @@ public class ApplicationTests {
 
     @Test
     public void uploadPngFile() throws ApiException, IOException {
-        Path path = Paths.get("file_path");
+        Path path = Paths.get("./unit_photo.png");
         byte[] data = Files.readAllBytes(path);
 
         UploadAPngDocumentForAnApplicationApi api = new UploadAPngDocumentForAnApplicationApi();

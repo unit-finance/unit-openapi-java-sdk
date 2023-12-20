@@ -2,7 +2,6 @@
 
 Unit OpenAPI specifications
 - API version: 0.2.0
-  - Build date: 2023-12-18T11:36:55.328745700+02:00[Asia/Jerusalem]
 
 An OpenAPI specifications for unit-sdk clients
 

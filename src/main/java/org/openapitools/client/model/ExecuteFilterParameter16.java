@@ -22,7 +22,9 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -51,7 +53,7 @@ import org.openapitools.client.JSON;
 /**
  * ExecuteFilterParameter16
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-18T11:36:55.328745700+02:00[Asia/Jerusalem]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ExecuteFilterParameter16 {
   public static final String SERIALIZED_NAME_ACCOUNT_ID = "accountId";
   @SerializedName(SERIALIZED_NAME_ACCOUNT_ID)
@@ -67,7 +69,7 @@ public class ExecuteFilterParameter16 {
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
-  private Object tags;
+  private Map<String, String> tags = new HashMap<>();
 
   public static final String SERIALIZED_NAME_SINCE = "since";
   @SerializedName(SERIALIZED_NAME_SINCE)
@@ -273,9 +275,17 @@ public class ExecuteFilterParameter16 {
   }
 
 
-  public ExecuteFilterParameter16 tags(Object tags) {
+  public ExecuteFilterParameter16 tags(Map<String, String> tags) {
     
     this.tags = tags;
+    return this;
+  }
+
+  public ExecuteFilterParameter16 putTagsItem(String key, String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new HashMap<>();
+    }
+    this.tags.put(key, tagsItem);
     return this;
   }
 
@@ -284,12 +294,12 @@ public class ExecuteFilterParameter16 {
    * @return tags
   **/
   @javax.annotation.Nullable
-  public Object getTags() {
+  public Map<String, String> getTags() {
     return tags;
   }
 
 
-  public void setTags(Object tags) {
+  public void setTags(Map<String, String> tags) {
     this.tags = tags;
   }
 

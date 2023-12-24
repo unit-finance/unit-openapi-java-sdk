@@ -114,11 +114,11 @@ public class GetListWebhooksApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         if (page != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+            localVarQueryParams.addAll(page.toParams());
         }
 
         if (filter != null) {
-            localVarQueryParams.addAll(filter.toP);
+            localVarQueryParams.addAll(filter.toParams());
         }
 
         if (sort != null) {

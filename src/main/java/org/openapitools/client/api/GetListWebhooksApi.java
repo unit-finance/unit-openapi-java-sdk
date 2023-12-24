@@ -118,7 +118,7 @@ public class GetListWebhooksApi {
         }
 
         if (filter != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("filter", filter));
+            localVarQueryParams.addAll(filter.toP);
         }
 
         if (sort != null) {

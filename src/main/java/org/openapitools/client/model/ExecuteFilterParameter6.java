@@ -45,8 +45,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.openapitools.client.JSON;
+import org.openapitools.client.Pair;
 
 /**
  * ExecuteFilterParameter6
@@ -489,6 +491,53 @@ public class ExecuteFilterParameter6 {
   */
   public String toJson() {
     return JSON.getGson().toJson(this);
+  }
+
+
+  public List<Pair> toParams(){
+    List<Pair> params = new ArrayList<>();
+
+    if(this.accountId != null){
+      params.add(new Pair("filter[accountId]", this.accountId));
+    }
+
+    if(this.customerId != null){
+      params.add(new Pair("filter[customerId]", this.customerId));
+    }
+
+    if(this.fromEndTime != null){
+      params.add(new Pair("filter[fromEndTime]", this.fromEndTime));
+    }
+
+    if(this.toEndTime != null){
+      params.add(new Pair("filter[toEndTime]", this.toEndTime));
+    }
+
+    if(this.fromStartTime != null){
+      params.add(new Pair("filter[fromStartTime]", this.fromStartTime));
+    }
+
+    if(this.toStartTime != null){
+      params.add(new Pair("filter[toStartTime]", this.toStartTime));
+    }
+
+    if(this.type != null){
+      int i=0;
+      for (TypeEnum t:this.type) {
+        params.add(new Pair(String.format("filter[type][%s]", i), t.getValue()));
+        i++;
+      }
+    }
+
+    if(this.status != null){
+      int i=0;
+      for (String s:this.status) {
+        params.add(new Pair(String.format("filter[status][%s]", i), s));
+        i++;
+      }
+    }
+
+    return params;
   }
 }
 

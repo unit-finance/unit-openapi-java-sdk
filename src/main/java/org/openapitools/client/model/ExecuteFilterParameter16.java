@@ -47,8 +47,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.openapitools.client.JSON;
+import org.openapitools.client.Pair;
 
 /**
  * ExecuteFilterParameter16
@@ -722,6 +724,75 @@ public class ExecuteFilterParameter16 {
   */
   public String toJson() {
     return JSON.getGson().toJson(this);
+  }
+
+  public List<Pair> toParams(){
+    List<Pair> params = new ArrayList<>();
+
+    if(this.cardId != null){
+      params.add(new Pair("filter[cardId]", this.cardId));
+    }
+
+    if(this.customerId != null){
+      params.add(new Pair("filter[customerId]", this.customerId));
+    }
+
+    if(this.accountId != null){
+      params.add(new Pair("filter[accountId]", this.accountId));
+    }
+
+    if(this.since != null){
+      params.add(new Pair("filter[since]", this.since));
+    }
+
+    if(this.until != null){
+      params.add(new Pair("filter[until]", this.until));
+    }
+
+    if(this.type != null){
+      int i=0;
+      for (String t:this.type) {
+        params.add(new Pair(String.format("filter[type][%s]", i), t));
+        i++;
+      }
+    }
+
+    if(this.direction != null){
+      int i=0;
+      for (DirectionEnum d:this.direction) {
+        params.add(new Pair(String.format("filter[direction][%s]", i), d.getValue()));
+        i++;
+      }
+    }
+
+    if(this.fromAmount != null){
+      params.add(new Pair("filter[fromAmount]", this.fromAmount.toString()));
+    }
+
+    if(this.toAmount != null){
+      params.add(new Pair("filter[toAmount]", this.toAmount.toString()));
+    }
+
+    if(this.query != null){
+      params.add(new Pair("filter[query]", this.query));
+    }
+
+    if(this.accountType != null){
+      params.add(new Pair("filter[accountType]", this.accountType));
+    }
+
+    if(this.excludeFees != null){
+      params.add(new Pair("filter[excludeFees]", this.excludeFees.toString()));
+    }
+
+    if(this.tags != null){
+      String tagsAsString = this.tags.keySet().stream()
+              .map(key -> key + ":" + this.tags.get(key))
+              .collect(Collectors.joining(", ", "{", "}"));
+      params.add(new Pair("filter[tags]", tagsAsString));
+    }
+
+    return params;
   }
 }
 

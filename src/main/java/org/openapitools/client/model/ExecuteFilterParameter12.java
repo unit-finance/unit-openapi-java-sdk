@@ -45,8 +45,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.openapitools.client.JSON;
+import org.openapitools.client.Pair;
 
 /**
  * ExecuteFilterParameter12
@@ -277,5 +279,27 @@ public class ExecuteFilterParameter12 {
   public String toJson() {
     return JSON.getGson().toJson(this);
   }
+
+    public List<Pair> toParams(){
+        List<Pair> params = new ArrayList<>();
+
+        if(this.since != null){
+            params.add(new Pair("filter[since]", this.since));
+        }
+
+        if(this.until != null){
+            params.add(new Pair("filter[until]", this.until));
+        }
+
+        if(this.type != null){
+            int i=0;
+            for (String t:this.type) {
+                params.add(new Pair(String.format("filter[type][%s]", i), t));
+                i++;
+            }
+        }
+
+        return params;
+    }
 }
 

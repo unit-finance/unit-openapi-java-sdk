@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.client.model.IncludedResourceInner;
+import org.openapitools.client.model.PaginationMeta;
 import org.openapitools.client.model.Transaction;
 
 import com.google.gson.Gson;
@@ -62,6 +63,10 @@ public class UnitTransactionsListResponse {
   public static final String SERIALIZED_NAME_INCLUDED = "included";
   @SerializedName(SERIALIZED_NAME_INCLUDED)
   private List<IncludedResourceInner> included;
+
+  public static final String SERIALIZED_NAME_META = "meta";
+  @SerializedName(SERIALIZED_NAME_META)
+  private PaginationMeta meta;
 
   public UnitTransactionsListResponse() {
   }
@@ -124,6 +129,27 @@ public class UnitTransactionsListResponse {
   }
 
 
+  public UnitTransactionsListResponse meta(PaginationMeta meta) {
+    
+    this.meta = meta;
+    return this;
+  }
+
+   /**
+   * Get meta
+   * @return meta
+  **/
+  @javax.annotation.Nullable
+  public PaginationMeta getMeta() {
+    return meta;
+  }
+
+
+  public void setMeta(PaginationMeta meta) {
+    this.meta = meta;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -135,12 +161,13 @@ public class UnitTransactionsListResponse {
     }
     UnitTransactionsListResponse unitTransactionsListResponse = (UnitTransactionsListResponse) o;
     return Objects.equals(this.data, unitTransactionsListResponse.data) &&
-        Objects.equals(this.included, unitTransactionsListResponse.included);
+        Objects.equals(this.included, unitTransactionsListResponse.included) &&
+        Objects.equals(this.meta, unitTransactionsListResponse.meta);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, included);
+    return Objects.hash(data, included, meta);
   }
 
   @Override
@@ -149,6 +176,7 @@ public class UnitTransactionsListResponse {
     sb.append("class UnitTransactionsListResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    included: ").append(toIndentedString(included)).append("\n");
+    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -173,6 +201,7 @@ public class UnitTransactionsListResponse {
     openapiFields = new HashSet<String>();
     openapiFields.add("data");
     openapiFields.add("included");
+    openapiFields.add("meta");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -226,6 +255,10 @@ public class UnitTransactionsListResponse {
             IncludedResourceInner.validateJsonElement(jsonArrayincluded.get(i));
           };
         }
+      }
+      // validate the optional field `meta`
+      if (jsonObj.get("meta") != null && !jsonObj.get("meta").isJsonNull()) {
+        PaginationMeta.validateJsonElement(jsonObj.get("meta"));
       }
   }
 

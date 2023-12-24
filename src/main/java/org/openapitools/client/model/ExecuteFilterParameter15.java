@@ -13,14 +13,16 @@
 
 package org.openapitools.client.model;
 
-import java.util.Objects;
+import java.util.*;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -38,13 +40,10 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.openapitools.client.JSON;
+import org.openapitools.client.Pair;
 
 /**
  * ExecuteFilterParameter15
@@ -288,5 +287,38 @@ public class ExecuteFilterParameter15 {
   public String toJson() {
     return JSON.getGson().toJson(this);
   }
+  public List<Pair> toParams(){
+        List<Pair> params = new ArrayList<>();
+
+        if(this.address != null) {
+            ObjectMapper objectMapper = new ObjectMapper();
+            try {
+                String addressAsString = objectMapper.writeValueAsString(this.address);
+                params.add(new Pair("filter[address]", addressAsString));
+            } catch (JsonProcessingException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if(this.postalCode != null){
+            params.add(new Pair("filter[postalCode]", this.postalCode));
+        }
+
+        if(this.searchRadius != null){
+            params.add(new Pair("filter[searchRadius]", this.searchRadius.toString()));
+        }
+
+        if(this.coordinates != null) {
+            ObjectMapper objectMapper = new ObjectMapper();
+            try {
+                String coordinatesAsString = objectMapper.writeValueAsString(this.coordinates);
+                params.add(new Pair("filter[coordinates]", coordinatesAsString));
+            } catch (JsonProcessingException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return params;
+    }
 }
 

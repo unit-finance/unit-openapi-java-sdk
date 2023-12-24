@@ -13,14 +13,14 @@
 
 package org.openapitools.client.model;
 
-import java.util.Objects;
+import java.util.*;
+
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -38,13 +38,10 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.openapitools.client.JSON;
+import org.openapitools.client.Pair;
 
 /**
  * ExecuteFilterParameter11
@@ -449,5 +446,50 @@ public class ExecuteFilterParameter11 {
   public String toJson() {
     return JSON.getGson().toJson(this);
   }
+
+  public List<Pair> toParams(){
+        List<Pair> params = new ArrayList<>();
+
+        if(this.cardId != null){
+            params.add(new Pair("filter[cardId]", this.cardId));
+        }
+
+        if(this.customerId != null){
+            params.add(new Pair("filter[customerId]", this.customerId));
+        }
+
+        if(this.transactionId != null){
+            params.add(new Pair("filter[transactionId]", this.transactionId));
+        }
+
+        if(this.since != null){
+            params.add(new Pair("filter[since]", this.since));
+        }
+
+        if(this.until != null){
+            params.add(new Pair("filter[until]", this.until));
+        }
+
+        if(this.status != null){
+            params.add(new Pair("filter[status]", this.status));
+        }
+
+        if(this.receivingAccountId != null){
+            params.add(new Pair("filter[receivingAccountId]", this.receivingAccountId));
+        }
+
+        if(this.rewardedTransactionId != null){
+            params.add(new Pair("filter[rewardedTransactionId]", this.rewardedTransactionId));
+        }
+
+        if(this.tags != null){
+            String tagsAsString = this.tags.keySet().stream()
+                    .map(key -> key + ":" + this.tags.get(key))
+                    .collect(Collectors.joining(", ", "{", "}"));
+            params.add(new Pair("filter[tags]", tagsAsString));
+        }
+
+        return params;
+    }
 }
 

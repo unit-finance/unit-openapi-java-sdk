@@ -2958,6 +2958,10 @@ paths:
         name: sort
         schema:
           type: string
+      - in: query
+        name: include
+        schema:
+          type: string
       responses:
         "200":
           content:
@@ -3145,15 +3149,16 @@ paths:
     get:
       operationId: execute
       parameters:
-      - description: ID of the account
-        in: query
-        name: account_id
-        required: true
+      - in: query
+        name: page
         schema:
-          type: string
-      - description: Status of the stop payments
-        in: query
-        name: status
+          $ref: '#/components/schemas/listPageParametersObject'
+      - in: query
+        name: filter
+        schema:
+          $ref: '#/components/schemas/execute_filter_parameter_20'
+      - in: query
+        name: sort
         schema:
           type: string
       responses:
@@ -3171,7 +3176,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/StopPaymentRequest'
+              $ref: '#/components/schemas/createStopPayment'
         required: true
       responses:
         "200":
@@ -3220,15 +3225,16 @@ paths:
           description: Stop payment not found
       summary: Get details of a specific stop payment
       x-accepts: application/json
-  /stop-payments/disable:
+  /stop-payments/{stop_payment_id}/disable:
     post:
       operationId: execute
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/DisableStopPaymentRequest'
+      parameters:
+      - description: ID of the stop payment
+        in: path
+        name: stop_payment_id
         required: true
+        schema:
+          type: string
       responses:
         "200":
           content:
@@ -3239,7 +3245,6 @@ paths:
         "404":
           description: Stop payment not found
       summary: Disable a stop payment
-      x-content-type: application/json
       x-accepts: application/json
 components:
   responses:
@@ -4488,7 +4493,7 @@ components:
       required:
       - attributes
       - relationships
-      title: Create ACH Payment to inline Counterparty
+      title: Create ACH Payment
       type: object
     accountRelationship:
       additionalProperties: false
@@ -4511,7 +4516,7 @@ components:
       required:
       - attributes
       - relationships
-      title: Create ACH Payment to linked Counterparty
+      title: Create ACH Payment
       type: object
     counterpartyRelationship:
       additionalProperties: false
@@ -4534,7 +4539,7 @@ components:
       required:
       - attributes
       - relationships
-      title: Create ACH Payment with Plaid token
+      title: Create ACH Payment
       type: object
     CreateBookPayment:
       additionalProperties: false
@@ -4578,6 +4583,7 @@ components:
       additionalProperties: false
       properties:
         type:
+          default: billPayment
           type: string
         attributes:
           $ref: '#/components/schemas/CreateBillPayment_attributes'
@@ -6783,7 +6789,7 @@ components:
                 type: businessCustomer
           attributes:
             createdAt: 2000-01-23T04:56:07.000+00:00
-            amount: 0.8008281904610115
+            amount: 1
             checkNumber: checkNumber
             updatedAt: 2000-01-23T04:56:07.000+00:00
             status: Active
@@ -6813,7 +6819,7 @@ components:
                 type: businessCustomer
           attributes:
             createdAt: 2000-01-23T04:56:07.000+00:00
-            amount: 0.8008281904610115
+            amount: 1
             checkNumber: checkNumber
             updatedAt: 2000-01-23T04:56:07.000+00:00
             status: Active
@@ -6823,59 +6829,8 @@ components:
       properties:
         data:
           items:
-            $ref: '#/components/schemas/StopPayment'
+            $ref: '#/components/schemas/stop_payment'
           type: array
-      type: object
-    StopPayment:
-      additionalProperties: false
-      example:
-        relationships:
-          checkPayments:
-            data:
-            - id: id
-              type: checkPayment
-            - id: id
-              type: checkPayment
-          customers:
-            data:
-            - id: id
-              type: customer
-            - id: id
-              type: customer
-          account:
-            data:
-              id: id
-              type: depositAccount
-          customer:
-            data:
-              id: id
-              type: businessCustomer
-        attributes:
-          createdAt: 2000-01-23T04:56:07.000+00:00
-          amount: 0.8008281904610115
-          checkNumber: checkNumber
-          updatedAt: 2000-01-23T04:56:07.000+00:00
-          status: Active
-          tags: "{}"
-        id: id
-        type: stopPayment
-      properties:
-        id:
-          pattern: "^[1-9]\\d*$"
-          type: string
-        type:
-          enum:
-          - stopPayment
-          type: string
-        attributes:
-          $ref: '#/components/schemas/StopPayment_attributes'
-        relationships:
-          $ref: '#/components/schemas/StopPayment_relationships'
-      required:
-      - attributes
-      - id
-      - relationships
-      - type
       type: object
     StopPaymentResponse:
       example:
@@ -6903,7 +6858,7 @@ components:
                 type: businessCustomer
           attributes:
             createdAt: 2000-01-23T04:56:07.000+00:00
-            amount: 0.8008281904610115
+            amount: 1
             checkNumber: checkNumber
             updatedAt: 2000-01-23T04:56:07.000+00:00
             status: Active
@@ -6912,32 +6867,40 @@ components:
           type: stopPayment
       properties:
         data:
-          $ref: '#/components/schemas/StopPayment'
+          $ref: '#/components/schemas/stop_payment'
       type: object
-    StopPaymentRequest:
-      example:
-        amount: 0.8008281904610115
-        account_id: account_id
-        description: description
+    createStopPayment:
+      additionalProperties: false
       properties:
-        account_id:
-          type: string
-        amount:
-          type: number
-        description:
-          type: string
+        data:
+          $ref: '#/components/schemas/stopPayment'
       required:
-      - account_id
-      - amount
+      - data
+      title: Create Stop Payment
       type: object
-    DisableStopPaymentRequest:
-      example:
-        stop_payment_id: stop_payment_id
+    stopPayment:
+      additionalProperties: false
       properties:
-        stop_payment_id:
+        type:
+          default: stopPayment
           type: string
+        attributes:
+          $ref: '#/components/schemas/stopPayment_attributes'
+        relationships:
+          $ref: '#/components/schemas/relationships_1'
       required:
-      - stop_payment_id
+      - attributes
+      - relationships
+      - type
+      title: Stop Payment
+      type: object
+    relationships_1:
+      additionalProperties: false
+      properties:
+        account:
+          $ref: '#/components/schemas/relationships_1_account'
+      required:
+      - account
       type: object
     tagsPatch:
       additionalProperties: false
@@ -7556,6 +7519,57 @@ components:
     description:
       maxLength: 1024
       type: string
+    stop_payment:
+      additionalProperties: false
+      example:
+        relationships:
+          checkPayments:
+            data:
+            - id: id
+              type: checkPayment
+            - id: id
+              type: checkPayment
+          customers:
+            data:
+            - id: id
+              type: customer
+            - id: id
+              type: customer
+          account:
+            data:
+              id: id
+              type: depositAccount
+          customer:
+            data:
+              id: id
+              type: businessCustomer
+        attributes:
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          amount: 1
+          checkNumber: checkNumber
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+          status: Active
+          tags: "{}"
+        id: id
+        type: stopPayment
+      properties:
+        type:
+          default: stopPayment
+          type: string
+        id:
+          pattern: "^[1-9]\\d*$"
+          type: string
+        attributes:
+          $ref: '#/components/schemas/stop_payment_attributes'
+        relationships:
+          $ref: '#/components/schemas/stop_payment_relationships'
+      required:
+      - attributes
+      - id
+      - relationships
+      - type
+      title: Stop Payment
+      type: object
     execute_request_data_attributes:
       properties:
         reason:
@@ -7652,8 +7666,6 @@ components:
         email:
           type: string
         tags:
-          additionalProperties:
-            type: string
           type: object
       type: object
     UnitApplicationFormsListResponse:
@@ -7719,8 +7731,6 @@ components:
         toBalance:
           type: number
         tags:
-          additionalProperties:
-            type: string
           type: object
       type: object
     UnitAccountsListResponse:
@@ -7773,8 +7783,6 @@ components:
         email:
           type: string
         tags:
-          additionalProperties:
-            type: string
           type: object
       type: object
     UnitCustomersListResponse:
@@ -7863,8 +7871,6 @@ components:
             type: string
           type: array
         tags:
-          additionalProperties:
-            type: string
           type: object
       type: object
     UnitPaymentsListResponse:
@@ -7937,8 +7943,6 @@ components:
             type: string
           type: array
         tags:
-          additionalProperties:
-            type: string
           type: object
       type: object
     UnitCounterpartiesListResponse:
@@ -8025,8 +8029,6 @@ components:
         customerId:
           type: string
         tags:
-          additionalProperties:
-            type: string
           type: object
       type: object
     UnitCardResponseCardsList:
@@ -8201,8 +8203,6 @@ components:
         status:
           type: string
         tags:
-          additionalProperties:
-            type: string
           type: object
       type: object
     UnitRewardsListResponse:
@@ -8273,8 +8273,6 @@ components:
         customerId:
           type: string
         tags:
-          additionalProperties:
-            type: string
           type: object
         status:
           items:
@@ -8456,8 +8454,6 @@ components:
         query:
           type: string
         tags:
-          additionalProperties:
-            type: string
           type: object
         since:
           type: string
@@ -8467,6 +8463,13 @@ components:
           type: string
         excludeFees:
           type: boolean
+        status:
+          enum:
+          - Authorized
+          - Completed
+          - Canceled
+          - Declined
+          type: string
         type:
           items:
             type: string
@@ -8495,8 +8498,6 @@ components:
           items:
             $ref: '#/components/schemas/IncludedResource_inner'
           type: array
-        meta:
-          $ref: '#/components/schemas/paginationMeta'
       title: UnitTransactionsListResponse
       type: object
     execute_filter_parameter_17:
@@ -8553,17 +8554,28 @@ components:
       type: object
     execute_filter_parameter_19:
       properties:
-        query:
+        accountId:
+          type: string
+        customerId:
           type: string
         status:
           items:
             enum:
+            - New
             - Pending
-            - Approved
+            - Canceled
+            - Rejected
+            - InDelivery
+            - InProduction
+            - Delivered
+            - ReturnedToSender
+            - Pending
+            - Processed
+            - PendingReview
+            - MarkedForReturn
+            - Returned
             type: string
           type: array
-        email:
-          type: string
         tags:
           additionalProperties:
             type: string
@@ -8571,6 +8583,12 @@ components:
         since:
           type: string
         until:
+          type: string
+        fromAmount:
+          type: integer
+        toAmount:
+          type: integer
+        checkNumber:
           type: string
       type: object
     execute_200_response_3:
@@ -8613,6 +8631,34 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/execute_request_21_data'
+      type: object
+    execute_filter_parameter_20:
+      properties:
+        accountId:
+          type: string
+        customerId:
+          type: string
+        status:
+          items:
+            enum:
+            - Active
+            - Disabled
+            type: string
+          type: array
+        tags:
+          additionalProperties:
+            type: string
+          type: object
+        since:
+          type: string
+        until:
+          type: string
+        fromAmount:
+          type: integer
+        toAmount:
+          type: integer
+        checkNumber:
+          type: string
       type: object
     update_application_data:
       oneOf:
@@ -13999,6 +14045,16 @@ components:
       - counterpartyAccount
       - creditAccount
       type: object
+    CheckPayment_attributes_counterparty:
+      additionalProperties: false
+      properties:
+        name:
+          type: string
+        address:
+          $ref: '#/components/schemas/address'
+        counterpartyMoved:
+          type: boolean
+      type: object
     CheckPayment_attributes:
       additionalProperties: false
       properties:
@@ -14020,6 +14076,36 @@ components:
           - Returned
           - Processed
           - PendingReview
+          type: string
+        memo:
+          type: string
+        deliveryStatus:
+          enum:
+          - Mailed
+          - InLocalArea
+          - Delivered
+          - Rerouted
+          - ReturnedToSender
+          type: string
+        sendAt:
+          format: date-time
+          type: string
+        counterparty:
+          $ref: '#/components/schemas/CheckPayment_attributes_counterparty'
+        trackedAt:
+          format: date-time
+          type: string
+        postalCode:
+          type: string
+        expectedDelivery:
+          format: date
+          type: string
+        originated:
+          type: boolean
+        expirationDate:
+          format: date
+          type: string
+        rejectReason:
           type: string
         tags:
           additionalProperties: false
@@ -14051,10 +14137,9 @@ components:
           - Approved
           type: string
       required:
-      - additionalVerificationStatus
       - amount
       - createdAt
-      - returnCutoffTime
+      - originated
       - status
       - updatedAt
       type: object
@@ -14070,105 +14155,51 @@ components:
           $ref: '#/components/schemas/receivedPaymentRelationships_receivePaymentTransaction'
       required:
       - account
-      - customer
       type: object
-    StopPayment_attributes:
+    stopPayment_attributes:
       additionalProperties: false
-      example:
-        createdAt: 2000-01-23T04:56:07.000+00:00
-        amount: 0.8008281904610115
-        checkNumber: checkNumber
-        updatedAt: 2000-01-23T04:56:07.000+00:00
-        status: Active
-        tags: "{}"
       properties:
-        createdAt:
-          format: date-time
-          type: string
-        updatedAt:
-          format: date-time
-          type: string
         amount:
-          type: number
-        status:
-          enum:
-          - Active
-          - Disabled
-          type: string
+          minimum: 1
+          type: integer
         checkNumber:
+          maxLength: 12
           type: string
         tags:
           additionalProperties: false
           maxProperties: 15
           type: object
+        idempotencyKey:
+          maxLength: 255
+          minLength: 1
+          type: string
       required:
       - amount
       - checkNumber
-      - createdAt
-      - updatedAt
       type: object
-    StopPayment_relationships_checkPayments_data_inner:
-      example:
-        id: id
-        type: checkPayment
+    relationships_1_account_data:
+      additionalProperties: false
       properties:
+        type:
+          enum:
+          - account
+          - depositAccount
+          - financialBusinessFBOAccount
+          type: string
         id:
           pattern: "^[1-9]\\d*$"
           type: string
-        type:
-          default: checkPayment
-          type: string
+      required:
+      - id
+      - type
       type: object
-    StopPayment_relationships_checkPayments:
+    relationships_1_account:
       additionalProperties: false
-      example:
-        data:
-        - id: id
-          type: checkPayment
-        - id: id
-          type: checkPayment
       properties:
         data:
-          items:
-            $ref: '#/components/schemas/StopPayment_relationships_checkPayments_data_inner'
-          type: array
+          $ref: '#/components/schemas/relationships_1_account_data'
       required:
       - data
-      type: object
-    StopPayment_relationships:
-      example:
-        checkPayments:
-          data:
-          - id: id
-            type: checkPayment
-          - id: id
-            type: checkPayment
-        customers:
-          data:
-          - id: id
-            type: customer
-          - id: id
-            type: customer
-        account:
-          data:
-            id: id
-            type: depositAccount
-        customer:
-          data:
-            id: id
-            type: businessCustomer
-      properties:
-        account:
-          $ref: '#/components/schemas/recurringAchPaymentRelationships_account'
-        customer:
-          $ref: '#/components/schemas/receivedPaymentRelationships_customer'
-        customers:
-          $ref: '#/components/schemas/customersRelationship'
-        checkPayments:
-          $ref: '#/components/schemas/StopPayment_relationships_checkPayments'
-      required:
-      - account
-      - customer
       type: object
     orgRelationship_data:
       additionalProperties: false
@@ -14230,6 +14261,105 @@ components:
         type:
           default: customer
           type: string
+      type: object
+    stop_payment_attributes:
+      additionalProperties: false
+      example:
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        amount: 1
+        checkNumber: checkNumber
+        updatedAt: 2000-01-23T04:56:07.000+00:00
+        status: Active
+        tags: "{}"
+      properties:
+        createdAt:
+          format: date-time
+          type: string
+        updatedAt:
+          format: date-time
+          type: string
+        amount:
+          minimum: 1
+          type: integer
+        status:
+          enum:
+          - Active
+          - Disabled
+          type: string
+        tags:
+          additionalProperties: false
+          maxProperties: 15
+          type: object
+        checkNumber:
+          type: string
+      required:
+      - amount
+      - checkNumber
+      - createdAt
+      - updatedAt
+      type: object
+    stop_payment_relationships_checkPayments_data_inner:
+      example:
+        id: id
+        type: checkPayment
+      properties:
+        id:
+          pattern: "^[1-9]\\d*$"
+          type: string
+        type:
+          default: checkPayment
+          type: string
+      type: object
+    stop_payment_relationships_checkPayments:
+      additionalProperties: false
+      example:
+        data:
+        - id: id
+          type: checkPayment
+        - id: id
+          type: checkPayment
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/stop_payment_relationships_checkPayments_data_inner'
+          type: array
+      required:
+      - data
+      type: object
+    stop_payment_relationships:
+      example:
+        checkPayments:
+          data:
+          - id: id
+            type: checkPayment
+          - id: id
+            type: checkPayment
+        customers:
+          data:
+          - id: id
+            type: customer
+          - id: id
+            type: customer
+        account:
+          data:
+            id: id
+            type: depositAccount
+        customer:
+          data:
+            id: id
+            type: businessCustomer
+      properties:
+        account:
+          $ref: '#/components/schemas/recurringAchPaymentRelationships_account'
+        customer:
+          $ref: '#/components/schemas/receivedPaymentRelationships_customer'
+        customers:
+          $ref: '#/components/schemas/customersRelationship'
+        checkPayments:
+          $ref: '#/components/schemas/stop_payment_relationships_checkPayments'
+      required:
+      - account
+      - customer
       type: object
   securitySchemes:
     bearerAuth:

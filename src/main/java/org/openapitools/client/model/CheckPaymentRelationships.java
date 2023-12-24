@@ -105,7 +105,7 @@ public class CheckPaymentRelationships {
    * Get customer
    * @return customer
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public ReceivedPaymentRelationshipsCustomer getCustomer() {
     return customer;
   }
@@ -217,7 +217,6 @@ public class CheckPaymentRelationships {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("account");
-    openapiRequiredFields.add("customer");
   }
 
  /**
@@ -250,8 +249,10 @@ public class CheckPaymentRelationships {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the required field `account`
       RecurringAchPaymentRelationshipsAccount.validateJsonElement(jsonObj.get("account"));
-      // validate the required field `customer`
-      ReceivedPaymentRelationshipsCustomer.validateJsonElement(jsonObj.get("customer"));
+      // validate the optional field `customer`
+      if (jsonObj.get("customer") != null && !jsonObj.get("customer").isJsonNull()) {
+        ReceivedPaymentRelationshipsCustomer.validateJsonElement(jsonObj.get("customer"));
+      }
       // validate the optional field `customers`
       if (jsonObj.get("customers") != null && !jsonObj.get("customers").isJsonNull()) {
         CustomersRelationship.validateJsonElement(jsonObj.get("customers"));

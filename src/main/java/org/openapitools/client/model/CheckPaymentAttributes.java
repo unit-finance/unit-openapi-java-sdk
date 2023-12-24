@@ -20,10 +20,12 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.openapitools.client.model.CheckPaymentAttributesCounterparty;
 import org.openapitools.client.model.ReturnReason;
 
 import com.google.gson.Gson;
@@ -125,6 +127,99 @@ public class CheckPaymentAttributes {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
   private StatusEnum status;
+
+  public static final String SERIALIZED_NAME_MEMO = "memo";
+  @SerializedName(SERIALIZED_NAME_MEMO)
+  private String memo;
+
+  /**
+   * Gets or Sets deliveryStatus
+   */
+  @JsonAdapter(DeliveryStatusEnum.Adapter.class)
+  public enum DeliveryStatusEnum {
+    MAILED("Mailed"),
+    
+    INLOCALAREA("InLocalArea"),
+    
+    DELIVERED("Delivered"),
+    
+    REROUTED("Rerouted"),
+    
+    RETURNEDTOSENDER("ReturnedToSender");
+
+    private String value;
+
+    DeliveryStatusEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static DeliveryStatusEnum fromValue(String value) {
+      for (DeliveryStatusEnum b : DeliveryStatusEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<DeliveryStatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DeliveryStatusEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public DeliveryStatusEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return DeliveryStatusEnum.fromValue(value);
+      }
+    }
+  }
+
+  public static final String SERIALIZED_NAME_DELIVERY_STATUS = "deliveryStatus";
+  @SerializedName(SERIALIZED_NAME_DELIVERY_STATUS)
+  private DeliveryStatusEnum deliveryStatus;
+
+  public static final String SERIALIZED_NAME_SEND_AT = "sendAt";
+  @SerializedName(SERIALIZED_NAME_SEND_AT)
+  private OffsetDateTime sendAt;
+
+  public static final String SERIALIZED_NAME_COUNTERPARTY = "counterparty";
+  @SerializedName(SERIALIZED_NAME_COUNTERPARTY)
+  private CheckPaymentAttributesCounterparty counterparty;
+
+  public static final String SERIALIZED_NAME_TRACKED_AT = "trackedAt";
+  @SerializedName(SERIALIZED_NAME_TRACKED_AT)
+  private OffsetDateTime trackedAt;
+
+  public static final String SERIALIZED_NAME_POSTAL_CODE = "postalCode";
+  @SerializedName(SERIALIZED_NAME_POSTAL_CODE)
+  private String postalCode;
+
+  public static final String SERIALIZED_NAME_EXPECTED_DELIVERY = "expectedDelivery";
+  @SerializedName(SERIALIZED_NAME_EXPECTED_DELIVERY)
+  private LocalDate expectedDelivery;
+
+  public static final String SERIALIZED_NAME_ORIGINATED = "originated";
+  @SerializedName(SERIALIZED_NAME_ORIGINATED)
+  private Boolean originated;
+
+  public static final String SERIALIZED_NAME_EXPIRATION_DATE = "expirationDate";
+  @SerializedName(SERIALIZED_NAME_EXPIRATION_DATE)
+  private LocalDate expirationDate;
+
+  public static final String SERIALIZED_NAME_REJECT_REASON = "rejectReason";
+  @SerializedName(SERIALIZED_NAME_REJECT_REASON)
+  private String rejectReason;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -335,7 +430,7 @@ public class CheckPaymentAttributes {
    * Get returnCutoffTime
    * @return returnCutoffTime
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public OffsetDateTime getReturnCutoffTime() {
     return returnCutoffTime;
   }
@@ -364,6 +459,216 @@ public class CheckPaymentAttributes {
 
   public void setStatus(StatusEnum status) {
     this.status = status;
+  }
+
+
+  public CheckPaymentAttributes memo(String memo) {
+    
+    this.memo = memo;
+    return this;
+  }
+
+   /**
+   * Get memo
+   * @return memo
+  **/
+  @javax.annotation.Nullable
+  public String getMemo() {
+    return memo;
+  }
+
+
+  public void setMemo(String memo) {
+    this.memo = memo;
+  }
+
+
+  public CheckPaymentAttributes deliveryStatus(DeliveryStatusEnum deliveryStatus) {
+    
+    this.deliveryStatus = deliveryStatus;
+    return this;
+  }
+
+   /**
+   * Get deliveryStatus
+   * @return deliveryStatus
+  **/
+  @javax.annotation.Nullable
+  public DeliveryStatusEnum getDeliveryStatus() {
+    return deliveryStatus;
+  }
+
+
+  public void setDeliveryStatus(DeliveryStatusEnum deliveryStatus) {
+    this.deliveryStatus = deliveryStatus;
+  }
+
+
+  public CheckPaymentAttributes sendAt(OffsetDateTime sendAt) {
+    
+    this.sendAt = sendAt;
+    return this;
+  }
+
+   /**
+   * Get sendAt
+   * @return sendAt
+  **/
+  @javax.annotation.Nullable
+  public OffsetDateTime getSendAt() {
+    return sendAt;
+  }
+
+
+  public void setSendAt(OffsetDateTime sendAt) {
+    this.sendAt = sendAt;
+  }
+
+
+  public CheckPaymentAttributes counterparty(CheckPaymentAttributesCounterparty counterparty) {
+    
+    this.counterparty = counterparty;
+    return this;
+  }
+
+   /**
+   * Get counterparty
+   * @return counterparty
+  **/
+  @javax.annotation.Nullable
+  public CheckPaymentAttributesCounterparty getCounterparty() {
+    return counterparty;
+  }
+
+
+  public void setCounterparty(CheckPaymentAttributesCounterparty counterparty) {
+    this.counterparty = counterparty;
+  }
+
+
+  public CheckPaymentAttributes trackedAt(OffsetDateTime trackedAt) {
+    
+    this.trackedAt = trackedAt;
+    return this;
+  }
+
+   /**
+   * Get trackedAt
+   * @return trackedAt
+  **/
+  @javax.annotation.Nullable
+  public OffsetDateTime getTrackedAt() {
+    return trackedAt;
+  }
+
+
+  public void setTrackedAt(OffsetDateTime trackedAt) {
+    this.trackedAt = trackedAt;
+  }
+
+
+  public CheckPaymentAttributes postalCode(String postalCode) {
+    
+    this.postalCode = postalCode;
+    return this;
+  }
+
+   /**
+   * Get postalCode
+   * @return postalCode
+  **/
+  @javax.annotation.Nullable
+  public String getPostalCode() {
+    return postalCode;
+  }
+
+
+  public void setPostalCode(String postalCode) {
+    this.postalCode = postalCode;
+  }
+
+
+  public CheckPaymentAttributes expectedDelivery(LocalDate expectedDelivery) {
+    
+    this.expectedDelivery = expectedDelivery;
+    return this;
+  }
+
+   /**
+   * Get expectedDelivery
+   * @return expectedDelivery
+  **/
+  @javax.annotation.Nullable
+  public LocalDate getExpectedDelivery() {
+    return expectedDelivery;
+  }
+
+
+  public void setExpectedDelivery(LocalDate expectedDelivery) {
+    this.expectedDelivery = expectedDelivery;
+  }
+
+
+  public CheckPaymentAttributes originated(Boolean originated) {
+    
+    this.originated = originated;
+    return this;
+  }
+
+   /**
+   * Get originated
+   * @return originated
+  **/
+  @javax.annotation.Nonnull
+  public Boolean getOriginated() {
+    return originated;
+  }
+
+
+  public void setOriginated(Boolean originated) {
+    this.originated = originated;
+  }
+
+
+  public CheckPaymentAttributes expirationDate(LocalDate expirationDate) {
+    
+    this.expirationDate = expirationDate;
+    return this;
+  }
+
+   /**
+   * Get expirationDate
+   * @return expirationDate
+  **/
+  @javax.annotation.Nullable
+  public LocalDate getExpirationDate() {
+    return expirationDate;
+  }
+
+
+  public void setExpirationDate(LocalDate expirationDate) {
+    this.expirationDate = expirationDate;
+  }
+
+
+  public CheckPaymentAttributes rejectReason(String rejectReason) {
+    
+    this.rejectReason = rejectReason;
+    return this;
+  }
+
+   /**
+   * Get rejectReason
+   * @return rejectReason
+  **/
+  @javax.annotation.Nullable
+  public String getRejectReason() {
+    return rejectReason;
+  }
+
+
+  public void setRejectReason(String rejectReason) {
+    this.rejectReason = rejectReason;
   }
 
 
@@ -553,7 +858,7 @@ public class CheckPaymentAttributes {
    * Get additionalVerificationStatus
    * @return additionalVerificationStatus
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public AdditionalVerificationStatusEnum getAdditionalVerificationStatus() {
     return additionalVerificationStatus;
   }
@@ -579,6 +884,16 @@ public class CheckPaymentAttributes {
         Objects.equals(this.amount, checkPaymentAttributes.amount) &&
         Objects.equals(this.returnCutoffTime, checkPaymentAttributes.returnCutoffTime) &&
         Objects.equals(this.status, checkPaymentAttributes.status) &&
+        Objects.equals(this.memo, checkPaymentAttributes.memo) &&
+        Objects.equals(this.deliveryStatus, checkPaymentAttributes.deliveryStatus) &&
+        Objects.equals(this.sendAt, checkPaymentAttributes.sendAt) &&
+        Objects.equals(this.counterparty, checkPaymentAttributes.counterparty) &&
+        Objects.equals(this.trackedAt, checkPaymentAttributes.trackedAt) &&
+        Objects.equals(this.postalCode, checkPaymentAttributes.postalCode) &&
+        Objects.equals(this.expectedDelivery, checkPaymentAttributes.expectedDelivery) &&
+        Objects.equals(this.originated, checkPaymentAttributes.originated) &&
+        Objects.equals(this.expirationDate, checkPaymentAttributes.expirationDate) &&
+        Objects.equals(this.rejectReason, checkPaymentAttributes.rejectReason) &&
         Objects.equals(this.tags, checkPaymentAttributes.tags) &&
         Objects.equals(this.description, checkPaymentAttributes.description) &&
         Objects.equals(this.returnReason, checkPaymentAttributes.returnReason) &&
@@ -592,7 +907,7 @@ public class CheckPaymentAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, updatedAt, amount, returnCutoffTime, status, tags, description, returnReason, pendingReviewReasons, checkNumber, onUsAuxiliary, onUs, counterpartyRoutingNumber, additionalVerificationStatus);
+    return Objects.hash(createdAt, updatedAt, amount, returnCutoffTime, status, memo, deliveryStatus, sendAt, counterparty, trackedAt, postalCode, expectedDelivery, originated, expirationDate, rejectReason, tags, description, returnReason, pendingReviewReasons, checkNumber, onUsAuxiliary, onUs, counterpartyRoutingNumber, additionalVerificationStatus);
   }
 
   @Override
@@ -604,6 +919,16 @@ public class CheckPaymentAttributes {
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    returnCutoffTime: ").append(toIndentedString(returnCutoffTime)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    memo: ").append(toIndentedString(memo)).append("\n");
+    sb.append("    deliveryStatus: ").append(toIndentedString(deliveryStatus)).append("\n");
+    sb.append("    sendAt: ").append(toIndentedString(sendAt)).append("\n");
+    sb.append("    counterparty: ").append(toIndentedString(counterparty)).append("\n");
+    sb.append("    trackedAt: ").append(toIndentedString(trackedAt)).append("\n");
+    sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
+    sb.append("    expectedDelivery: ").append(toIndentedString(expectedDelivery)).append("\n");
+    sb.append("    originated: ").append(toIndentedString(originated)).append("\n");
+    sb.append("    expirationDate: ").append(toIndentedString(expirationDate)).append("\n");
+    sb.append("    rejectReason: ").append(toIndentedString(rejectReason)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    returnReason: ").append(toIndentedString(returnReason)).append("\n");
@@ -640,6 +965,16 @@ public class CheckPaymentAttributes {
     openapiFields.add("amount");
     openapiFields.add("returnCutoffTime");
     openapiFields.add("status");
+    openapiFields.add("memo");
+    openapiFields.add("deliveryStatus");
+    openapiFields.add("sendAt");
+    openapiFields.add("counterparty");
+    openapiFields.add("trackedAt");
+    openapiFields.add("postalCode");
+    openapiFields.add("expectedDelivery");
+    openapiFields.add("originated");
+    openapiFields.add("expirationDate");
+    openapiFields.add("rejectReason");
     openapiFields.add("tags");
     openapiFields.add("description");
     openapiFields.add("returnReason");
@@ -655,9 +990,8 @@ public class CheckPaymentAttributes {
     openapiRequiredFields.add("createdAt");
     openapiRequiredFields.add("updatedAt");
     openapiRequiredFields.add("amount");
-    openapiRequiredFields.add("returnCutoffTime");
     openapiRequiredFields.add("status");
-    openapiRequiredFields.add("additionalVerificationStatus");
+    openapiRequiredFields.add("originated");
   }
 
  /**
@@ -691,6 +1025,22 @@ public class CheckPaymentAttributes {
       if (!jsonObj.get("status").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
       }
+      if ((jsonObj.get("memo") != null && !jsonObj.get("memo").isJsonNull()) && !jsonObj.get("memo").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `memo` to be a primitive type in the JSON string but got `%s`", jsonObj.get("memo").toString()));
+      }
+      if ((jsonObj.get("deliveryStatus") != null && !jsonObj.get("deliveryStatus").isJsonNull()) && !jsonObj.get("deliveryStatus").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `deliveryStatus` to be a primitive type in the JSON string but got `%s`", jsonObj.get("deliveryStatus").toString()));
+      }
+      // validate the optional field `counterparty`
+      if (jsonObj.get("counterparty") != null && !jsonObj.get("counterparty").isJsonNull()) {
+        CheckPaymentAttributesCounterparty.validateJsonElement(jsonObj.get("counterparty"));
+      }
+      if ((jsonObj.get("postalCode") != null && !jsonObj.get("postalCode").isJsonNull()) && !jsonObj.get("postalCode").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `postalCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("postalCode").toString()));
+      }
+      if ((jsonObj.get("rejectReason") != null && !jsonObj.get("rejectReason").isJsonNull()) && !jsonObj.get("rejectReason").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `rejectReason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rejectReason").toString()));
+      }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
@@ -710,7 +1060,7 @@ public class CheckPaymentAttributes {
       if ((jsonObj.get("counterpartyRoutingNumber") != null && !jsonObj.get("counterpartyRoutingNumber").isJsonNull()) && !jsonObj.get("counterpartyRoutingNumber").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `counterpartyRoutingNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("counterpartyRoutingNumber").toString()));
       }
-      if (!jsonObj.get("additionalVerificationStatus").isJsonPrimitive()) {
+      if ((jsonObj.get("additionalVerificationStatus") != null && !jsonObj.get("additionalVerificationStatus").isJsonNull()) && !jsonObj.get("additionalVerificationStatus").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `additionalVerificationStatus` to be a primitive type in the JSON string but got `%s`", jsonObj.get("additionalVerificationStatus").toString()));
       }
   }

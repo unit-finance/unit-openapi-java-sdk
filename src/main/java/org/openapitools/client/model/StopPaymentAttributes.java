@@ -20,7 +20,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
 
@@ -63,7 +62,7 @@ public class StopPaymentAttributes {
 
   public static final String SERIALIZED_NAME_AMOUNT = "amount";
   @SerializedName(SERIALIZED_NAME_AMOUNT)
-  private BigDecimal amount;
+  private Integer amount;
 
   /**
    * Gets or Sets status
@@ -116,13 +115,13 @@ public class StopPaymentAttributes {
   @SerializedName(SERIALIZED_NAME_STATUS)
   private StatusEnum status;
 
-  public static final String SERIALIZED_NAME_CHECK_NUMBER = "checkNumber";
-  @SerializedName(SERIALIZED_NAME_CHECK_NUMBER)
-  private String checkNumber;
-
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   private Object tags;
+
+  public static final String SERIALIZED_NAME_CHECK_NUMBER = "checkNumber";
+  @SerializedName(SERIALIZED_NAME_CHECK_NUMBER)
+  private String checkNumber;
 
   public StopPaymentAttributes() {
   }
@@ -169,7 +168,7 @@ public class StopPaymentAttributes {
   }
 
 
-  public StopPaymentAttributes amount(BigDecimal amount) {
+  public StopPaymentAttributes amount(Integer amount) {
     
     this.amount = amount;
     return this;
@@ -177,15 +176,16 @@ public class StopPaymentAttributes {
 
    /**
    * Get amount
+   * minimum: 1
    * @return amount
   **/
   @javax.annotation.Nonnull
-  public BigDecimal getAmount() {
+  public Integer getAmount() {
     return amount;
   }
 
 
-  public void setAmount(BigDecimal amount) {
+  public void setAmount(Integer amount) {
     this.amount = amount;
   }
 
@@ -211,27 +211,6 @@ public class StopPaymentAttributes {
   }
 
 
-  public StopPaymentAttributes checkNumber(String checkNumber) {
-    
-    this.checkNumber = checkNumber;
-    return this;
-  }
-
-   /**
-   * Get checkNumber
-   * @return checkNumber
-  **/
-  @javax.annotation.Nonnull
-  public String getCheckNumber() {
-    return checkNumber;
-  }
-
-
-  public void setCheckNumber(String checkNumber) {
-    this.checkNumber = checkNumber;
-  }
-
-
   public StopPaymentAttributes tags(Object tags) {
     
     this.tags = tags;
@@ -253,6 +232,27 @@ public class StopPaymentAttributes {
   }
 
 
+  public StopPaymentAttributes checkNumber(String checkNumber) {
+    
+    this.checkNumber = checkNumber;
+    return this;
+  }
+
+   /**
+   * Get checkNumber
+   * @return checkNumber
+  **/
+  @javax.annotation.Nonnull
+  public String getCheckNumber() {
+    return checkNumber;
+  }
+
+
+  public void setCheckNumber(String checkNumber) {
+    this.checkNumber = checkNumber;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -267,13 +267,13 @@ public class StopPaymentAttributes {
         Objects.equals(this.updatedAt, stopPaymentAttributes.updatedAt) &&
         Objects.equals(this.amount, stopPaymentAttributes.amount) &&
         Objects.equals(this.status, stopPaymentAttributes.status) &&
-        Objects.equals(this.checkNumber, stopPaymentAttributes.checkNumber) &&
-        Objects.equals(this.tags, stopPaymentAttributes.tags);
+        Objects.equals(this.tags, stopPaymentAttributes.tags) &&
+        Objects.equals(this.checkNumber, stopPaymentAttributes.checkNumber);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, updatedAt, amount, status, checkNumber, tags);
+    return Objects.hash(createdAt, updatedAt, amount, status, tags, checkNumber);
   }
 
   @Override
@@ -284,8 +284,8 @@ public class StopPaymentAttributes {
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    checkNumber: ").append(toIndentedString(checkNumber)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    checkNumber: ").append(toIndentedString(checkNumber)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -312,8 +312,8 @@ public class StopPaymentAttributes {
     openapiFields.add("updatedAt");
     openapiFields.add("amount");
     openapiFields.add("status");
-    openapiFields.add("checkNumber");
     openapiFields.add("tags");
+    openapiFields.add("checkNumber");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

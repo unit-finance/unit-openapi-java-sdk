@@ -27,9 +27,10 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import org.openapitools.client.model.DisableStopPaymentRequest;
+import org.openapitools.client.model.CreateStopPayment;
+import org.openapitools.client.model.ExecuteFilterParameter20;
+import org.openapitools.client.model.ListPageParametersObject;
 import org.openapitools.client.model.StopPaymentListResponse;
-import org.openapitools.client.model.StopPaymentRequest;
 import org.openapitools.client.model.StopPaymentResponse;
 
 import java.lang.reflect.Type;
@@ -77,8 +78,9 @@ public class DefaultApi {
 
     /**
      * Build call for execute
-     * @param accountId ID of the account (required)
-     * @param status Status of the stop payments (optional)
+     * @param page  (optional)
+     * @param filter  (optional)
+     * @param sort  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -88,7 +90,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call executeCall(String accountId, String status, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call executeCall(ListPageParametersObject page, ExecuteFilterParameter20 filter, String sort, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -113,12 +115,16 @@ public class DefaultApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-        if (accountId != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("account_id", accountId));
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
         }
 
-        if (status != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("status", status));
+        if (filter != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("filter", filter));
+        }
+
+        if (sort != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sort", sort));
         }
 
         final String[] localVarAccepts = {
@@ -141,21 +147,17 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call executeValidateBeforeCall(String accountId, String status, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'accountId' is set
-        if (accountId == null) {
-            throw new ApiException("Missing the required parameter 'accountId' when calling execute(Async)");
-        }
-
-        return executeCall(accountId, status, _callback);
+    private okhttp3.Call executeValidateBeforeCall(ListPageParametersObject page, ExecuteFilterParameter20 filter, String sort, final ApiCallback _callback) throws ApiException {
+        return executeCall(page, filter, sort, _callback);
 
     }
 
     /**
      * Get a list of stop payments
      * 
-     * @param accountId ID of the account (required)
-     * @param status Status of the stop payments (optional)
+     * @param page  (optional)
+     * @param filter  (optional)
+     * @param sort  (optional)
      * @return StopPaymentListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -164,16 +166,17 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public StopPaymentListResponse execute(String accountId, String status) throws ApiException {
-        ApiResponse<StopPaymentListResponse> localVarResp = executeWithHttpInfo(accountId, status);
+    public StopPaymentListResponse execute(ListPageParametersObject page, ExecuteFilterParameter20 filter, String sort) throws ApiException {
+        ApiResponse<StopPaymentListResponse> localVarResp = executeWithHttpInfo(page, filter, sort);
         return localVarResp.getData();
     }
 
     /**
      * Get a list of stop payments
      * 
-     * @param accountId ID of the account (required)
-     * @param status Status of the stop payments (optional)
+     * @param page  (optional)
+     * @param filter  (optional)
+     * @param sort  (optional)
      * @return ApiResponse&lt;StopPaymentListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -182,8 +185,8 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<StopPaymentListResponse> executeWithHttpInfo(String accountId, String status) throws ApiException {
-        okhttp3.Call localVarCall = executeValidateBeforeCall(accountId, status, null);
+    public ApiResponse<StopPaymentListResponse> executeWithHttpInfo(ListPageParametersObject page, ExecuteFilterParameter20 filter, String sort) throws ApiException {
+        okhttp3.Call localVarCall = executeValidateBeforeCall(page, filter, sort, null);
         Type localVarReturnType = new TypeToken<StopPaymentListResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -191,8 +194,9 @@ public class DefaultApi {
     /**
      * Get a list of stop payments (asynchronously)
      * 
-     * @param accountId ID of the account (required)
-     * @param status Status of the stop payments (optional)
+     * @param page  (optional)
+     * @param filter  (optional)
+     * @param sort  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -202,16 +206,16 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call executeAsync(String accountId, String status, final ApiCallback<StopPaymentListResponse> _callback) throws ApiException {
+    public okhttp3.Call executeAsync(ListPageParametersObject page, ExecuteFilterParameter20 filter, String sort, final ApiCallback<StopPaymentListResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = executeValidateBeforeCall(accountId, status, _callback);
+        okhttp3.Call localVarCall = executeValidateBeforeCall(page, filter, sort, _callback);
         Type localVarReturnType = new TypeToken<StopPaymentListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for execute_0
-     * @param stopPaymentRequest  (required)
+     * @param createStopPayment  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -221,7 +225,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call execute_0Call(StopPaymentRequest stopPaymentRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call execute_0Call(CreateStopPayment createStopPayment, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -235,7 +239,7 @@ public class DefaultApi {
             basePath = null;
         }
 
-        Object localVarPostBody = stopPaymentRequest;
+        Object localVarPostBody = createStopPayment;
 
         // create path and map variables
         String localVarPath = "/stop-payments";
@@ -267,20 +271,20 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call execute_0ValidateBeforeCall(StopPaymentRequest stopPaymentRequest, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'stopPaymentRequest' is set
-        if (stopPaymentRequest == null) {
-            throw new ApiException("Missing the required parameter 'stopPaymentRequest' when calling execute_0(Async)");
+    private okhttp3.Call execute_0ValidateBeforeCall(CreateStopPayment createStopPayment, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'createStopPayment' is set
+        if (createStopPayment == null) {
+            throw new ApiException("Missing the required parameter 'createStopPayment' when calling execute_0(Async)");
         }
 
-        return execute_0Call(stopPaymentRequest, _callback);
+        return execute_0Call(createStopPayment, _callback);
 
     }
 
     /**
      * Create a new stop payment
      * 
-     * @param stopPaymentRequest  (required)
+     * @param createStopPayment  (required)
      * @return StopPaymentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -289,15 +293,15 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public StopPaymentResponse execute_0(StopPaymentRequest stopPaymentRequest) throws ApiException {
-        ApiResponse<StopPaymentResponse> localVarResp = execute_0WithHttpInfo(stopPaymentRequest);
+    public StopPaymentResponse execute_0(CreateStopPayment createStopPayment) throws ApiException {
+        ApiResponse<StopPaymentResponse> localVarResp = execute_0WithHttpInfo(createStopPayment);
         return localVarResp.getData();
     }
 
     /**
      * Create a new stop payment
      * 
-     * @param stopPaymentRequest  (required)
+     * @param createStopPayment  (required)
      * @return ApiResponse&lt;StopPaymentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -306,8 +310,8 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<StopPaymentResponse> execute_0WithHttpInfo(StopPaymentRequest stopPaymentRequest) throws ApiException {
-        okhttp3.Call localVarCall = execute_0ValidateBeforeCall(stopPaymentRequest, null);
+    public ApiResponse<StopPaymentResponse> execute_0WithHttpInfo(CreateStopPayment createStopPayment) throws ApiException {
+        okhttp3.Call localVarCall = execute_0ValidateBeforeCall(createStopPayment, null);
         Type localVarReturnType = new TypeToken<StopPaymentResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -315,7 +319,7 @@ public class DefaultApi {
     /**
      * Create a new stop payment (asynchronously)
      * 
-     * @param stopPaymentRequest  (required)
+     * @param createStopPayment  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -325,9 +329,9 @@ public class DefaultApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call execute_0Async(StopPaymentRequest stopPaymentRequest, final ApiCallback<StopPaymentResponse> _callback) throws ApiException {
+    public okhttp3.Call execute_0Async(CreateStopPayment createStopPayment, final ApiCallback<StopPaymentResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = execute_0ValidateBeforeCall(stopPaymentRequest, _callback);
+        okhttp3.Call localVarCall = execute_0ValidateBeforeCall(createStopPayment, _callback);
         Type localVarReturnType = new TypeToken<StopPaymentResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -583,7 +587,7 @@ public class DefaultApi {
     }
     /**
      * Build call for execute_3
-     * @param disableStopPaymentRequest  (required)
+     * @param stopPaymentId ID of the stop payment (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -594,7 +598,7 @@ public class DefaultApi {
         <tr><td> 404 </td><td> Stop payment not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call execute_3Call(DisableStopPaymentRequest disableStopPaymentRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call execute_3Call(String stopPaymentId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -608,10 +612,11 @@ public class DefaultApi {
             basePath = null;
         }
 
-        Object localVarPostBody = disableStopPaymentRequest;
+        Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/stop-payments/disable";
+        String localVarPath = "/stop-payments/{stop_payment_id}/disable"
+            .replace("{" + "stop_payment_id" + "}", localVarApiClient.escapeString(stopPaymentId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -628,7 +633,6 @@ public class DefaultApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -640,20 +644,20 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call execute_3ValidateBeforeCall(DisableStopPaymentRequest disableStopPaymentRequest, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'disableStopPaymentRequest' is set
-        if (disableStopPaymentRequest == null) {
-            throw new ApiException("Missing the required parameter 'disableStopPaymentRequest' when calling execute_3(Async)");
+    private okhttp3.Call execute_3ValidateBeforeCall(String stopPaymentId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'stopPaymentId' is set
+        if (stopPaymentId == null) {
+            throw new ApiException("Missing the required parameter 'stopPaymentId' when calling execute_3(Async)");
         }
 
-        return execute_3Call(disableStopPaymentRequest, _callback);
+        return execute_3Call(stopPaymentId, _callback);
 
     }
 
     /**
      * Disable a stop payment
      * 
-     * @param disableStopPaymentRequest  (required)
+     * @param stopPaymentId ID of the stop payment (required)
      * @return StopPaymentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -663,15 +667,15 @@ public class DefaultApi {
         <tr><td> 404 </td><td> Stop payment not found </td><td>  -  </td></tr>
      </table>
      */
-    public StopPaymentResponse execute_3(DisableStopPaymentRequest disableStopPaymentRequest) throws ApiException {
-        ApiResponse<StopPaymentResponse> localVarResp = execute_3WithHttpInfo(disableStopPaymentRequest);
+    public StopPaymentResponse execute_3(String stopPaymentId) throws ApiException {
+        ApiResponse<StopPaymentResponse> localVarResp = execute_3WithHttpInfo(stopPaymentId);
         return localVarResp.getData();
     }
 
     /**
      * Disable a stop payment
      * 
-     * @param disableStopPaymentRequest  (required)
+     * @param stopPaymentId ID of the stop payment (required)
      * @return ApiResponse&lt;StopPaymentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -681,8 +685,8 @@ public class DefaultApi {
         <tr><td> 404 </td><td> Stop payment not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<StopPaymentResponse> execute_3WithHttpInfo(DisableStopPaymentRequest disableStopPaymentRequest) throws ApiException {
-        okhttp3.Call localVarCall = execute_3ValidateBeforeCall(disableStopPaymentRequest, null);
+    public ApiResponse<StopPaymentResponse> execute_3WithHttpInfo(String stopPaymentId) throws ApiException {
+        okhttp3.Call localVarCall = execute_3ValidateBeforeCall(stopPaymentId, null);
         Type localVarReturnType = new TypeToken<StopPaymentResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -690,7 +694,7 @@ public class DefaultApi {
     /**
      * Disable a stop payment (asynchronously)
      * 
-     * @param disableStopPaymentRequest  (required)
+     * @param stopPaymentId ID of the stop payment (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -701,9 +705,9 @@ public class DefaultApi {
         <tr><td> 404 </td><td> Stop payment not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call execute_3Async(DisableStopPaymentRequest disableStopPaymentRequest, final ApiCallback<StopPaymentResponse> _callback) throws ApiException {
+    public okhttp3.Call execute_3Async(String stopPaymentId, final ApiCallback<StopPaymentResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = execute_3ValidateBeforeCall(disableStopPaymentRequest, _callback);
+        okhttp3.Call localVarCall = execute_3ValidateBeforeCall(stopPaymentId, _callback);
         Type localVarReturnType = new TypeToken<StopPaymentResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

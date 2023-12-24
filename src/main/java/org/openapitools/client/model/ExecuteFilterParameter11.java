@@ -16,32 +16,20 @@ package org.openapitools.client.model;
 import java.util.*;
 
 import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.stream.Collectors;
-
-import org.openapitools.client.JSON;
 import org.openapitools.client.Pair;
+import org.openapitools.client.JSON;
 
 /**
  * ExecuteFilterParameter11
@@ -82,7 +70,7 @@ public class ExecuteFilterParameter11 {
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
-  private Object tags;
+  private Map<String, String> tags = new HashMap<>();
 
   public ExecuteFilterParameter11() {
   }
@@ -255,9 +243,17 @@ public class ExecuteFilterParameter11 {
   }
 
 
-  public ExecuteFilterParameter11 tags(Object tags) {
+  public ExecuteFilterParameter11 tags(Map<String, String> tags) {
     
     this.tags = tags;
+    return this;
+  }
+
+  public ExecuteFilterParameter11 putTagsItem(String key, String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new HashMap<>();
+    }
+    this.tags.put(key, tagsItem);
     return this;
   }
 
@@ -266,12 +262,12 @@ public class ExecuteFilterParameter11 {
    * @return tags
   **/
   @javax.annotation.Nullable
-  public Object getTags() {
+  public Map<String, String> getTags() {
     return tags;
   }
 
 
-  public void setTags(Object tags) {
+  public void setTags(Map<String, String> tags) {
     this.tags = tags;
   }
 

@@ -89,61 +89,6 @@ public class ExecuteFilterParameter16 {
   @SerializedName(SERIALIZED_NAME_EXCLUDE_FEES)
   private Boolean excludeFees;
 
-  /**
-   * Gets or Sets status
-   */
-  @JsonAdapter(StatusEnum.Adapter.class)
-  public enum StatusEnum {
-    AUTHORIZED("Authorized"),
-    
-    COMPLETED("Completed"),
-    
-    CANCELED("Canceled"),
-    
-    DECLINED("Declined");
-
-    private String value;
-
-    StatusEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static StatusEnum fromValue(String value) {
-      for (StatusEnum b : StatusEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-
-    public static class Adapter extends TypeAdapter<StatusEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public StatusEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return StatusEnum.fromValue(value);
-      }
-    }
-  }
-
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @SerializedName(SERIALIZED_NAME_STATUS)
-  private StatusEnum status;
-
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
   private List<String> type;
@@ -390,27 +335,6 @@ public class ExecuteFilterParameter16 {
   }
 
 
-  public ExecuteFilterParameter16 status(StatusEnum status) {
-    
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Get status
-   * @return status
-  **/
-  @javax.annotation.Nullable
-  public StatusEnum getStatus() {
-    return status;
-  }
-
-
-  public void setStatus(StatusEnum status) {
-    this.status = status;
-  }
-
-
   public ExecuteFilterParameter16 type(List<String> type) {
     
     this.type = type;
@@ -550,7 +474,6 @@ public class ExecuteFilterParameter16 {
         Objects.equals(this.until, executeFilterParameter16.until) &&
         Objects.equals(this.cardId, executeFilterParameter16.cardId) &&
         Objects.equals(this.excludeFees, executeFilterParameter16.excludeFees) &&
-        Objects.equals(this.status, executeFilterParameter16.status) &&
         Objects.equals(this.type, executeFilterParameter16.type) &&
         Objects.equals(this.direction, executeFilterParameter16.direction) &&
         Objects.equals(this.fromAmount, executeFilterParameter16.fromAmount) &&
@@ -560,7 +483,7 @@ public class ExecuteFilterParameter16 {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, customerId, query, tags, since, until, cardId, excludeFees, status, type, direction, fromAmount, toAmount, accountType);
+    return Objects.hash(accountId, customerId, query, tags, since, until, cardId, excludeFees, type, direction, fromAmount, toAmount, accountType);
   }
 
   @Override
@@ -575,7 +498,6 @@ public class ExecuteFilterParameter16 {
     sb.append("    until: ").append(toIndentedString(until)).append("\n");
     sb.append("    cardId: ").append(toIndentedString(cardId)).append("\n");
     sb.append("    excludeFees: ").append(toIndentedString(excludeFees)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    direction: ").append(toIndentedString(direction)).append("\n");
     sb.append("    fromAmount: ").append(toIndentedString(fromAmount)).append("\n");
@@ -611,7 +533,6 @@ public class ExecuteFilterParameter16 {
     openapiFields.add("until");
     openapiFields.add("cardId");
     openapiFields.add("excludeFees");
-    openapiFields.add("status");
     openapiFields.add("type");
     openapiFields.add("direction");
     openapiFields.add("fromAmount");
@@ -660,9 +581,6 @@ public class ExecuteFilterParameter16 {
       }
       if ((jsonObj.get("cardId") != null && !jsonObj.get("cardId").isJsonNull()) && !jsonObj.get("cardId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cardId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cardId").toString()));
-      }
-      if ((jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) && !jsonObj.get("status").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull() && !jsonObj.get("type").isJsonArray()) {

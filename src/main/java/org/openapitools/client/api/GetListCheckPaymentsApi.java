@@ -79,6 +79,7 @@ public class GetListCheckPaymentsApi {
      * @param page  (optional)
      * @param filter  (optional)
      * @param sort  (optional)
+     * @param include  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -88,7 +89,7 @@ public class GetListCheckPaymentsApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call executeCall(ListPageParametersObject page, ExecuteFilterParameter19 filter, String sort, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call executeCall(ListPageParametersObject page, ExecuteFilterParameter19 filter, String sort, String include, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -125,6 +126,10 @@ public class GetListCheckPaymentsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("sort", sort));
         }
 
+        if (include != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("include", include));
+        }
+
         final String[] localVarAccepts = {
             "application/vnd.api+json; charset=utf-8"
         };
@@ -145,8 +150,8 @@ public class GetListCheckPaymentsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call executeValidateBeforeCall(ListPageParametersObject page, ExecuteFilterParameter19 filter, String sort, final ApiCallback _callback) throws ApiException {
-        return executeCall(page, filter, sort, _callback);
+    private okhttp3.Call executeValidateBeforeCall(ListPageParametersObject page, ExecuteFilterParameter19 filter, String sort, String include, final ApiCallback _callback) throws ApiException {
+        return executeCall(page, filter, sort, include, _callback);
 
     }
 
@@ -156,6 +161,7 @@ public class GetListCheckPaymentsApi {
      * @param page  (optional)
      * @param filter  (optional)
      * @param sort  (optional)
+     * @param include  (optional)
      * @return Execute200Response3
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -164,8 +170,8 @@ public class GetListCheckPaymentsApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
      */
-    public Execute200Response3 execute(ListPageParametersObject page, ExecuteFilterParameter19 filter, String sort) throws ApiException {
-        ApiResponse<Execute200Response3> localVarResp = executeWithHttpInfo(page, filter, sort);
+    public Execute200Response3 execute(ListPageParametersObject page, ExecuteFilterParameter19 filter, String sort, String include) throws ApiException {
+        ApiResponse<Execute200Response3> localVarResp = executeWithHttpInfo(page, filter, sort, include);
         return localVarResp.getData();
     }
 
@@ -175,6 +181,7 @@ public class GetListCheckPaymentsApi {
      * @param page  (optional)
      * @param filter  (optional)
      * @param sort  (optional)
+     * @param include  (optional)
      * @return ApiResponse&lt;Execute200Response3&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -183,8 +190,8 @@ public class GetListCheckPaymentsApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Execute200Response3> executeWithHttpInfo(ListPageParametersObject page, ExecuteFilterParameter19 filter, String sort) throws ApiException {
-        okhttp3.Call localVarCall = executeValidateBeforeCall(page, filter, sort, null);
+    public ApiResponse<Execute200Response3> executeWithHttpInfo(ListPageParametersObject page, ExecuteFilterParameter19 filter, String sort, String include) throws ApiException {
+        okhttp3.Call localVarCall = executeValidateBeforeCall(page, filter, sort, include, null);
         Type localVarReturnType = new TypeToken<Execute200Response3>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -195,6 +202,7 @@ public class GetListCheckPaymentsApi {
      * @param page  (optional)
      * @param filter  (optional)
      * @param sort  (optional)
+     * @param include  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -204,9 +212,9 @@ public class GetListCheckPaymentsApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call executeAsync(ListPageParametersObject page, ExecuteFilterParameter19 filter, String sort, final ApiCallback<Execute200Response3> _callback) throws ApiException {
+    public okhttp3.Call executeAsync(ListPageParametersObject page, ExecuteFilterParameter19 filter, String sort, String include, final ApiCallback<Execute200Response3> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = executeValidateBeforeCall(page, filter, sort, _callback);
+        okhttp3.Call localVarCall = executeValidateBeforeCall(page, filter, sort, include, _callback);
         Type localVarReturnType = new TypeToken<Execute200Response3>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

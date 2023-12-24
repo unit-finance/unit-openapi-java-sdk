@@ -57,18 +57,44 @@ import org.openapitools.client.Pair;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ExecuteFilterParameter19 {
-  public static final String SERIALIZED_NAME_QUERY = "query";
-  @SerializedName(SERIALIZED_NAME_QUERY)
-  private String query;
+  public static final String SERIALIZED_NAME_ACCOUNT_ID = "accountId";
+  @SerializedName(SERIALIZED_NAME_ACCOUNT_ID)
+  private String accountId;
+
+  public static final String SERIALIZED_NAME_CUSTOMER_ID = "customerId";
+  @SerializedName(SERIALIZED_NAME_CUSTOMER_ID)
+  private String customerId;
 
   /**
    * Gets or Sets status
    */
   @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
+    NEW("New"),
+    
     PENDING("Pending"),
     
-    APPROVED("Approved");
+    CANCELED("Canceled"),
+    
+    REJECTED("Rejected"),
+    
+    INDELIVERY("InDelivery"),
+    
+    INPRODUCTION("InProduction"),
+    
+    DELIVERED("Delivered"),
+    
+    RETURNEDTOSENDER("ReturnedToSender"),
+    
+    PENDING2("Pending"),
+    
+    PROCESSED("Processed"),
+    
+    PENDINGREVIEW("PendingReview"),
+    
+    MARKEDFORRETURN("MarkedForReturn"),
+    
+    RETURNED("Returned");
 
     private String value;
 
@@ -112,10 +138,6 @@ public class ExecuteFilterParameter19 {
   @SerializedName(SERIALIZED_NAME_STATUS)
   private List<StatusEnum> status;
 
-  public static final String SERIALIZED_NAME_EMAIL = "email";
-  @SerializedName(SERIALIZED_NAME_EMAIL)
-  private String email;
-
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   private Map<String, String> tags = new HashMap<>();
@@ -128,27 +150,60 @@ public class ExecuteFilterParameter19 {
   @SerializedName(SERIALIZED_NAME_UNTIL)
   private String until;
 
+  public static final String SERIALIZED_NAME_FROM_AMOUNT = "fromAmount";
+  @SerializedName(SERIALIZED_NAME_FROM_AMOUNT)
+  private Integer fromAmount;
+
+  public static final String SERIALIZED_NAME_TO_AMOUNT = "toAmount";
+  @SerializedName(SERIALIZED_NAME_TO_AMOUNT)
+  private Integer toAmount;
+
+  public static final String SERIALIZED_NAME_CHECK_NUMBER = "checkNumber";
+  @SerializedName(SERIALIZED_NAME_CHECK_NUMBER)
+  private String checkNumber;
+
   public ExecuteFilterParameter19() {
   }
 
-  public ExecuteFilterParameter19 query(String query) {
+  public ExecuteFilterParameter19 accountId(String accountId) {
     
-    this.query = query;
+    this.accountId = accountId;
     return this;
   }
 
    /**
-   * Get query
-   * @return query
+   * Get accountId
+   * @return accountId
   **/
   @javax.annotation.Nullable
-  public String getQuery() {
-    return query;
+  public String getAccountId() {
+    return accountId;
   }
 
 
-  public void setQuery(String query) {
-    this.query = query;
+  public void setAccountId(String accountId) {
+    this.accountId = accountId;
+  }
+
+
+  public ExecuteFilterParameter19 customerId(String customerId) {
+    
+    this.customerId = customerId;
+    return this;
+  }
+
+   /**
+   * Get customerId
+   * @return customerId
+  **/
+  @javax.annotation.Nullable
+  public String getCustomerId() {
+    return customerId;
+  }
+
+
+  public void setCustomerId(String customerId) {
+    this.customerId = customerId;
   }
 
 
@@ -178,27 +233,6 @@ public class ExecuteFilterParameter19 {
 
   public void setStatus(List<StatusEnum> status) {
     this.status = status;
-  }
-
-
-  public ExecuteFilterParameter19 email(String email) {
-    
-    this.email = email;
-    return this;
-  }
-
-   /**
-   * Get email
-   * @return email
-  **/
-  @javax.annotation.Nullable
-  public String getEmail() {
-    return email;
-  }
-
-
-  public void setEmail(String email) {
-    this.email = email;
   }
 
 
@@ -273,6 +307,69 @@ public class ExecuteFilterParameter19 {
   }
 
 
+  public ExecuteFilterParameter19 fromAmount(Integer fromAmount) {
+    
+    this.fromAmount = fromAmount;
+    return this;
+  }
+
+   /**
+   * Get fromAmount
+   * @return fromAmount
+  **/
+  @javax.annotation.Nullable
+  public Integer getFromAmount() {
+    return fromAmount;
+  }
+
+
+  public void setFromAmount(Integer fromAmount) {
+    this.fromAmount = fromAmount;
+  }
+
+
+  public ExecuteFilterParameter19 toAmount(Integer toAmount) {
+    
+    this.toAmount = toAmount;
+    return this;
+  }
+
+   /**
+   * Get toAmount
+   * @return toAmount
+  **/
+  @javax.annotation.Nullable
+  public Integer getToAmount() {
+    return toAmount;
+  }
+
+
+  public void setToAmount(Integer toAmount) {
+    this.toAmount = toAmount;
+  }
+
+
+  public ExecuteFilterParameter19 checkNumber(String checkNumber) {
+    
+    this.checkNumber = checkNumber;
+    return this;
+  }
+
+   /**
+   * Get checkNumber
+   * @return checkNumber
+  **/
+  @javax.annotation.Nullable
+  public String getCheckNumber() {
+    return checkNumber;
+  }
+
+
+  public void setCheckNumber(String checkNumber) {
+    this.checkNumber = checkNumber;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -283,29 +380,35 @@ public class ExecuteFilterParameter19 {
       return false;
     }
     ExecuteFilterParameter19 executeFilterParameter19 = (ExecuteFilterParameter19) o;
-    return Objects.equals(this.query, executeFilterParameter19.query) &&
+    return Objects.equals(this.accountId, executeFilterParameter19.accountId) &&
+        Objects.equals(this.customerId, executeFilterParameter19.customerId) &&
         Objects.equals(this.status, executeFilterParameter19.status) &&
-        Objects.equals(this.email, executeFilterParameter19.email) &&
         Objects.equals(this.tags, executeFilterParameter19.tags) &&
         Objects.equals(this.since, executeFilterParameter19.since) &&
-        Objects.equals(this.until, executeFilterParameter19.until);
+        Objects.equals(this.until, executeFilterParameter19.until) &&
+        Objects.equals(this.fromAmount, executeFilterParameter19.fromAmount) &&
+        Objects.equals(this.toAmount, executeFilterParameter19.toAmount) &&
+        Objects.equals(this.checkNumber, executeFilterParameter19.checkNumber);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(query, status, email, tags, since, until);
+    return Objects.hash(accountId, customerId, status, tags, since, until, fromAmount, toAmount, checkNumber);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ExecuteFilterParameter19 {\n");
-    sb.append("    query: ").append(toIndentedString(query)).append("\n");
+    sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
+    sb.append("    customerId: ").append(toIndentedString(customerId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    since: ").append(toIndentedString(since)).append("\n");
     sb.append("    until: ").append(toIndentedString(until)).append("\n");
+    sb.append("    fromAmount: ").append(toIndentedString(fromAmount)).append("\n");
+    sb.append("    toAmount: ").append(toIndentedString(toAmount)).append("\n");
+    sb.append("    checkNumber: ").append(toIndentedString(checkNumber)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -328,12 +431,15 @@ public class ExecuteFilterParameter19 {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("query");
+    openapiFields.add("accountId");
+    openapiFields.add("customerId");
     openapiFields.add("status");
-    openapiFields.add("email");
     openapiFields.add("tags");
     openapiFields.add("since");
     openapiFields.add("until");
+    openapiFields.add("fromAmount");
+    openapiFields.add("toAmount");
+    openapiFields.add("checkNumber");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -360,21 +466,24 @@ public class ExecuteFilterParameter19 {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("query") != null && !jsonObj.get("query").isJsonNull()) && !jsonObj.get("query").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `query` to be a primitive type in the JSON string but got `%s`", jsonObj.get("query").toString()));
+      if ((jsonObj.get("accountId") != null && !jsonObj.get("accountId").isJsonNull()) && !jsonObj.get("accountId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `accountId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accountId").toString()));
+      }
+      if ((jsonObj.get("customerId") != null && !jsonObj.get("customerId").isJsonNull()) && !jsonObj.get("customerId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `customerId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("customerId").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull() && !jsonObj.get("status").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `status` to be an array in the JSON string but got `%s`", jsonObj.get("status").toString()));
-      }
-      if ((jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull()) && !jsonObj.get("email").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
       }
       if ((jsonObj.get("since") != null && !jsonObj.get("since").isJsonNull()) && !jsonObj.get("since").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `since` to be a primitive type in the JSON string but got `%s`", jsonObj.get("since").toString()));
       }
       if ((jsonObj.get("until") != null && !jsonObj.get("until").isJsonNull()) && !jsonObj.get("until").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `until` to be a primitive type in the JSON string but got `%s`", jsonObj.get("until").toString()));
+      }
+      if ((jsonObj.get("checkNumber") != null && !jsonObj.get("checkNumber").isJsonNull()) && !jsonObj.get("checkNumber").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `checkNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("checkNumber").toString()));
       }
   }
 
@@ -430,12 +539,12 @@ public class ExecuteFilterParameter19 {
   public List<Pair> toParams(){
     List<Pair> params = new ArrayList<>();
 
-    if(this.email != null){
-      params.add(new Pair("filter[email]", this.email));
+    if(this.accountId != null){
+      params.add(new Pair("filter[accountId]", this.accountId));
     }
 
-    if(this.query != null){
-      params.add(new Pair("filter[query]", this.query));
+    if(this.customerId != null){
+      params.add(new Pair("filter[customerId]", this.customerId));
     }
 
     if(this.since != null){
@@ -444,6 +553,18 @@ public class ExecuteFilterParameter19 {
 
     if(this.until != null){
       params.add(new Pair("filter[until]", this.until));
+    }
+
+    if(this.checkNumber != null){
+      params.add(new Pair("filter[checkNumber]", this.checkNumber));
+    }
+
+    if(this.fromAmount != null){
+      params.add(new Pair("filter[fromAmount]", this.fromAmount.toString()));
+    }
+
+    if(this.toAmount != null){
+      params.add(new Pair("filter[toAmount]", this.toAmount.toString()));
     }
 
     if(this.status != null){

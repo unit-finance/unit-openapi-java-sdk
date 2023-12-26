@@ -15,7 +15,7 @@ Unit-java is available at [Maven Central]().
 </dependency>
 ```
 https://github.com//
-### Basic Usage Examples
+## Basic Usage Examples
 
 For more examples of basic usage, see the [Tests suites](https://unit-finance/unit-openapi-java-sdk.com) or [API Reference documentation](https://docs.unit.co/).
 
@@ -60,3 +60,28 @@ request.data(new CreateApplicationData(createIndividualApplication));
 CreateApplicationApi apiClient = new CreateApplicationApi();
 UnitCreateApplicationResponse res = apiClient.execute(request);
 ```
+
+## About
+To create your customized version of the unit-java-sdk using our [open api project](https://github.com/unit-finance/openapi-unit-sdk)
+we suggest using the open-generator-cli to generate the Java client. Here's the command to execute:
+```commandline
+openapi-generator-cli generate -g java -i openapi.json -o unit-java-sdk
+--additional-properties hideGenerationTimestamp=true
+```
+Please note that the current generator version lacks support for deepObjects. After generating the Java client, if you wish to enable functionality for list parameters, you'll need to implement a serialization function. A sample of this function, named toParams(), can be found at client/model/ExecuteFilterParameter.java.
+
+Additionally, modifications need to be made to the executeCall function in each GetList file that utilizes parameters:
+```java
+if (page != null) {
+    localVarQueryParams.addAll(page.toParams());
+}
+
+if (filter != null) {
+    localVarQueryParams.addAll(filter.toParams());
+}
+
+if (include != null) {
+    localVarQueryParams.addAll(localVarApiClient.parameterToPair("include", include));
+}
+```
+For parameters defined as deepObjects (beyond primitive types), these should be appended to localVarQueryParams after serialization via the toParams() function, rather than using localVarApiClient.parameterToPair() which is designed for primitive types exclusively.

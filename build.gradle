@@ -3,8 +3,8 @@ apply plugin: 'eclipse'
 apply plugin: 'java'
 apply plugin: 'com.diffplug.spotless'
 
-group = 'org.openapitools'
-version = '0.2.0'
+group = 'co.unit.sdk'
+version = '1.0-SNAPSHOT'
 
 buildscript {
     repositories {
@@ -89,8 +89,26 @@ if(hasProperty('target') && target == 'android') {
     publishing {
         publications {
             maven(MavenPublication) {
-               artifactId = 'openapi-java-client'
-               from components.java
+                groupId = 'co.unit'
+                artifactId = 'java-sdk'
+                version = "0.1-SNAPSHOT"
+                from components.java
+
+                pom {
+                    name = 'Unit Java SDK'
+                    description = "This library provides a Java SDK to Unit's API."
+                }
+            }
+        }
+
+        repositories {
+            maven {
+                name = "OSSRH"
+                url = "https://s01.oss.sonatype.org/content/repositories/snapshots/"
+                credentials {
+                    username = System.getenv("MAVEN_USERNAME")
+                    password = System.getenv("MAVEN_PASSWORD")
+                }
             }
         }
     }

@@ -4,20 +4,25 @@ The official java client library for the [Unit API](https://docs.unit.co/). This
 
 ## Installation
 
-Unit-java is available at [Maven Central]().
-
 ```xml
-<dependency>
-  <groupId>com.unit</groupId>
-  <artifactId>unit-java</artifactId>
-  <!--Replace this version number with the latest verison, which can be found at https://github.com/unit/unit-java/tags-->
-  <version>0.0.1</version>
-</dependency>
+<repositories>
+    <repository>
+        <id>sonatype-snapshots</id>
+        <url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
+    </repository>
+</repositories>
+
+<dependencies>
+    <dependency>
+        <groupId>co.unit</groupId>
+        <artifactId>java-sdk</artifactId>
+        <version>1.1-SNAPSHOT</version>
+    </dependency>
+</dependencies>
 ```
-https://github.com//
 ## Basic Usage Examples
 
-For more examples of basic usage, see the [Tests suites](https://unit-finance/unit-openapi-java-sdk.com) or [API Reference documentation](https://docs.unit.co/).
+For more examples of basic usage, see the [Tests suites](https://github.com/unit-finance/unit-openapi-java-sdk/tree/main/src/test/java/org/openapitools/client) or [API Reference documentation](https://docs.unit.co/).
 
 ```java
 String access_token = System.getenv("access_token");

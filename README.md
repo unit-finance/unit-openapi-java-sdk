@@ -12,7 +12,7 @@ Add this dependency to your project's POM:
 ```xml
 <repositories>
     <repository>
-        <id>sonatype-releases</id>
+        <id>sonatype-release</id>
         <url>https://s01.oss.sonatype.org/content/repositories/releases/</url>
     </repository>
 </repositories>

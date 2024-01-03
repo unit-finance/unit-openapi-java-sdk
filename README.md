@@ -1,14 +1,19 @@
 ### unit-openapi-java-sdk
 
 The official java client library for the [Unit API](https://docs.unit.co/). This library is generated from the [Unit OpenAPI spec](https://github.com/unit-finance/openapi-unit-sdk).
+## Requirements
+
+Building the API client library requires:
+1. Java 1.8+
+2. Maven (3.8.3+)/Gradle (7.2+)
 
 ## Installation
-
+Add this dependency to your project's POM:
 ```xml
 <repositories>
     <repository>
-        <id>sonatype-snapshots</id>
-        <url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
+        <id>sonatype-releases</id>
+        <url>https://s01.oss.sonatype.org/content/repositories/releases/</url>
     </repository>
 </repositories>
 
@@ -16,7 +21,7 @@ The official java client library for the [Unit API](https://docs.unit.co/). This
     <dependency>
         <groupId>co.unit</groupId>
         <artifactId>java-sdk</artifactId>
-        <version>1.1-SNAPSHOT</version>
+        <version>0.0.1</version>
     </dependency>
 </dependencies>
 ```

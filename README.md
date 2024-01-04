@@ -1,6 +1,6 @@
 ### unit-openapi-java-sdk
 
-The official java client library for the [Unit API](https://unit.co/docs/api/). This library is the first Unit SDK to be generated from the [Unit OpenAPI spec](https://github.com/unit-finance/openapi-unit-sdk) and is currently available in beta version. We encourage you to share any issues you encounter while implementing this SDK with us or possible improvement suggestions to help us identify and improve the Java client.
+The official Java client library for the [Unit API](https://unit.co/docs/api/). This library is the first Unit SDK to be generated from the [Unit OpenAPI spec](https://github.com/unit-finance/openapi-unit-sdk) and is currently available in beta version. We encourage you to share any issues you encounter while implementing this SDK with us or possible improvement suggestions to help us identify and improve this Java client.
 
 
 ## Requirements

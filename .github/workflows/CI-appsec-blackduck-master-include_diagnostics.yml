@@ -1,8 +1,5 @@
 name: CI-AppSec [Master-include_diagnostics]
 on:
-  schedule:
-    #At 13:00 on every day-of-week from Sunday through Thursday.
-    - cron: '0 13 * * SUN-THU'
   workflow_dispatch:
   #The workflow will only run when a push that includes a change to the build.gradle file is made in the main branch.
   push:

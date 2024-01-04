@@ -1,6 +1,6 @@
 ### unit-openapi-java-sdk
 
-The official java client library for the [Unit API](https://docs.unit.co/). This library is generated from the [Unit OpenAPI spec](https://github.com/unit-finance/openapi-unit-sdk).
+The official java client library for the [Unit API](https://unit.co/docs/api/). This library is generated from the [Unit OpenAPI spec](https://github.com/unit-finance/openapi-unit-sdk).
 ## Requirements
 
 Building the API client library requires:
@@ -27,7 +27,7 @@ Add this dependency to your project's POM:
 ```
 ## Basic Usage Examples
 
-For more examples of basic usage, see the [Tests suites](https://github.com/unit-finance/unit-openapi-java-sdk/tree/main/src/test/java/org/openapitools/client) or [API Reference documentation](https://docs.unit.co/).
+For more examples of basic usage, see the [Test suites](https://github.com/unit-finance/unit-openapi-java-sdk/tree/main/src/test/java/org/openapitools/client) or [API Reference documentation](https://docs.unit.co/).
 
 ```java
 String access_token = System.getenv("access_token");
@@ -72,13 +72,13 @@ UnitCreateApplicationResponse res = apiClient.execute(request);
 ```
 
 ## About
-To create your customized version of the unit-java-sdk using our [open api project](https://github.com/unit-finance/openapi-unit-sdk)
-we suggest using the open-generator-cli to generate the Java client. Here's the command to execute:
+To generate a customized version of the unit-java-sdk using our [OpenAPI project](https://github.com/unit-finance/openapi-unit-sdk)
+we suggest using the open-generator-cli to generate the Java client using the following command:
 ```commandline
 openapi-generator-cli generate -g java -i openapi.json -o unit-java-sdk
 --additional-properties hideGenerationTimestamp=true
 ```
-Please note that the current generator version lacks support for deepObjects. After generating the Java client, if you wish to enable functionality for list parameters, you'll need to implement a serialization function. A sample of this function, named toParams(), can be found at client/model/ExecuteFilterParameter.java.
+Please note that the current generator version lacks support for deepObjects. After generating the Java client, if you wish to enable functionality for list parameters, you'll need to implement a serialization function. A sample of this function, named `toParams()`, can be found in `client/model/ExecuteFilterParameter.java`.
 
 Additionally, modifications need to be made to the executeCall function in each GetList file that utilizes parameters:
 ```java
@@ -94,4 +94,4 @@ if (include != null) {
     localVarQueryParams.addAll(localVarApiClient.parameterToPair("include", include));
 }
 ```
-For parameters defined as deepObjects (beyond primitive types), these should be appended to localVarQueryParams after serialization via the toParams() function, rather than using localVarApiClient.parameterToPair() which is designed for primitive types exclusively.
+For parameters defined as deepObjects (beyond primitive types), these should be appended to localVarQueryParams after serialization using the `toParams()` function, rather than using `localVarApiClient.parameterToPair()` which is designed for primitive types exclusively.

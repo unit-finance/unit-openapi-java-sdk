@@ -31,13 +31,14 @@ public class TokenTests {
     @Test
     public void CreateCustomerToken() throws ApiException {
         CreateCustomerTokenApi createApi = new CreateCustomerTokenApi();
-        ExecuteRequest16 request = new ExecuteRequest16();
 
-        CreateCustomerToken cct = new CreateCustomerToken();
-        CreateCustomerTokenAttributes attributes = new CreateCustomerTokenAttributes();
+        CreateCustomerToken request = new CreateCustomerToken();
+
+        CreateCustomerTokenData data = new CreateCustomerTokenData();
+        CreateCustomerTokenDataAttributes attributes = new CreateCustomerTokenDataAttributes();
         attributes.setScope("customers accounts");
-        cct.setAttributes(attributes);
-        request.setData(cct);
+        data.setAttributes(attributes);
+        request.setData(data);
 
         UnitCustomerTokenResponse res = createApi.execute("1527981", request);
         assert res.getData().getType().equals("customerBearerToken");

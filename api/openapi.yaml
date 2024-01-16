@@ -2,7 +2,7 @@ openapi: 3.0.2
 info:
   description: An OpenAPI specifications for unit-sdk clients
   title: Unit OpenAPI specifications
-  version: 0.2.0
+  version: 0.0.2
 servers:
 - url: https://api.s.unit.sh
 security:
@@ -78,7 +78,7 @@ paths:
         content:
           application/vnd.api+json:
             schema:
-              $ref: '#/components/schemas/execute_request'
+              $ref: '#/components/schemas/CancelApplicationRequest'
         description: Cancel Application Request
         required: true
       responses:
@@ -188,7 +188,7 @@ paths:
         content:
           application/vnd.api+json:
             schema:
-              $ref: '#/components/schemas/execute_request_1'
+              $ref: '#/components/schemas/createApplicationForm'
         description: Create Application Form Request
         required: true
       responses:
@@ -435,7 +435,7 @@ paths:
           content:
             application/vnd.api+json; charset=utf-8:
               schema:
-                $ref: '#/components/schemas/execute_200_response'
+                $ref: '#/components/schemas/UnitListDocumentsResponse'
           description: Successful Response
       summary: Get List of Documents
       tags:
@@ -483,7 +483,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/execute_request_2'
+              $ref: '#/components/schemas/VerifyDocument'
         description: Verify Document
         required: true
       responses:
@@ -752,7 +752,7 @@ paths:
         content:
           application/vnd.api+json:
             schema:
-              $ref: '#/components/schemas/execute_request_3'
+              $ref: '#/components/schemas/FreezeAccountRequest'
         description: Freeze Account Request
         required: true
       responses:
@@ -783,7 +783,7 @@ paths:
         content:
           application/vnd.api+json:
             schema:
-              $ref: '#/components/schemas/execute_request_4'
+              $ref: '#/components/schemas/CloseAccountRequest'
         description: Close Account Request
         required: true
       responses:
@@ -1003,8 +1003,8 @@ paths:
         content:
           application/vnd.api+json:
             schema:
-              $ref: '#/components/schemas/execute_request_5'
-        description: Update Payment Request
+              $ref: '#/components/schemas/ArchiveCustomerRequest'
+        description: Archive Customer Request
         required: true
       responses:
         "200":
@@ -1059,7 +1059,7 @@ paths:
         content:
           application/vnd.api+json:
             schema:
-              $ref: '#/components/schemas/execute_request_6'
+              $ref: '#/components/schemas/createPayment'
         description: Create Payment Request
         required: true
       responses:
@@ -1285,7 +1285,7 @@ paths:
         content:
           application/vnd.api+json:
             schema:
-              $ref: '#/components/schemas/execute_request_7'
+              $ref: '#/components/schemas/createCounterparty'
         description: Create Counterparty Request
         required: true
       responses:
@@ -1431,7 +1431,7 @@ paths:
         content:
           application/vnd.api+json:
             schema:
-              $ref: '#/components/schemas/execute_request_8'
+              $ref: '#/components/schemas/createRecurringPayment'
         description: Create Recurring Payment Request
         required: true
       responses:
@@ -1553,7 +1553,7 @@ paths:
         content:
           application/vnd.api+json:
             schema:
-              $ref: '#/components/schemas/execute_request_9'
+              $ref: '#/components/schemas/createCard'
         description: Create Card Request
         required: true
       responses:
@@ -1801,7 +1801,7 @@ paths:
           content:
             application/vnd.api+json; charset=utf-8:
               schema:
-                $ref: '#/components/schemas/execute_200_response_1'
+                $ref: '#/components/schemas/UnitListAuthorizationsResponse'
           description: Successful Response
       summary: Get List authorizations
       tags:
@@ -1853,7 +1853,7 @@ paths:
           content:
             application/vnd.api+json; charset=utf-8:
               schema:
-                $ref: '#/components/schemas/execute_200_response_2'
+                $ref: '#/components/schemas/UnitListAuthorizationRequestsResponse'
           description: Successful Response
       summary: Get List Authorization Requests
       tags:
@@ -1896,8 +1896,8 @@ paths:
         content:
           application/vnd.api+json:
             schema:
-              $ref: '#/components/schemas/execute_request_10'
-        description: Approve Authorization Request Request
+              $ref: '#/components/schemas/ApproveAuthorizationRequest'
+        description: Approve Authorization Request
         required: true
       responses:
         "200":
@@ -1926,8 +1926,8 @@ paths:
         content:
           application/vnd.api+json:
             schema:
-              $ref: '#/components/schemas/execute_request_11'
-        description: Decline Authorization Request Request
+              $ref: '#/components/schemas/DeclineAuthorizationRequest'
+        description: Decline Authorization Request
         required: true
       responses:
         "200":
@@ -2080,7 +2080,7 @@ paths:
         content:
           application/vnd.api+json:
             schema:
-              $ref: '#/components/schemas/execute_request_12'
+              $ref: '#/components/schemas/createReward'
         description: Create Reward Request
         required: true
       responses:
@@ -2216,7 +2216,7 @@ paths:
         content:
           application/vnd.api+json:
             schema:
-              $ref: '#/components/schemas/execute_request_13'
+              $ref: '#/components/schemas/createFee'
         description: Create Fee Request
         required: true
       responses:
@@ -2259,9 +2259,7 @@ paths:
           content:
             application/vnd.api+json; charset=utf-8:
               schema:
-                items:
-                  $ref: '#/components/schemas/check_deposit'
-                type: array
+                $ref: '#/components/schemas/UnitListCheckDepositsResponse'
           description: Successful Response
       summary: Get List Check Deposits
       tags:
@@ -2274,7 +2272,7 @@ paths:
         content:
           application/vnd.api+json:
             schema:
-              $ref: '#/components/schemas/execute_request_14'
+              $ref: '#/components/schemas/createCheckDeposit'
         description: Create Check Deposit Request
         required: true
       responses:
@@ -2442,7 +2440,7 @@ paths:
         content:
           application/vnd.api+json:
             schema:
-              $ref: '#/components/schemas/execute_request_15'
+              $ref: '#/components/schemas/createApiToken'
         description: Create Org API Token Request
         required: true
       responses:
@@ -2500,7 +2498,7 @@ paths:
         content:
           application/vnd.api+json:
             schema:
-              $ref: '#/components/schemas/execute_request_16'
+              $ref: '#/components/schemas/createCustomerToken'
         description: Create Customer Token Request
         required: true
       responses:
@@ -2530,7 +2528,7 @@ paths:
         content:
           application/vnd.api+json:
             schema:
-              $ref: '#/components/schemas/execute_request_17'
+              $ref: '#/components/schemas/createCustomerTokenVerification'
         description: Create Customer Token Verification Request
         required: true
       responses:
@@ -2709,7 +2707,7 @@ paths:
             application/vnd.api+json; charset=utf-8:
               schema:
                 items:
-                  type: object
+                  $ref: '#/components/schemas/atm_location'
                 title: UnitAtmLocationsListResponse
                 type: array
           description: Successful Response
@@ -2899,7 +2897,7 @@ paths:
         content:
           application/vnd.api+json:
             schema:
-              $ref: '#/components/schemas/execute_request_18'
+              $ref: '#/components/schemas/createRepayment'
         description: Create a Repayment Request
         required: true
       responses:
@@ -2967,7 +2965,7 @@ paths:
           content:
             application/vnd.api+json; charset=utf-8:
               schema:
-                $ref: '#/components/schemas/execute_200_response_3'
+                $ref: '#/components/schemas/UnitListCheckPaymentsResponse'
           description: Successful Response
       summary: Get List Check Payments
       tags:
@@ -2980,7 +2978,7 @@ paths:
         content:
           application/vnd.api+json:
             schema:
-              $ref: '#/components/schemas/execute_request_19'
+              $ref: '#/components/schemas/createCheckPayment'
         description: Create Check Payment Request
         required: true
       responses:
@@ -3032,7 +3030,7 @@ paths:
         content:
           application/vnd.api+json:
             schema:
-              $ref: '#/components/schemas/execute_request_20'
+              $ref: '#/components/schemas/ApproveCheckPaymentRequest'
         description: Approve Check Payment Request
         required: true
       responses:
@@ -3084,7 +3082,7 @@ paths:
         content:
           application/vnd.api+json:
             schema:
-              $ref: '#/components/schemas/execute_request_21'
+              $ref: '#/components/schemas/ReturnCheckPaymentRequest'
         description: Return Check Payment Request
         required: true
       responses:
@@ -3185,7 +3183,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/StopPaymentResponse'
           description: OK
-      summary: Create a new stop payment
+      summary: Create Stop Payment
       x-content-type: application/json
       x-accepts: application/json
   /stop-payments/{stop_payment_id}:
@@ -3282,64 +3280,44 @@ components:
       - type
       title: Patch Business Application
       type: object
-    officer:
+    patchBusinessApplicationOfficer:
       additionalProperties: false
       properties:
-        fullName:
-          $ref: '#/components/schemas/fullName'
-        ssn:
-          pattern: "^\\d{9}$"
+        type:
+          default: businessApplication
           type: string
-        passport:
-          type: string
-        nationality:
-          pattern: ^(A(D|E|F|G|I|L|M|N|O|R|S|T|Q|U|W|X|Z)|B(A|B|D|E|F|G|H|I|J|L|M|N|O|Q|R|S|T|V|W|Y|Z)|C(A|C|D|F|G|H|I|K|L|M|N|O|R|U|V|W|X|Y|Z)|D(E|J|K|M|O|Z)|E(C|E|G|H|R|S|T)|F(I|J|K|M|O|R)|G(A|B|D|E|F|G|H|I|L|M|N|P|Q|R|S|T|U|W|Y)|H(K|M|N|R|T|U)|I(D|E|Q|L|M|N|O|R|S|T)|J(E|M|O|P)|K(E|G|H|I|M|N|P|R|W|Y|Z)|L(A|B|C|I|K|R|S|T|U|V|Y)|M(A|C|D|E|F|G|H|K|L|M|N|O|Q|P|R|S|T|U|V|W|X|Y|Z)|N(A|C|E|F|G|I|L|O|P|R|U|Z)|OM|P(A|E|F|G|H|K|L|M|N|R|S|T|W|Y)|QA|R(E|O|S|U|W)|S(A|B|C|D|E|G|H|I|J|K|L|M|N|O|R|T|V|X|Y|Z)|T(C|D|F|G|H|J|K|L|M|N|O|R|T|V|W|Z)|U(A|G|M|S|Y|Z)|V(A|C|E|G|I|N|U)|W(F|S)|XK|Y(E|T)|Z(A|M|W))$
-          type: string
-        matriculaConsular:
-          type: string
-        address:
-          $ref: '#/components/schemas/address'
-        dateOfBirth:
-          format: date
-          type: string
-        phone:
-          $ref: '#/components/schemas/phone'
-        email:
-          format: email
-          type: string
-        occupation:
-          $ref: '#/components/schemas/occupation'
-        annualIncome:
-          $ref: '#/components/schemas/annualIncome'
-        sourceOfIncome:
-          $ref: '#/components/schemas/sourceOfIncome'
-      title: Officer
+        attributes:
+          $ref: '#/components/schemas/patchBusinessApplicationOfficer_attributes'
+      required:
+      - attributes
+      - type
+      title: Patch Business Application
       type: object
-    beneficialOwner:
+    patchBusinessApplicationBeneficialOwner:
       additionalProperties: false
       properties:
-        ssn:
-          pattern: "^\\d{9}$"
+        type:
+          default: beneficialOwner
           type: string
-        passport:
+        attributes:
+          $ref: '#/components/schemas/patchBusinessApplicationBeneficialOwner_attributes'
+      required:
+      - attributes
+      - type
+      title: Patch Business Application
+      type: object
+    patchSoleProprietorApplication:
+      additionalProperties: false
+      properties:
+        type:
+          default: individualApplication
           type: string
-        nationality:
-          pattern: ^(A(D|E|F|G|I|L|M|N|O|R|S|T|Q|U|W|X|Z)|B(A|B|D|E|F|G|H|I|J|L|M|N|O|Q|R|S|T|V|W|Y|Z)|C(A|C|D|F|G|H|I|K|L|M|N|O|R|U|V|W|X|Y|Z)|D(E|J|K|M|O|Z)|E(C|E|G|H|R|S|T)|F(I|J|K|M|O|R)|G(A|B|D|E|F|G|H|I|L|M|N|P|Q|R|S|T|U|W|Y)|H(K|M|N|R|T|U)|I(D|E|Q|L|M|N|O|R|S|T)|J(E|M|O|P)|K(E|G|H|I|M|N|P|R|W|Y|Z)|L(A|B|C|I|K|R|S|T|U|V|Y)|M(A|C|D|E|F|G|H|K|L|M|N|O|Q|P|R|S|T|U|V|W|X|Y|Z)|N(A|C|E|F|G|I|L|O|P|R|U|Z)|OM|P(A|E|F|G|H|K|L|M|N|R|S|T|W|Y)|QA|R(E|O|S|U|W)|S(A|B|C|D|E|G|H|I|J|K|L|M|N|O|R|T|V|X|Y|Z)|T(C|D|F|G|H|J|K|L|M|N|O|R|T|V|W|Z)|U(A|G|M|S|Y|Z)|V(A|C|E|G|I|N|U)|W(F|S)|XK|Y(E|T)|Z(A|M|W))$
-          type: string
-        matriculaConsular:
-          type: string
-        address:
-          $ref: '#/components/schemas/address'
-        dateOfBirth:
-          format: date
-          type: string
-        occupation:
-          $ref: '#/components/schemas/occupation'
-        annualIncome:
-          $ref: '#/components/schemas/annualIncome'
-        sourceOfIncome:
-          $ref: '#/components/schemas/sourceOfIncome'
-      title: Beneficial Owner
+        attributes:
+          $ref: '#/components/schemas/patchSoleProprietorApplication_attributes'
+      required:
+      - attributes
+      - type
+      title: Patch Individual Application
       type: object
     patchIndividualApplication:
       additionalProperties: false
@@ -3483,7 +3461,7 @@ components:
         type: object
       title: BusinessApplication
       type: object
-    officer_1:
+    officer:
       properties:
         status:
           type: string
@@ -3549,7 +3527,7 @@ components:
           $ref: '#/components/schemas/sourceOfIncome'
       title: Officer
       type: object
-    beneficialOwner_1:
+    beneficialOwner:
       properties:
         status:
           type: string
@@ -3851,6 +3829,12 @@ components:
           type: integer
         evaluationParams:
           $ref: '#/components/schemas/evaluationParams'
+        occupation:
+          $ref: '#/components/schemas/occupation'
+        annualIncome:
+          $ref: '#/components/schemas/annualIncome'
+        sourceOfIncome:
+          $ref: '#/components/schemas/sourceOfIncome'
       required:
       - address
       - dateOfBirth
@@ -3873,7 +3857,6 @@ components:
       title: Create Trust Application
       type: object
     application_form:
-      additionalProperties: false
       properties:
         type:
           default: applicationForm
@@ -3885,37 +3868,13 @@ components:
           $ref: '#/components/schemas/application_form_attributes'
         relationships:
           $ref: '#/components/schemas/applicationFormRelationships'
-        officerIsBeneficialOwner:
-          default: false
-          type: boolean
       required:
       - attributes
       - id
       - type
       title: Application Form
       type: object
-    applicationFormRelationships:
-      additionalProperties: false
-      properties:
-        application:
-          $ref: '#/components/schemas/applicationFormRelationships_application'
-      title: applicationFormRelationships
-      type: object
-    createApplicationForm:
-      additionalProperties: false
-      properties:
-        type:
-          default: applicationForm
-          type: string
-        attributes:
-          $ref: '#/components/schemas/createApplicationForm_attributes'
-        relationships:
-          $ref: '#/components/schemas/createApplicationFormRelationships'
-      required:
-      - type
-      title: Create Application Form
-      type: object
-    prefilled:
+    ApplicationFormPrefill:
       additionalProperties: false
       properties:
         applicationType:
@@ -3978,7 +3937,7 @@ components:
           $ref: '#/components/schemas/industry'
       title: Application Form Prefilled
       type: object
-    settingsOverride:
+    ApplicationFormSettingsOverride:
       additionalProperties: false
       properties:
         redirectUrl:
@@ -4017,9 +3976,18 @@ components:
           items:
             $ref: '#/components/schemas/applicationFormAdditionalDisclosures_inner'
           type: array
-        validatePhoneNumber:
-          default: true
-          type: boolean
+      type: object
+    applicationFormRelationships:
+      additionalProperties: false
+      properties:
+        application:
+          $ref: '#/components/schemas/applicationFormRelationships_application'
+      title: applicationFormRelationships
+      type: object
+    createApplicationForm:
+      properties:
+        data:
+          $ref: '#/components/schemas/createApplicationForm_data'
       type: object
     requireIdVerification:
       additionalProperties: false
@@ -4157,7 +4125,6 @@ components:
           $ref: '#/components/schemas/createAccount_data'
       required:
       - data
-      title: Create Account
       type: object
     CreateCreditAccount:
       properties:
@@ -4260,6 +4227,7 @@ components:
           type: string
         attributes:
           $ref: '#/components/schemas/closeAccountRequest_attributes'
+      title: CloseAccountRequest
       type: object
     account_end_of_day:
       additionalProperties: false
@@ -4470,15 +4438,9 @@ components:
         $ref: '#/components/schemas/IncludedResource_inner'
       type: array
     createPayment:
-      oneOf:
-      - $ref: '#/components/schemas/CreateAchPayment'
-      - $ref: '#/components/schemas/CreateAchPaymentCounterparty'
-      - $ref: '#/components/schemas/CreateAchPaymentPlaid'
-      - $ref: '#/components/schemas/CreateBookPayment'
-      - $ref: '#/components/schemas/CreateWirePayment'
-      - $ref: '#/components/schemas/CreateBillPayment'
-      - $ref: '#/components/schemas/CreatePushToCardPayment'
-      title: Create Payment
+      properties:
+        data:
+          $ref: '#/components/schemas/createPayment_data'
       type: object
     CreateAchPayment:
       additionalProperties: false
@@ -4493,7 +4455,7 @@ components:
       required:
       - attributes
       - relationships
-      title: Create ACH Payment
+      title: Create ACH Payment to inline Counterparty
       type: object
     accountRelationship:
       additionalProperties: false
@@ -4516,7 +4478,7 @@ components:
       required:
       - attributes
       - relationships
-      title: Create ACH Payment
+      title: Create ACH Payment to linked Counterparty
       type: object
     counterpartyRelationship:
       additionalProperties: false
@@ -4539,7 +4501,7 @@ components:
       required:
       - attributes
       - relationships
-      title: Create ACH Payment
+      title: Create ACH Payment with Plaid token
       type: object
     CreateBookPayment:
       additionalProperties: false
@@ -4659,7 +4621,6 @@ components:
       title: Received Payment Resource
       type: object
     receivedPaymentRelationships:
-      additionalProperties: true
       properties:
         account:
           $ref: '#/components/schemas/relationships_account'
@@ -4727,10 +4688,9 @@ components:
       title: counterpartyRelationships
       type: object
     createCounterparty:
-      oneOf:
-      - $ref: '#/components/schemas/CreateAchCounterparty'
-      - $ref: '#/components/schemas/CreatePlaidCounterparty'
-      title: Create Counterparty
+      properties:
+        data:
+          $ref: '#/components/schemas/createCounterparty_data'
       type: object
     CreateAchCounterparty:
       additionalProperties: false
@@ -4940,10 +4900,99 @@ components:
           $ref: '#/components/schemas/recurringAchPaymentRelationships_org'
       type: object
     createRecurringPayment:
+      additionalProperties: false
+      properties:
+        data:
+          $ref: '#/components/schemas/createRecurringPayment_data'
+      required:
+      - data
+      type: object
+    createRecurringCreditAchPayment:
+      additionalProperties: false
       properties:
         type:
+          default: recurringCreditAchPayment
           type: string
-      title: Create Recurring Payment
+        attributes:
+          $ref: '#/components/schemas/createRecurringCreditAchPayment_attributes'
+        relationships:
+          $ref: '#/components/schemas/CreateAchPaymentCounterparty_relationships'
+      required:
+      - attributes
+      - relationships
+      - type
+      title: Create Recurring Credit ACH Payment
+      type: object
+    schedule_1:
+      oneOf:
+      - $ref: '#/components/schemas/monthlySchedule'
+      title: schedule
+    monthlySchedule:
+      additionalProperties: false
+      properties:
+        startTime:
+          format: date
+          type: string
+        endTime:
+          format: date
+          type: string
+        dayOfMonth:
+          maximum: 28
+          minimum: -5
+          type: integer
+        dayOfWeek:
+          enum:
+          - Sunday
+          - Monday
+          - Tuesday
+          - Wednesday
+          - Thursday
+          - Friday
+          - Saturday
+          type: string
+        interval:
+          enum:
+          - Monthly
+          - Weekly
+          type: string
+        totalNumberOfPayments:
+          minimum: 1
+          type: integer
+      required:
+      - interval
+      title: Create Monthly Schedule
+      type: object
+    createRecurringDebitAchPayment:
+      additionalProperties: false
+      properties:
+        type:
+          default: recurringDebitAchPayment
+          type: string
+        attributes:
+          $ref: '#/components/schemas/createRecurringDebitAchPayment_attributes'
+        relationships:
+          $ref: '#/components/schemas/CreateAchPaymentCounterparty_relationships'
+      required:
+      - attributes
+      - relationships
+      - type
+      title: Create Recurring Debit ACH Payment
+      type: object
+    createRecurringCreditBookPayment:
+      additionalProperties: false
+      properties:
+        type:
+          default: recurringCreditBookPayment
+          type: string
+        attributes:
+          $ref: '#/components/schemas/createRecurringCreditBookPayment_attributes'
+        relationships:
+          $ref: '#/components/schemas/CreateBookPayment_relationships'
+      required:
+      - attributes
+      - relationships
+      - type
+      title: Create Recurring Credit Book Payment
       type: object
     card:
       discriminator:
@@ -5088,14 +5137,9 @@ components:
       title: Business Virtual Credit Card
       type: object
     createCard:
-      oneOf:
-      - $ref: '#/components/schemas/CreateIndividualDebitCard'
-      - $ref: '#/components/schemas/CreateBusinessDebitCard'
-      - $ref: '#/components/schemas/CreateBusinessCreditCard'
-      - $ref: '#/components/schemas/CreateIndividualVirtualDebitCard'
-      - $ref: '#/components/schemas/CreateBusinessVirtualDebitCard'
-      - $ref: '#/components/schemas/CreateBusinessVirtualCreditCard'
-      title: Create Card
+      properties:
+        data:
+          $ref: '#/components/schemas/createCard_data'
       type: object
     CreateIndividualDebitCard:
       additionalProperties: false
@@ -5568,20 +5612,9 @@ components:
       - receivingAccount
       type: object
     createReward:
-      additionalProperties: false
       properties:
-        type:
-          default: reward
-          type: string
-        attributes:
-          $ref: '#/components/schemas/createReward_attributes'
-        relationships:
-          $ref: '#/components/schemas/createRewardRelationships'
-      required:
-      - attributes
-      - relationships
-      - type
-      title: Reward
+        data:
+          $ref: '#/components/schemas/createReward_data'
       type: object
     createRewardRelationships:
       additionalProperties: false
@@ -5635,29 +5668,6 @@ components:
       title: Institution Resource
       type: object
     createFee:
-      additionalProperties: false
-      properties:
-        type:
-          enum:
-          - fee
-          type: string
-        attributes:
-          $ref: '#/components/schemas/createFee_attributes'
-        relationships:
-          $ref: '#/components/schemas/createFeeRelationships'
-      required:
-      - attributes
-      - relationships
-      - type
-      title: Fee
-      type: object
-    createFeeRelationships:
-      additionalProperties: false
-      properties:
-        account:
-          $ref: '#/components/schemas/Relationship'
-      required:
-      - account
       type: object
     fee:
       properties:
@@ -5745,21 +5755,9 @@ components:
       title: checkDepositRelationships
       type: object
     createCheckDeposit:
-      additionalProperties: false
       properties:
-        type:
-          enum:
-          - checkDeposit
-          type: string
-        attributes:
-          $ref: '#/components/schemas/createCheckDeposit_attributes'
-        relationships:
-          $ref: '#/components/schemas/createCheckDepositRelationships'
-      required:
-      - attributes
-      - relationships
-      - type
-      title: Check Deposit
+        data:
+          $ref: '#/components/schemas/createCheckDeposit_data'
       type: object
     createCheckDepositRelationships:
       additionalProperties: false
@@ -5792,7 +5790,6 @@ components:
       title: Patch Check Deposit
       type: object
     api_token:
-      additionalProperties: true
       properties:
         type:
           default: apiToken
@@ -5802,32 +5799,18 @@ components:
           type: string
         attributes:
           $ref: '#/components/schemas/api_token_attributes'
-      required:
-      - attributes
-      - id
-      - type
       title: apiToken
       type: object
     createApiToken:
-      additionalProperties: false
       properties:
-        type:
-          default: apiToken
-          type: string
-        attributes:
-          $ref: '#/components/schemas/createApiToken_attributes'
-      required:
-      - attributes
-      - type
+        data:
+          $ref: '#/components/schemas/createApiToken_data'
       title: Create API Token
       type: object
     createCustomerToken:
       properties:
-        type:
-          default: customerToken
-          type: string
-        attributes:
-          $ref: '#/components/schemas/createCustomerToken_attributes'
+        data:
+          $ref: '#/components/schemas/createCustomerToken_data'
       type: object
     customer_token:
       additionalProperties: false
@@ -5843,16 +5826,9 @@ components:
       title: CustomerToken
       type: object
     createCustomerTokenVerification:
-      additionalProperties: false
       properties:
-        type:
-          default: customerTokenVerification
-          type: string
-        attributes:
-          $ref: '#/components/schemas/createCustomerTokenVerification_attributes'
-      required:
-      - attributes
-      - type
+        data:
+          $ref: '#/components/schemas/createCustomerTokenVerification_data'
       type: object
     customer_token_verification:
       additionalProperties: false
@@ -5888,6 +5864,19 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/updateUnitRequest_data'
+      type: object
+    atm_location:
+      additionalProperties: false
+      properties:
+        type:
+          default: atmLocation
+          type: string
+        attributes:
+          $ref: '#/components/schemas/atm_location_attributes'
+      required:
+      - attributes
+      - type
+      title: AtmLocation
       type: object
     transaction:
       discriminator:
@@ -6673,7 +6662,6 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/createRepayment_data'
-      title: Create  Repayment
       type: object
     CreateAchRepayment:
       additionalProperties: false
@@ -6761,7 +6749,6 @@ components:
           $ref: '#/components/schemas/CheckPayment'
       required:
       - data
-      title: Create Check Payment
       type: object
     StopPaymentListResponse:
       example:
@@ -6876,7 +6863,6 @@ components:
           $ref: '#/components/schemas/stopPayment'
       required:
       - data
-      title: Create Stop Payment
       type: object
     stopPayment:
       additionalProperties: false
@@ -6966,70 +6952,6 @@ components:
       - Utilities
       - WholesaleTrade
       type: string
-    fullName:
-      additionalProperties: false
-      properties:
-        first:
-          maxLength: 255
-          minLength: 1
-          type: string
-        last:
-          maxLength: 255
-          minLength: 1
-          type: string
-      required:
-      - first
-      - last
-      title: Full Name
-      type: object
-    ssn:
-      pattern: "^\\d{9}$"
-      type: string
-    address:
-      additionalProperties: false
-      properties:
-        street:
-          maxLength: 255
-          minLength: 1
-          pattern: ^.*$
-          type: string
-        street2:
-          nullable: true
-          pattern: ^.*$
-          type: string
-        city:
-          maxLength: 255
-          minLength: 1
-          pattern: ^.*$
-          type: string
-        state:
-          type: string
-        postalCode:
-          pattern: "^[0-9]{5}(?:-[0-9]{4})?$"
-          type: string
-        country:
-          default: US
-          type: string
-      required:
-      - city
-      - country
-      - postalCode
-      - state
-      - street
-      title: Address
-      type: object
-    phone:
-      additionalProperties: false
-      properties:
-        countryCode:
-          type: string
-        number:
-          type: string
-      required:
-      - countryCode
-      - number
-      title: Phone
-      type: object
     occupation:
       enum:
       - ArchitectOrEngineer
@@ -7101,9 +7023,37 @@ components:
       - Pending
       - Canceled
       type: string
+    fullName:
+      additionalProperties: false
+      properties:
+        first:
+          maxLength: 255
+          minLength: 1
+          type: string
+        last:
+          maxLength: 255
+          minLength: 1
+          type: string
+      required:
+      - first
+      - last
+      title: Full Name
+      type: object
     email:
       format: email
       type: string
+    phone:
+      additionalProperties: false
+      properties:
+        countryCode:
+          type: string
+        number:
+          type: string
+      required:
+      - countryCode
+      - number
+      title: Phone
+      type: object
     tags:
       additionalProperties: false
       maxProperties: 15
@@ -7154,6 +7104,39 @@ components:
     state:
       pattern: "^((A[LKSZR])|(C[AOT])|(D[EC])|(F[ML])|(G[AU])|(HI)|(I[DLNA])|(K[SY])|(LA)|(M[EHDAINSOT])|(N[EVHJMYCD])|(MP)|(O[HKR])|(P[WAR])|(RI)|(S[CD])|(T[NX])|(UT)|(V[TIA])|(W[AVIY]))$"
       type: string
+    address:
+      additionalProperties: false
+      properties:
+        street:
+          maxLength: 255
+          minLength: 1
+          pattern: ^.*$
+          type: string
+        street2:
+          nullable: true
+          pattern: ^.*$
+          type: string
+        city:
+          maxLength: 255
+          minLength: 1
+          pattern: ^.*$
+          type: string
+        state:
+          type: string
+        postalCode:
+          pattern: "^[0-9]{5}(?:-[0-9]{4})?$"
+          type: string
+        country:
+          default: US
+          type: string
+      required:
+      - city
+      - country
+      - postalCode
+      - state
+      - street
+      title: Address
+      type: object
     contact:
       additionalProperties: false
       properties:
@@ -7310,9 +7293,6 @@ components:
       items:
         $ref: '#/components/schemas/applicationFormAdditionalDisclosures_inner'
       type: array
-    applicationFormValidatePhoneNumber:
-      default: true
-      type: boolean
     customerLinkage:
       additionalProperties: false
       properties:
@@ -7570,24 +7550,25 @@ components:
       - type
       title: Stop Payment
       type: object
-    execute_request_data_attributes:
+    CancelApplicationRequest_data_attributes:
       properties:
         reason:
           type: string
       type: object
-    execute_request_data:
+    CancelApplicationRequest_data:
       properties:
         type:
           enum:
           - cancelApplication
           type: string
         attributes:
-          $ref: '#/components/schemas/execute_request_data_attributes'
+          $ref: '#/components/schemas/CancelApplicationRequest_data_attributes'
       type: object
-    execute_request:
+    CancelApplicationRequest:
       properties:
         data:
-          $ref: '#/components/schemas/execute_request_data'
+          $ref: '#/components/schemas/CancelApplicationRequest_data'
+      title: CancelApplicationRequest
       type: object
     UnitCancelApplicationResponse:
       properties:
@@ -7666,6 +7647,8 @@ components:
         email:
           type: string
         tags:
+          additionalProperties:
+            type: string
           type: object
       type: object
     UnitApplicationFormsListResponse:
@@ -7676,28 +7659,27 @@ components:
           type: array
       title: UnitApplicationFormsListResponse
       type: object
-    execute_request_1:
-      properties:
-        data:
-          $ref: '#/components/schemas/createApplicationForm'
-      type: object
     UnitApplicationFormResponse:
       properties:
         data:
           $ref: '#/components/schemas/application_form'
       title: UnitApplicationFormResponse
       type: object
-    execute_200_response:
+    UnitListDocumentsResponse:
       properties:
         data:
           items:
             $ref: '#/components/schemas/document'
           type: array
+      title: UnitListDocumentsResponse
       type: object
-    execute_request_2:
+    VerifyDocument:
+      example:
+        jobId: jobId
       properties:
         jobId:
           type: string
+      title: VerifyDocument
       type: object
     UnitApplicationFormResponseWithIncluded:
       properties:
@@ -7731,6 +7713,8 @@ components:
         toBalance:
           type: number
         tags:
+          additionalProperties:
+            type: string
           type: object
       type: object
     UnitAccountsListResponse:
@@ -7753,15 +7737,17 @@ components:
           $ref: '#/components/schemas/limits'
       title: UnitGetAccountLimitsResponse
       type: object
-    execute_request_3:
+    FreezeAccountRequest:
       properties:
         data:
           $ref: '#/components/schemas/freezeAccountRequest'
+      title: FreezeAccountRequest
       type: object
-    execute_request_4:
+    CloseAccountRequest:
       properties:
         data:
           $ref: '#/components/schemas/closeAccountRequest'
+      title: CloseAccountRequest
       type: object
     UnitGetAccountEndOfDayListResponse:
       properties:
@@ -7783,6 +7769,8 @@ components:
         email:
           type: string
         tags:
+          additionalProperties:
+            type: string
           type: object
       type: object
     UnitCustomersListResponse:
@@ -7795,7 +7783,7 @@ components:
           $ref: '#/components/schemas/paginationMeta'
       title: UnitCustomersListResponse
       type: object
-    execute_request_5_attributes:
+    ArchiveCustomerRequest_attributes:
       properties:
         reason:
           enum:
@@ -7809,14 +7797,15 @@ components:
           - FraudLinkedToFraudulentCustomer
           type: string
       type: object
-    execute_request_5:
+    ArchiveCustomerRequest:
       properties:
         type:
           enum:
           - archiveCustomer
           type: string
         attributes:
-          $ref: '#/components/schemas/execute_request_5_attributes'
+          $ref: '#/components/schemas/ArchiveCustomerRequest_attributes'
+      title: ArchiveCustomerRequest
       type: object
     execute_filter_parameter_4:
       properties:
@@ -7871,6 +7860,8 @@ components:
             type: string
           type: array
         tags:
+          additionalProperties:
+            type: string
           type: object
       type: object
     UnitPaymentsListResponse:
@@ -7886,11 +7877,6 @@ components:
         meta:
           $ref: '#/components/schemas/paginationMeta'
       title: UnitPaymentsListResponse
-      type: object
-    execute_request_6:
-      properties:
-        data:
-          $ref: '#/components/schemas/createPayment'
       type: object
     UnitPaymentResponseWithIncluded:
       properties:
@@ -7943,6 +7929,8 @@ components:
             type: string
           type: array
         tags:
+          additionalProperties:
+            type: string
           type: object
       type: object
     UnitCounterpartiesListResponse:
@@ -7950,11 +7938,6 @@ components:
         data:
           $ref: '#/components/schemas/counterparty_1'
       title: UnitCounterpartiesListResponse
-      type: object
-    execute_request_7:
-      properties:
-        data:
-          $ref: '#/components/schemas/createCounterparty'
       type: object
     UnitCounterpartyResponse:
       properties:
@@ -8005,11 +7988,6 @@ components:
           $ref: '#/components/schemas/paginationMeta'
       title: UnitRecurringPaymentListResponse
       type: object
-    execute_request_8:
-      properties:
-        data:
-          $ref: '#/components/schemas/createRecurringPayment'
-      type: object
     execute_filter_parameter_7:
       properties:
         status:
@@ -8029,6 +8007,8 @@ components:
         customerId:
           type: string
         tags:
+          additionalProperties:
+            type: string
           type: object
       type: object
     UnitCardResponseCardsList:
@@ -8042,11 +8022,6 @@ components:
             $ref: '#/components/schemas/IncludedResource'
           type: array
       title: UnitCardResponseCardsList
-      type: object
-    execute_request_9:
-      properties:
-        data:
-          $ref: '#/components/schemas/createCard'
       type: object
     UnitCardResponse:
       properties:
@@ -8110,12 +8085,13 @@ components:
             type: string
           type: array
       type: object
-    execute_200_response_1:
+    UnitListAuthorizationsResponse:
       properties:
         data:
           items:
             $ref: '#/components/schemas/authorization'
           type: array
+      title: UnitListAuthorizationsResponse
       type: object
     UnitAuthorizationResponse:
       properties:
@@ -8138,12 +8114,13 @@ components:
         toAmount:
           type: integer
       type: object
-    execute_200_response_2:
+    UnitListAuthorizationRequestsResponse:
       properties:
         data:
           items:
             $ref: '#/components/schemas/authorization_request'
           type: array
+      title: UnitListAuthorizationRequestsResponse
       type: object
     UnitAuthorizationRequestsResponse:
       properties:
@@ -8151,10 +8128,11 @@ components:
           $ref: '#/components/schemas/authorization_request'
       title: UnitAuthorizationRequestsResponse
       type: object
-    execute_request_10:
+    ApproveAuthorizationRequest:
       properties:
         data:
           $ref: '#/components/schemas/approveAuthorizationRequest'
+      title: ApproveAuthorizationRequest
       type: object
     UnitAuthorizationRequestResponse:
       properties:
@@ -8162,10 +8140,11 @@ components:
           $ref: '#/components/schemas/authorization_request'
       title: UnitAuthorizationRequestResponse
       type: object
-    execute_request_11:
+    DeclineAuthorizationRequest:
       properties:
         data:
           $ref: '#/components/schemas/declineAuthorizationRequest'
+      title: DeclineAuthorizationRequest
       type: object
     execute_filter_parameter_10:
       properties:
@@ -8203,6 +8182,8 @@ components:
         status:
           type: string
         tags:
+          additionalProperties:
+            type: string
           type: object
       type: object
     UnitRewardsListResponse:
@@ -8212,11 +8193,6 @@ components:
             $ref: '#/components/schemas/reward'
           type: array
       title: UnitRewardsListResponse
-      type: object
-    execute_request_12:
-      properties:
-        data:
-          $ref: '#/components/schemas/createReward'
       type: object
     UnitRewardResponse:
       properties:
@@ -8255,11 +8231,6 @@ components:
           $ref: '#/components/schemas/institution'
       title: UnitInstitutionResponse
       type: object
-    execute_request_13:
-      properties:
-        data:
-          $ref: '#/components/schemas/createFee'
-      type: object
     UnitFeeResponse:
       properties:
         data:
@@ -8273,6 +8244,8 @@ components:
         customerId:
           type: string
         tags:
+          additionalProperties:
+            type: string
           type: object
         status:
           items:
@@ -8291,10 +8264,13 @@ components:
             type: string
           type: array
       type: object
-    execute_request_14:
+    UnitListCheckDepositsResponse:
       properties:
         data:
-          $ref: '#/components/schemas/createCheckDeposit'
+          items:
+            $ref: '#/components/schemas/check_deposit'
+          type: array
+      title: UnitListCheckDepositsResponse
       type: object
     UnitCheckDepositResponse:
       properties:
@@ -8316,32 +8292,17 @@ components:
           type: array
       title: UnitOrgApiTokensListResponse
       type: object
-    execute_request_15:
-      properties:
-        data:
-          $ref: '#/components/schemas/createApiToken'
-      type: object
     UnitApiTokenResponse:
       properties:
         data:
           $ref: '#/components/schemas/api_token'
       title: UnitApiTokenResponse
       type: object
-    execute_request_16:
-      properties:
-        data:
-          $ref: '#/components/schemas/createCustomerToken'
-      type: object
     UnitCustomerTokenResponse:
       properties:
         data:
           $ref: '#/components/schemas/customer_token'
       title: UnitCustomerTokenResponse
-      type: object
-    execute_request_17:
-      properties:
-        data:
-          $ref: '#/components/schemas/createCustomerTokenVerification'
       type: object
     UnitCustomerTokenVerificationResponse:
       properties:
@@ -8454,6 +8415,8 @@ components:
         query:
           type: string
         tags:
+          additionalProperties:
+            type: string
           type: object
         since:
           type: string
@@ -8463,13 +8426,6 @@ components:
           type: string
         excludeFees:
           type: boolean
-        status:
-          enum:
-          - Authorized
-          - Completed
-          - Canceled
-          - Declined
-          type: string
         type:
           items:
             type: string
@@ -8498,6 +8454,8 @@ components:
           items:
             $ref: '#/components/schemas/IncludedResource_inner'
           type: array
+        meta:
+          $ref: '#/components/schemas/paginationMeta'
       title: UnitTransactionsListResponse
       type: object
     execute_filter_parameter_17:
@@ -8547,11 +8505,6 @@ components:
           $ref: '#/components/schemas/paginationMeta'
       title: UnitRepaymentsListResponse
       type: object
-    execute_request_18:
-      properties:
-        data:
-          $ref: '#/components/schemas/createRepayment'
-      type: object
     execute_filter_parameter_19:
       properties:
         accountId:
@@ -8591,46 +8544,44 @@ components:
         checkNumber:
           type: string
       type: object
-    execute_200_response_3:
+    UnitListCheckPaymentsResponse:
       properties:
         data:
           items:
             $ref: '#/components/schemas/CheckPayment'
           type: array
+      title: UnitListCheckPaymentsResponse
       type: object
-    execute_request_19:
-      properties:
-        data:
-          $ref: '#/components/schemas/createCheckPayment'
-      type: object
-    execute_request_20_data:
+    ApproveCheckPaymentRequest_data:
       properties:
         type:
           default: additionalVerification
           type: string
       type: object
-    execute_request_20:
+    ApproveCheckPaymentRequest:
       properties:
         data:
-          $ref: '#/components/schemas/execute_request_20_data'
+          $ref: '#/components/schemas/ApproveCheckPaymentRequest_data'
+      title: ApproveCheckPaymentRequest
       type: object
-    execute_request_21_data_attributes:
+    ReturnCheckPaymentRequest_data_attributes:
       properties:
         reason:
           $ref: '#/components/schemas/returnReason'
       type: object
-    execute_request_21_data:
+    ReturnCheckPaymentRequest_data:
       properties:
         type:
           default: checkPaymentReturn
           type: string
         attributes:
-          $ref: '#/components/schemas/execute_request_21_data_attributes'
+          $ref: '#/components/schemas/ReturnCheckPaymentRequest_data_attributes'
       type: object
-    execute_request_21:
+    ReturnCheckPaymentRequest:
       properties:
         data:
-          $ref: '#/components/schemas/execute_request_21_data'
+          $ref: '#/components/schemas/ReturnCheckPaymentRequest_data'
+      title: ReturnCheckPaymentRequest
       type: object
     execute_filter_parameter_20:
       properties:
@@ -8663,17 +8614,14 @@ components:
     update_application_data:
       oneOf:
       - $ref: '#/components/schemas/patchBusinessApplication'
+      - $ref: '#/components/schemas/patchBusinessApplicationOfficer'
+      - $ref: '#/components/schemas/patchBusinessApplicationBeneficialOwner'
+      - $ref: '#/components/schemas/patchSoleProprietorApplication'
       - $ref: '#/components/schemas/patchIndividualApplication'
       - $ref: '#/components/schemas/patchTrustApplication'
     patchBusinessApplication_attributes:
       additionalProperties: false
       properties:
-        officer:
-          $ref: '#/components/schemas/officer'
-        beneficialOwners:
-          items:
-            $ref: '#/components/schemas/beneficialOwner'
-          type: array
         tags:
           additionalProperties: false
           maxProperties: 15
@@ -8694,8 +8642,51 @@ components:
           type: array
         stockSymbol:
           type: string
+        website:
+          type: string
         businessVertical:
           $ref: '#/components/schemas/businessVertical'
+      type: object
+    patchBusinessApplicationOfficer_attributes_officer:
+      properties:
+        occupation:
+          $ref: '#/components/schemas/occupation'
+        annualIncome:
+          $ref: '#/components/schemas/annualIncome'
+        sourceOfIncome:
+          $ref: '#/components/schemas/sourceOfIncome'
+      type: object
+    patchBusinessApplicationOfficer_attributes:
+      additionalProperties: false
+      properties:
+        officer:
+          $ref: '#/components/schemas/patchBusinessApplicationOfficer_attributes_officer'
+      type: object
+    patchBusinessApplicationBeneficialOwner_attributes:
+      additionalProperties: false
+      properties:
+        occupation:
+          $ref: '#/components/schemas/occupation'
+        annualIncome:
+          $ref: '#/components/schemas/annualIncome'
+        sourceOfIncome:
+          $ref: '#/components/schemas/sourceOfIncome'
+      type: object
+    patchSoleProprietorApplication_attributes:
+      additionalProperties: false
+      properties:
+        tags:
+          additionalProperties: false
+          maxProperties: 15
+          type: object
+        annualRevenue:
+          $ref: '#/components/schemas/soleProprietorshipAnnualRevenue'
+        numberOfEmployees:
+          $ref: '#/components/schemas/soleProprietorshipNumberOfEmployees'
+        businessVertical:
+          $ref: '#/components/schemas/businessVertical'
+        website:
+          type: string
       type: object
     patchIndividualApplication_attributes:
       additionalProperties: false
@@ -8710,14 +8701,6 @@ components:
           $ref: '#/components/schemas/annualIncome'
         sourceOfIncome:
           $ref: '#/components/schemas/sourceOfIncome'
-        annualRevenue:
-          $ref: '#/components/schemas/soleProprietorshipAnnualRevenue'
-        numberOfEmployees:
-          $ref: '#/components/schemas/soleProprietorshipNumberOfEmployees'
-        businessVertical:
-          $ref: '#/components/schemas/businessVertical'
-        website:
-          type: string
       type: object
     patchTrustApplication_attributes:
       additionalProperties: false
@@ -8961,14 +8944,14 @@ components:
         contact:
           $ref: '#/components/schemas/contact'
         officer:
-          $ref: '#/components/schemas/officer_1'
+          $ref: '#/components/schemas/officer'
         ip:
           type: string
         website:
           type: string
         beneficialOwners:
           items:
-            $ref: '#/components/schemas/beneficialOwner_1'
+            $ref: '#/components/schemas/beneficialOwner'
           type: array
         decisionMethod:
           enum:
@@ -9492,11 +9475,26 @@ components:
         url:
           type: string
         stage:
+          enum:
+          - ChooseBusinessOrIndividual
+          - EnterIndividualInformation
+          - IndividualPhoneVerification
+          - IndividualApplicationCreated
+          - EnterBusinessInformation
+          - EnterBusinessAdditionalInformation
+          - EnterOfficerInformation
+          - BusinessPhoneVerification
+          - EnterBeneficialOwnersInformation
+          - BusinessApplicationCreated
+          - EnterSoleProprietorshipInformation
+          - EnterSoleProprietorshipBusinessInformation
+          - SoleProprietorshipPhoneVerification
+          - SoleProprietorshipApplicationCreated
           type: string
         applicantDetails:
-          $ref: '#/components/schemas/prefilled'
+          $ref: '#/components/schemas/ApplicationFormPrefill'
         settingsOverride:
-          $ref: '#/components/schemas/settingsOverride'
+          $ref: '#/components/schemas/ApplicationFormSettingsOverride'
         tags:
           additionalProperties: false
           maxProperties: 15
@@ -9528,20 +9526,17 @@ components:
         data:
           $ref: '#/components/schemas/applicationFormRelationships_application_data'
       type: object
-    createApplicationForm_attributes:
+    createApplicationForm_data_attributes:
       additionalProperties: false
       properties:
-        email:
-          format: email
-          type: string
         tags:
           additionalProperties: false
           maxProperties: 15
           type: object
         applicantDetails:
-          $ref: '#/components/schemas/prefilled'
+          $ref: '#/components/schemas/ApplicationFormPrefill'
         settingsOverride:
-          $ref: '#/components/schemas/settingsOverride'
+          $ref: '#/components/schemas/ApplicationFormSettingsOverride'
         requireIdVerification:
           $ref: '#/components/schemas/requireIdVerification'
         allowedApplicationTypes:
@@ -9566,6 +9561,19 @@ components:
         application:
           $ref: '#/components/schemas/Relationship'
       title: createApplicationFormRelationships
+      type: object
+    createApplicationForm_data:
+      additionalProperties: false
+      properties:
+        type:
+          default: applicationForm
+          type: string
+        attributes:
+          $ref: '#/components/schemas/createApplicationForm_data_attributes'
+        relationships:
+          $ref: '#/components/schemas/createApplicationFormRelationships'
+      required:
+      - type
       type: object
     DepositAccount_allOf_attributes_secondaryAccountNumber:
       properties:
@@ -9743,6 +9751,7 @@ components:
       type: object
       example: null
     creditAccountRelationships:
+      additionalProperties: true
       properties:
         customer:
           $ref: '#/components/schemas/customerLinkage'
@@ -9750,7 +9759,6 @@ components:
       - customer
       title: creditAccountRelationships
       type: object
-      example: null
     IndividualCustomer_allOf_attributes:
       properties:
         createdAt:
@@ -10009,11 +10017,6 @@ components:
           type: object
         depositProduct:
           type: string
-        name:
-          type: string
-        overdraftLimit:
-          minimum: 0
-          type: integer
       type: object
     updateCreditAccount_attributes:
       properties:
@@ -10021,8 +10024,8 @@ components:
           additionalProperties: false
           maxProperties: 15
           type: object
-        name:
-          type: string
+        creditLimit:
+          type: integer
       type: object
     limits_attributes_card_limits:
       properties:
@@ -10224,7 +10227,6 @@ components:
           type: array
       type: object
     AchPayment_allOf_attributes:
-      additionalProperties: true
       properties:
         createdAt:
           format: date-time
@@ -10285,6 +10287,7 @@ components:
       - direction
       - status
       type: object
+      example: null
     paymentRelationships_customers_data_inner:
       properties:
         id:
@@ -10441,6 +10444,15 @@ components:
         relationships:
           type: object
       type: object
+    createPayment_data:
+      oneOf:
+      - $ref: '#/components/schemas/CreateAchPayment'
+      - $ref: '#/components/schemas/CreateAchPaymentCounterparty'
+      - $ref: '#/components/schemas/CreateAchPaymentPlaid'
+      - $ref: '#/components/schemas/CreateBookPayment'
+      - $ref: '#/components/schemas/CreateWirePayment'
+      - $ref: '#/components/schemas/CreateBillPayment'
+      - $ref: '#/components/schemas/CreatePushToCardPayment'
     CreateAchPayment_attributes:
       additionalProperties: false
       properties:
@@ -10900,6 +10912,10 @@ components:
       - routingNumber
       - type
       type: object
+    createCounterparty_data:
+      oneOf:
+      - $ref: '#/components/schemas/CreateAchCounterparty'
+      - $ref: '#/components/schemas/CreatePlaidCounterparty'
     CreateAchCounterparty_attributes:
       additionalProperties: false
       properties:
@@ -11262,6 +11278,107 @@ components:
       required:
       - data
       type: object
+    createRecurringPayment_data:
+      oneOf:
+      - $ref: '#/components/schemas/createRecurringCreditAchPayment'
+      - $ref: '#/components/schemas/createRecurringDebitAchPayment'
+      - $ref: '#/components/schemas/createRecurringCreditBookPayment'
+    createRecurringCreditAchPayment_attributes:
+      additionalProperties: false
+      properties:
+        amount:
+          minimum: 1
+          type: integer
+        description:
+          maxLength: 10
+          minLength: 1
+          type: string
+        addenda:
+          maxLength: 80
+          minLength: 1
+          type: string
+        idempotencyKey:
+          maxLength: 255
+          minLength: 1
+          type: string
+        tags:
+          additionalProperties: false
+          maxProperties: 15
+          type: object
+        schedule:
+          $ref: '#/components/schemas/schedule_1'
+      required:
+      - amount
+      - description
+      - schedule
+      type: object
+    createRecurringDebitAchPayment_attributes:
+      additionalProperties: false
+      properties:
+        amount:
+          minimum: 1
+          type: integer
+        description:
+          maxLength: 10
+          minLength: 1
+          type: string
+        addenda:
+          maxLength: 80
+          minLength: 1
+          type: string
+        idempotencyKey:
+          maxLength: 255
+          minLength: 1
+          type: string
+        sameDay:
+          default: false
+          type: boolean
+        verifyCounterpartyBalance:
+          default: false
+          type: boolean
+        tags:
+          additionalProperties: false
+          maxProperties: 15
+          type: object
+        schedule:
+          $ref: '#/components/schemas/schedule_1'
+        clearingDaysOverride:
+          minimum: 0
+          type: integer
+      required:
+      - amount
+      - description
+      - schedule
+      type: object
+    createRecurringCreditBookPayment_attributes:
+      additionalProperties: false
+      properties:
+        amount:
+          minimum: 1
+          type: integer
+        description:
+          maxLength: 80
+          minLength: 1
+          type: string
+        idempotencyKey:
+          maxLength: 255
+          minLength: 1
+          type: string
+        tags:
+          additionalProperties: false
+          maxProperties: 15
+          type: object
+        transactionSummaryOverride:
+          maxLength: 100
+          minLength: 1
+          type: string
+        schedule:
+          $ref: '#/components/schemas/schedule_1'
+      required:
+      - amount
+      - description
+      - schedule
+      type: object
     BusinessDebitCard_allOf_attributes:
       properties:
         createdAt:
@@ -11454,6 +11571,14 @@ components:
       - status
       type: object
       example: null
+    createCard_data:
+      oneOf:
+      - $ref: '#/components/schemas/CreateIndividualDebitCard'
+      - $ref: '#/components/schemas/CreateBusinessDebitCard'
+      - $ref: '#/components/schemas/CreateBusinessCreditCard'
+      - $ref: '#/components/schemas/CreateIndividualVirtualDebitCard'
+      - $ref: '#/components/schemas/CreateBusinessVirtualDebitCard'
+      - $ref: '#/components/schemas/CreateBusinessVirtualCreditCard'
     CreateIndividualDebitCard_attributes:
       additionalProperties: false
       properties:
@@ -12111,7 +12236,7 @@ components:
       - data
       title: cardRelationship
       type: object
-    createReward_attributes:
+    createReward_data_attributes:
       additionalProperties: false
       properties:
         amount:
@@ -12131,6 +12256,21 @@ components:
       required:
       - amount
       - description
+      type: object
+    createReward_data:
+      additionalProperties: false
+      properties:
+        type:
+          default: reward
+          type: string
+        attributes:
+          $ref: '#/components/schemas/createReward_data_attributes'
+        relationships:
+          $ref: '#/components/schemas/createRewardRelationships'
+      required:
+      - attributes
+      - relationships
+      - type
       type: object
     institution_attributes:
       additionalProperties: false
@@ -12150,27 +12290,6 @@ components:
       - isWireSupported
       - name
       - routingNumber
-      type: object
-    createFee_attributes:
-      additionalProperties: false
-      properties:
-        amount:
-          minimum: 1
-          type: integer
-        description:
-          maxLength: 50
-          type: string
-        tags:
-          additionalProperties: false
-          maxProperties: 15
-          type: object
-        idempotencyKey:
-          maxLength: 255
-          minLength: 1
-          type: string
-      required:
-      - amount
-      - description
       type: object
     fee_attributes:
       additionalProperties: false
@@ -12278,7 +12397,7 @@ components:
       required:
       - data
       type: object
-    createCheckDeposit_attributes:
+    createCheckDeposit_data_attributes:
       additionalProperties: false
       properties:
         amount:
@@ -12300,6 +12419,22 @@ components:
       - amount
       - description
       type: object
+    createCheckDeposit_data:
+      properties:
+        type:
+          default: checkDeposit
+          enum:
+          - checkDeposit
+          type: string
+        attributes:
+          $ref: '#/components/schemas/createCheckDeposit_data_attributes'
+        relationships:
+          $ref: '#/components/schemas/createCheckDepositRelationships'
+      required:
+      - attributes
+      - relationships
+      - type
+      type: object
     patchCheckDeposit_attributes:
       additionalProperties: false
       properties:
@@ -12312,7 +12447,6 @@ components:
           type: object
       type: object
     api_token_attributes:
-      additionalProperties: true
       properties:
         createdAt:
           format: date-time
@@ -12329,7 +12463,7 @@ components:
       required:
       - createdAt
       type: object
-    createApiToken_attributes_resources_inner:
+    createApiToken_data_attributes_resources_inner:
       properties:
         type:
           enum:
@@ -12341,7 +12475,7 @@ components:
             $ref: '#/components/schemas/identifier'
           type: array
       type: object
-    createApiToken_attributes:
+    createApiToken_data_attributes:
       additionalProperties: false
       properties:
         scope:
@@ -12355,14 +12489,26 @@ components:
           type: string
         resources:
           items:
-            $ref: '#/components/schemas/createApiToken_attributes_resources_inner'
+            $ref: '#/components/schemas/createApiToken_data_attributes_resources_inner'
           minItems: 1
           type: array
       required:
       - description
       - expiration
       type: object
-    createCustomerToken_attributes:
+    createApiToken_data:
+      additionalProperties: false
+      properties:
+        type:
+          default: apiToken
+          type: string
+        attributes:
+          $ref: '#/components/schemas/createApiToken_data_attributes'
+      required:
+      - attributes
+      - type
+      type: object
+    createCustomerToken_data_attributes:
       properties:
         scope:
           type: string
@@ -12376,11 +12522,19 @@ components:
           type: string
         resources:
           items:
-            $ref: '#/components/schemas/createApiToken_attributes_resources_inner'
+            $ref: '#/components/schemas/createApiToken_data_attributes_resources_inner'
           minItems: 1
           type: array
         upgradableScope:
           type: string
+      type: object
+    createCustomerToken_data:
+      properties:
+        type:
+          default: customerToken
+          type: string
+        attributes:
+          $ref: '#/components/schemas/createCustomerToken_data_attributes'
       type: object
     customer_token_attributes:
       properties:
@@ -12389,7 +12543,7 @@ components:
         expiresIn:
           type: integer
       type: object
-    createCustomerTokenVerification_attributes:
+    createCustomerTokenVerification_data_attributes:
       additionalProperties: false
       properties:
         channel:
@@ -12450,6 +12604,18 @@ components:
       required:
       - channel
       type: object
+    createCustomerTokenVerification_data:
+      additionalProperties: false
+      properties:
+        type:
+          default: customerTokenVerification
+          type: string
+        attributes:
+          $ref: '#/components/schemas/createCustomerTokenVerification_data_attributes'
+      required:
+      - attributes
+      - type
+      type: object
     customer_token_verification_attributes:
       properties:
         verificationToken:
@@ -12460,7 +12626,7 @@ components:
         createdAt:
           format: date-time
           type: string
-        lebel:
+        label:
           type: string
         url:
           type: string
@@ -12478,6 +12644,8 @@ components:
           type: string
         token:
           type: string
+        subscriptionType:
+          type: string
       type: object
     updateUnitRequest_data_attributes:
       properties:
@@ -12490,6 +12658,23 @@ components:
           type: string
         attributes:
           $ref: '#/components/schemas/updateUnitRequest_data_attributes'
+      type: object
+    atm_location_attributes:
+      properties:
+        network:
+          type: string
+        locationName:
+          type: string
+        coordinates:
+          $ref: '#/components/schemas/coordinates'
+        address:
+          $ref: '#/components/schemas/address'
+        distance:
+          type: integer
+        surchargeFree:
+          type: boolean
+        acceptDeposits:
+          type: boolean
       type: object
     OriginatedAchTransaction_allOf_attributes:
       properties:

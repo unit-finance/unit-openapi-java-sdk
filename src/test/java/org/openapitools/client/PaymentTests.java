@@ -72,8 +72,10 @@ public class PaymentTests {
         createBookPayment.setRelationships(relationships);
 
         CreateAPaymentApi createApi = new CreateAPaymentApi();
-        ExecuteRequest6 request = new ExecuteRequest6();
-        request.setData(new CreatePayment(createBookPayment));
+        CreatePayment request = new CreatePayment();
+        CreatePaymentData data = new CreatePaymentData(createBookPayment);
+        request.setData(data);
+
         UnitPaymentResponse response = createApi.execute(request);
         assert response.getData().getType().equals("bookPayment");
     }
@@ -100,8 +102,10 @@ public class PaymentTests {
         createAchPayment.setRelationships(relationships);
 
         CreateAPaymentApi createApi = new CreateAPaymentApi();
-        ExecuteRequest6 request = new ExecuteRequest6();
-        request.setData(new CreatePayment(createAchPayment));
+        CreatePayment request = new CreatePayment();
+        CreatePaymentData data = new CreatePaymentData(createAchPayment);
+        request.setData(data);
+
         UnitPaymentResponse response = createApi.execute(request);
         assert response.getData().getType().equals("achPayment");
     }
@@ -129,8 +133,10 @@ public class PaymentTests {
         createWirePayment.setRelationships(relationships);
 
         CreateAPaymentApi createApi = new CreateAPaymentApi();
-        ExecuteRequest6 request = new ExecuteRequest6();
-        request.setData(new CreatePayment(createWirePayment));
+        CreatePayment request = new CreatePayment();
+        CreatePaymentData data = new CreatePaymentData(createWirePayment);
+        request.setData(data);
+
         UnitPaymentResponse response = createApi.execute(request);
         assert response.getData().getType().equals("wirePayment");
     }

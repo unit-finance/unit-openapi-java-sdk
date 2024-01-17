@@ -111,7 +111,7 @@ public class GetAtmLocationsListApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         if (filter != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("filter", filter));
+            localVarQueryParams.addAll(filter.toParams());
         }
 
         final String[] localVarAccepts = {

@@ -47,6 +47,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.openapitools.client.JSON;
+import org.openapitools.client.Pair;
 
 /**
  * ExecuteFilterParameter9
@@ -333,5 +334,35 @@ public class ExecuteFilterParameter9 {
   public String toJson() {
     return JSON.getGson().toJson(this);
   }
+
+    public List<Pair> toParams() {
+        List<Pair> params = new ArrayList<>();
+
+        if (this.accountId != null) {
+            params.add(new Pair("filter[accountId]", this.accountId));
+        }
+
+        if (this.customerId != null) {
+            params.add(new Pair("filter[customerId]", this.customerId));
+        }
+
+        if (this.fromAmount != null) {
+            params.add(new Pair("filter[fromAmount]", this.fromAmount.toString()));
+        }
+
+        if (this.toAmount != null) {
+            params.add(new Pair("filter[toAmount]", this.toAmount.toString()));
+        }
+
+        if (this.merchantCategoryCode != null) {
+            int i = 0;
+            for (String m : this.merchantCategoryCode) {
+                params.add(new Pair(String.format("filter[merchantCategoryCode][%s]", i), m));
+                i++;
+            }
+        }
+
+        return params;
+    }
 }
 

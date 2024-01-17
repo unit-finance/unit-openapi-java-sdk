@@ -47,6 +47,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.openapitools.client.JSON;
+import org.openapitools.client.Pair;
 
 /**
  * ExecuteFilterParameter18
@@ -447,6 +448,40 @@ public class ExecuteFilterParameter18 {
   */
   public String toJson() {
     return JSON.getGson().toJson(this);
+  }
+
+  public List<Pair> toParams() {
+    List<Pair> params = new ArrayList<>();
+
+    if (this.accountId != null) {
+      params.add(new Pair("filter[accountId]", this.accountId));
+    }
+
+    if (this.creditAccountId != null) {
+      params.add(new Pair("filter[creditAccountId]", this.creditAccountId));
+    }
+
+    if (this.customerId != null) {
+      params.add(new Pair("filter[customerId]", this.customerId));
+    }
+
+    if (this.status != null) {
+      int i = 0;
+      for (StatusEnum s : this.status) {
+        params.add(new Pair(String.format("filter[status][%s]", i), s.getValue()));
+        i++;
+      }
+    }
+
+    if (this.type != null) {
+      int i = 0;
+      for (TypeEnum t : this.type) {
+        params.add(new Pair(String.format("filter[type][%s]", i), t.getValue()));
+        i++;
+      }
+    }
+
+    return params;
   }
 }
 

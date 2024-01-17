@@ -47,8 +47,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.openapitools.client.JSON;
+import org.openapitools.client.Pair;
 
 /**
  * ExecuteFilterParameter4
@@ -811,6 +813,75 @@ public class ExecuteFilterParameter4 {
   */
   public String toJson() {
     return JSON.getGson().toJson(this);
+  }
+
+  public List<Pair> toParams() {
+    List<Pair> params = new ArrayList<>();
+
+    if (this.accountId != null) {
+      params.add(new Pair("filter[accountId]", this.accountId));
+    }
+
+    if (this.counterpartyAccountId != null) {
+      params.add(new Pair("filter[counterpartyAccountId]", this.counterpartyAccountId));
+    }
+
+    if (this.customerId != null) {
+      params.add(new Pair("filter[customerId]", this.customerId));
+    }
+
+    if (this.fromAmount != null) {
+      params.add(new Pair("filter[fromAmount]", this.fromAmount.toString()));
+    }
+
+    if (this.recurringPaymentId != null) {
+      params.add(new Pair("filter[recurringPaymentId]", this.recurringPaymentId.toString()));
+    }
+
+    if (this.toAmount != null) {
+      params.add(new Pair("filter[toAmount]", this.toAmount.toString()));
+    }
+
+    if (this.since != null) {
+      params.add(new Pair("filter[since]", this.since));
+    }
+
+    if (this.until != null) {
+      params.add(new Pair("filter[until]", this.until));
+    }
+
+    if (this.status != null) {
+      int i = 0;
+      for (StatusEnum s : this.status) {
+        params.add(new Pair(String.format("filter[status][%s]", i), s.getValue()));
+        i++;
+      }
+    }
+
+    if (this.direction != null) {
+      int i = 0;
+      for (DirectionEnum d : this.direction) {
+        params.add(new Pair(String.format("filter[direction][%s]", i), d.getValue()));
+        i++;
+      }
+    }
+
+    if (this.feature != null) {
+      int i = 0;
+      for (FeatureEnum f : this.feature) {
+        params.add(new Pair(String.format("filter[status][%s]", i), f.getValue()));
+        i++;
+      }
+    }
+
+    if (this.tags != null) {
+      String tagsAsString = this.tags.keySet().stream()
+              .map(key -> key + ":" + this.tags.get(key))
+              .collect(Collectors.joining(", ", "{", "}"));
+      params.add(new Pair("filter[tags]", tagsAsString));
+    }
+
+    return params;
   }
 }
 

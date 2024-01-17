@@ -47,6 +47,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.openapitools.client.JSON;
+import org.openapitools.client.Pair;
 
 /**
  * ExecuteFilterParameter8
@@ -575,6 +576,64 @@ public class ExecuteFilterParameter8 {
   */
   public String toJson() {
     return JSON.getGson().toJson(this);
+  }
+
+  public List<Pair> toParams() {
+    List<Pair> params = new ArrayList<>();
+
+    if (this.accountId != null) {
+      params.add(new Pair("filter[accountId]", this.accountId));
+    }
+
+    if (this.customerId != null) {
+      params.add(new Pair("filter[customerId]", this.customerId));
+    }
+
+    if (this.cardId != null) {
+      params.add(new Pair("filter[cardId]", this.cardId));
+    }
+
+    if (this.status != null) {
+      int i = 0;
+      for (StatusEnum s : this.status) {
+        params.add(new Pair(String.format("filter[status][%s]", i), s.getValue()));
+        i++;
+      }
+    }
+
+    if (this.fromAmount != null) {
+      params.add(new Pair("filter[fromAmount]", this.fromAmount.toString()));
+    }
+
+    if (this.toAmount != null) {
+      params.add(new Pair("filter[toAmount]", this.toAmount.toString()));
+    }
+
+    if (this.includeNonAuthorized != null) {
+      params.add(new Pair("filter[includeNonAuthorized]", this.includeNonAuthorized.toString()));
+    }
+
+    if (this.accountType != null) {
+      params.add(new Pair("filter[accountType]", this.accountType));
+    }
+
+    if (this.since != null) {
+      params.add(new Pair("filter[since]", this.since));
+    }
+
+    if (this.until != null) {
+      params.add(new Pair("filter[until]", this.until));
+    }
+
+    if (this.merchantCategoryCode != null) {
+      int i = 0;
+      for (String m : this.merchantCategoryCode) {
+        params.add(new Pair(String.format("filter[merchantCategoryCode][%s]", i), m));
+        i++;
+      }
+    }
+
+    return params;
   }
 }
 

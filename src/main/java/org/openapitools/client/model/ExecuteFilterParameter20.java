@@ -47,8 +47,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.openapitools.client.JSON;
+import org.openapitools.client.Pair;
 
 /**
  * ExecuteFilterParameter20
@@ -510,6 +512,30 @@ public class ExecuteFilterParameter20 {
   */
   public String toJson() {
     return JSON.getGson().toJson(this);
+  }
+  public List<Pair> toParams(){
+    List<Pair> params = new ArrayList<>();
+
+    if(this.customerId != null){
+      params.add(new Pair("filter[customerId]", this.customerId));
+    }
+
+    if(this.status != null){
+      int i=0;
+      for (StatusEnum s:this.status) {
+        params.add(new Pair(String.format("filter[status][%s]", i), s.getValue()));
+        i++;
+      }
+    }
+
+    if(this.tags != null){
+      String tagsAsString = this.tags.keySet().stream()
+              .map(key -> key + ":" + this.tags.get(key))
+              .collect(Collectors.joining(", ", "{", "}"));
+      params.add(new Pair("filter[tags]", tagsAsString));
+    }
+
+    return params;
   }
 }
 

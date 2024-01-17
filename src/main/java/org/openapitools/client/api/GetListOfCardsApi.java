@@ -115,11 +115,11 @@ public class GetListOfCardsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         if (page != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+            localVarQueryParams.addAll(page.toParams());
         }
 
         if (filter != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("filter", filter));
+            localVarQueryParams.addAll(filter.toParams());
         }
 
         if (include != null) {

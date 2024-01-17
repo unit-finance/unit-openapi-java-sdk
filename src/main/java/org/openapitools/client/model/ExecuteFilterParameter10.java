@@ -13,14 +13,14 @@
 
 package org.openapitools.client.model;
 
-import java.util.Objects;
+import java.util.*;
+
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -38,13 +38,9 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 import org.openapitools.client.JSON;
+import org.openapitools.client.Pair;
 
 /**
  * ExecuteFilterParameter10
@@ -265,6 +261,24 @@ public class ExecuteFilterParameter10 {
   */
   public String toJson() {
     return JSON.getGson().toJson(this);
+  }
+
+  public List<Pair> toParams() {
+      List<Pair> params = new ArrayList<>();
+
+      if (this.accountId != null) {
+          params.add(new Pair("filter[accountId]", this.accountId));
+      }
+
+      if (this.customerId != null) {
+          params.add(new Pair("filter[customerId]", this.customerId));
+      }
+
+      if (this.period != null) {
+          params.add(new Pair("filter[period]", this.period));
+      }
+
+      return params;
   }
 }
 

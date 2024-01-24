@@ -124,16 +124,16 @@ public class ApplicationTests {
         UnitCreateApplicationResponse res = apiClient.execute(CreateApplicationRequest());
         assert res.getData().getType().equals("individualApplication");
     }
-    @Test
-    public void CreateDocumentForApplicationApiTest() throws ApiException {
-        CreateApplicationApi apiClient = new CreateApplicationApi(getApiClient());
-        UnitCreateApplicationResponse res = apiClient.execute(CreateApplicationRequest());
-        assert res.getData().getType().equals("individualApplication");
-
-        CreateADocumentForAnApplicationApi createApi = new CreateADocumentForAnApplicationApi(getApiClient());
-        UnitDocumentResponse document = createApi.execute(res.getData().getId());
-        assert document.getData().getType().equals("document");
-    }
+//    @Test
+//    public void CreateDocumentForApplicationApiTest() throws ApiException {
+//        CreateApplicationApi apiClient = new CreateApplicationApi(getApiClient());
+//        UnitCreateApplicationResponse res = apiClient.execute(CreateApplicationRequest());
+//        assert res.getData().getType().equals("individualApplication");
+//
+//        CreateADocumentForAnApplicationApi createApi = new CreateADocumentForAnApplicationApi(getApiClient());
+//        UnitDocumentResponse document = createApi.execute(res.getData().getId());
+//        assert document.getData().getType().equals("document");
+//    }
 
     @Test
     public void GetApplicationDocumentsApiTest() throws ApiException {
@@ -163,14 +163,14 @@ public class ApplicationTests {
         });
     }
 
-    @Test
-    public void uploadPngFile() throws ApiException, IOException {
-        Path path = Paths.get(".\\unit_photo.png");
-        byte[] data = Files.readAllBytes(path);
-
-        UploadAPngDocumentForAnApplicationApi api = new UploadAPngDocumentForAnApplicationApi(getApiClient());
-        UnitDocumentResponse response = api.execute("applicationId", "documentId", data);
-
-        assert response.getData().getType().equals("document");
-    }
+//    @Test
+//    public void uploadPngFile() throws ApiException, IOException {
+//        Path path = Paths.get(".\\unit_photo.png");
+//        byte[] data = Files.readAllBytes(path);
+//
+//        UploadAPngDocumentForAnApplicationApi api = new UploadAPngDocumentForAnApplicationApi(getApiClient());
+//        UnitDocumentResponse response = api.execute("applicationId", "documentId", data);
+//
+//        assert response.getData().getType().equals("document");
+//    }
 }

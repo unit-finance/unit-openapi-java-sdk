@@ -13,8 +13,6 @@ import static unit.java.sdk.TestHelpers.getApiClient;
 import java.util.HashMap;
 
 public class AccountTests {
-    private static ApiClient apiClient = getApiClient();
-
     @Test
     public void GetAccountListApiTest() throws ApiException {
         GetListAccountsApi api = new GetListAccountsApi(getApiClient());
@@ -25,12 +23,12 @@ public class AccountTests {
 
     @Test
     public void GetAccountApiTest() throws ApiException {
-        GetListAccountsApi api = new GetListAccountsApi();
+        GetListAccountsApi api = new GetListAccountsApi(getApiClient());
 
         UnitAccountsListResponse response = api.execute(null, null, null);
         assert response.getData().size() > 0;
 
-        GetAccountApi getApi = new GetAccountApi();
+        GetAccountApi getApi = new GetAccountApi(getApiClient());
 
         response.getData().forEach(x -> {
             try {
@@ -45,7 +43,7 @@ public class AccountTests {
     }
     @Test
     public void UpdateAccountApiTest() throws ApiException {
-        GetListAccountsApi api = new GetListAccountsApi();
+        GetListAccountsApi api = new GetListAccountsApi(getApiClient());
 
         UnitAccountsListResponse response = api.execute(null, null, null);
         assert response.getData().size() > 0;

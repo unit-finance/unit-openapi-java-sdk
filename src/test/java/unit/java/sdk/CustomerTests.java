@@ -15,13 +15,12 @@ import static unit.java.sdk.TestHelpers.getApiClient;
 public class CustomerTests {
     @Test
     public void GetCustomersListApiTest() throws ApiException {
-        GetListCustomersApi api = new GetListCustomersApi();
+        GetListCustomersApi api = new GetListCustomersApi(getApiClient());
 
         UnitCustomersListResponse response = api.execute(null, null, null);
         assert response.getData().size() > 0;
     }
 
-    @Test
     public static IndividualCustomer CreateIndividualCustomer() throws ApiException {
         CreateApplicationApi apiClient = new CreateApplicationApi(getApiClient());
         UnitCreateApplicationResponse res = apiClient.execute(CreateApplicationRequest());

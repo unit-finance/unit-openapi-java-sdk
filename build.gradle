@@ -135,7 +135,7 @@ dependencies {
     implementation "jakarta.annotation:jakarta.annotation-api:$jakarta_annotation_version"
     implementation 'jakarta.annotation:jakarta.annotation-api:2.1.1'
     testImplementation "junit:junit:$junit_version"
-}
+} 
 
 javadoc {
     options.tags = [ "http.response.details:a:Http Response Details" ]

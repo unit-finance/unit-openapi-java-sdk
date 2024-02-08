@@ -6,8 +6,9 @@ The official Java client library for the [Unit API](https://unit.co/docs/api/). 
 ## Requirements
 
 Building the API client library requires:
-1. Java 1.8+
-2. Maven (3.8.3+)/Gradle (7.2+)
+
+1. Java 11+
+2. Maven/Gradle
 
 ## Installation
 Add this dependency to your project's POM:
@@ -23,7 +24,7 @@ Add this dependency to your project's POM:
     <dependency>
         <groupId>co.unit</groupId>
         <artifactId>java-sdk</artifactId>
-        <version>0.0.1</version>
+        <version>0.0.3</version>
     </dependency>
 </dependencies>
 ```

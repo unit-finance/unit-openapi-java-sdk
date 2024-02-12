@@ -2,7 +2,7 @@ openapi: 3.0.2
 info:
   description: An OpenAPI specifications for unit-sdk clients
   title: Unit OpenAPI specifications
-  version: 0.0.2
+  version: 0.0.3
 servers:
 - url: https://api.s.unit.sh
 security:
@@ -98,10 +98,12 @@ paths:
       description: 'Get List Applications from API '
       operationId: execute
       parameters:
-      - in: query
+      - allowReserved: true
+        in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
+        style: deepObject
       - allowReserved: true
         in: query
         name: filter
@@ -454,14 +456,14 @@ paths:
       responses:
         "200":
           content:
-            application/vnd.api+json; charset=utf-8:
+            application/vnd.api+json:
               schema:
                 $ref: '#/components/schemas/UnitDocumentResponse'
           description: Successful Response
       summary: Create a document
       tags:
       - Create a Document for an Application
-      x-accepts: application/vnd.api+json; charset=utf-8
+      x-accepts: application/vnd.api+json
   /applications/{applicationId}/documents/{documentId}/verify:
     put:
       description: 'Verify a document via API '
@@ -587,10 +589,12 @@ paths:
       description: 'Get List Accounts from API '
       operationId: execute
       parameters:
-      - in: query
+      - allowReserved: true
+        in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
+        style: deepObject
       - allowReserved: true
         in: query
         name: filter
@@ -963,10 +967,12 @@ paths:
       description: 'Get Customers List from API '
       operationId: execute
       parameters:
-      - in: query
+      - allowReserved: true
+        in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
+        style: deepObject
       - allowReserved: true
         in: query
         name: filter
@@ -1023,10 +1029,12 @@ paths:
       description: 'Get List Payments from API '
       operationId: execute
       parameters:
-      - in: query
+      - allowReserved: true
+        in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
+        style: deepObject
       - allowReserved: true
         in: query
         name: filter
@@ -1253,10 +1261,12 @@ paths:
       description: 'Get Counterparties List from API '
       operationId: execute
       parameters:
-      - in: query
+      - allowReserved: true
+        in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
+        style: deepObject
       - allowReserved: true
         in: query
         name: filter
@@ -1399,10 +1409,12 @@ paths:
       description: 'Get Recurring Payments List from API '
       operationId: execute
       parameters:
-      - in: query
+      - allowReserved: true
+        in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
+        style: deepObject
       - allowReserved: true
         in: query
         name: filter
@@ -1517,10 +1529,12 @@ paths:
       description: 'Get List of Cards from API '
       operationId: execute
       parameters:
-      - in: query
+      - allowReserved: true
+        in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
+        style: deepObject
       - allowReserved: true
         in: query
         name: filter
@@ -1782,10 +1796,12 @@ paths:
       description: 'Get List Authorizations from API '
       operationId: execute
       parameters:
-      - in: query
+      - allowReserved: true
+        in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
+        style: deepObject
       - allowReserved: true
         in: query
         name: filter
@@ -1838,10 +1854,12 @@ paths:
       description: 'Get List Authorization Requests from API '
       operationId: execute
       parameters:
-      - in: query
+      - allowReserved: true
+        in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
+        style: deepObject
       - allowReserved: true
         in: query
         name: filter
@@ -1946,10 +1964,12 @@ paths:
       description: 'Get List Statements from API '
       operationId: execute
       parameters:
-      - in: query
+      - allowReserved: true
+        in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
+        style: deepObject
       - allowReserved: true
         in: query
         name: filter
@@ -2044,10 +2064,12 @@ paths:
       description: 'Get Rewards List from API '
       operationId: execute
       parameters:
-      - in: query
+      - allowReserved: true
+        in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
+        style: deepObject
       - allowReserved: true
         in: query
         name: filter
@@ -2122,10 +2144,12 @@ paths:
       description: 'Get Events List from API '
       operationId: execute
       parameters:
-      - in: query
+      - allowReserved: true
+        in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
+        style: deepObject
       - allowReserved: true
         in: query
         name: filter
@@ -2236,10 +2260,12 @@ paths:
       description: 'Get List Check Deposits from API '
       operationId: execute
       parameters:
-      - in: query
+      - allowReserved: true
+        in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
+        style: deepObject
       - allowReserved: true
         in: query
         name: filter
@@ -2548,10 +2574,12 @@ paths:
       description: 'Get List Webhooks from API '
       operationId: execute
       parameters:
-      - in: query
+      - allowReserved: true
+        in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
+        style: deepObject
       - allowReserved: true
         in: query
         name: filter
@@ -2783,10 +2811,12 @@ paths:
       description: 'Get List Transactions from API '
       operationId: execute
       parameters:
-      - in: query
+      - allowReserved: true
+        in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
+        style: deepObject
       - allowReserved: true
         in: query
         name: filter
@@ -2817,10 +2847,12 @@ paths:
       description: 'Get List Disputes from API '
       operationId: execute
       parameters:
-      - in: query
+      - allowReserved: true
+        in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
+        style: deepObject
       - allowReserved: true
         in: query
         name: filter
@@ -2868,10 +2900,12 @@ paths:
       description: 'Get List Repayments from API '
       operationId: execute
       parameters:
-      - in: query
+      - allowReserved: true
+        in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
+        style: deepObject
       - allowReserved: true
         in: query
         name: filter
@@ -2944,10 +2978,12 @@ paths:
       description: 'Get List Check Payments from API '
       operationId: execute
       parameters:
-      - in: query
+      - allowReserved: true
+        in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
+        style: deepObject
       - in: query
         name: filter
         schema:
@@ -3147,10 +3183,12 @@ paths:
     get:
       operationId: execute
       parameters:
-      - in: query
+      - allowReserved: true
+        in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
+        style: deepObject
       - in: query
         name: filter
         schema:
@@ -4086,7 +4124,7 @@ components:
       title: IndividualCustomer
       type: object
     customerRelationships:
-      additionalProperties: false
+      additionalProperties: true
       properties:
         org:
           $ref: '#/components/schemas/orgRelationship'
@@ -4621,6 +4659,7 @@ components:
       title: Received Payment Resource
       type: object
     receivedPaymentRelationships:
+      additionalProperties: true
       properties:
         account:
           $ref: '#/components/schemas/relationships_account'
@@ -8840,7 +8879,7 @@ components:
           type: string
       type: object
     documentsRelationship:
-      additionalProperties: false
+      additionalProperties: true
       properties:
         data:
           items:
@@ -12390,7 +12429,7 @@ components:
       - type
       type: object
     checkDepositRelationships_account:
-      additionalProperties: false
+      additionalProperties: true
       properties:
         data:
           $ref: '#/components/schemas/checkDepositRelationships_account_data'

@@ -6,8 +6,9 @@ The official Java client library for the [Unit API](https://unit.co/docs/api/). 
 ## Requirements
 
 Building the API client library requires:
-1. Java 1.8+
-2. Maven (3.8.3+)/Gradle (7.2+)
+
+1. Java 11+
+2. Maven/Gradle
 
 ## Installation
 Add this dependency to your project's POM:
@@ -23,7 +24,7 @@ Add this dependency to your project's POM:
     <dependency>
         <groupId>co.unit</groupId>
         <artifactId>java-sdk</artifactId>
-        <version>0.0.1</version>
+        <version>0.0.3</version>
     </dependency>
 </dependencies>
 ```
@@ -33,9 +34,8 @@ For more examples of basic usage, see the [Test suites](https://github.com/unit-
 
 ```java
 String access_token = System.getenv("access_token");
-ApiClient cl = new ApiClient();
-cl.setBearerToken(access_token);
-Configuration.setDefaultApiClient(cl);
+ApiClient apiClient = new ApiClient();
+apiClient.setRequestInterceptor(r -> r.header("Authorization", "Bearer " + access_token));
 
 CreateIndividualApplication createIndividualApplication = new CreateIndividualApplication();
 CreateIndividualApplicationAttributes attr = new CreateIndividualApplicationAttributes();
@@ -65,11 +65,10 @@ attr.setOccupation(Occupation.ARCHITECTORENGINEER);
 
 createIndividualApplication.setAttributes(attr);
 
-CreateApplication request = new CreateApplication();
-request.data(new CreateApplicationData(createIndividualApplication));
+CreateApplication ca = new CreateApplication();
+ca.data(new CreateApplicationData(createIndividualApplication));
 
-
-CreateApplicationApi apiClient = new CreateApplicationApi();
+CreateApplicationApi createApiClient = new CreateApplicationApi(apiClient);
 UnitCreateApplicationResponse res = apiClient.execute(request);
 ```
 
@@ -77,23 +76,8 @@ UnitCreateApplicationResponse res = apiClient.execute(request);
 To generate a customized version of the unit-java-sdk using our [OpenAPI project](https://github.com/unit-finance/openapi-unit-sdk)
 we suggest using the open-generator-cli to generate the Java client using the following command:
 ```commandline
-openapi-generator-cli generate -g java -i openapi.json -o unit-java-sdk
---additional-properties hideGenerationTimestamp=true
+openapi-generator-cli generate -g java -i openapi.json -o unit 
+-p hideGenerationTimestamp=true -p packageName=unit.java.sdk 
+-p modelPackage=unit.java.sdk.model -p apiPackage=unit.java.sdk.api 
+--library native -p useJakartaEe=true
 ```
-Please note that the current generator version lacks support for deepObjects. After generating the Java client, if you wish to enable functionality for list parameters, you'll need to implement a serialization function. A sample of this function, named `toParams()`, can be found in `client/model/ExecuteFilterParameter.java`.
-
-Additionally, modifications need to be made to the executeCall function in each GetList file that utilizes parameters:
-```java
-if (page != null) {
-    localVarQueryParams.addAll(page.toParams());
-}
-
-if (filter != null) {
-    localVarQueryParams.addAll(filter.toParams());
-}
-
-if (include != null) {
-    localVarQueryParams.addAll(localVarApiClient.parameterToPair("include", include));
-}
-```
-For parameters defined as deepObjects (beyond primitive types), these should be appended to localVarQueryParams after serialization using the `toParams()` function, rather than using `localVarApiClient.parameterToPair()` which is designed for primitive types exclusively.

@@ -427,9 +427,9 @@ public class ApiClient {
    *
    * <p> In the case where a new connection needs to be established, if
    * the connection cannot be established within the given {@code
-   * duration}, then {@link HttpClient#send(HttpRequest,BodyHandler)
+   * duration}, then {@link HttpClient #send(HttpRequest,BodyHandler)
    * HttpClient::send} throws an {@link HttpConnectTimeoutException}, or
-   * {@link HttpClient#sendAsync(HttpRequest,BodyHandler)
+   * {@link HttpClient #sendAsync(HttpRequest,BodyHandler)
    * HttpClient::sendAsync} completes exceptionally with an
    * {@code HttpConnectTimeoutException}. If a new connection does not
    * need to be established, for example if a connection can be reused

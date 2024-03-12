@@ -28,19 +28,15 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import unit.java.sdk.model.BusinessCustomerAllOfAttributes;
-import unit.java.sdk.model.Customer;
-import unit.java.sdk.model.CustomerRelationships;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 import unit.java.sdk.JSON;
 /**
- * BusinessCustomer
+ * AccountLimits
  */
 @JsonPropertyOrder({
-  BusinessCustomer.JSON_PROPERTY_ATTRIBUTES,
-  BusinessCustomer.JSON_PROPERTY_RELATIONSHIPS
+  AccountLimits.JSON_PROPERTY_TYPE
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 @JsonIgnoreProperties(
@@ -48,81 +44,45 @@ import unit.java.sdk.JSON;
   allowSetters = true // allows the type to be set during deserialization
 )
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type", visible = true)
+@JsonSubTypes({
+  @JsonSubTypes.Type(value = CreditLimits.class, name = "creditLimits"),
+  @JsonSubTypes.Type(value = DepositLimits.class, name = "limits"),
+})
 
-public class BusinessCustomer extends Customer {
-  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private BusinessCustomerAllOfAttributes attributes;
+public class AccountLimits {
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private String type;
 
-  public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
-  private CustomerRelationships relationships;
-
-  public BusinessCustomer() { 
+  public AccountLimits() { 
   }
 
-  public BusinessCustomer attributes(BusinessCustomerAllOfAttributes attributes) {
-    this.attributes = attributes;
+  public AccountLimits type(String type) {
+    this.type = type;
     return this;
   }
 
    /**
-   * Get attributes
-   * @return attributes
+   * Get type
+   * @return type
   **/
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public BusinessCustomerAllOfAttributes getAttributes() {
-    return attributes;
+  public String getType() {
+    return type;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAttributes(BusinessCustomerAllOfAttributes attributes) {
-    this.attributes = attributes;
+  public void setType(String type) {
+    this.type = type;
   }
 
-
-  public BusinessCustomer relationships(CustomerRelationships relationships) {
-    this.relationships = relationships;
-    return this;
-  }
-
-   /**
-   * Get relationships
-   * @return relationships
-  **/
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public CustomerRelationships getRelationships() {
-    return relationships;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRelationships(CustomerRelationships relationships) {
-    this.relationships = relationships;
-  }
-
-
-  @Override
-  public BusinessCustomer id(String id) {
-    this.setId(id);
-    return this;
-  }
-
-  @Override
-  public BusinessCustomer type(String type) {
-    this.setType(type);
-    return this;
-  }
 
   /**
-   * Return true if this BusinessCustomer object is equal to o.
+   * Return true if this account_limits object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -132,24 +92,20 @@ public class BusinessCustomer extends Customer {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    BusinessCustomer businessCustomer = (BusinessCustomer) o;
-    return Objects.equals(this.attributes, businessCustomer.attributes) &&
-        Objects.equals(this.relationships, businessCustomer.relationships) &&
-        super.equals(o);
+    AccountLimits accountLimits = (AccountLimits) o;
+    return Objects.equals(this.type, accountLimits.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(attributes, relationships, super.hashCode());
+    return Objects.hash(type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BusinessCustomer {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
-    sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
+    sb.append("class AccountLimits {\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -197,24 +153,9 @@ public class BusinessCustomer extends Customer {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `id` to the URL query string
-    if (getId() != null) {
-      joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
     // add `type` to the URL query string
     if (getType() != null) {
       joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `attributes` to the URL query string
-    if (getAttributes() != null) {
-      joiner.add(getAttributes().toUrlQueryString(prefix + "attributes" + suffix));
-    }
-
-    // add `relationships` to the URL query string
-    if (getRelationships() != null) {
-      joiner.add(getRelationships().toUrlQueryString(prefix + "relationships" + suffix));
     }
 
     return joiner.toString();
@@ -222,8 +163,10 @@ public class BusinessCustomer extends Customer {
 static {
   // Initialize and register the discriminator mappings.
   Map<String, Class<?>> mappings = new HashMap<String, Class<?>>();
-  mappings.put("BusinessCustomer", BusinessCustomer.class);
-  JSON.registerDiscriminator(BusinessCustomer.class, "type", mappings);
+  mappings.put("creditLimits", CreditLimits.class);
+  mappings.put("limits", DepositLimits.class);
+  mappings.put("account_limits", AccountLimits.class);
+  JSON.registerDiscriminator(AccountLimits.class, "type", mappings);
 }
 }
 

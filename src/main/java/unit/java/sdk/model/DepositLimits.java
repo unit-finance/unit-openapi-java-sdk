@@ -28,8 +28,8 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
+import unit.java.sdk.model.AccountLimits;
 import unit.java.sdk.model.DepositLimitsAllOfAttributes;
-import unit.java.sdk.model.Limits1;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
@@ -47,7 +47,7 @@ import unit.java.sdk.JSON;
 )
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type", visible = true)
 
-public class DepositLimits extends Limits1 {
+public class DepositLimits extends AccountLimits {
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private DepositLimitsAllOfAttributes attributes;
 

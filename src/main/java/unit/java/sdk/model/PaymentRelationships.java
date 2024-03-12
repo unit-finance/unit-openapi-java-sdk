@@ -13,10 +13,6 @@
 
 package unit.java.sdk.model;
 
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.StringJoiner;
@@ -29,8 +25,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import unit.java.sdk.model.PaymentRelationshipsCustomers;
 import unit.java.sdk.model.Relationship;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -49,7 +43,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   PaymentRelationships.JSON_PROPERTY_RECURRING_PAYMENT
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class PaymentRelationships extends HashMap<String, Object> {
+public class PaymentRelationships {
   public static final String JSON_PROPERTY_ACCOUNT = "account";
   private Relationship account;
 
@@ -248,49 +242,6 @@ public class PaymentRelationships extends HashMap<String, Object> {
     this.recurringPayment = recurringPayment;
   }
 
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
-
-  /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
-   * @param key the name of the property
-   * @param value the value of the property
-   * @return self reference
-   */
-  @JsonAnySetter
-  public PaymentRelationships putAdditionalProperty(String key, Object value) {
-    if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
-    }
-    this.additionalProperties.put(key, value);
-    return this;
-  }
-
-  /**
-   * Return the additional (undeclared) properties.
-   * @return the additional (undeclared) properties
-   */
-  @JsonAnyGetter
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
-  }
-
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   * @param key the name of the property
-   * @return the additional (undeclared) property with the specified name
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-        return null;
-    }
-    return this.additionalProperties.get(key);
-  }
 
   /**
    * Return true if this paymentRelationships object is equal to o.
@@ -310,21 +261,18 @@ public class PaymentRelationships extends HashMap<String, Object> {
         Objects.equals(this.counterparty, paymentRelationships.counterparty) &&
         Objects.equals(this.counterpartyAccount, paymentRelationships.counterpartyAccount) &&
         Objects.equals(this.transaction, paymentRelationships.transaction) &&
-        Objects.equals(this.recurringPayment, paymentRelationships.recurringPayment)&&
-        Objects.equals(this.additionalProperties, paymentRelationships.additionalProperties) &&
-        super.equals(o);
+        Objects.equals(this.recurringPayment, paymentRelationships.recurringPayment);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(account, customer, customers, counterparty, counterpartyAccount, transaction, recurringPayment, super.hashCode(), additionalProperties);
+    return Objects.hash(account, customer, customers, counterparty, counterpartyAccount, transaction, recurringPayment);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PaymentRelationships {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    account: ").append(toIndentedString(account)).append("\n");
     sb.append("    customer: ").append(toIndentedString(customer)).append("\n");
     sb.append("    customers: ").append(toIndentedString(customers)).append("\n");
@@ -332,7 +280,6 @@ public class PaymentRelationships extends HashMap<String, Object> {
     sb.append("    counterpartyAccount: ").append(toIndentedString(counterpartyAccount)).append("\n");
     sb.append("    transaction: ").append(toIndentedString(transaction)).append("\n");
     sb.append("    recurringPayment: ").append(toIndentedString(recurringPayment)).append("\n");
-    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
   }

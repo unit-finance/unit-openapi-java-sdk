@@ -98,12 +98,10 @@ paths:
       description: 'Get List Applications from API '
       operationId: execute
       parameters:
-      - allowReserved: true
-        in: query
+      - in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
-        style: deepObject
       - allowReserved: true
         in: query
         name: filter
@@ -456,14 +454,14 @@ paths:
       responses:
         "200":
           content:
-            application/vnd.api+json:
+            application/vnd.api+json; charset=utf-8:
               schema:
                 $ref: '#/components/schemas/UnitDocumentResponse'
           description: Successful Response
       summary: Create a document
       tags:
       - Create a Document for an Application
-      x-accepts: application/vnd.api+json
+      x-accepts: application/vnd.api+json; charset=utf-8
   /applications/{applicationId}/documents/{documentId}/verify:
     put:
       description: 'Verify a document via API '
@@ -589,12 +587,10 @@ paths:
       description: 'Get List Accounts from API '
       operationId: execute
       parameters:
-      - allowReserved: true
-        in: query
+      - in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
-        style: deepObject
       - allowReserved: true
         in: query
         name: filter
@@ -967,12 +963,10 @@ paths:
       description: 'Get Customers List from API '
       operationId: execute
       parameters:
-      - allowReserved: true
-        in: query
+      - in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
-        style: deepObject
       - allowReserved: true
         in: query
         name: filter
@@ -1029,12 +1023,10 @@ paths:
       description: 'Get List Payments from API '
       operationId: execute
       parameters:
-      - allowReserved: true
-        in: query
+      - in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
-        style: deepObject
       - allowReserved: true
         in: query
         name: filter
@@ -1261,12 +1253,10 @@ paths:
       description: 'Get Counterparties List from API '
       operationId: execute
       parameters:
-      - allowReserved: true
-        in: query
+      - in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
-        style: deepObject
       - allowReserved: true
         in: query
         name: filter
@@ -1398,7 +1388,7 @@ paths:
           content:
             application/vnd.api+json; charset=utf-8:
               schema:
-                $ref: '#/components/schemas/UnitCounterpartyResponse_1'
+                $ref: '#/components/schemas/UnitCounterpartyBalanceResponse'
           description: Successful Response
       summary: Get Counterparty Balance
       tags:
@@ -1409,12 +1399,10 @@ paths:
       description: 'Get Recurring Payments List from API '
       operationId: execute
       parameters:
-      - allowReserved: true
-        in: query
+      - in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
-        style: deepObject
       - allowReserved: true
         in: query
         name: filter
@@ -1529,12 +1517,10 @@ paths:
       description: 'Get List of Cards from API '
       operationId: execute
       parameters:
-      - allowReserved: true
-        in: query
+      - in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
-        style: deepObject
       - allowReserved: true
         in: query
         name: filter
@@ -1602,7 +1588,7 @@ paths:
           content:
             application/vnd.api+json; charset=utf-8:
               schema:
-                $ref: '#/components/schemas/UnitCardResponse_1'
+                $ref: '#/components/schemas/UnitCardResponseWithIncluded'
           description: Successful Response
       summary: Get Card by Id
       tags:
@@ -1653,7 +1639,7 @@ paths:
           content:
             application/vnd.api+json; charset=utf-8:
               schema:
-                $ref: '#/components/schemas/UnitCardResponse_2'
+                $ref: '#/components/schemas/UnitPinStatusResponse'
           description: Successful Response
       summary: Get Card PIN Status
       tags:
@@ -1785,7 +1771,7 @@ paths:
           content:
             application/vnd.api+json; charset=utf-8:
               schema:
-                $ref: '#/components/schemas/UnitCardResponse_3'
+                $ref: '#/components/schemas/UnitCardLimitsResponse'
           description: Successful Response
       summary: Get Card Limit by Id
       tags:
@@ -1796,12 +1782,10 @@ paths:
       description: 'Get List Authorizations from API '
       operationId: execute
       parameters:
-      - allowReserved: true
-        in: query
+      - in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
-        style: deepObject
       - allowReserved: true
         in: query
         name: filter
@@ -1854,12 +1838,10 @@ paths:
       description: 'Get List Authorization Requests from API '
       operationId: execute
       parameters:
-      - allowReserved: true
-        in: query
+      - in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
-        style: deepObject
       - allowReserved: true
         in: query
         name: filter
@@ -1964,12 +1946,10 @@ paths:
       description: 'Get List Statements from API '
       operationId: execute
       parameters:
-      - allowReserved: true
-        in: query
+      - in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
-        style: deepObject
       - allowReserved: true
         in: query
         name: filter
@@ -2064,12 +2044,10 @@ paths:
       description: 'Get Rewards List from API '
       operationId: execute
       parameters:
-      - allowReserved: true
-        in: query
+      - in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
-        style: deepObject
       - allowReserved: true
         in: query
         name: filter
@@ -2144,12 +2122,10 @@ paths:
       description: 'Get Events List from API '
       operationId: execute
       parameters:
-      - allowReserved: true
-        in: query
+      - in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
-        style: deepObject
       - allowReserved: true
         in: query
         name: filter
@@ -2183,7 +2159,7 @@ paths:
           content:
             application/vnd.api+json; charset=utf-8:
               schema:
-                $ref: '#/components/schemas/UnitEventResponse_1'
+                $ref: '#/components/schemas/UnitEventResponse'
           description: Successful Response
       summary: Get Event by Id
       tags:
@@ -2260,12 +2236,10 @@ paths:
       description: 'Get List Check Deposits from API '
       operationId: execute
       parameters:
-      - allowReserved: true
-        in: query
+      - in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
-        style: deepObject
       - allowReserved: true
         in: query
         name: filter
@@ -2402,7 +2376,7 @@ paths:
           content:
             application/vnd.api+json; charset=utf-8:
               schema:
-                $ref: '#/components/schemas/UnitCheckDepositResponse_1'
+                $ref: '#/components/schemas/UnitCheckDepositImageResponse'
           description: Successful Response
       summary: Get Front Check Deposit Image by Id
       tags:
@@ -2424,7 +2398,7 @@ paths:
           content:
             application/vnd.api+json; charset=utf-8:
               schema:
-                $ref: '#/components/schemas/UnitCheckDepositResponse_1'
+                $ref: '#/components/schemas/UnitCheckDepositImageResponse'
           description: Successful Response
       summary: Get Back Check Deposit Image by Id
       tags:
@@ -2574,12 +2548,10 @@ paths:
       description: 'Get List Webhooks from API '
       operationId: execute
       parameters:
-      - allowReserved: true
-        in: query
+      - in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
-        style: deepObject
       - allowReserved: true
         in: query
         name: filter
@@ -2765,7 +2737,7 @@ paths:
           content:
             application/vnd.api+json; charset=utf-8:
               schema:
-                $ref: '#/components/schemas/UnitTransactionResponse'
+                $ref: '#/components/schemas/UnitTransactionResponseWithIncluded'
           description: Successful Response
       summary: Get Transaction by Id
       tags:
@@ -2799,7 +2771,7 @@ paths:
           content:
             application/vnd.api+json:
               schema:
-                $ref: '#/components/schemas/UnitTransactionResponse_1'
+                $ref: '#/components/schemas/UnitTransactionResponse'
           description: Successful Response
       summary: Update Transaction
       tags:
@@ -2811,12 +2783,10 @@ paths:
       description: 'Get List Transactions from API '
       operationId: execute
       parameters:
-      - allowReserved: true
-        in: query
+      - in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
-        style: deepObject
       - allowReserved: true
         in: query
         name: filter
@@ -2847,12 +2817,10 @@ paths:
       description: 'Get List Disputes from API '
       operationId: execute
       parameters:
-      - allowReserved: true
-        in: query
+      - in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
-        style: deepObject
       - allowReserved: true
         in: query
         name: filter
@@ -2900,12 +2868,10 @@ paths:
       description: 'Get List Repayments from API '
       operationId: execute
       parameters:
-      - allowReserved: true
-        in: query
+      - in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
-        style: deepObject
       - allowReserved: true
         in: query
         name: filter
@@ -2978,12 +2944,10 @@ paths:
       description: 'Get List Check Payments from API '
       operationId: execute
       parameters:
-      - allowReserved: true
-        in: query
+      - in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
-        style: deepObject
       - in: query
         name: filter
         schema:
@@ -3183,12 +3147,10 @@ paths:
     get:
       operationId: execute
       parameters:
-      - allowReserved: true
-        in: query
+      - in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
-        style: deepObject
       - in: query
         name: filter
         schema:
@@ -4124,7 +4086,7 @@ components:
       title: IndividualCustomer
       type: object
     customerRelationships:
-      additionalProperties: true
+      additionalProperties: false
       properties:
         org:
           $ref: '#/components/schemas/orgRelationship'
@@ -4403,7 +4365,6 @@ components:
       title: Counterparty
       type: object
     paymentRelationships:
-      additionalProperties: true
       properties:
         account:
           $ref: '#/components/schemas/Relationship'
@@ -4659,7 +4620,6 @@ components:
       title: Received Payment Resource
       type: object
     receivedPaymentRelationships:
-      additionalProperties: true
       properties:
         account:
           $ref: '#/components/schemas/relationships_account'
@@ -5319,6 +5279,12 @@ components:
       - type
       title: Create Business Virtual Credit Card
       type: object
+    UnitCardResponse:
+      properties:
+        data:
+          $ref: '#/components/schemas/card'
+      title: UnitCardResponse
+      type: object
     update_card:
       additionalProperties: false
       properties:
@@ -5425,7 +5391,7 @@ components:
           $ref: '#/components/schemas/pinStatus_attributes'
       title: PinStatusDTO
       type: object
-    limits_1:
+    account_limits:
       discriminator:
         mapping:
           limits: '#/components/schemas/DepositLimits'
@@ -5438,7 +5404,7 @@ components:
       type: object
     DepositLimits:
       allOf:
-      - $ref: '#/components/schemas/limits_1'
+      - $ref: '#/components/schemas/account_limits'
       - additionalProperties: false
         properties:
           attributes:
@@ -5450,7 +5416,7 @@ components:
       type: object
     CreditLimits:
       allOf:
-      - $ref: '#/components/schemas/limits_1'
+      - $ref: '#/components/schemas/account_limits'
       - additionalProperties: false
         properties:
           attributes:
@@ -7984,11 +7950,11 @@ components:
           $ref: '#/components/schemas/counterparty_1'
       title: UnitCounterpartyResponse
       type: object
-    UnitCounterpartyResponse_1:
+    UnitCounterpartyBalanceResponse:
       properties:
         data:
           $ref: '#/components/schemas/counterparty_balance'
-      title: UnitCounterpartyResponse
+      title: UnitCounterpartyBalanceResponse
       type: object
     execute_filter_parameter_6:
       properties:
@@ -8062,13 +8028,7 @@ components:
           type: array
       title: UnitCardResponseCardsList
       type: object
-    UnitCardResponse:
-      properties:
-        data:
-          $ref: '#/components/schemas/card'
-      title: UnitCardResponse
-      type: object
-    UnitCardResponse_1:
+    UnitCardResponseWithIncluded:
       properties:
         data:
           $ref: '#/components/schemas/card'
@@ -8076,19 +8036,19 @@ components:
           items:
             $ref: '#/components/schemas/IncludedResource'
           type: array
-      title: UnitCardResponse
+      title: UnitCardResponseWithIncluded
       type: object
-    UnitCardResponse_2:
+    UnitPinStatusResponse:
       properties:
         data:
           $ref: '#/components/schemas/pinStatus'
-      title: UnitCardResponse
+      title: UnitPinStatusResponse
       type: object
-    UnitCardResponse_3:
+    UnitCardLimitsResponse:
       properties:
         data:
-          $ref: '#/components/schemas/limits_1'
-      title: UnitCardResponse
+          $ref: '#/components/schemas/account_limits'
+      title: UnitCardLimitsResponse
       type: object
     execute_filter_parameter_8:
       properties:
@@ -8258,12 +8218,6 @@ components:
           type: array
       title: UnitEventListResponse
       type: object
-    UnitEventResponse_1:
-      properties:
-        data:
-          $ref: '#/components/schemas/event'
-      title: UnitEventResponse
-      type: object
     UnitInstitutionResponse:
       properties:
         data:
@@ -8317,11 +8271,11 @@ components:
           $ref: '#/components/schemas/check_deposit'
       title: UnitCheckDepositResponse
       type: object
-    UnitCheckDepositResponse_1:
+    UnitCheckDepositImageResponse:
       properties:
         data:
           type: string
-      title: UnitCheckDepositResponse
+      title: UnitCheckDepositImageResponse
       type: object
     UnitOrgApiTokensListResponse:
       properties:
@@ -8429,7 +8383,7 @@ components:
         address:
           type: object
       type: object
-    UnitTransactionResponse:
+    UnitTransactionResponseWithIncluded:
       properties:
         data:
           $ref: '#/components/schemas/transaction'
@@ -8437,9 +8391,9 @@ components:
           items:
             $ref: '#/components/schemas/IncludedResource_inner'
           type: array
-      title: UnitTransactionResponse
+      title: UnitTransactionResponseWithIncluded
       type: object
-    UnitTransactionResponse_1:
+    UnitTransactionResponse:
       properties:
         data:
           $ref: '#/components/schemas/transaction'
@@ -8879,7 +8833,7 @@ components:
           type: string
       type: object
     documentsRelationship:
-      additionalProperties: true
+      additionalProperties: false
       properties:
         data:
           items:
@@ -9714,12 +9668,12 @@ components:
       type: object
       example: null
     depositAccountRelationships:
-      additionalProperties: true
       properties:
         customer:
           $ref: '#/components/schemas/customerLinkage'
       title: depositAccountRelationships
       type: object
+      example: null
     CreditAccount_allOf_attributes:
       properties:
         createdAt:
@@ -9790,7 +9744,6 @@ components:
       type: object
       example: null
     creditAccountRelationships:
-      additionalProperties: true
       properties:
         customer:
           $ref: '#/components/schemas/customerLinkage'
@@ -9798,6 +9751,7 @@ components:
       - customer
       title: creditAccountRelationships
       type: object
+      example: null
     IndividualCustomer_allOf_attributes:
       properties:
         createdAt:
@@ -12429,7 +12383,7 @@ components:
       - type
       type: object
     checkDepositRelationships_account:
-      additionalProperties: true
+      additionalProperties: false
       properties:
         data:
           $ref: '#/components/schemas/checkDepositRelationships_account_data'

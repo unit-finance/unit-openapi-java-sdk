@@ -17,7 +17,7 @@ import unit.java.sdk.ApiException;
 import unit.java.sdk.ApiResponse;
 import unit.java.sdk.Pair;
 
-import unit.java.sdk.model.UnitTransactionResponse;
+import unit.java.sdk.model.UnitTransactionResponseWithIncluded;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -86,11 +86,11 @@ public class GetTransactionApi {
    * Get a Transaction from API 
    * @param accountId ID of the account to get transaction from (required)
    * @param transactionId ID of the transaction (required)
-   * @return UnitTransactionResponse
+   * @return UnitTransactionResponseWithIncluded
    * @throws ApiException if fails to make API call
    */
-  public UnitTransactionResponse execute(String accountId, String transactionId) throws ApiException {
-    ApiResponse<UnitTransactionResponse> localVarResponse = executeWithHttpInfo(accountId, transactionId);
+  public UnitTransactionResponseWithIncluded execute(String accountId, String transactionId) throws ApiException {
+    ApiResponse<UnitTransactionResponseWithIncluded> localVarResponse = executeWithHttpInfo(accountId, transactionId);
     return localVarResponse.getData();
   }
 
@@ -99,10 +99,10 @@ public class GetTransactionApi {
    * Get a Transaction from API 
    * @param accountId ID of the account to get transaction from (required)
    * @param transactionId ID of the transaction (required)
-   * @return ApiResponse&lt;UnitTransactionResponse&gt;
+   * @return ApiResponse&lt;UnitTransactionResponseWithIncluded&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<UnitTransactionResponse> executeWithHttpInfo(String accountId, String transactionId) throws ApiException {
+  public ApiResponse<UnitTransactionResponseWithIncluded> executeWithHttpInfo(String accountId, String transactionId) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = executeRequestBuilder(accountId, transactionId);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -115,10 +115,10 @@ public class GetTransactionApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("execute", localVarResponse);
         }
-        return new ApiResponse<UnitTransactionResponse>(
+        return new ApiResponse<UnitTransactionResponseWithIncluded>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitTransactionResponse>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitTransactionResponseWithIncluded>() {}) // closes the InputStream
         );
       } finally {
       }

@@ -4,7 +4,7 @@ import org.junit.Test;
 import unit.java.sdk.api.GetEventApi;
 import unit.java.sdk.api.GetListEventsApi;
 import unit.java.sdk.model.UnitEventListResponse;
-import unit.java.sdk.model.UnitEventResponse1;
+import unit.java.sdk.model.UnitEventResponse;
 
 
 import static unit.java.sdk.TestHelpers.getApiClient;
@@ -21,7 +21,7 @@ public class EventTests {
 
         response.getData().forEach(x -> {
             try {
-                UnitEventResponse1 event = getEventApi.execute(x.getId());
+                UnitEventResponse event = getEventApi.execute(x.getId());
                 assert event.getData().getId().equals(x.getId());
             } catch (ApiException e) {
                 throw new RuntimeException(e);

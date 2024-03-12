@@ -17,7 +17,7 @@ import unit.java.sdk.ApiException;
 import unit.java.sdk.ApiResponse;
 import unit.java.sdk.Pair;
 
-import unit.java.sdk.model.UnitTransactionResponse1;
+import unit.java.sdk.model.UnitTransactionResponse;
 import unit.java.sdk.model.UpdateTransaction;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -88,11 +88,11 @@ public class UpdateTransactionApi {
    * @param accountId ID of the account to update transaction from (required)
    * @param transactionId ID of the transaction to update (required)
    * @param updateTransaction Update Transaction Request (required)
-   * @return UnitTransactionResponse1
+   * @return UnitTransactionResponse
    * @throws ApiException if fails to make API call
    */
-  public UnitTransactionResponse1 execute(String accountId, String transactionId, UpdateTransaction updateTransaction) throws ApiException {
-    ApiResponse<UnitTransactionResponse1> localVarResponse = executeWithHttpInfo(accountId, transactionId, updateTransaction);
+  public UnitTransactionResponse execute(String accountId, String transactionId, UpdateTransaction updateTransaction) throws ApiException {
+    ApiResponse<UnitTransactionResponse> localVarResponse = executeWithHttpInfo(accountId, transactionId, updateTransaction);
     return localVarResponse.getData();
   }
 
@@ -102,10 +102,10 @@ public class UpdateTransactionApi {
    * @param accountId ID of the account to update transaction from (required)
    * @param transactionId ID of the transaction to update (required)
    * @param updateTransaction Update Transaction Request (required)
-   * @return ApiResponse&lt;UnitTransactionResponse1&gt;
+   * @return ApiResponse&lt;UnitTransactionResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<UnitTransactionResponse1> executeWithHttpInfo(String accountId, String transactionId, UpdateTransaction updateTransaction) throws ApiException {
+  public ApiResponse<UnitTransactionResponse> executeWithHttpInfo(String accountId, String transactionId, UpdateTransaction updateTransaction) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = executeRequestBuilder(accountId, transactionId, updateTransaction);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -118,10 +118,10 @@ public class UpdateTransactionApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("execute", localVarResponse);
         }
-        return new ApiResponse<UnitTransactionResponse1>(
+        return new ApiResponse<UnitTransactionResponse>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitTransactionResponse1>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitTransactionResponse>() {}) // closes the InputStream
         );
       } finally {
       }

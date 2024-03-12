@@ -243,7 +243,7 @@ public class CheckDepositRelationships {
 
     // add `account` to the URL query string
     if (getAccount() != null) {
-      joiner.add(String.format("%saccount%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAccount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(getAccount().toUrlQueryString(prefix + "account" + suffix));
     }
 
     // add `customer` to the URL query string

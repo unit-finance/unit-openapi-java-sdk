@@ -17,7 +17,7 @@ import unit.java.sdk.ApiException;
 import unit.java.sdk.ApiResponse;
 import unit.java.sdk.Pair;
 
-import unit.java.sdk.model.UnitCardResponse2;
+import unit.java.sdk.model.UnitPinStatusResponse;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -85,11 +85,11 @@ public class GetCardPinStatusApi {
    * Get Card PIN Status
    * Get Card PIN Status via API 
    * @param cardId ID of the card to get PIN status (required)
-   * @return UnitCardResponse2
+   * @return UnitPinStatusResponse
    * @throws ApiException if fails to make API call
    */
-  public UnitCardResponse2 execute(String cardId) throws ApiException {
-    ApiResponse<UnitCardResponse2> localVarResponse = executeWithHttpInfo(cardId);
+  public UnitPinStatusResponse execute(String cardId) throws ApiException {
+    ApiResponse<UnitPinStatusResponse> localVarResponse = executeWithHttpInfo(cardId);
     return localVarResponse.getData();
   }
 
@@ -97,10 +97,10 @@ public class GetCardPinStatusApi {
    * Get Card PIN Status
    * Get Card PIN Status via API 
    * @param cardId ID of the card to get PIN status (required)
-   * @return ApiResponse&lt;UnitCardResponse2&gt;
+   * @return ApiResponse&lt;UnitPinStatusResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<UnitCardResponse2> executeWithHttpInfo(String cardId) throws ApiException {
+  public ApiResponse<UnitPinStatusResponse> executeWithHttpInfo(String cardId) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = executeRequestBuilder(cardId);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -113,10 +113,10 @@ public class GetCardPinStatusApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("execute", localVarResponse);
         }
-        return new ApiResponse<UnitCardResponse2>(
+        return new ApiResponse<UnitPinStatusResponse>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitCardResponse2>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitPinStatusResponse>() {}) // closes the InputStream
         );
       } finally {
       }

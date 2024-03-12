@@ -17,7 +17,7 @@ import unit.java.sdk.ApiException;
 import unit.java.sdk.ApiResponse;
 import unit.java.sdk.Pair;
 
-import unit.java.sdk.model.UnitEventResponse1;
+import unit.java.sdk.model.UnitEventResponse;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -85,11 +85,11 @@ public class GetEventApi {
    * Get Event by Id
    * Get an Event from API 
    * @param eventId ID of the event to get (required)
-   * @return UnitEventResponse1
+   * @return UnitEventResponse
    * @throws ApiException if fails to make API call
    */
-  public UnitEventResponse1 execute(String eventId) throws ApiException {
-    ApiResponse<UnitEventResponse1> localVarResponse = executeWithHttpInfo(eventId);
+  public UnitEventResponse execute(String eventId) throws ApiException {
+    ApiResponse<UnitEventResponse> localVarResponse = executeWithHttpInfo(eventId);
     return localVarResponse.getData();
   }
 
@@ -97,10 +97,10 @@ public class GetEventApi {
    * Get Event by Id
    * Get an Event from API 
    * @param eventId ID of the event to get (required)
-   * @return ApiResponse&lt;UnitEventResponse1&gt;
+   * @return ApiResponse&lt;UnitEventResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<UnitEventResponse1> executeWithHttpInfo(String eventId) throws ApiException {
+  public ApiResponse<UnitEventResponse> executeWithHttpInfo(String eventId) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = executeRequestBuilder(eventId);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -113,10 +113,10 @@ public class GetEventApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("execute", localVarResponse);
         }
-        return new ApiResponse<UnitEventResponse1>(
+        return new ApiResponse<UnitEventResponse>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitEventResponse1>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitEventResponse>() {}) // closes the InputStream
         );
       } finally {
       }

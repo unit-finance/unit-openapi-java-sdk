@@ -17,7 +17,7 @@ import unit.java.sdk.ApiException;
 import unit.java.sdk.ApiResponse;
 import unit.java.sdk.Pair;
 
-import unit.java.sdk.model.UnitCheckDepositResponse1;
+import unit.java.sdk.model.UnitCheckDepositImageResponse;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -85,11 +85,11 @@ public class GetCheckDepositFrontImageApi {
    * Get Front Check Deposit Image by Id
    * Get Front Check Deposit Image from API 
    * @param checkDepositId ID of the check deposit to get (required)
-   * @return UnitCheckDepositResponse1
+   * @return UnitCheckDepositImageResponse
    * @throws ApiException if fails to make API call
    */
-  public UnitCheckDepositResponse1 execute(String checkDepositId) throws ApiException {
-    ApiResponse<UnitCheckDepositResponse1> localVarResponse = executeWithHttpInfo(checkDepositId);
+  public UnitCheckDepositImageResponse execute(String checkDepositId) throws ApiException {
+    ApiResponse<UnitCheckDepositImageResponse> localVarResponse = executeWithHttpInfo(checkDepositId);
     return localVarResponse.getData();
   }
 
@@ -97,10 +97,10 @@ public class GetCheckDepositFrontImageApi {
    * Get Front Check Deposit Image by Id
    * Get Front Check Deposit Image from API 
    * @param checkDepositId ID of the check deposit to get (required)
-   * @return ApiResponse&lt;UnitCheckDepositResponse1&gt;
+   * @return ApiResponse&lt;UnitCheckDepositImageResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<UnitCheckDepositResponse1> executeWithHttpInfo(String checkDepositId) throws ApiException {
+  public ApiResponse<UnitCheckDepositImageResponse> executeWithHttpInfo(String checkDepositId) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = executeRequestBuilder(checkDepositId);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -113,10 +113,10 @@ public class GetCheckDepositFrontImageApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("execute", localVarResponse);
         }
-        return new ApiResponse<UnitCheckDepositResponse1>(
+        return new ApiResponse<UnitCheckDepositImageResponse>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitCheckDepositResponse1>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitCheckDepositImageResponse>() {}) // closes the InputStream
         );
       } finally {
       }

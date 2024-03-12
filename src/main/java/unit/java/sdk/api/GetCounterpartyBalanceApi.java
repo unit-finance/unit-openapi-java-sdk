@@ -17,7 +17,7 @@ import unit.java.sdk.ApiException;
 import unit.java.sdk.ApiResponse;
 import unit.java.sdk.Pair;
 
-import unit.java.sdk.model.UnitCounterpartyResponse1;
+import unit.java.sdk.model.UnitCounterpartyBalanceResponse;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -85,11 +85,11 @@ public class GetCounterpartyBalanceApi {
    * Get Counterparty Balance
    * Get Recurring Payment from API 
    * @param counterpartyId ID of the counterparty to get (required)
-   * @return UnitCounterpartyResponse1
+   * @return UnitCounterpartyBalanceResponse
    * @throws ApiException if fails to make API call
    */
-  public UnitCounterpartyResponse1 execute(String counterpartyId) throws ApiException {
-    ApiResponse<UnitCounterpartyResponse1> localVarResponse = executeWithHttpInfo(counterpartyId);
+  public UnitCounterpartyBalanceResponse execute(String counterpartyId) throws ApiException {
+    ApiResponse<UnitCounterpartyBalanceResponse> localVarResponse = executeWithHttpInfo(counterpartyId);
     return localVarResponse.getData();
   }
 
@@ -97,10 +97,10 @@ public class GetCounterpartyBalanceApi {
    * Get Counterparty Balance
    * Get Recurring Payment from API 
    * @param counterpartyId ID of the counterparty to get (required)
-   * @return ApiResponse&lt;UnitCounterpartyResponse1&gt;
+   * @return ApiResponse&lt;UnitCounterpartyBalanceResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<UnitCounterpartyResponse1> executeWithHttpInfo(String counterpartyId) throws ApiException {
+  public ApiResponse<UnitCounterpartyBalanceResponse> executeWithHttpInfo(String counterpartyId) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = executeRequestBuilder(counterpartyId);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -113,10 +113,10 @@ public class GetCounterpartyBalanceApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("execute", localVarResponse);
         }
-        return new ApiResponse<UnitCounterpartyResponse1>(
+        return new ApiResponse<UnitCounterpartyBalanceResponse>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitCounterpartyResponse1>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitCounterpartyBalanceResponse>() {}) // closes the InputStream
         );
       } finally {
       }

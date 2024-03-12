@@ -13,10 +13,6 @@
 
 package unit.java.sdk.model;
 
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.StringJoiner;
@@ -29,8 +25,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import unit.java.sdk.model.CheckDepositRelationshipsAccountData;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
@@ -42,7 +36,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CheckDepositRelationshipsAccount.JSON_PROPERTY_DATA
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class CheckDepositRelationshipsAccount extends HashMap<String, Object> {
+public class CheckDepositRelationshipsAccount {
   public static final String JSON_PROPERTY_DATA = "data";
   private CheckDepositRelationshipsAccountData data;
 
@@ -73,49 +67,6 @@ public class CheckDepositRelationshipsAccount extends HashMap<String, Object> {
     this.data = data;
   }
 
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
-
-  /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
-   * @param key the name of the property
-   * @param value the value of the property
-   * @return self reference
-   */
-  @JsonAnySetter
-  public CheckDepositRelationshipsAccount putAdditionalProperty(String key, Object value) {
-    if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
-    }
-    this.additionalProperties.put(key, value);
-    return this;
-  }
-
-  /**
-   * Return the additional (undeclared) properties.
-   * @return the additional (undeclared) properties
-   */
-  @JsonAnyGetter
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
-  }
-
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   * @param key the name of the property
-   * @return the additional (undeclared) property with the specified name
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-        return null;
-    }
-    return this.additionalProperties.get(key);
-  }
 
   /**
    * Return true if this checkDepositRelationships_account object is equal to o.
@@ -129,23 +80,19 @@ public class CheckDepositRelationshipsAccount extends HashMap<String, Object> {
       return false;
     }
     CheckDepositRelationshipsAccount checkDepositRelationshipsAccount = (CheckDepositRelationshipsAccount) o;
-    return Objects.equals(this.data, checkDepositRelationshipsAccount.data)&&
-        Objects.equals(this.additionalProperties, checkDepositRelationshipsAccount.additionalProperties) &&
-        super.equals(o);
+    return Objects.equals(this.data, checkDepositRelationshipsAccount.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, super.hashCode(), additionalProperties);
+    return Objects.hash(data);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CheckDepositRelationshipsAccount {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
   }

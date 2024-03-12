@@ -33,7 +33,6 @@ public class ApplicationTests {
         UnitListApplicationsResponse response =  api.execute(page, filter ,null);
         assert response.getData().size() <= 20;
     }
-
     @Test
     public void GetApplicationListWithFilterApiTest() throws ApiException {
         GetListApplicationsApi api = new GetListApplicationsApi(getApiClient());
@@ -77,7 +76,6 @@ public class ApplicationTests {
             }
         });
     }
-
     @Test
     public void UpdateApplicationApiTest() throws ApiException {
         GetListApplicationsApi api = new GetListApplicationsApi(getApiClient());
@@ -116,8 +114,6 @@ public class ApplicationTests {
             }
         });
     }
-
-
     @Test
     public void CreateApplicationApiTest() throws ApiException {
         CreateApplicationApi apiClient = new CreateApplicationApi(getApiClient());

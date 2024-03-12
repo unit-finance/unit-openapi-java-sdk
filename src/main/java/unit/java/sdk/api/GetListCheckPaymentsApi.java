@@ -147,9 +147,7 @@ public class GetListCheckPaymentsApi {
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
     localVarQueryParameterBaseName = "page";
-    if (page != null) {
-      localVarQueryStringJoiner.add(page.toUrlQueryString("page"));
-    }
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("page", page));
     localVarQueryParameterBaseName = "filter";
     localVarQueryParams.addAll(ApiClient.parameterToPairs("filter", filter));
     localVarQueryParameterBaseName = "sort";

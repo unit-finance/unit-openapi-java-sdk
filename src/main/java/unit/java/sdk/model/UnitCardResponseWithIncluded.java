@@ -27,34 +27,31 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import unit.java.sdk.model.DocumentsRelationshipDataInner;
+import unit.java.sdk.model.Card;
+import unit.java.sdk.model.IncludedResourceInner;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * DocumentsRelationship
+ * UnitCardResponseWithIncluded
  */
 @JsonPropertyOrder({
-  DocumentsRelationship.JSON_PROPERTY_DATA
+  UnitCardResponseWithIncluded.JSON_PROPERTY_DATA,
+  UnitCardResponseWithIncluded.JSON_PROPERTY_INCLUDED
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class DocumentsRelationship {
+public class UnitCardResponseWithIncluded {
   public static final String JSON_PROPERTY_DATA = "data";
-  private List<DocumentsRelationshipDataInner> data = new ArrayList<>();
+  private Card data;
 
-  public DocumentsRelationship() { 
+  public static final String JSON_PROPERTY_INCLUDED = "included";
+  private List<List<IncludedResourceInner>> included;
+
+  public UnitCardResponseWithIncluded() { 
   }
 
-  public DocumentsRelationship data(List<DocumentsRelationshipDataInner> data) {
+  public UnitCardResponseWithIncluded data(Card data) {
     this.data = data;
-    return this;
-  }
-
-  public DocumentsRelationship addDataItem(DocumentsRelationshipDataInner dataItem) {
-    if (this.data == null) {
-      this.data = new ArrayList<>();
-    }
-    this.data.add(dataItem);
     return this;
   }
 
@@ -62,24 +59,57 @@ public class DocumentsRelationship {
    * Get data
    * @return data
   **/
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<DocumentsRelationshipDataInner> getData() {
+  public Card getData() {
     return data;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setData(List<DocumentsRelationshipDataInner> data) {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setData(Card data) {
     this.data = data;
   }
 
 
+  public UnitCardResponseWithIncluded included(List<List<IncludedResourceInner>> included) {
+    this.included = included;
+    return this;
+  }
+
+  public UnitCardResponseWithIncluded addIncludedItem(List<IncludedResourceInner> includedItem) {
+    if (this.included == null) {
+      this.included = new ArrayList<>();
+    }
+    this.included.add(includedItem);
+    return this;
+  }
+
+   /**
+   * Get included
+   * @return included
+  **/
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INCLUDED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<List<IncludedResourceInner>> getIncluded() {
+    return included;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_INCLUDED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIncluded(List<List<IncludedResourceInner>> included) {
+    this.included = included;
+  }
+
+
   /**
-   * Return true if this documentsRelationship object is equal to o.
+   * Return true if this UnitCardResponseWithIncluded object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -89,20 +119,22 @@ public class DocumentsRelationship {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DocumentsRelationship documentsRelationship = (DocumentsRelationship) o;
-    return Objects.equals(this.data, documentsRelationship.data);
+    UnitCardResponseWithIncluded unitCardResponseWithIncluded = (UnitCardResponseWithIncluded) o;
+    return Objects.equals(this.data, unitCardResponseWithIncluded.data) &&
+        Objects.equals(this.included, unitCardResponseWithIncluded.included);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data);
+    return Objects.hash(data, included);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DocumentsRelationship {\n");
+    sb.append("class UnitCardResponseWithIncluded {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    included: ").append(toIndentedString(included)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -152,10 +184,16 @@ public class DocumentsRelationship {
 
     // add `data` to the URL query string
     if (getData() != null) {
-      for (int i = 0; i < getData().size(); i++) {
-        if (getData().get(i) != null) {
-          joiner.add(getData().get(i).toUrlQueryString(String.format("%sdata%s%s", prefix, suffix,
-          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+      joiner.add(getData().toUrlQueryString(prefix + "data" + suffix));
+    }
+
+    // add `included` to the URL query string
+    if (getIncluded() != null) {
+      for (int i = 0; i < getIncluded().size(); i++) {
+        if (getIncluded().get(i) != null) {
+          joiner.add(String.format("%sincluded%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(String.valueOf(getIncluded().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
         }
       }
     }

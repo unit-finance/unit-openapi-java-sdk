@@ -24,37 +24,26 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-import unit.java.sdk.model.DocumentsRelationshipDataInner;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * DocumentsRelationship
+ * UnitCheckDepositImageResponse
  */
 @JsonPropertyOrder({
-  DocumentsRelationship.JSON_PROPERTY_DATA
+  UnitCheckDepositImageResponse.JSON_PROPERTY_DATA
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class DocumentsRelationship {
+public class UnitCheckDepositImageResponse {
   public static final String JSON_PROPERTY_DATA = "data";
-  private List<DocumentsRelationshipDataInner> data = new ArrayList<>();
+  private String data;
 
-  public DocumentsRelationship() { 
+  public UnitCheckDepositImageResponse() { 
   }
 
-  public DocumentsRelationship data(List<DocumentsRelationshipDataInner> data) {
+  public UnitCheckDepositImageResponse data(String data) {
     this.data = data;
-    return this;
-  }
-
-  public DocumentsRelationship addDataItem(DocumentsRelationshipDataInner dataItem) {
-    if (this.data == null) {
-      this.data = new ArrayList<>();
-    }
-    this.data.add(dataItem);
     return this;
   }
 
@@ -62,24 +51,24 @@ public class DocumentsRelationship {
    * Get data
    * @return data
   **/
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<DocumentsRelationshipDataInner> getData() {
+  public String getData() {
     return data;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setData(List<DocumentsRelationshipDataInner> data) {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setData(String data) {
     this.data = data;
   }
 
 
   /**
-   * Return true if this documentsRelationship object is equal to o.
+   * Return true if this UnitCheckDepositImageResponse object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -89,8 +78,8 @@ public class DocumentsRelationship {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DocumentsRelationship documentsRelationship = (DocumentsRelationship) o;
-    return Objects.equals(this.data, documentsRelationship.data);
+    UnitCheckDepositImageResponse unitCheckDepositImageResponse = (UnitCheckDepositImageResponse) o;
+    return Objects.equals(this.data, unitCheckDepositImageResponse.data);
   }
 
   @Override
@@ -101,7 +90,7 @@ public class DocumentsRelationship {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DocumentsRelationship {\n");
+    sb.append("class UnitCheckDepositImageResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -152,12 +141,7 @@ public class DocumentsRelationship {
 
     // add `data` to the URL query string
     if (getData() != null) {
-      for (int i = 0; i < getData().size(); i++) {
-        if (getData().get(i) != null) {
-          joiner.add(getData().get(i).toUrlQueryString(String.format("%sdata%s%s", prefix, suffix,
-          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
-        }
-      }
+      joiner.add(String.format("%sdata%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getData()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

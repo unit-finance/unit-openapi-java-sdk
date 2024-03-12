@@ -147,9 +147,7 @@ public class GetListCheckDepositsApi {
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
     localVarQueryParameterBaseName = "page";
-    if (page != null) {
-      localVarQueryStringJoiner.add(page.toUrlQueryString("page"));
-    }
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("page", page));
     localVarQueryParameterBaseName = "filter";
     if (filter != null) {
       localVarQueryStringJoiner.add(filter.toUrlQueryString("filter"));

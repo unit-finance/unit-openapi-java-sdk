@@ -13,10 +13,6 @@
 
 package unit.java.sdk.model;
 
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.StringJoiner;
@@ -29,8 +25,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import unit.java.sdk.model.ReceivedPaymentRelationshipsCustomer;
 import unit.java.sdk.model.ReceivedPaymentRelationshipsReceivePaymentTransaction;
 import unit.java.sdk.model.RelationshipsAccount;
@@ -48,7 +42,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   ReceivedPaymentRelationships.JSON_PROPERTY_REPAY_PAYMENT_ADVANCE_TRANSACTION
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class ReceivedPaymentRelationships extends HashMap<String, Object> {
+public class ReceivedPaymentRelationships {
   public static final String JSON_PROPERTY_ACCOUNT = "account";
   private RelationshipsAccount account;
 
@@ -191,49 +185,6 @@ public class ReceivedPaymentRelationships extends HashMap<String, Object> {
     this.repayPaymentAdvanceTransaction = repayPaymentAdvanceTransaction;
   }
 
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
-
-  /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
-   * @param key the name of the property
-   * @param value the value of the property
-   * @return self reference
-   */
-  @JsonAnySetter
-  public ReceivedPaymentRelationships putAdditionalProperty(String key, Object value) {
-    if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
-    }
-    this.additionalProperties.put(key, value);
-    return this;
-  }
-
-  /**
-   * Return the additional (undeclared) properties.
-   * @return the additional (undeclared) properties
-   */
-  @JsonAnyGetter
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
-  }
-
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   * @param key the name of the property
-   * @return the additional (undeclared) property with the specified name
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-        return null;
-    }
-    return this.additionalProperties.get(key);
-  }
 
   /**
    * Return true if this receivedPaymentRelationships object is equal to o.
@@ -251,27 +202,23 @@ public class ReceivedPaymentRelationships extends HashMap<String, Object> {
         Objects.equals(this.customer, receivedPaymentRelationships.customer) &&
         Objects.equals(this.receivePaymentTransaction, receivedPaymentRelationships.receivePaymentTransaction) &&
         Objects.equals(this.paymentAdvanceTransaction, receivedPaymentRelationships.paymentAdvanceTransaction) &&
-        Objects.equals(this.repayPaymentAdvanceTransaction, receivedPaymentRelationships.repayPaymentAdvanceTransaction)&&
-        Objects.equals(this.additionalProperties, receivedPaymentRelationships.additionalProperties) &&
-        super.equals(o);
+        Objects.equals(this.repayPaymentAdvanceTransaction, receivedPaymentRelationships.repayPaymentAdvanceTransaction);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(account, customer, receivePaymentTransaction, paymentAdvanceTransaction, repayPaymentAdvanceTransaction, super.hashCode(), additionalProperties);
+    return Objects.hash(account, customer, receivePaymentTransaction, paymentAdvanceTransaction, repayPaymentAdvanceTransaction);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ReceivedPaymentRelationships {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    account: ").append(toIndentedString(account)).append("\n");
     sb.append("    customer: ").append(toIndentedString(customer)).append("\n");
     sb.append("    receivePaymentTransaction: ").append(toIndentedString(receivePaymentTransaction)).append("\n");
     sb.append("    paymentAdvanceTransaction: ").append(toIndentedString(paymentAdvanceTransaction)).append("\n");
     sb.append("    repayPaymentAdvanceTransaction: ").append(toIndentedString(repayPaymentAdvanceTransaction)).append("\n");
-    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
   }

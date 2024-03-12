@@ -214,7 +214,7 @@ public class TrustCustomer extends Customer {
 
     // add `relationships` to the URL query string
     if (getRelationships() != null) {
-      joiner.add(String.format("%srelationships%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getRelationships()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(getRelationships().toUrlQueryString(prefix + "relationships" + suffix));
     }
 
     return joiner.toString();

@@ -105,4 +105,23 @@ public class AccountTests {
     public void CreateDepositAccountTest() throws ApiException {
         assert CreateDepositAccount().getType().equals("depositAccount");
     }
+
+    public static CreateDepositAccount CreateDepositAccountRequest(String customerId) {
+        CreateDepositAccount cda = new CreateDepositAccount();
+        CreateDepositAccountAttributes attributes = new CreateDepositAccountAttributes();
+        attributes.setDepositProduct("checking");
+
+        CreateDepositAccountRelationships relationships = new CreateDepositAccountRelationships();
+        CustomerLinkageData customerRelationshipData = new CustomerLinkageData();
+        customerRelationshipData.setId(customerId);
+        customerRelationshipData.setType(CustomerLinkageData.TypeEnum.CUSTOMER);
+        CustomerLinkage customerLinkageRelationship = new CustomerLinkage();
+        customerLinkageRelationship.setData(customerRelationshipData);
+
+        relationships.setCustomer(customerLinkageRelationship);
+
+        cda.setAttributes(attributes);
+        cda.setRelationships(relationships);
+        return cda;
+    }
 }

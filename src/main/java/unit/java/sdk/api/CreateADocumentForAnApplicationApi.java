@@ -142,7 +142,7 @@ public class CreateADocumentForAnApplicationApi {
 
     localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
 
-    localVarRequestBuilder.header("Accept", "application/vnd.api+json");
+    localVarRequestBuilder.header("Accept", "application/vnd.api+json; charset&#x3D;utf-8");
 
     localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.noBody());
     if (memberVarReadTimeout != null) {

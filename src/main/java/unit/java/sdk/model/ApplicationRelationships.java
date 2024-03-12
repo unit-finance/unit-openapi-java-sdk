@@ -343,7 +343,7 @@ public class ApplicationRelationships {
 
     // add `documents` to the URL query string
     if (getDocuments() != null) {
-      joiner.add(String.format("%sdocuments%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDocuments()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(getDocuments().toUrlQueryString(prefix + "documents" + suffix));
     }
 
     // add `applicationForm` to the URL query string

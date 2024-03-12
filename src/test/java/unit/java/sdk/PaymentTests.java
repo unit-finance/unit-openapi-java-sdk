@@ -70,8 +70,7 @@ public class PaymentTests {
         assert response.getData().getType().equals("bookPayment");
     }
 
-    @Test
-    public void CreateAchPaymentTest() throws ApiException {
+    public static CreateAchPayment CreateAchPaymentRequest(String accountId) throws ApiException {
         CreateAchPayment createAchPayment = new CreateAchPayment();
         CreateAchPaymentAttributes attributes = new CreateAchPaymentAttributes();
         attributes.setAmount(1000);
@@ -80,22 +79,27 @@ public class PaymentTests {
         attributes.setDescription("Funding");
         createAchPayment.setAttributes(attributes);
 
-        DepositAccount account = (DepositAccount) CreateDepositAccount();
-
         CreateAchPaymentRelationships relationships = new CreateAchPaymentRelationships();
         AccountRelationship accountRelationship = new AccountRelationship();
         AccountRelationshipData accountRelationshipData = new AccountRelationshipData();
-        accountRelationshipData.setId(account.getId());
+        accountRelationshipData.setId(accountId);
         accountRelationshipData.setType(AccountRelationshipData.TypeEnum.ACCOUNT);
         accountRelationship.setData(accountRelationshipData);
         relationships.setAccount(accountRelationship);
         createAchPayment.setRelationships(relationships);
 
+        return createAchPayment;
+    }
+    @Test
+    public void CreateAchPaymentTest() throws ApiException {
         CreateAPaymentApi createApi = new CreateAPaymentApi(getApiClient());
+
+        DepositAccount account = (DepositAccount) CreateDepositAccount();
+
+        CreateAchPayment createAchPayment = CreateAchPaymentRequest(account.getId());
         CreatePayment request = new CreatePayment();
         CreatePaymentData data = new CreatePaymentData(createAchPayment);
         request.setData(data);
-
         UnitPaymentResponse response = createApi.execute(request);
         assert response.getData().getType().equals("achPayment");
     }

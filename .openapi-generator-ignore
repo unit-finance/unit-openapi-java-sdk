@@ -23,13 +23,11 @@
 #!docs/README.md
 
 .openapi-generator-ignore
-#.gitignore
-#README.md
-#build.gradle
-#build.sbt
-#gradle.properties
-#.travis.yml
+.gitignore
+README.md
+build.gradle
+build.sbt
+gradle.properties
+.travis.yml
 #.github/
-#.openapi-generator/
-#docs/
-
+.openapi-generator/

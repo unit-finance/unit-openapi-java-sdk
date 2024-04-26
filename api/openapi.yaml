@@ -2,7 +2,7 @@ openapi: 3.0.2
 info:
   description: An OpenAPI specifications for unit-sdk clients
   title: Unit OpenAPI specifications
-  version: 0.0.4
+  version: 0.0.3
 servers:
 - url: https://api.s.unit.sh
 security:
@@ -14,20 +14,15 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the application to get
-        explode: false
         in: path
         name: applicationId
         required: true
         schema:
           type: string
-        style: simple
-      - explode: true
-        in: query
+      - in: query
         name: included
-        required: false
         schema:
           type: string
-        style: form
       responses:
         "200":
           content:
@@ -44,13 +39,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the application to update
-        explode: false
         in: path
         name: applicationId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/vnd.api+json:
@@ -76,13 +69,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the application to get
-        explode: false
         in: path
         name: applicationId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/vnd.api+json:
@@ -108,28 +99,21 @@ paths:
       operationId: execute
       parameters:
       - allowReserved: true
-        explode: false
         in: query
         name: page
-        required: false
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
         style: deepObject
       - allowReserved: true
-        explode: false
         in: query
         name: filter
-        required: false
         schema:
           $ref: '#/components/schemas/execute_filter_parameter'
         style: deepObject
-      - explode: true
-        in: query
+      - in: query
         name: sort
-        required: false
         schema:
           type: string
-        style: form
       responses:
         "200":
           content:
@@ -174,28 +158,20 @@ paths:
       description: 'Get List Application Forms from API '
       operationId: execute
       parameters:
-      - explode: true
-        in: query
+      - in: query
         name: page
-        required: false
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
-        style: form
       - allowReserved: true
-        explode: false
         in: query
         name: filter
-        required: false
         schema:
           $ref: '#/components/schemas/execute_filter_parameter_1'
         style: deepObject
-      - explode: true
-        in: query
+      - in: query
         name: sort
-        required: false
         schema:
           type: string
-        style: form
       responses:
         "200":
           content:
@@ -235,21 +211,17 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the application to upload a file to
-        explode: false
         in: path
         name: applicationId
         required: true
         schema:
           type: string
-        style: simple
       - description: ID of the document to upload a file for
-        explode: false
         in: path
         name: documentId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/pdf:
@@ -275,21 +247,17 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the application to upload a file to
-        explode: false
         in: path
         name: applicationId
         required: true
         schema:
           type: string
-        style: simple
       - description: ID of the document to upload a file for
-        explode: false
         in: path
         name: documentId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           image/png:
@@ -315,21 +283,17 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the application to upload a file to
-        explode: false
         in: path
         name: applicationId
         required: true
         schema:
           type: string
-        style: simple
       - description: ID of the document to upload a file for
-        explode: false
         in: path
         name: documentId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           image/jpeg:
@@ -355,21 +319,17 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the application to upload a file to
-        explode: false
         in: path
         name: applicationId
         required: true
         schema:
           type: string
-        style: simple
       - description: ID of the document to upload a file for
-        explode: false
         in: path
         name: documentId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/pdf:
@@ -395,21 +355,17 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the application to upload a file to
-        explode: false
         in: path
         name: applicationId
         required: true
         schema:
           type: string
-        style: simple
       - description: ID of the document to upload a file for
-        explode: false
         in: path
         name: documentId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           image/png:
@@ -435,21 +391,17 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the application to upload a file to
-        explode: false
         in: path
         name: applicationId
         required: true
         schema:
           type: string
-        style: simple
       - description: ID of the document to upload a file for
-        explode: false
         in: path
         name: documentId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           image/jpeg:
@@ -475,13 +427,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the application to get documents for
-        explode: false
         in: path
         name: applicationId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -498,13 +448,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the application to create a file for
-        explode: false
         in: path
         name: applicationId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -522,21 +470,17 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the application to verify a file for
-        explode: false
         in: path
         name: applicationId
         required: true
         schema:
           type: string
-        style: simple
       - description: ID of the document to verify
-        explode: false
         in: path
         name: documentId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/json:
@@ -562,21 +506,17 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the application
-        explode: false
         in: path
         name: applicationId
         required: true
         schema:
           type: string
-        style: simple
       - description: ID of the document to download
-        explode: false
         in: path
         name: documentId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -595,21 +535,17 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the application
-        explode: false
         in: path
         name: applicationId
         required: true
         schema:
           type: string
-        style: simple
       - description: ID of the document to download
-        explode: false
         in: path
         name: documentId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -628,20 +564,15 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the application form to get
-        explode: false
         in: path
         name: applicationFormId
         required: true
         schema:
           type: string
-        style: simple
-      - explode: true
-        in: query
+      - in: query
         name: included
-        required: false
         schema:
           type: string
-        style: form
       responses:
         "200":
           content:
@@ -659,28 +590,21 @@ paths:
       operationId: execute
       parameters:
       - allowReserved: true
-        explode: false
         in: query
         name: page
-        required: false
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
         style: deepObject
       - allowReserved: true
-        explode: false
         in: query
         name: filter
-        required: false
         schema:
           $ref: '#/components/schemas/execute_filter_parameter_2'
         style: deepObject
-      - explode: true
-        in: query
+      - in: query
         name: include
-        required: false
         schema:
           type: string
-        style: form
       responses:
         "200":
           content:
@@ -722,20 +646,15 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the account to get
-        explode: false
         in: path
         name: accountId
         required: true
         schema:
           type: string
-        style: simple
-      - explode: true
-        in: query
+      - in: query
         name: include
-        required: false
         schema:
           type: string
-        style: form
       responses:
         "200":
           content:
@@ -752,13 +671,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the account to update
-        explode: false
         in: path
         name: accountId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/vnd.api+json:
@@ -785,13 +702,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the account to get
-        explode: false
         in: path
         name: accountId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -809,13 +724,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the account to get
-        explode: false
         in: path
         name: accountId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -834,13 +747,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the account to freeze
-        explode: false
         in: path
         name: accountId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/vnd.api+json:
@@ -867,13 +778,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the account to close
-        explode: false
         in: path
         name: accountId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/vnd.api+json:
@@ -900,13 +809,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the account to close
-        explode: false
         in: path
         name: accountId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -925,13 +832,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the account
-        explode: false
         in: path
         name: accountId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -950,13 +855,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the account
-        explode: false
         in: path
         name: accountId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -975,13 +878,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the account
-        explode: false
         in: path
         name: accountId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -1016,13 +917,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the customer to get
-        explode: false
         in: path
         name: customerId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -1039,13 +938,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the customer to update
-        explode: false
         in: path
         name: customerId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/vnd.api+json:
@@ -1071,28 +968,21 @@ paths:
       operationId: execute
       parameters:
       - allowReserved: true
-        explode: false
         in: query
         name: page
-        required: false
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
         style: deepObject
       - allowReserved: true
-        explode: false
         in: query
         name: filter
-        required: false
         schema:
           $ref: '#/components/schemas/execute_filter_parameter_3'
         style: deepObject
-      - explode: true
-        in: query
+      - in: query
         name: sort
-        required: false
         schema:
           type: string
-        style: form
       responses:
         "200":
           content:
@@ -1110,13 +1000,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the customer to archive
-        explode: false
         in: path
         name: customerId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/vnd.api+json:
@@ -1142,35 +1030,25 @@ paths:
       operationId: execute
       parameters:
       - allowReserved: true
-        explode: false
         in: query
         name: page
-        required: false
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
         style: deepObject
       - allowReserved: true
-        explode: false
         in: query
         name: filter
-        required: false
         schema:
           $ref: '#/components/schemas/execute_filter_parameter_4'
         style: deepObject
-      - explode: true
-        in: query
+      - in: query
         name: include
-        required: false
         schema:
           type: string
-        style: form
-      - explode: true
-        in: query
+      - in: query
         name: sort
-        required: false
         schema:
           type: string
-        style: form
       responses:
         "200":
           content:
@@ -1210,20 +1088,15 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the payment to get
-        explode: false
         in: path
         name: paymentId
         required: true
         schema:
           type: string
-        style: simple
-      - explode: true
-        in: query
+      - in: query
         name: included
-        required: false
         schema:
           type: string
-        style: form
       responses:
         "200":
           content:
@@ -1240,13 +1113,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the payment to update
-        explode: false
         in: path
         name: paymentId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/vnd.api+json:
@@ -1272,13 +1143,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the payment to cancel
-        explode: false
         in: path
         name: paymentId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -1295,13 +1164,10 @@ paths:
       description: 'Get Received Payments from API '
       operationId: execute
       parameters:
-      - explode: true
-        in: query
+      - in: query
         name: included
-        required: false
         schema:
           type: string
-        style: form
       responses:
         "200":
           content:
@@ -1319,20 +1185,15 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the payment to get
-        explode: false
         in: path
         name: paymentId
         required: true
         schema:
           type: string
-        style: simple
-      - explode: true
-        in: query
+      - in: query
         name: included
-        required: false
         schema:
           type: string
-        style: form
       responses:
         "200":
           content:
@@ -1349,13 +1210,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the payment to update
-        explode: false
         in: path
         name: paymentId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/vnd.api+json:
@@ -1381,13 +1240,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the payment to advance
-        explode: false
         in: path
         name: paymentId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -1405,28 +1262,21 @@ paths:
       operationId: execute
       parameters:
       - allowReserved: true
-        explode: false
         in: query
         name: page
-        required: false
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
         style: deepObject
       - allowReserved: true
-        explode: false
         in: query
         name: filter
-        required: false
         schema:
           $ref: '#/components/schemas/execute_filter_parameter_5'
         style: deepObject
-      - explode: true
-        in: query
+      - in: query
         name: sort
-        required: false
         schema:
           type: string
-        style: form
       responses:
         "200":
           content:
@@ -1466,13 +1316,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the counterparty to delete
-        explode: false
         in: path
         name: counterpartyId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "204":
           description: Successful Response
@@ -1485,20 +1333,15 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the counterparty to get
-        explode: false
         in: path
         name: counterpartyId
         required: true
         schema:
           type: string
-        style: simple
-      - explode: true
-        in: query
+      - in: query
         name: included
-        required: false
         schema:
           type: string
-        style: form
       responses:
         "200":
           content:
@@ -1515,13 +1358,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the counterparty to update
-        explode: false
         in: path
         name: counterpartyId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/vnd.api+json:
@@ -1547,13 +1388,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the counterparty to get
-        explode: false
         in: path
         name: counterpartyId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -1571,28 +1410,21 @@ paths:
       operationId: execute
       parameters:
       - allowReserved: true
-        explode: false
         in: query
         name: page
-        required: false
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
         style: deepObject
       - allowReserved: true
-        explode: false
         in: query
         name: filter
-        required: false
         schema:
           $ref: '#/components/schemas/execute_filter_parameter_6'
         style: deepObject
-      - explode: true
-        in: query
+      - in: query
         name: sort
-        required: false
         schema:
           type: string
-        style: form
       responses:
         "200":
           content:
@@ -1632,13 +1464,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the payment to get
-        explode: false
         in: path
         name: paymentId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -1656,13 +1486,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the payment to disable
-        explode: false
         in: path
         name: paymentId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -1680,13 +1508,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the payment to enable
-        explode: false
         in: path
         name: paymentId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -1704,35 +1530,25 @@ paths:
       operationId: execute
       parameters:
       - allowReserved: true
-        explode: false
         in: query
         name: page
-        required: false
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
         style: deepObject
       - allowReserved: true
-        explode: false
         in: query
         name: filter
-        required: false
         schema:
           $ref: '#/components/schemas/execute_filter_parameter_7'
         style: deepObject
-      - explode: true
-        in: query
+      - in: query
         name: include
-        required: false
         schema:
           type: string
-        style: form
-      - explode: true
-        in: query
+      - in: query
         name: sort
-        required: false
         schema:
           type: string
-        style: form
       responses:
         "200":
           content:
@@ -1772,20 +1588,15 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the card to get
-        explode: false
         in: path
         name: cardId
         required: true
         schema:
           type: string
-        style: simple
-      - explode: true
-        in: query
+      - in: query
         name: included
-        required: false
         schema:
           type: string
-        style: form
       responses:
         "200":
           content:
@@ -1802,13 +1613,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the card to update
-        explode: false
         in: path
         name: cardId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/vnd.api+json:
@@ -1834,13 +1643,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the card to get PIN status
-        explode: false
         in: path
         name: cardId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -1858,13 +1665,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the card
-        explode: false
         in: path
         name: cardId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -1882,13 +1687,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the card
-        explode: false
         in: path
         name: cardId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -1906,13 +1709,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the card to close
-        explode: false
         in: path
         name: cardId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -1930,13 +1731,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the card to freeze
-        explode: false
         in: path
         name: cardId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -1954,13 +1753,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the card to unfreeze
-        explode: false
         in: path
         name: cardId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -1978,13 +1775,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the card to get
-        explode: false
         in: path
         name: cardId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -2002,28 +1797,21 @@ paths:
       operationId: execute
       parameters:
       - allowReserved: true
-        explode: false
         in: query
         name: page
-        required: false
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
         style: deepObject
       - allowReserved: true
-        explode: false
         in: query
         name: filter
-        required: false
         schema:
           $ref: '#/components/schemas/execute_filter_parameter_8'
         style: deepObject
-      - explode: true
-        in: query
+      - in: query
         name: sort
-        required: false
         schema:
           type: string
-        style: form
       responses:
         "200":
           content:
@@ -2041,20 +1829,15 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the authorization to get
-        explode: false
         in: path
         name: authorizationId
         required: true
         schema:
           type: string
-        style: simple
-      - explode: true
-        in: query
+      - in: query
         name: includeNoneAuthorized
-        required: false
         schema:
           type: boolean
-        style: form
       responses:
         "200":
           content:
@@ -2072,18 +1855,14 @@ paths:
       operationId: execute
       parameters:
       - allowReserved: true
-        explode: false
         in: query
         name: page
-        required: false
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
         style: deepObject
       - allowReserved: true
-        explode: false
         in: query
         name: filter
-        required: false
         schema:
           $ref: '#/components/schemas/execute_filter_parameter_9'
         style: deepObject
@@ -2104,13 +1883,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the authorization request to get
-        explode: false
         in: path
         name: authorizationId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -2128,13 +1905,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the authorization request to approve
-        explode: false
         in: path
         name: authorizationId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/vnd.api+json:
@@ -2160,13 +1935,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the authorization request to decline
-        explode: false
         in: path
         name: authorizationId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/vnd.api+json:
@@ -2192,28 +1965,21 @@ paths:
       operationId: execute
       parameters:
       - allowReserved: true
-        explode: false
         in: query
         name: page
-        required: false
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
         style: deepObject
       - allowReserved: true
-        explode: false
         in: query
         name: filter
-        required: false
         schema:
           $ref: '#/components/schemas/execute_filter_parameter_10'
         style: deepObject
-      - explode: true
-        in: query
+      - in: query
         name: sort
-        required: false
         schema:
           type: string
-        style: form
       responses:
         "200":
           content:
@@ -2231,13 +1997,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the statement to get
-        explode: false
         in: path
         name: statementId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -2255,13 +2019,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the statement to get
-        explode: false
         in: path
         name: statementId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -2280,13 +2042,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the account to get
-        explode: false
         in: path
         name: accountId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -2305,35 +2065,25 @@ paths:
       operationId: execute
       parameters:
       - allowReserved: true
-        explode: false
         in: query
         name: page
-        required: false
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
         style: deepObject
       - allowReserved: true
-        explode: false
         in: query
         name: filter
-        required: false
         schema:
           $ref: '#/components/schemas/execute_filter_parameter_11'
         style: deepObject
-      - explode: true
-        in: query
+      - in: query
         name: sort
-        required: false
         schema:
           type: string
-        style: form
-      - explode: true
-        in: query
+      - in: query
         name: include
-        required: false
         schema:
           type: string
-        style: form
       responses:
         "200":
           content:
@@ -2373,13 +2123,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the reward to get
-        explode: false
         in: path
         name: rewardId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -2397,18 +2145,14 @@ paths:
       operationId: execute
       parameters:
       - allowReserved: true
-        explode: false
         in: query
         name: page
-        required: false
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
         style: deepObject
       - allowReserved: true
-        explode: false
         in: query
         name: filter
-        required: false
         schema:
           $ref: '#/components/schemas/execute_filter_parameter_12'
         style: deepObject
@@ -2429,13 +2173,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the event to get
-        explode: false
         in: path
         name: eventId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -2452,13 +2194,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the event to fire
-        explode: false
         in: path
         name: eventId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -2476,13 +2216,11 @@ paths:
       operationId: execute
       parameters:
       - description: routingNumber of the institution to get
-        explode: false
         in: path
         name: routingNumber
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -2523,35 +2261,25 @@ paths:
       operationId: execute
       parameters:
       - allowReserved: true
-        explode: false
         in: query
         name: page
-        required: false
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
         style: deepObject
       - allowReserved: true
-        explode: false
         in: query
         name: filter
-        required: false
         schema:
           $ref: '#/components/schemas/execute_filter_parameter_13'
         style: deepObject
-      - explode: true
-        in: query
+      - in: query
         name: sort
-        required: false
         schema:
           type: string
-        style: form
-      - explode: true
-        in: query
+      - in: query
         name: include
-        required: false
         schema:
           type: string
-        style: form
       responses:
         "200":
           content:
@@ -2591,13 +2319,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the check deposit to get
-        explode: false
         in: path
         name: checkDepositId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -2614,13 +2340,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the check deposit to update
-        explode: false
         in: path
         name: checkDepositId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/vnd.api+json:
@@ -2646,13 +2370,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the check deposit to confirm
-        explode: false
         in: path
         name: checkDepositId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -2670,13 +2392,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the check deposit to get
-        explode: false
         in: path
         name: checkDepositId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -2694,13 +2414,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the check deposit to get
-        explode: false
         in: path
         name: checkDepositId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -2718,13 +2436,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the user to revoke token
-        explode: false
         in: path
         name: userId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -2741,13 +2457,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the user to create token for
-        explode: false
         in: path
         name: userId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/vnd.api+json:
@@ -2773,21 +2487,17 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the user to revoke token
-        explode: false
         in: path
         name: userId
         required: true
         schema:
           type: string
-        style: simple
       - description: ID of the token to revoke
-        explode: false
         in: path
         name: tokenId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -2805,13 +2515,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the customer to create token for
-        explode: false
         in: path
         name: customerId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/vnd.api+json:
@@ -2837,13 +2545,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the customer to create token for
-        explode: false
         in: path
         name: customerId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/vnd.api+json:
@@ -2869,28 +2575,21 @@ paths:
       operationId: execute
       parameters:
       - allowReserved: true
-        explode: false
         in: query
         name: page
-        required: false
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
         style: deepObject
       - allowReserved: true
-        explode: false
         in: query
         name: filter
-        required: false
         schema:
           $ref: '#/components/schemas/execute_filter_parameter_14'
         style: deepObject
-      - explode: true
-        in: query
+      - in: query
         name: sort
-        required: false
         schema:
           type: string
-        style: form
       responses:
         "200":
           content:
@@ -2930,13 +2629,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the webhook to get
-        explode: false
         in: path
         name: webhookId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -2953,13 +2650,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the Webhook to update
-        explode: false
         in: path
         name: webhookId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/vnd.api+json:
@@ -2985,13 +2680,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the webhook to enable
-        explode: false
         in: path
         name: webhookId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -3009,13 +2702,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the webhook to disable
-        explode: false
         in: path
         name: webhookId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -3033,10 +2724,8 @@ paths:
       operationId: execute
       parameters:
       - allowReserved: true
-        explode: false
         in: query
         name: filter
-        required: false
         schema:
           $ref: '#/components/schemas/execute_filter_parameter_15'
         style: deepObject
@@ -3060,21 +2749,17 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the account to get transaction from
-        explode: false
         in: path
         name: accountId
         required: true
         schema:
           type: string
-        style: simple
       - description: ID of the transaction
-        explode: false
         in: path
         name: transactionId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -3091,21 +2776,17 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the account to update transaction from
-        explode: false
         in: path
         name: accountId
         required: true
         schema:
           type: string
-        style: simple
       - description: ID of the transaction to update
-        explode: false
         in: path
         name: transactionId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/vnd.api+json:
@@ -3131,35 +2812,25 @@ paths:
       operationId: execute
       parameters:
       - allowReserved: true
-        explode: false
         in: query
         name: page
-        required: false
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
         style: deepObject
       - allowReserved: true
-        explode: false
         in: query
         name: filter
-        required: false
         schema:
           $ref: '#/components/schemas/execute_filter_parameter_16'
         style: deepObject
-      - explode: true
-        in: query
+      - in: query
         name: sort
-        required: false
         schema:
           type: string
-        style: form
-      - explode: true
-        in: query
+      - in: query
         name: include
-        required: false
         schema:
           type: string
-        style: form
       responses:
         "200":
           content:
@@ -3177,18 +2848,14 @@ paths:
       operationId: execute
       parameters:
       - allowReserved: true
-        explode: false
         in: query
         name: page
-        required: false
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
         style: deepObject
       - allowReserved: true
-        explode: false
         in: query
         name: filter
-        required: false
         schema:
           $ref: '#/components/schemas/execute_filter_parameter_17'
         style: deepObject
@@ -3212,13 +2879,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the dispute to get
-        explode: false
         in: path
         name: disputeId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -3236,18 +2901,14 @@ paths:
       operationId: execute
       parameters:
       - allowReserved: true
-        explode: false
         in: query
         name: page
-        required: false
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
         style: deepObject
       - allowReserved: true
-        explode: false
         in: query
         name: filter
-        required: false
         schema:
           $ref: '#/components/schemas/execute_filter_parameter_18'
         style: deepObject
@@ -3292,20 +2953,15 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the repayment to get
-        explode: false
         in: path
         name: repaymentId
         required: true
         schema:
           type: string
-        style: simple
-      - explode: true
-        in: query
+      - in: query
         name: include
-        required: false
         schema:
           type: string
-        style: form
       responses:
         "200":
           content:
@@ -3323,34 +2979,23 @@ paths:
       operationId: execute
       parameters:
       - allowReserved: true
-        explode: false
         in: query
         name: page
-        required: false
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
         style: deepObject
-      - explode: true
-        in: query
+      - in: query
         name: filter
-        required: false
         schema:
           $ref: '#/components/schemas/execute_filter_parameter_19'
-        style: form
-      - explode: true
-        in: query
+      - in: query
         name: sort
-        required: false
         schema:
           type: string
-        style: form
-      - explode: true
-        in: query
+      - in: query
         name: include
-        required: false
         schema:
           type: string
-        style: form
       responses:
         "200":
           content:
@@ -3390,13 +3035,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the check payment to get
-        explode: false
         in: path
         name: checkPaymentId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -3414,13 +3057,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the check payment to approve
-        explode: false
         in: path
         name: checkPaymentId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/vnd.api+json:
@@ -3446,13 +3087,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the check payment to cancel
-        explode: false
         in: path
         name: checkPaymentId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -3470,13 +3109,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the check payment to return
-        explode: false
         in: path
         name: checkPaymentId
         required: true
         schema:
           type: string
-        style: simple
       requestBody:
         content:
           application/vnd.api+json:
@@ -3502,13 +3139,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the check payment
-        explode: false
         in: path
         name: checkPaymentId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -3527,13 +3162,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the check payment
-        explode: false
         in: path
         name: checkPaymentId
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -3551,27 +3184,19 @@ paths:
       operationId: execute
       parameters:
       - allowReserved: true
-        explode: false
         in: query
         name: page
-        required: false
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
         style: deepObject
-      - explode: true
-        in: query
+      - in: query
         name: filter
-        required: false
         schema:
           $ref: '#/components/schemas/execute_filter_parameter_20'
-        style: form
-      - explode: true
-        in: query
+      - in: query
         name: sort
-        required: false
         schema:
           type: string
-        style: form
       responses:
         "200":
           content:
@@ -3604,13 +3229,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the stop payment
-        explode: false
         in: path
         name: stop_payment_id
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "204":
           description: Stop payment successfully canceled
@@ -3622,13 +3245,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the stop payment
-        explode: false
         in: path
         name: stop_payment_id
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -3645,13 +3266,11 @@ paths:
       operationId: execute
       parameters:
       - description: ID of the stop payment
-        explode: false
         in: path
         name: stop_payment_id
         required: true
         schema:
           type: string
-        style: simple
       responses:
         "200":
           content:
@@ -4354,10 +3973,6 @@ components:
           type: string
         industry:
           $ref: '#/components/schemas/industry'
-        businessVertical:
-          $ref: '#/components/schemas/businessVertical'
-        occupation:
-          $ref: '#/components/schemas/occupation'
       title: Application Form Prefilled
       type: object
     ApplicationFormSettingsOverride:
@@ -11817,9 +11432,6 @@ components:
         expirationDate:
           pattern: "^\\d{4}[-](1[012]|0[1-9])$"
           type: string
-        nextExpirationDate:
-          pattern: "^\\d{4}[-](1[012]|0[1-9])$"
-          type: string
         shippingAddress:
           $ref: '#/components/schemas/address'
         address:
@@ -11888,9 +11500,6 @@ components:
         expirationDate:
           pattern: "^\\d{4}[-](1[012]|0[1-9])$"
           type: string
-        nextExpirationDate:
-          pattern: "^\\d{4}[-](1[012]|0[1-9])$"
-          type: string
         shippingAddress:
           $ref: '#/components/schemas/address'
         bin:
@@ -11925,9 +11534,6 @@ components:
           pattern: "^\\d{4}$"
           type: string
         expirationDate:
-          pattern: "^\\d{4}[-](1[012]|0[1-9])$"
-          type: string
-        nextExpirationDate:
           pattern: "^\\d{4}[-](1[012]|0[1-9])$"
           type: string
         address:
@@ -11984,9 +11590,6 @@ components:
           pattern: "^\\d{4}$"
           type: string
         expirationDate:
-          pattern: "^\\d{4}[-](1[012]|0[1-9])$"
-          type: string
-        nextExpirationDate:
           pattern: "^\\d{4}[-](1[012]|0[1-9])$"
           type: string
         bin:

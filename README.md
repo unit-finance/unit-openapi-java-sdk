@@ -81,3 +81,13 @@ openapi-generator-cli generate -g java -i openapi.json -o unit
 -p modelPackage=unit.java.sdk.model -p apiPackage=unit.java.sdk.api 
 --library native -p useJakartaEe=true
 ```
+
+You can also regenerate the Java SDK code from the latest version of the API schema at [OpenAPI project](https://github.com/unit-finance/openapi-unit-sdk) using
+```commandline
+./gradlew generateClientCode
+```
+or from a local API schema file using
+```commandline
+./gradlew generateClientCode --input=/absolute/path/to/schema/openapi-unit-sdk/openapi.json
+```
+or 

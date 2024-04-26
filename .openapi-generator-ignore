@@ -23,16 +23,13 @@
 #!docs/README.md
 
 .openapi-generator-ignore
-.gitignore
-README.md
-pom.xml
-build.gradle
-build.sbt
-gradle.properties
-.travis.yml
-gradle/wrapper/
-gradlew
-gradlew.bat
-.github/maven.yml
-.openapi-generator/FILES
-.openapi-generator/VERSION
+#.gitignore
+#README.md
+#pom.xml
+#build.gradle
+#build.sbt
+#gradle.properties
+#.travis.yml
+#gradle/wrapper/
+#gradlew
+#gradlew.bat

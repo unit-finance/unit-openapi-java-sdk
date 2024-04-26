@@ -3440,7 +3440,7 @@ components:
         matriculaConsular:
           type: string
         address:
-          type: object
+          $ref: '#/components/schemas/address'
         dateOfBirth:
           format: date
           type: string
@@ -3521,7 +3521,7 @@ components:
         matriculaConsular:
           type: string
         address:
-          type: object
+          $ref: '#/components/schemas/address'
         dateOfBirth:
           format: date
           type: string
@@ -3587,7 +3587,7 @@ components:
         matriculaConsular:
           type: string
         address:
-          type: object
+          $ref: '#/components/schemas/address'
         dateOfBirth:
           format: date
           type: string
@@ -3973,6 +3973,10 @@ components:
           type: string
         industry:
           $ref: '#/components/schemas/industry'
+        businessVertical:
+          $ref: '#/components/schemas/businessVertical'
+        occupation:
+          $ref: '#/components/schemas/occupation'
       title: Application Form Prefilled
       type: object
     ApplicationFormSettingsOverride:
@@ -4170,7 +4174,6 @@ components:
           default: creditAccount
           enum:
           - creditAccount
-          - depositAccount
           type: string
         attributes:
           $ref: '#/components/schemas/CreateCreditAccount_attributes'
@@ -5187,11 +5190,6 @@ components:
           default: individualDebitCard
           enum:
           - individualDebitCard
-          - businessDebitCard
-          - businessCreditCard
-          - individualVirtualDebitCard
-          - businessVirtualDebitCard
-          - businessVirtualCreditCard
           type: string
         attributes:
           $ref: '#/components/schemas/CreateIndividualDebitCard_attributes'
@@ -5334,11 +5332,6 @@ components:
         type:
           enum:
           - individualDebitCard
-          - individualVirtualDebitCard
-          - businessDebitCard
-          - businessVirtualDebitCard
-          - businessCreditCard
-          - businessVirtualCreditCard
           type: string
         attributes:
           $ref: '#/components/schemas/patchIndividualDebitCard_attributes'
@@ -8785,7 +8778,7 @@ components:
         matriculaConsular:
           type: string
         address:
-          type: object
+          $ref: '#/components/schemas/address'
         dateOfBirth:
           format: date
           type: string
@@ -11432,6 +11425,9 @@ components:
         expirationDate:
           pattern: "^\\d{4}[-](1[012]|0[1-9])$"
           type: string
+        nextExpirationDate:
+          pattern: "^\\d{4}[-](1[012]|0[1-9])$"
+          type: string
         shippingAddress:
           $ref: '#/components/schemas/address'
         address:
@@ -11500,6 +11496,9 @@ components:
         expirationDate:
           pattern: "^\\d{4}[-](1[012]|0[1-9])$"
           type: string
+        nextExpirationDate:
+          pattern: "^\\d{4}[-](1[012]|0[1-9])$"
+          type: string
         shippingAddress:
           $ref: '#/components/schemas/address'
         bin:
@@ -11534,6 +11533,9 @@ components:
           pattern: "^\\d{4}$"
           type: string
         expirationDate:
+          pattern: "^\\d{4}[-](1[012]|0[1-9])$"
+          type: string
+        nextExpirationDate:
           pattern: "^\\d{4}[-](1[012]|0[1-9])$"
           type: string
         address:
@@ -11590,6 +11592,9 @@ components:
           pattern: "^\\d{4}$"
           type: string
         expirationDate:
+          pattern: "^\\d{4}[-](1[012]|0[1-9])$"
+          type: string
+        nextExpirationDate:
           pattern: "^\\d{4}[-](1[012]|0[1-9])$"
           type: string
         bin:

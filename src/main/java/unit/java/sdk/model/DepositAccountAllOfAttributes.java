@@ -140,7 +140,17 @@ public class DepositAccountAllOfAttributes {
   public enum CloseReasonEnum {
     BYCUSTOMER("ByCustomer"),
     
-    FRAUD("Fraud");
+    FRAUD("Fraud"),
+    
+    NEGATIVEBALANCE("NegativeBalance"),
+    
+    BYBANK("ByBank"),
+    
+    BREACHOFTERMSANDCONDITIONS("BreachOfTermsAndConditions"),
+    
+    NOACCOUNTACTIVITY("NoAccountActivity"),
+    
+    PROGRAMCHANGE("ProgramChange");
 
     private String value;
 

@@ -123,7 +123,15 @@ public class CreditAccountAllOfAttributes {
     
     FRAUD("Fraud"),
     
-    OVERDUE("Overdue");
+    NEGATIVEBALANCE("NegativeBalance"),
+    
+    BYBANK("ByBank"),
+    
+    BREACHOFTERMSANDCONDITIONS("BreachOfTermsAndConditions"),
+    
+    NOACCOUNTACTIVITY("NoAccountActivity"),
+    
+    PROGRAMCHANGE("ProgramChange");
 
     private String value;
 

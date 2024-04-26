@@ -30,6 +30,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
+import unit.java.sdk.model.Address;
 import unit.java.sdk.model.AnnualIncome;
 import unit.java.sdk.model.ApplicationStatus;
 import unit.java.sdk.model.BusinessVertical;
@@ -142,7 +143,7 @@ public class IndividualApplicationAllOfAttributes {
   private String matriculaConsular;
 
   public static final String JSON_PROPERTY_ADDRESS = "address";
-  private Object address;
+  private Address address;
 
   public static final String JSON_PROPERTY_DATE_OF_BIRTH = "dateOfBirth";
   private LocalDate dateOfBirth;
@@ -659,7 +660,7 @@ public class IndividualApplicationAllOfAttributes {
   }
 
 
-  public IndividualApplicationAllOfAttributes address(Object address) {
+  public IndividualApplicationAllOfAttributes address(Address address) {
     this.address = address;
     return this;
   }
@@ -672,14 +673,14 @@ public class IndividualApplicationAllOfAttributes {
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Object getAddress() {
+  public Address getAddress() {
     return address;
   }
 
 
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAddress(Object address) {
+  public void setAddress(Address address) {
     this.address = address;
   }
 
@@ -1693,7 +1694,7 @@ public class IndividualApplicationAllOfAttributes {
 
     // add `address` to the URL query string
     if (getAddress() != null) {
-      joiner.add(String.format("%saddress%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAddress()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(getAddress().toUrlQueryString(prefix + "address" + suffix));
     }
 
     // add `dateOfBirth` to the URL query string

@@ -145,7 +145,8 @@ public class GetListApplicationFormsApi {
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
     localVarQueryParameterBaseName = "page";
-    localVarQueryParams.addAll(ApiClient.parameterToPairs("page", page));
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("limit", page.getLimit()));
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("offset", page.getOffset()));
     localVarQueryParameterBaseName = "filter";
     if (filter != null) {
       localVarQueryStringJoiner.add(filter.toUrlQueryString("filter"));

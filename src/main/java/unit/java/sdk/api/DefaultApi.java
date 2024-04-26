@@ -151,7 +151,15 @@ public class DefaultApi {
       localVarQueryStringJoiner.add(page.toUrlQueryString("page"));
     }
     localVarQueryParameterBaseName = "filter";
-    localVarQueryParams.addAll(ApiClient.parameterToPairs("filter", filter));
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("accountId", filter.getAccountId()));
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("customerId", filter.getCustomerId()));
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("multi", "status", filter.getStatus()));
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("tags", filter.getTags()));
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("since", filter.getSince()));
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("until", filter.getUntil()));
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("fromAmount", filter.getFromAmount()));
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("toAmount", filter.getToAmount()));
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("checkNumber", filter.getCheckNumber()));
     localVarQueryParameterBaseName = "sort";
     localVarQueryParams.addAll(ApiClient.parameterToPairs("sort", sort));
 

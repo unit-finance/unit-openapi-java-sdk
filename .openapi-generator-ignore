@@ -33,5 +33,6 @@ gradle.properties
 gradle/wrapper/
 gradlew
 gradlew.bat
-#.github/
-.openapi-generator/
+.github/maven.yml
+.openapi-generator/FILES
+.openapi-generator/VERSION

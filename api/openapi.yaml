@@ -2,7 +2,7 @@ openapi: 3.0.2
 info:
   description: An OpenAPI specifications for unit-sdk clients
   title: Unit OpenAPI specifications
-  version: 0.0.3
+  version: 0.0.4
 servers:
 - url: https://api.s.unit.sh
 security:
@@ -3973,6 +3973,10 @@ components:
           type: string
         industry:
           $ref: '#/components/schemas/industry'
+        businessVertical:
+          $ref: '#/components/schemas/businessVertical'
+        occupation:
+          $ref: '#/components/schemas/occupation'
       title: Application Form Prefilled
       type: object
     ApplicationFormSettingsOverride:
@@ -11432,6 +11436,9 @@ components:
         expirationDate:
           pattern: "^\\d{4}[-](1[012]|0[1-9])$"
           type: string
+        nextExpirationDate:
+          pattern: "^\\d{4}[-](1[012]|0[1-9])$"
+          type: string
         shippingAddress:
           $ref: '#/components/schemas/address'
         address:
@@ -11500,6 +11507,9 @@ components:
         expirationDate:
           pattern: "^\\d{4}[-](1[012]|0[1-9])$"
           type: string
+        nextExpirationDate:
+          pattern: "^\\d{4}[-](1[012]|0[1-9])$"
+          type: string
         shippingAddress:
           $ref: '#/components/schemas/address'
         bin:
@@ -11534,6 +11544,9 @@ components:
           pattern: "^\\d{4}$"
           type: string
         expirationDate:
+          pattern: "^\\d{4}[-](1[012]|0[1-9])$"
+          type: string
+        nextExpirationDate:
           pattern: "^\\d{4}[-](1[012]|0[1-9])$"
           type: string
         address:
@@ -11590,6 +11603,9 @@ components:
           pattern: "^\\d{4}$"
           type: string
         expirationDate:
+          pattern: "^\\d{4}[-](1[012]|0[1-9])$"
+          type: string
+        nextExpirationDate:
           pattern: "^\\d{4}[-](1[012]|0[1-9])$"
           type: string
         bin:

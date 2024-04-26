@@ -42,6 +42,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   BusinessVirtualDebitCardAllOfAttributes.JSON_PROPERTY_UPDATED_AT,
   BusinessVirtualDebitCardAllOfAttributes.JSON_PROPERTY_LAST4_DIGITS,
   BusinessVirtualDebitCardAllOfAttributes.JSON_PROPERTY_EXPIRATION_DATE,
+  BusinessVirtualDebitCardAllOfAttributes.JSON_PROPERTY_NEXT_EXPIRATION_DATE,
   BusinessVirtualDebitCardAllOfAttributes.JSON_PROPERTY_ADDRESS,
   BusinessVirtualDebitCardAllOfAttributes.JSON_PROPERTY_FULL_NAME,
   BusinessVirtualDebitCardAllOfAttributes.JSON_PROPERTY_PHONE,
@@ -68,6 +69,9 @@ public class BusinessVirtualDebitCardAllOfAttributes {
 
   public static final String JSON_PROPERTY_EXPIRATION_DATE = "expirationDate";
   private String expirationDate;
+
+  public static final String JSON_PROPERTY_NEXT_EXPIRATION_DATE = "nextExpirationDate";
+  private String nextExpirationDate;
 
   public static final String JSON_PROPERTY_ADDRESS = "address";
   private Address address;
@@ -205,6 +209,31 @@ public class BusinessVirtualDebitCardAllOfAttributes {
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setExpirationDate(String expirationDate) {
     this.expirationDate = expirationDate;
+  }
+
+
+  public BusinessVirtualDebitCardAllOfAttributes nextExpirationDate(String nextExpirationDate) {
+    this.nextExpirationDate = nextExpirationDate;
+    return this;
+  }
+
+   /**
+   * Get nextExpirationDate
+   * @return nextExpirationDate
+  **/
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NEXT_EXPIRATION_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getNextExpirationDate() {
+    return nextExpirationDate;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_NEXT_EXPIRATION_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setNextExpirationDate(String nextExpirationDate) {
+    this.nextExpirationDate = nextExpirationDate;
   }
 
 
@@ -524,6 +553,7 @@ public class BusinessVirtualDebitCardAllOfAttributes {
         Objects.equals(this.updatedAt, businessVirtualDebitCardAllOfAttributes.updatedAt) &&
         Objects.equals(this.last4Digits, businessVirtualDebitCardAllOfAttributes.last4Digits) &&
         Objects.equals(this.expirationDate, businessVirtualDebitCardAllOfAttributes.expirationDate) &&
+        Objects.equals(this.nextExpirationDate, businessVirtualDebitCardAllOfAttributes.nextExpirationDate) &&
         Objects.equals(this.address, businessVirtualDebitCardAllOfAttributes.address) &&
         Objects.equals(this.fullName, businessVirtualDebitCardAllOfAttributes.fullName) &&
         Objects.equals(this.phone, businessVirtualDebitCardAllOfAttributes.phone) &&
@@ -540,7 +570,7 @@ public class BusinessVirtualDebitCardAllOfAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, updatedAt, last4Digits, expirationDate, address, fullName, phone, email, dateOfBirth, nationality, ssn, passport, bin, status, tags, freezeReason);
+    return Objects.hash(createdAt, updatedAt, last4Digits, expirationDate, nextExpirationDate, address, fullName, phone, email, dateOfBirth, nationality, ssn, passport, bin, status, tags, freezeReason);
   }
 
   @Override
@@ -551,6 +581,7 @@ public class BusinessVirtualDebitCardAllOfAttributes {
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    last4Digits: ").append(toIndentedString(last4Digits)).append("\n");
     sb.append("    expirationDate: ").append(toIndentedString(expirationDate)).append("\n");
+    sb.append("    nextExpirationDate: ").append(toIndentedString(nextExpirationDate)).append("\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
     sb.append("    fullName: ").append(toIndentedString(fullName)).append("\n");
     sb.append("    phone: ").append(toIndentedString(phone)).append("\n");
@@ -628,6 +659,11 @@ public class BusinessVirtualDebitCardAllOfAttributes {
     // add `expirationDate` to the URL query string
     if (getExpirationDate() != null) {
       joiner.add(String.format("%sexpirationDate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getExpirationDate()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `nextExpirationDate` to the URL query string
+    if (getNextExpirationDate() != null) {
+      joiner.add(String.format("%snextExpirationDate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getNextExpirationDate()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `address` to the URL query string

@@ -9663,6 +9663,11 @@ components:
           enum:
           - ByCustomer
           - Fraud
+          - NegativeBalance
+          - ByBank
+          - BreachOfTermsAndConditions
+          - NoAccountActivity
+          - ProgramChange
           type: string
         fraudReason:
           enum:
@@ -9745,7 +9750,11 @@ components:
           enum:
           - ByCustomer
           - Fraud
-          - Overdue
+          - NegativeBalance
+          - ByBank
+          - BreachOfTermsAndConditions
+          - NoAccountActivity
+          - ProgramChange
           type: string
         fraudReason:
           enum:

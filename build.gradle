@@ -1,6 +1,7 @@
 apply plugin: 'idea'
 apply plugin: 'eclipse'
 apply plugin: 'java'
+apply plugin: 'org.openapi.generator'
 apply plugin: 'com.diffplug.spotless'
 
 group = 'co.unit.sdk'
@@ -25,6 +26,24 @@ repositories {
 }
 sourceSets {
     main.java.srcDirs = ['src/main/java']
+}
+
+openApiGenerate {
+    generatorName = "java"
+    library = "native"
+    ignoreFileOverride = "$projectDir/.openapi-generator-ignore"
+    validateSpec = false
+    outputDir = "$projectDir"
+    invokerPackage = "unit.java.sdk"
+    modelPackage = "unit.java.sdk.model"
+    apiPackage = "unit.java.sdk.api"
+    gitHost = "github.com"
+    gitUserId = "unit-finance"
+    gitRepoId = "unit-openapi-java-sdk"
+    generateModelDocumentation = false
+    generateApiDocumentation = false
+    configOptions [:]
+    globalProperties [:]
 }
 
 if(hasProperty('target') && target == 'android') {
@@ -85,7 +104,6 @@ if(hasProperty('target') && target == 'android') {
 
     apply plugin: 'java'
     apply plugin: 'maven-publish'
-    apply plugin: 'org.openapi.generator'
 
     sourceCompatibility = JavaVersion.VERSION_11
     targetCompatibility = JavaVersion.VERSION_11
@@ -139,7 +157,7 @@ dependencies {
     implementation "jakarta.annotation:jakarta.annotation-api:$jakarta_annotation_version"
     implementation 'jakarta.annotation:jakarta.annotation-api:2.1.1'
     testImplementation "junit:junit:$junit_version"
-} 
+}
 
 javadoc {
     options.tags = [ "http.response.details:a:Http Response Details" ]

@@ -25,9 +25,13 @@
 .openapi-generator-ignore
 .gitignore
 README.md
+pom.xml
 build.gradle
 build.sbt
 gradle.properties
 .travis.yml
+gradle/wrapper/
+gradlew
+gradlew.bat
 #.github/
 .openapi-generator/

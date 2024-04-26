@@ -21,3 +21,15 @@
 #docs/*.md
 # Then explicitly reverse the ignore rule for a single file:
 #!docs/README.md
+
+.openapi-generator-ignore
+#.gitignore
+#README.md
+#build.gradle
+#build.sbt
+#gradle.properties
+#.travis.yml
+#.github/
+#.openapi-generator/
+#docs/
+

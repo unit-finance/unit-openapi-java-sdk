@@ -1,3 +1,5 @@
+import org.openapitools.generator.gradle.plugin.tasks.GenerateTask
+
 apply plugin: 'idea'
 apply plugin: 'eclipse'
 apply plugin: 'java'
@@ -28,22 +30,31 @@ sourceSets {
     main.java.srcDirs = ['src/main/java']
 }
 
-openApiGenerate {
+tasks.register('generateClientCode', GenerateTask) {
+    remoteInputSpec = inputSpec == null ? "https://raw.githubusercontent.com/unit-finance/openapi-unit-sdk/main/openapi.json" : null
+    outputDir = "$projectDir"
+    validateSpec = false
     generatorName = "java"
     library = "native"
-    ignoreFileOverride = "$projectDir/.openapi-generator-ignore"
-    validateSpec = false
-    outputDir = "$projectDir"
     invokerPackage = "unit.java.sdk"
     modelPackage = "unit.java.sdk.model"
     apiPackage = "unit.java.sdk.api"
-    gitHost = "github.com"
-    gitUserId = "unit-finance"
-    gitRepoId = "unit-openapi-java-sdk"
     generateModelDocumentation = false
     generateApiDocumentation = false
-    configOptions [:]
-    globalProperties [:]
+    configOptions = [
+            dateLibrary: "java8",
+            useJakartaEe: "true",
+            hideGenerationTimestamp: "true"
+    ]
+    globalProperties = [
+            models: "",
+            apis: "",
+            supportingFiles: "openapi.yaml"
+    ]
+
+    doLast {
+        delete fileTree("$projectDir/.openapi-generator")
+    }
 }
 
 if(hasProperty('target') && target == 'android') {

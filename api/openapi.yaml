@@ -2,7 +2,7 @@ openapi: 3.0.2
 info:
   description: An OpenAPI specifications for unit-sdk clients
   title: Unit OpenAPI specifications
-  version: 0.0.3
+  version: 0.0.4
 servers:
 - url: https://api.s.unit.sh
 security:
@@ -98,12 +98,10 @@ paths:
       description: 'Get List Applications from API '
       operationId: execute
       parameters:
-      - allowReserved: true
-        in: query
+      - in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
-        style: deepObject
       - allowReserved: true
         in: query
         name: filter
@@ -456,14 +454,14 @@ paths:
       responses:
         "200":
           content:
-            application/vnd.api+json:
+            application/vnd.api+json; charset=utf-8:
               schema:
                 $ref: '#/components/schemas/UnitDocumentResponse'
           description: Successful Response
       summary: Create a document
       tags:
       - Create a Document for an Application
-      x-accepts: application/vnd.api+json
+      x-accepts: application/vnd.api+json; charset=utf-8
   /applications/{applicationId}/documents/{documentId}/verify:
     put:
       description: 'Verify a document via API '
@@ -589,12 +587,10 @@ paths:
       description: 'Get List Accounts from API '
       operationId: execute
       parameters:
-      - allowReserved: true
-        in: query
+      - in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
-        style: deepObject
       - allowReserved: true
         in: query
         name: filter
@@ -967,12 +963,10 @@ paths:
       description: 'Get Customers List from API '
       operationId: execute
       parameters:
-      - allowReserved: true
-        in: query
+      - in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
-        style: deepObject
       - allowReserved: true
         in: query
         name: filter
@@ -1029,12 +1023,10 @@ paths:
       description: 'Get List Payments from API '
       operationId: execute
       parameters:
-      - allowReserved: true
-        in: query
+      - in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
-        style: deepObject
       - allowReserved: true
         in: query
         name: filter
@@ -1261,12 +1253,10 @@ paths:
       description: 'Get Counterparties List from API '
       operationId: execute
       parameters:
-      - allowReserved: true
-        in: query
+      - in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
-        style: deepObject
       - allowReserved: true
         in: query
         name: filter
@@ -1409,12 +1399,10 @@ paths:
       description: 'Get Recurring Payments List from API '
       operationId: execute
       parameters:
-      - allowReserved: true
-        in: query
+      - in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
-        style: deepObject
       - allowReserved: true
         in: query
         name: filter
@@ -1529,12 +1517,10 @@ paths:
       description: 'Get List of Cards from API '
       operationId: execute
       parameters:
-      - allowReserved: true
-        in: query
+      - in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
-        style: deepObject
       - allowReserved: true
         in: query
         name: filter
@@ -1796,12 +1782,10 @@ paths:
       description: 'Get List Authorizations from API '
       operationId: execute
       parameters:
-      - allowReserved: true
-        in: query
+      - in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
-        style: deepObject
       - allowReserved: true
         in: query
         name: filter
@@ -1854,12 +1838,10 @@ paths:
       description: 'Get List Authorization Requests from API '
       operationId: execute
       parameters:
-      - allowReserved: true
-        in: query
+      - in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
-        style: deepObject
       - allowReserved: true
         in: query
         name: filter
@@ -1964,12 +1946,10 @@ paths:
       description: 'Get List Statements from API '
       operationId: execute
       parameters:
-      - allowReserved: true
-        in: query
+      - in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
-        style: deepObject
       - allowReserved: true
         in: query
         name: filter
@@ -2064,12 +2044,10 @@ paths:
       description: 'Get Rewards List from API '
       operationId: execute
       parameters:
-      - allowReserved: true
-        in: query
+      - in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
-        style: deepObject
       - allowReserved: true
         in: query
         name: filter
@@ -2144,12 +2122,10 @@ paths:
       description: 'Get Events List from API '
       operationId: execute
       parameters:
-      - allowReserved: true
-        in: query
+      - in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
-        style: deepObject
       - allowReserved: true
         in: query
         name: filter
@@ -2260,12 +2236,10 @@ paths:
       description: 'Get List Check Deposits from API '
       operationId: execute
       parameters:
-      - allowReserved: true
-        in: query
+      - in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
-        style: deepObject
       - allowReserved: true
         in: query
         name: filter
@@ -2574,12 +2548,10 @@ paths:
       description: 'Get List Webhooks from API '
       operationId: execute
       parameters:
-      - allowReserved: true
-        in: query
+      - in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
-        style: deepObject
       - allowReserved: true
         in: query
         name: filter
@@ -2811,12 +2783,10 @@ paths:
       description: 'Get List Transactions from API '
       operationId: execute
       parameters:
-      - allowReserved: true
-        in: query
+      - in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
-        style: deepObject
       - allowReserved: true
         in: query
         name: filter
@@ -2847,12 +2817,10 @@ paths:
       description: 'Get List Disputes from API '
       operationId: execute
       parameters:
-      - allowReserved: true
-        in: query
+      - in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
-        style: deepObject
       - allowReserved: true
         in: query
         name: filter
@@ -2900,12 +2868,10 @@ paths:
       description: 'Get List Repayments from API '
       operationId: execute
       parameters:
-      - allowReserved: true
-        in: query
+      - in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
-        style: deepObject
       - allowReserved: true
         in: query
         name: filter
@@ -2978,12 +2944,10 @@ paths:
       description: 'Get List Check Payments from API '
       operationId: execute
       parameters:
-      - allowReserved: true
-        in: query
+      - in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
-        style: deepObject
       - in: query
         name: filter
         schema:
@@ -3183,12 +3147,10 @@ paths:
     get:
       operationId: execute
       parameters:
-      - allowReserved: true
-        in: query
+      - in: query
         name: page
         schema:
           $ref: '#/components/schemas/listPageParametersObject'
-        style: deepObject
       - in: query
         name: filter
         schema:
@@ -3440,7 +3402,7 @@ components:
         matriculaConsular:
           type: string
         address:
-          type: object
+          $ref: '#/components/schemas/address'
         dateOfBirth:
           format: date
           type: string
@@ -3521,7 +3483,7 @@ components:
         matriculaConsular:
           type: string
         address:
-          type: object
+          $ref: '#/components/schemas/address'
         dateOfBirth:
           format: date
           type: string
@@ -3587,7 +3549,7 @@ components:
         matriculaConsular:
           type: string
         address:
-          type: object
+          $ref: '#/components/schemas/address'
         dateOfBirth:
           format: date
           type: string
@@ -3973,6 +3935,10 @@ components:
           type: string
         industry:
           $ref: '#/components/schemas/industry'
+        businessVertical:
+          $ref: '#/components/schemas/businessVertical'
+        occupation:
+          $ref: '#/components/schemas/occupation'
       title: Application Form Prefilled
       type: object
     ApplicationFormSettingsOverride:
@@ -4481,7 +4447,6 @@ components:
           $ref: '#/components/schemas/createPayment_data'
       type: object
     CreateAchPayment:
-      additionalProperties: false
       properties:
         type:
           default: achPayment
@@ -4496,7 +4461,6 @@ components:
       title: Create ACH Payment to inline Counterparty
       type: object
     accountRelationship:
-      additionalProperties: false
       properties:
         data:
           $ref: '#/components/schemas/accountRelationship_data'
@@ -4504,7 +4468,6 @@ components:
       - data
       type: object
     CreateAchPaymentCounterparty:
-      additionalProperties: false
       properties:
         type:
           default: achPayment
@@ -4519,7 +4482,6 @@ components:
       title: Create ACH Payment to linked Counterparty
       type: object
     counterpartyRelationship:
-      additionalProperties: false
       properties:
         data:
           $ref: '#/components/schemas/counterpartyRelationship_data'
@@ -4527,7 +4489,6 @@ components:
       - data
       type: object
     CreateAchPaymentPlaid:
-      additionalProperties: false
       properties:
         type:
           default: achPayment
@@ -4542,7 +4503,6 @@ components:
       title: Create ACH Payment with Plaid token
       type: object
     CreateBookPayment:
-      additionalProperties: false
       properties:
         type:
           default: bookPayment
@@ -4557,7 +4517,6 @@ components:
       title: Create Book Payment
       type: object
     counterpartyAccountRelationship:
-      additionalProperties: false
       properties:
         data:
           $ref: '#/components/schemas/counterpartyAccountRelationship_data'
@@ -4565,7 +4524,6 @@ components:
       - data
       type: object
     CreateWirePayment:
-      additionalProperties: false
       properties:
         type:
           default: wirePayment
@@ -4580,7 +4538,6 @@ components:
       title: Create Wire Payment
       type: object
     CreateBillPayment:
-      additionalProperties: false
       properties:
         type:
           default: billPayment
@@ -4595,7 +4552,6 @@ components:
       title: Create Bill Payment
       type: object
     CreatePushToCardPayment:
-      additionalProperties: false
       properties:
         type:
           default: pushToCardPayment
@@ -4955,7 +4911,7 @@ components:
         attributes:
           $ref: '#/components/schemas/createRecurringCreditAchPayment_attributes'
         relationships:
-          $ref: '#/components/schemas/CreateAchPaymentCounterparty_relationships'
+          $ref: '#/components/schemas/createRecurringCreditAchPayment_relationships'
       required:
       - attributes
       - relationships
@@ -5010,7 +4966,7 @@ components:
         attributes:
           $ref: '#/components/schemas/createRecurringDebitAchPayment_attributes'
         relationships:
-          $ref: '#/components/schemas/CreateAchPaymentCounterparty_relationships'
+          $ref: '#/components/schemas/createRecurringCreditAchPayment_relationships'
       required:
       - attributes
       - relationships
@@ -5026,7 +4982,7 @@ components:
         attributes:
           $ref: '#/components/schemas/createRecurringCreditBookPayment_attributes'
         relationships:
-          $ref: '#/components/schemas/CreateBookPayment_relationships'
+          $ref: '#/components/schemas/createRecurringCreditBookPayment_relationships'
       required:
       - attributes
       - relationships
@@ -6608,7 +6564,7 @@ components:
       additionalProperties: false
       properties:
         data:
-          $ref: '#/components/schemas/accountRelationship_data'
+          $ref: '#/components/schemas/accountRelationship_1_data'
       required:
       - data
       type: object
@@ -6666,37 +6622,136 @@ components:
         mapping:
           achRepayment: '#/components/schemas/AchRepayment'
           bookRepayment: '#/components/schemas/BookRepayment'
+          capitalPartnerAchRepayment: '#/components/schemas/CapitalPartnerAchRepayment'
+          capitalPartnerBookRepayment: '#/components/schemas/CapitalPartnerBookRepayment'
         propertyName: type
       properties:
+        type:
+          type: string
         id:
           pattern: "^[1-9]\\d*$"
-          type: string
-        type:
           type: string
       title: Repayment Resource
       type: object
     AchRepayment:
       allOf:
-      - $ref: '#/components/schemas/repayment'
+      - $ref: '#/components/schemas/BaseAchRepayment'
       - properties:
-          attributes:
-            $ref: '#/components/schemas/AchRepayment_allOf_attributes'
+          type:
+            enum:
+            - achRepayment
+            type: string
           relationships:
             $ref: '#/components/schemas/AchRepayment_allOf_relationships'
+        required:
+        - relationships
+        - type
         type: object
-      title: ACH Repayment
-      type: object
-    BookRepayment:
+    BaseAchRepayment:
       allOf:
-      - $ref: '#/components/schemas/repayment'
+      - $ref: '#/components/schemas/BaseRepayment'
       - properties:
           attributes:
-            $ref: '#/components/schemas/BookRepayment_allOf_attributes'
+            $ref: '#/components/schemas/BaseAchRepayment_allOf_attributes'
           relationships:
-            $ref: '#/components/schemas/BookRepayment_allOf_relationships'
+            $ref: '#/components/schemas/BaseAchRepayment_allOf_relationships'
+        required:
+        - attributes
+        - relationships
         type: object
-      title: Book Repayment
+    BaseRepayment:
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+        attributes:
+          $ref: '#/components/schemas/BaseRepayment_attributes'
+        relationships:
+          $ref: '#/components/schemas/RepaymentRelationships'
+      required:
+      - attributes
+      - id
+      - relationships
+      - type
       type: object
+    RepaymentRelationships:
+      additionalProperties: true
+      properties:
+        creditAccount:
+          $ref: '#/components/schemas/Relationship'
+        org:
+          $ref: '#/components/schemas/Relationship'
+        payment:
+          $ref: '#/components/schemas/Relationship'
+        customer:
+          $ref: '#/components/schemas/Relationship'
+        recurringRepayment:
+          $ref: '#/components/schemas/Relationship'
+      type: object
+    AchRepaymentStatus:
+      enum:
+      - Pending
+      - PendingReview
+      - Clearing
+      - Returned
+      - Sent
+      - Rejected
+      - Canceled
+      type: string
+    BookRepayment:
+      allOf:
+      - $ref: '#/components/schemas/BaseBookRepayment'
+      - properties:
+          type:
+            enum:
+            - bookRepayment
+            type: string
+          relationships:
+            $ref: '#/components/schemas/AchRepayment_allOf_relationships'
+        required:
+        - relationships
+        - type
+        type: object
+    BaseBookRepayment:
+      allOf:
+      - $ref: '#/components/schemas/BaseRepayment'
+      - properties:
+          attributes:
+            $ref: '#/components/schemas/BaseBookRepayment_allOf_attributes'
+          relationships:
+            $ref: '#/components/schemas/BaseBookRepayment_allOf_relationships'
+        required:
+        - attributes
+        - relationships
+        type: object
+    BookRepaymentStatus:
+      enum:
+      - Sent
+      - Rejected
+      type: string
+    CapitalPartnerAchRepayment:
+      allOf:
+      - $ref: '#/components/schemas/BaseAchRepayment'
+      - properties:
+          type:
+            enum:
+            - capitalPartnerAchRepayment
+            type: string
+        required:
+        - type
+        type: object
+    CapitalPartnerBookRepayment:
+      allOf:
+      - $ref: '#/components/schemas/BaseBookRepayment'
+      - properties:
+          type:
+            enum:
+            - capitalPartnerBookRepayment
+            type: string
+        required:
+        - type
+        type: object
     createRepayment:
       properties:
         data:
@@ -7093,6 +7148,39 @@ components:
       - number
       title: Phone
       type: object
+    address:
+      additionalProperties: false
+      properties:
+        street:
+          maxLength: 255
+          minLength: 1
+          pattern: ^.*$
+          type: string
+        street2:
+          nullable: true
+          pattern: ^.*$
+          type: string
+        city:
+          maxLength: 255
+          minLength: 1
+          pattern: ^.*$
+          type: string
+        state:
+          type: string
+        postalCode:
+          pattern: "^[0-9]{5}(?:-[0-9]{4})?$"
+          type: string
+        country:
+          default: US
+          type: string
+      required:
+      - city
+      - country
+      - postalCode
+      - state
+      - street
+      title: Address
+      type: object
     tags:
       additionalProperties: false
       maxProperties: 15
@@ -7143,39 +7231,6 @@ components:
     state:
       pattern: "^((A[LKSZR])|(C[AOT])|(D[EC])|(F[ML])|(G[AU])|(HI)|(I[DLNA])|(K[SY])|(LA)|(M[EHDAINSOT])|(N[EVHJMYCD])|(MP)|(O[HKR])|(P[WAR])|(RI)|(S[CD])|(T[NX])|(UT)|(V[TIA])|(W[AVIY]))$"
       type: string
-    address:
-      additionalProperties: false
-      properties:
-        street:
-          maxLength: 255
-          minLength: 1
-          pattern: ^.*$
-          type: string
-        street2:
-          nullable: true
-          pattern: ^.*$
-          type: string
-        city:
-          maxLength: 255
-          minLength: 1
-          pattern: ^.*$
-          type: string
-        state:
-          type: string
-        postalCode:
-          pattern: "^[0-9]{5}(?:-[0-9]{4})?$"
-          type: string
-        country:
-          default: US
-          type: string
-      required:
-      - city
-      - country
-      - postalCode
-      - state
-      - street
-      title: Address
-      type: object
     contact:
       additionalProperties: false
       properties:
@@ -8785,7 +8840,7 @@ components:
         matriculaConsular:
           type: string
         address:
-          type: object
+          $ref: '#/components/schemas/address'
         dateOfBirth:
           format: date
           type: string
@@ -9670,6 +9725,11 @@ components:
           enum:
           - ByCustomer
           - Fraud
+          - NegativeBalance
+          - ByBank
+          - BreachOfTermsAndConditions
+          - NoAccountActivity
+          - ProgramChange
           type: string
         fraudReason:
           enum:
@@ -9752,7 +9812,11 @@ components:
           enum:
           - ByCustomer
           - Fraud
-          - Overdue
+          - NegativeBalance
+          - ByBank
+          - BreachOfTermsAndConditions
+          - NoAccountActivity
+          - ProgramChange
           type: string
         fraudReason:
           enum:
@@ -10493,7 +10557,6 @@ components:
       - $ref: '#/components/schemas/CreateBillPayment'
       - $ref: '#/components/schemas/CreatePushToCardPayment'
     CreateAchPayment_attributes:
-      additionalProperties: false
       properties:
         amount:
           type: integer
@@ -10529,7 +10592,6 @@ components:
       - direction
       type: object
     CreateAchPayment_relationships:
-      additionalProperties: false
       properties:
         account:
           $ref: '#/components/schemas/accountRelationship'
@@ -10537,7 +10599,6 @@ components:
       - account
       type: object
     accountRelationship_data:
-      additionalProperties: false
       properties:
         type:
           enum:
@@ -10554,7 +10615,6 @@ components:
       - type
       type: object
     CreateAchPaymentCounterparty_attributes:
-      additionalProperties: false
       properties:
         amount:
           type: integer
@@ -10590,7 +10650,6 @@ components:
       - direction
       type: object
     CreateAchPaymentCounterparty_relationships:
-      additionalProperties: false
       properties:
         account:
           $ref: '#/components/schemas/accountRelationship'
@@ -10601,7 +10660,6 @@ components:
       - counterparty
       type: object
     counterpartyRelationship_data:
-      additionalProperties: false
       properties:
         type:
           enum:
@@ -10617,7 +10675,6 @@ components:
       - type
       type: object
     CreateAchPaymentPlaid_attributes:
-      additionalProperties: false
       properties:
         amount:
           type: integer
@@ -10659,7 +10716,6 @@ components:
       - plaidProcessorToken
       type: object
     CreateBookPayment_attributes:
-      additionalProperties: false
       properties:
         amount:
           type: integer
@@ -10678,7 +10734,6 @@ components:
       - description
       type: object
     CreateBookPayment_relationships:
-      additionalProperties: false
       properties:
         account:
           $ref: '#/components/schemas/accountRelationship'
@@ -10689,7 +10744,6 @@ components:
       - counterpartyAccount
       type: object
     counterpartyAccountRelationship_data:
-      additionalProperties: false
       properties:
         type:
           enum:
@@ -10704,7 +10758,6 @@ components:
       - type
       type: object
     CreateWirePayment_attributes:
-      additionalProperties: false
       properties:
         amount:
           type: integer
@@ -10728,7 +10781,6 @@ components:
       - description
       type: object
     CreateBillPayment_attributes:
-      additionalProperties: false
       properties:
         billerId:
           type: string
@@ -10761,7 +10813,6 @@ components:
           $ref: '#/components/schemas/astra'
       type: object
     CreatePushToCardPayment_attributes:
-      additionalProperties: false
       properties:
         amount:
           type: integer
@@ -11351,6 +11402,17 @@ components:
       - description
       - schedule
       type: object
+    createRecurringCreditAchPayment_relationships:
+      additionalProperties: false
+      properties:
+        account:
+          $ref: '#/components/schemas/accountRelationship'
+        counterparty:
+          $ref: '#/components/schemas/counterpartyRelationship'
+      required:
+      - account
+      - counterparty
+      type: object
     createRecurringDebitAchPayment_attributes:
       additionalProperties: false
       properties:
@@ -11418,6 +11480,17 @@ components:
       - description
       - schedule
       type: object
+    createRecurringCreditBookPayment_relationships:
+      additionalProperties: false
+      properties:
+        account:
+          $ref: '#/components/schemas/accountRelationship'
+        counterpartyAccount:
+          $ref: '#/components/schemas/counterpartyAccountRelationship'
+      required:
+      - account
+      - counterpartyAccount
+      type: object
     BusinessDebitCard_allOf_attributes:
       properties:
         createdAt:
@@ -11430,6 +11503,9 @@ components:
           pattern: "^\\d{4}$"
           type: string
         expirationDate:
+          pattern: "^\\d{4}[-](1[012]|0[1-9])$"
+          type: string
+        nextExpirationDate:
           pattern: "^\\d{4}[-](1[012]|0[1-9])$"
           type: string
         shippingAddress:
@@ -11478,11 +11554,26 @@ components:
       - phone
       type: object
       example: null
+    cardRelationships_account_data:
+      additionalProperties: false
+      properties:
+        type:
+          enum:
+          - account
+          - depositAccount
+          type: string
+        id:
+          pattern: "^[1-9]\\d*$"
+          type: string
+      required:
+      - id
+      - type
+      type: object
     cardRelationships_account:
       additionalProperties: false
       properties:
         data:
-          $ref: '#/components/schemas/counterpartyAccountRelationship_data'
+          $ref: '#/components/schemas/cardRelationships_account_data'
       required:
       - data
       type: object
@@ -11498,6 +11589,9 @@ components:
           pattern: "^\\d{4}$"
           type: string
         expirationDate:
+          pattern: "^\\d{4}[-](1[012]|0[1-9])$"
+          type: string
+        nextExpirationDate:
           pattern: "^\\d{4}[-](1[012]|0[1-9])$"
           type: string
         shippingAddress:
@@ -11534,6 +11628,9 @@ components:
           pattern: "^\\d{4}$"
           type: string
         expirationDate:
+          pattern: "^\\d{4}[-](1[012]|0[1-9])$"
+          type: string
+        nextExpirationDate:
           pattern: "^\\d{4}[-](1[012]|0[1-9])$"
           type: string
         address:
@@ -11590,6 +11687,9 @@ components:
           pattern: "^\\d{4}$"
           type: string
         expirationDate:
+          pattern: "^\\d{4}[-](1[012]|0[1-9])$"
+          type: string
+        nextExpirationDate:
           pattern: "^\\d{4}[-](1[012]|0[1-9])$"
           type: string
         bin:
@@ -13915,6 +14015,23 @@ components:
       required:
       - account
       type: object
+    accountRelationship_1_data:
+      additionalProperties: false
+      properties:
+        type:
+          enum:
+          - account
+          - depositAccount
+          - creditAccount
+          - batchAccount
+          type: string
+        id:
+          pattern: "^[1-9]\\d*$"
+          type: string
+      required:
+      - id
+      - type
+      type: object
     dispute_attributes_statusHistory_inner:
       additionalProperties: false
       properties:
@@ -13963,224 +14080,61 @@ components:
       - source
       - status
       type: object
-    AchRepayment_allOf_attributes:
-      properties:
-        createdAt:
-          format: date-time
-          type: string
-        updatedAt:
-          format: date-time
-          type: string
-        amount:
-          minimum: 1
-          type: integer
-        tags:
-          additionalProperties: false
-          maxProperties: 15
-          type: object
-        sameDay:
-          type: boolean
-        status:
-          enum:
-          - Pending
-          - PendingReview
-          - Sent
-          - Returned
-          - Rejected
-          - Clearing
-          type: string
-      required:
-      - amount
-      - createdAt
-      - status
-      type: object
-      example: null
-    AchRepayment_allOf_relationships_account_data:
-      properties:
-        type:
-          enum:
-          - depositAccount
-          - account
-          type: string
-        id:
-          pattern: "^[1-9]\\d*$"
-          type: string
-      required:
-      - id
-      - type
-      type: object
-      example: null
-    AchRepayment_allOf_relationships_account:
-      properties:
-        data:
-          $ref: '#/components/schemas/AchRepayment_allOf_relationships_account_data'
-      required:
-      - data
-      type: object
-      example: null
-    AchRepayment_allOf_relationships_creditAccount_data:
-      properties:
-        type:
-          default: creditAccount
-          type: string
-        id:
-          pattern: "^[1-9]\\d*$"
-          type: string
-      required:
-      - id
-      - type
-      type: object
-      example: null
-    AchRepayment_allOf_relationships_creditAccount:
-      properties:
-        data:
-          $ref: '#/components/schemas/AchRepayment_allOf_relationships_creditAccount_data'
-      required:
-      - data
-      type: object
-      example: null
-    AchRepayment_allOf_relationships_counterparty_data:
-      properties:
-        type:
-          default: counterparty
-          type: string
-        id:
-          pattern: "^[1-9]\\d*$"
-          type: string
-      required:
-      - id
-      - type
-      type: object
-      example: null
-    AchRepayment_allOf_relationships_counterparty:
-      properties:
-        data:
-          $ref: '#/components/schemas/AchRepayment_allOf_relationships_counterparty_data'
-      required:
-      - data
-      type: object
-      example: null
-    AchRepayment_allOf_relationships_customer_data:
-      properties:
-        type:
-          enum:
-          - businessCustomer
-          - individualCustomer
-          - customer
-          type: string
-        id:
-          pattern: "^[1-9]\\d*$"
-          type: string
-      required:
-      - id
-      - type
-      type: object
-      example: null
-    AchRepayment_allOf_relationships_customer:
-      properties:
-        data:
-          $ref: '#/components/schemas/AchRepayment_allOf_relationships_customer_data'
-      required:
-      - data
-      type: object
-      example: null
-    AchRepayment_allOf_relationships_payment_data:
-      properties:
-        type:
-          default: payment
-          type: string
-        id:
-          pattern: "^[1-9]\\d*$"
-          type: string
-      required:
-      - id
-      - type
-      type: object
-      example: null
-    AchRepayment_allOf_relationships_payment:
-      properties:
-        data:
-          $ref: '#/components/schemas/AchRepayment_allOf_relationships_payment_data'
-      required:
-      - data
-      type: object
-      example: null
     AchRepayment_allOf_relationships:
       properties:
         account:
-          $ref: '#/components/schemas/AchRepayment_allOf_relationships_account'
-        creditAccount:
-          $ref: '#/components/schemas/AchRepayment_allOf_relationships_creditAccount'
-        counterparty:
-          $ref: '#/components/schemas/AchRepayment_allOf_relationships_counterparty'
-        customer:
-          $ref: '#/components/schemas/AchRepayment_allOf_relationships_customer'
-        payment:
-          $ref: '#/components/schemas/AchRepayment_allOf_relationships_payment'
+          $ref: '#/components/schemas/Relationship'
+      required:
+      - account
       type: object
       example: null
-    BookRepayment_allOf_attributes:
+    BaseAchRepayment_allOf_attributes:
+      properties:
+        status:
+          $ref: '#/components/schemas/AchRepaymentStatus'
+      required:
+      - status
+      type: object
+      example: null
+    BaseAchRepayment_allOf_relationships:
+      properties:
+        counterparty:
+          $ref: '#/components/schemas/Relationship'
+      required:
+      - counterparty
+      type: object
+      example: null
+    BaseRepayment_attributes:
       properties:
         createdAt:
-          format: date-time
           type: string
         updatedAt:
-          format: date-time
           type: string
         amount:
-          minimum: 1
-          type: integer
+          type: number
         tags:
           additionalProperties: false
           maxProperties: 15
           type: object
-        status:
-          enum:
-          - Pending
-          - PendingReview
-          - Sent
-          - Returned
-          - Rejected
-          type: string
       required:
       - amount
       - createdAt
+      - updatedAt
+      type: object
+    BaseBookRepayment_allOf_attributes:
+      properties:
+        status:
+          $ref: '#/components/schemas/BookRepaymentStatus'
+      required:
       - status
       type: object
       example: null
-    BookRepayment_allOf_relationships_counterpartyAccount_data:
+    BaseBookRepayment_allOf_relationships:
       properties:
-        type:
-          default: account
-          type: string
-        id:
-          pattern: "^[1-9]\\d*$"
-          type: string
-      required:
-      - id
-      - type
-      type: object
-      example: null
-    BookRepayment_allOf_relationships_counterpartyAccount:
-      properties:
-        data:
-          $ref: '#/components/schemas/BookRepayment_allOf_relationships_counterpartyAccount_data'
-      required:
-      - data
-      type: object
-      example: null
-    BookRepayment_allOf_relationships:
-      properties:
-        account:
-          $ref: '#/components/schemas/AchRepayment_allOf_relationships_account'
-        creditAccount:
-          $ref: '#/components/schemas/AchRepayment_allOf_relationships_creditAccount'
         counterpartyAccount:
-          $ref: '#/components/schemas/BookRepayment_allOf_relationships_counterpartyAccount'
-        customer:
-          $ref: '#/components/schemas/AchRepayment_allOf_relationships_customer'
-        payment:
-          $ref: '#/components/schemas/AchRepayment_allOf_relationships_payment'
+          $ref: '#/components/schemas/Relationship'
+      required:
+      - counterpartyAccount
       type: object
       example: null
     createRepayment_data:

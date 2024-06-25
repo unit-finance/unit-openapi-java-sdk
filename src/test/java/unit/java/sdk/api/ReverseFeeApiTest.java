@@ -14,8 +14,8 @@
 package unit.java.sdk.api;
 
 import unit.java.sdk.ApiException;
-import unit.java.sdk.model.CreateFeeRequest;
-import unit.java.sdk.model.UnitFeeResponse;
+import unit.java.sdk.model.ReverseFeeRequest;
+import unit.java.sdk.model.UnitFeeReversalResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -27,27 +27,27 @@ import java.util.Set;
 
 
 /**
- * API tests for CreateFeeApi
+ * API tests for ReverseFeeApi
  */
 @Ignore
-public class CreateFeeApiTest {
+public class ReverseFeeApiTest {
 
-    private final CreateFeeApi api = new CreateFeeApi();
+    private final ReverseFeeApi api = new ReverseFeeApi();
 
     
     /**
-     * Create Fee
+     * Reverse Fee
      *
-     * Create a Fee via API 
+     * Reverse a Fee via API
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
     public void executeTest() throws ApiException {
-        CreateFeeRequest createFeeRequest = null;
-        UnitFeeResponse response = 
-        api.execute(createFeeRequest);
+        ReverseFeeRequest reverseFeeRequest = null;
+        UnitFeeReversalResponse response = 
+        api.execute(reverseFeeRequest);
         
         // TODO: test validations
     }

@@ -14,8 +14,7 @@
 package unit.java.sdk.api;
 
 import unit.java.sdk.ApiException;
-import unit.java.sdk.model.CreateFeeRequest;
-import unit.java.sdk.model.UnitFeeResponse;
+import unit.java.sdk.model.UnitRepaymentInformationResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -27,27 +26,27 @@ import java.util.Set;
 
 
 /**
- * API tests for CreateFeeApi
+ * API tests for RepaymentInformationApi
  */
 @Ignore
-public class CreateFeeApiTest {
+public class RepaymentInformationApiTest {
 
-    private final CreateFeeApi api = new CreateFeeApi();
+    private final RepaymentInformationApi api = new RepaymentInformationApi();
 
     
     /**
-     * Create Fee
+     * Get Repayment Information
      *
-     * Create a Fee via API 
+     * Retrieve the repayment information for a specific account via API
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
     public void executeTest() throws ApiException {
-        CreateFeeRequest createFeeRequest = null;
-        UnitFeeResponse response = 
-        api.execute(createFeeRequest);
+        String accountId = null;
+        UnitRepaymentInformationResponse response = 
+        api.execute(accountId);
         
         // TODO: test validations
     }

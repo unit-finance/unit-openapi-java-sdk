@@ -17,6 +17,7 @@ import unit.java.sdk.ApiException;
 import unit.java.sdk.ApiResponse;
 import unit.java.sdk.Pair;
 
+import unit.java.sdk.model.ReverseFeeRequest;
 import unit.java.sdk.model.UnitFeeReversalResponse;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -84,24 +85,24 @@ public class ReverseFeeApi {
   /**
    * Reverse Fee
    * Reverse a Fee via API
-   * @param body Reverse Fee Request (required)
+   * @param reverseFeeRequest Reverse Fee Request (required)
    * @return UnitFeeReversalResponse
    * @throws ApiException if fails to make API call
    */
-  public UnitFeeReversalResponse reverse(Object body) throws ApiException {
-    ApiResponse<UnitFeeReversalResponse> localVarResponse = reverseWithHttpInfo(body);
+  public UnitFeeReversalResponse execute(ReverseFeeRequest reverseFeeRequest) throws ApiException {
+    ApiResponse<UnitFeeReversalResponse> localVarResponse = executeWithHttpInfo(reverseFeeRequest);
     return localVarResponse.getData();
   }
 
   /**
    * Reverse Fee
    * Reverse a Fee via API
-   * @param body Reverse Fee Request (required)
+   * @param reverseFeeRequest Reverse Fee Request (required)
    * @return ApiResponse&lt;UnitFeeReversalResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<UnitFeeReversalResponse> reverseWithHttpInfo(Object body) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = reverseRequestBuilder(body);
+  public ApiResponse<UnitFeeReversalResponse> executeWithHttpInfo(ReverseFeeRequest reverseFeeRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = executeRequestBuilder(reverseFeeRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -111,7 +112,7 @@ public class ReverseFeeApi {
       }
       try {
         if (localVarResponse.statusCode()/ 100 != 2) {
-          throw getApiException("reverse", localVarResponse);
+          throw getApiException("execute", localVarResponse);
         }
         return new ApiResponse<UnitFeeReversalResponse>(
           localVarResponse.statusCode(),
@@ -129,10 +130,10 @@ public class ReverseFeeApi {
     }
   }
 
-  private HttpRequest.Builder reverseRequestBuilder(Object body) throws ApiException {
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling reverse");
+  private HttpRequest.Builder executeRequestBuilder(ReverseFeeRequest reverseFeeRequest) throws ApiException {
+    // verify the required parameter 'reverseFeeRequest' is set
+    if (reverseFeeRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'reverseFeeRequest' when calling execute");
     }
 
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
@@ -145,7 +146,7 @@ public class ReverseFeeApi {
     localVarRequestBuilder.header("Accept", "application/vnd.api+json");
 
     try {
-      byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(body);
+      byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(reverseFeeRequest);
       localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
     } catch (IOException e) {
       throw new ApiException(e);

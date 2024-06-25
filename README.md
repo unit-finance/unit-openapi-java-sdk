@@ -2,7 +2,6 @@
 
 The official Java client library for the [Unit API](https://unit.co/docs/api/). This library is the first Unit SDK to be generated from the [Unit OpenAPI schema](https://github.com/unit-finance/openapi-unit-sdk) and is currently available in beta. We encourage you to share any comments, suggestions or issues you encounter while implementing this SDK with us and contribute to the development of this Java client.
 
-
 ## Requirements
 
 Building the API client library requires:
@@ -11,7 +10,9 @@ Building the API client library requires:
 2. Maven/Gradle
 
 ## Installation
+
 Add this dependency to your project's POM:
+
 ```xml
 <repositories>
     <repository>
@@ -24,10 +25,11 @@ Add this dependency to your project's POM:
     <dependency>
         <groupId>co.unit</groupId>
         <artifactId>java-sdk</artifactId>
-        <version>0.0.4</version>
+        <version>0.0.5</version>
     </dependency>
 </dependencies>
 ```
+
 ## Basic Usage Examples
 
 For more examples of basic usage, see the [Test suites](https://github.com/unit-finance/unit-openapi-java-sdk/tree/main/src/test/java/org/openapitools/client) or [API Reference documentation](https://docs.unit.co/).
@@ -73,11 +75,13 @@ UnitCreateApplicationResponse res = apiClient.execute(request);
 ```
 
 ## About
+
 To generate a customized version of the unit-java-sdk using our [OpenAPI project](https://github.com/unit-finance/openapi-unit-sdk)
 we suggest using the open-generator-cli to generate the Java client using the following command:
+
 ```commandline
-openapi-generator-cli generate -g java -i openapi.json -o unit 
--p hideGenerationTimestamp=true -p packageName=unit.java.sdk 
--p modelPackage=unit.java.sdk.model -p apiPackage=unit.java.sdk.api 
+openapi-generator-cli generate -g java -i openapi.json -o unit
+-p hideGenerationTimestamp=true -p packageName=unit.java.sdk
+-p modelPackage=unit.java.sdk.model -p apiPackage=unit.java.sdk.api
 --library native -p useJakartaEe=true
 ```

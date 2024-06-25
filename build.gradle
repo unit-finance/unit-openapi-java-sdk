@@ -91,7 +91,7 @@ if(hasProperty('target') && target == 'android') {
             maven(MavenPublication) {
                 groupId = 'co.unit'
                 artifactId = 'java-sdk'
-                version = '0.0.4'
+                version = '0.0.5'
                 from components.java
 
                 pom {

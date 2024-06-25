@@ -4,9 +4,11 @@ import org.junit.Test;
 import unit.java.sdk.api.CreateAccountApi;
 import unit.java.sdk.api.GetAccountApi;
 import unit.java.sdk.api.GetListAccountsApi;
+import unit.java.sdk.api.RepaymentInformationApi;
 import unit.java.sdk.api.UpdateAccountApi;
 import unit.java.sdk.model.*;
 
+import static unit.java.sdk.CustomerTests.CreateBusinessCustomer;
 import static unit.java.sdk.CustomerTests.CreateIndividualCustomer;
 import static unit.java.sdk.TestHelpers.getApiClient;
 
@@ -104,5 +106,46 @@ public class AccountTests {
     @Test
     public void CreateDepositAccountTest() throws ApiException {
         assert CreateDepositAccount().getType().equals("depositAccount");
+    }
+
+    public static Account CreateCreditAccount() throws ApiException {
+        BusinessCustomer customer = CreateBusinessCustomer();
+
+        CreateCreditAccount cca = new CreateCreditAccount();
+        CreateCreditAccountAttributes attributes = new CreateCreditAccountAttributes();
+        attributes.setCreditTerms("credit_terms_test");
+        attributes.setCreditLimit(20000);
+
+
+        CreateCreditAccountRelationships relationships = new CreateCreditAccountRelationships();
+        CustomerLinkageData customerRelationshipData = new CustomerLinkageData();
+        customerRelationshipData.setId(customer.getId());
+        customerRelationshipData.setType(CustomerLinkageData.TypeEnum.CUSTOMER);
+        CustomerLinkage customerLinkageRelationship = new CustomerLinkage();
+        customerLinkageRelationship.setData(customerRelationshipData);
+
+        relationships.setCustomer(customerLinkageRelationship);
+
+        cca.setAttributes(attributes);
+        cca.setRelationships(relationships);
+
+        CreateAccountApi createAccountApi = new CreateAccountApi(getApiClient());
+        CreateAccount ca = new CreateAccount();
+        ca.setData(new CreateAccountData(cca));
+        return createAccountApi.execute(ca).getData();
+    }
+    
+    @Test 
+    public void CreateCreditAccountTest() throws ApiException {
+        assert CreateCreditAccount().getType().equals("creditAccount");
+    }
+
+    @Test
+    public void GetCreditAccountRepaymentInformationTest() throws ApiException {
+        Account creditAccount = CreateCreditAccount();
+        assert CreateCreditAccount().getType().equals("creditAccount");
+        RepaymentInformationApi repaymentInformationApi = new RepaymentInformationApi(getApiClient());
+
+        assert repaymentInformationApi.execute(creditAccount.getId()).getData().getType().equals(UnitRepaymentInformationResponseData.TypeEnum.CREDITACCOUNTREPAYMENTINFORMATION);
     }
 }

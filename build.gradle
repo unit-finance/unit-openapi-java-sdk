@@ -4,7 +4,7 @@ apply plugin: 'java'
 apply plugin: 'com.diffplug.spotless'
 
 group = 'co.unit.sdk'
-version = '0.0.4'
+version = '0.0.5'
 
 buildscript {
     repositories {

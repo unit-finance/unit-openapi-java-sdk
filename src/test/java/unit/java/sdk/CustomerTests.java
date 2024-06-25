@@ -4,12 +4,16 @@ import org.junit.Test;
 import unit.java.sdk.api.CreateApplicationApi;
 import unit.java.sdk.api.GetCustomerApi;
 import unit.java.sdk.api.GetListCustomersApi;
+import unit.java.sdk.model.BusinessApplication;
+import unit.java.sdk.model.BusinessCustomer;
+import unit.java.sdk.model.CreateBusinessApplication;
 import unit.java.sdk.model.IndividualApplication;
 import unit.java.sdk.model.IndividualCustomer;
 import unit.java.sdk.model.UnitCreateApplicationResponse;
 import unit.java.sdk.model.UnitCustomersListResponse;
 
 import static unit.java.sdk.TestHelpers.CreateApplicationRequest;
+import static unit.java.sdk.TestHelpers.CreateBusinessApplicationRequest;
 import static unit.java.sdk.TestHelpers.getApiClient;
 
 public class CustomerTests {
@@ -19,6 +23,19 @@ public class CustomerTests {
 
         UnitCustomersListResponse response = api.execute(null, null, null);
         assert response.getData().size() > 0;
+    }
+
+    public static BusinessCustomer CreateBusinessCustomer() throws ApiException {
+        CreateApplicationApi apiClient = new CreateApplicationApi(getApiClient());
+
+        UnitCreateApplicationResponse res = apiClient.execute(CreateBusinessApplicationRequest());
+        assert res.getData().getType().equals("businessApplication");
+
+        BusinessApplication app = (BusinessApplication) res.getData();
+        String customerId = app.getRelationships().getCustomer().getData().getId();
+        GetCustomerApi customerApi = new GetCustomerApi(getApiClient());
+
+        return (BusinessCustomer) customerApi.execute(customerId).getData();
     }
 
     public static IndividualCustomer CreateIndividualCustomer() throws ApiException {

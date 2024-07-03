@@ -18,11 +18,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -42,11 +41,11 @@ public class ExecuteFilterParameter19Test {
     }
 
     /**
-     * Test the property 'accountId'
+     * Test the property 'creditAccountId'
      */
     @Test
-    public void accountIdTest() {
-        // TODO: test accountId
+    public void creditAccountIdTest() {
+        // TODO: test creditAccountId
     }
 
     /**
@@ -66,51 +65,19 @@ public class ExecuteFilterParameter19Test {
     }
 
     /**
-     * Test the property 'tags'
+     * Test the property 'fromStartTime'
      */
     @Test
-    public void tagsTest() {
-        // TODO: test tags
+    public void fromStartTimeTest() {
+        // TODO: test fromStartTime
     }
 
     /**
-     * Test the property 'since'
+     * Test the property 'toStartTime'
      */
     @Test
-    public void sinceTest() {
-        // TODO: test since
-    }
-
-    /**
-     * Test the property 'until'
-     */
-    @Test
-    public void untilTest() {
-        // TODO: test until
-    }
-
-    /**
-     * Test the property 'fromAmount'
-     */
-    @Test
-    public void fromAmountTest() {
-        // TODO: test fromAmount
-    }
-
-    /**
-     * Test the property 'toAmount'
-     */
-    @Test
-    public void toAmountTest() {
-        // TODO: test toAmount
-    }
-
-    /**
-     * Test the property 'checkNumber'
-     */
-    @Test
-    public void checkNumberTest() {
-        // TODO: test checkNumber
+    public void toStartTimeTest() {
+        // TODO: test toStartTime
     }
 
 }

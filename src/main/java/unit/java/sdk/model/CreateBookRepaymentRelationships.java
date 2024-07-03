@@ -127,7 +127,7 @@ public class CreateBookRepaymentRelationships {
 
 
   /**
-   * Return true if this CreateBookRepayment_relationships object is equal to o.
+   * Return true if this CreateBookRepaymentRelationships object is equal to o.
    */
   @Override
   public boolean equals(Object o) {

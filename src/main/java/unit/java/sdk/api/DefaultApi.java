@@ -18,7 +18,7 @@ import unit.java.sdk.ApiResponse;
 import unit.java.sdk.Pair;
 
 import unit.java.sdk.model.CreateStopPayment;
-import unit.java.sdk.model.ExecuteFilterParameter20;
+import unit.java.sdk.model.ExecuteFilterParameter21;
 import unit.java.sdk.model.ListPageParametersObject;
 import unit.java.sdk.model.StopPaymentListResponse;
 import unit.java.sdk.model.StopPaymentResponse;
@@ -94,7 +94,7 @@ public class DefaultApi {
    * @return StopPaymentListResponse
    * @throws ApiException if fails to make API call
    */
-  public StopPaymentListResponse execute(ListPageParametersObject page, ExecuteFilterParameter20 filter, String sort) throws ApiException {
+  public StopPaymentListResponse execute(ListPageParametersObject page, ExecuteFilterParameter21 filter, String sort) throws ApiException {
     ApiResponse<StopPaymentListResponse> localVarResponse = executeWithHttpInfo(page, filter, sort);
     return localVarResponse.getData();
   }
@@ -108,7 +108,7 @@ public class DefaultApi {
    * @return ApiResponse&lt;StopPaymentListResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<StopPaymentListResponse> executeWithHttpInfo(ListPageParametersObject page, ExecuteFilterParameter20 filter, String sort) throws ApiException {
+  public ApiResponse<StopPaymentListResponse> executeWithHttpInfo(ListPageParametersObject page, ExecuteFilterParameter21 filter, String sort) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = executeRequestBuilder(page, filter, sort);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -137,7 +137,7 @@ public class DefaultApi {
     }
   }
 
-  private HttpRequest.Builder executeRequestBuilder(ListPageParametersObject page, ExecuteFilterParameter20 filter, String sort) throws ApiException {
+  private HttpRequest.Builder executeRequestBuilder(ListPageParametersObject page, ExecuteFilterParameter21 filter, String sort) throws ApiException {
 
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 

@@ -23,7 +23,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import unit.java.sdk.model.BookRepaymentAllOfAttributes;
-import unit.java.sdk.model.BookRepaymentAllOfRelationships;
+import unit.java.sdk.model.BookRepaymentRelationships;
 import unit.java.sdk.model.Repayment;
 import org.junit.Assert;
 import org.junit.Ignore;

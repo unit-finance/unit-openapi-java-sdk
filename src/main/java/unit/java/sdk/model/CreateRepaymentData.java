@@ -28,7 +28,9 @@ import java.util.Arrays;
 import unit.java.sdk.model.CreateAchRepayment;
 import unit.java.sdk.model.CreateBookRepayment;
 import unit.java.sdk.model.CreateBookRepaymentAttributes;
-import unit.java.sdk.model.CreateBookRepaymentRelationships;
+import unit.java.sdk.model.CreateCapitalPartnerAchRepayment;
+import unit.java.sdk.model.CreateCapitalPartnerBookRepayment;
+import unit.java.sdk.model.CreateCapitalPartnerBookRepaymentRelationships;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -144,6 +146,58 @@ public class CreateRepaymentData extends AbstractOpenApiSchema {
                 log.log(Level.FINER, "Input data does not match schema 'CreateBookRepayment'", e);
             }
 
+            // deserialize CreateCapitalPartnerAchRepayment
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (CreateCapitalPartnerAchRepayment.class.equals(Integer.class) || CreateCapitalPartnerAchRepayment.class.equals(Long.class) || CreateCapitalPartnerAchRepayment.class.equals(Float.class) || CreateCapitalPartnerAchRepayment.class.equals(Double.class) || CreateCapitalPartnerAchRepayment.class.equals(Boolean.class) || CreateCapitalPartnerAchRepayment.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((CreateCapitalPartnerAchRepayment.class.equals(Integer.class) || CreateCapitalPartnerAchRepayment.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((CreateCapitalPartnerAchRepayment.class.equals(Float.class) || CreateCapitalPartnerAchRepayment.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (CreateCapitalPartnerAchRepayment.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (CreateCapitalPartnerAchRepayment.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(CreateCapitalPartnerAchRepayment.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'CreateCapitalPartnerAchRepayment'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'CreateCapitalPartnerAchRepayment'", e);
+            }
+
+            // deserialize CreateCapitalPartnerBookRepayment
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (CreateCapitalPartnerBookRepayment.class.equals(Integer.class) || CreateCapitalPartnerBookRepayment.class.equals(Long.class) || CreateCapitalPartnerBookRepayment.class.equals(Float.class) || CreateCapitalPartnerBookRepayment.class.equals(Double.class) || CreateCapitalPartnerBookRepayment.class.equals(Boolean.class) || CreateCapitalPartnerBookRepayment.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((CreateCapitalPartnerBookRepayment.class.equals(Integer.class) || CreateCapitalPartnerBookRepayment.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((CreateCapitalPartnerBookRepayment.class.equals(Float.class) || CreateCapitalPartnerBookRepayment.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (CreateCapitalPartnerBookRepayment.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (CreateCapitalPartnerBookRepayment.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(CreateCapitalPartnerBookRepayment.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'CreateCapitalPartnerBookRepayment'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'CreateCapitalPartnerBookRepayment'", e);
+            }
+
             if (match == 1) {
                 CreateRepaymentData ret = new CreateRepaymentData();
                 ret.setActualInstance(deserialized);
@@ -178,9 +232,21 @@ public class CreateRepaymentData extends AbstractOpenApiSchema {
         setActualInstance(o);
     }
 
+    public CreateRepaymentData(CreateCapitalPartnerAchRepayment o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    public CreateRepaymentData(CreateCapitalPartnerBookRepayment o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
     static {
         schemas.put("CreateAchRepayment", CreateAchRepayment.class);
         schemas.put("CreateBookRepayment", CreateBookRepayment.class);
+        schemas.put("CreateCapitalPartnerAchRepayment", CreateCapitalPartnerAchRepayment.class);
+        schemas.put("CreateCapitalPartnerBookRepayment", CreateCapitalPartnerBookRepayment.class);
         JSON.registerDescendants(CreateRepaymentData.class, Collections.unmodifiableMap(schemas));
     }
 
@@ -192,7 +258,7 @@ public class CreateRepaymentData extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * CreateAchRepayment, CreateBookRepayment
+     * CreateAchRepayment, CreateBookRepayment, CreateCapitalPartnerAchRepayment, CreateCapitalPartnerBookRepayment
      *
      * It could be an instance of the 'oneOf' schemas.
      * The oneOf child schemas may themselves be a composed schema (allOf, anyOf, oneOf).
@@ -209,14 +275,24 @@ public class CreateRepaymentData extends AbstractOpenApiSchema {
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be CreateAchRepayment, CreateBookRepayment");
+        if (JSON.isInstanceOf(CreateCapitalPartnerAchRepayment.class, instance, new HashSet<Class<?>>())) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (JSON.isInstanceOf(CreateCapitalPartnerBookRepayment.class, instance, new HashSet<Class<?>>())) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        throw new RuntimeException("Invalid instance type. Must be CreateAchRepayment, CreateBookRepayment, CreateCapitalPartnerAchRepayment, CreateCapitalPartnerBookRepayment");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * CreateAchRepayment, CreateBookRepayment
+     * CreateAchRepayment, CreateBookRepayment, CreateCapitalPartnerAchRepayment, CreateCapitalPartnerBookRepayment
      *
-     * @return The actual instance (CreateAchRepayment, CreateBookRepayment)
+     * @return The actual instance (CreateAchRepayment, CreateBookRepayment, CreateCapitalPartnerAchRepayment, CreateCapitalPartnerBookRepayment)
      */
     @Override
     public Object getActualInstance() {
@@ -243,6 +319,28 @@ public class CreateRepaymentData extends AbstractOpenApiSchema {
      */
     public CreateBookRepayment getCreateBookRepayment() throws ClassCastException {
         return (CreateBookRepayment)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `CreateCapitalPartnerAchRepayment`. If the actual instance is not `CreateCapitalPartnerAchRepayment`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `CreateCapitalPartnerAchRepayment`
+     * @throws ClassCastException if the instance is not `CreateCapitalPartnerAchRepayment`
+     */
+    public CreateCapitalPartnerAchRepayment getCreateCapitalPartnerAchRepayment() throws ClassCastException {
+        return (CreateCapitalPartnerAchRepayment)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `CreateCapitalPartnerBookRepayment`. If the actual instance is not `CreateCapitalPartnerBookRepayment`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `CreateCapitalPartnerBookRepayment`
+     * @throws ClassCastException if the instance is not `CreateCapitalPartnerBookRepayment`
+     */
+    public CreateCapitalPartnerBookRepayment getCreateCapitalPartnerBookRepayment() throws ClassCastException {
+        return (CreateCapitalPartnerBookRepayment)super.getActualInstance();
     }
 
 
@@ -288,6 +386,18 @@ public class CreateRepaymentData extends AbstractOpenApiSchema {
     if (getActualInstance() instanceof CreateBookRepayment) {
         if (getActualInstance() != null) {
           joiner.add(((CreateBookRepayment)getActualInstance()).toUrlQueryString(prefix + "one_of_1" + suffix));
+        }
+        return joiner.toString();
+    }
+    if (getActualInstance() instanceof CreateCapitalPartnerAchRepayment) {
+        if (getActualInstance() != null) {
+          joiner.add(((CreateCapitalPartnerAchRepayment)getActualInstance()).toUrlQueryString(prefix + "one_of_2" + suffix));
+        }
+        return joiner.toString();
+    }
+    if (getActualInstance() instanceof CreateCapitalPartnerBookRepayment) {
+        if (getActualInstance() != null) {
+          joiner.add(((CreateCapitalPartnerBookRepayment)getActualInstance()).toUrlQueryString(prefix + "one_of_3" + suffix));
         }
         return joiner.toString();
     }

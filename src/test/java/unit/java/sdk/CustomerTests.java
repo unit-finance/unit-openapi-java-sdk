@@ -6,7 +6,6 @@ import unit.java.sdk.api.GetCustomerApi;
 import unit.java.sdk.api.GetListCustomersApi;
 import unit.java.sdk.model.BusinessApplication;
 import unit.java.sdk.model.BusinessCustomer;
-import unit.java.sdk.model.CreateBusinessApplication;
 import unit.java.sdk.model.IndividualApplication;
 import unit.java.sdk.model.IndividualCustomer;
 import unit.java.sdk.model.UnitCreateApplicationResponse;

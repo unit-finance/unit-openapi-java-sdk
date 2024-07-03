@@ -37,7 +37,6 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   AchRepaymentAllOfAttributes.JSON_PROPERTY_UPDATED_AT,
   AchRepaymentAllOfAttributes.JSON_PROPERTY_AMOUNT,
   AchRepaymentAllOfAttributes.JSON_PROPERTY_TAGS,
-  AchRepaymentAllOfAttributes.JSON_PROPERTY_SAME_DAY,
   AchRepaymentAllOfAttributes.JSON_PROPERTY_STATUS
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -53,9 +52,6 @@ public class AchRepaymentAllOfAttributes {
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private Object tags;
-
-  public static final String JSON_PROPERTY_SAME_DAY = "sameDay";
-  private Boolean sameDay;
 
   /**
    * Gets or Sets status
@@ -140,9 +136,9 @@ public class AchRepaymentAllOfAttributes {
    * Get updatedAt
    * @return updatedAt
   **/
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_UPDATED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
@@ -150,7 +146,7 @@ public class AchRepaymentAllOfAttributes {
 
 
   @JsonProperty(JSON_PROPERTY_UPDATED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setUpdatedAt(OffsetDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }
@@ -207,31 +203,6 @@ public class AchRepaymentAllOfAttributes {
   }
 
 
-  public AchRepaymentAllOfAttributes sameDay(Boolean sameDay) {
-    this.sameDay = sameDay;
-    return this;
-  }
-
-   /**
-   * Get sameDay
-   * @return sameDay
-  **/
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SAME_DAY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getSameDay() {
-    return sameDay;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SAME_DAY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSameDay(Boolean sameDay) {
-    this.sameDay = sameDay;
-  }
-
-
   public AchRepaymentAllOfAttributes status(StatusEnum status) {
     this.status = status;
     return this;
@@ -273,13 +244,12 @@ public class AchRepaymentAllOfAttributes {
         Objects.equals(this.updatedAt, achRepaymentAllOfAttributes.updatedAt) &&
         Objects.equals(this.amount, achRepaymentAllOfAttributes.amount) &&
         Objects.equals(this.tags, achRepaymentAllOfAttributes.tags) &&
-        Objects.equals(this.sameDay, achRepaymentAllOfAttributes.sameDay) &&
         Objects.equals(this.status, achRepaymentAllOfAttributes.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, updatedAt, amount, tags, sameDay, status);
+    return Objects.hash(createdAt, updatedAt, amount, tags, status);
   }
 
   @Override
@@ -290,7 +260,6 @@ public class AchRepaymentAllOfAttributes {
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
-    sb.append("    sameDay: ").append(toIndentedString(sameDay)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -357,11 +326,6 @@ public class AchRepaymentAllOfAttributes {
     // add `tags` to the URL query string
     if (getTags() != null) {
       joiner.add(String.format("%stags%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTags()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `sameDay` to the URL query string
-    if (getSameDay() != null) {
-      joiner.add(String.format("%ssameDay%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSameDay()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `status` to the URL query string

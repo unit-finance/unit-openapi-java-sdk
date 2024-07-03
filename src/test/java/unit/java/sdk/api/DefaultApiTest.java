@@ -15,7 +15,7 @@ package unit.java.sdk.api;
 
 import unit.java.sdk.ApiException;
 import unit.java.sdk.model.CreateStopPayment;
-import unit.java.sdk.model.ExecuteFilterParameter20;
+import unit.java.sdk.model.ExecuteFilterParameter21;
 import unit.java.sdk.model.ListPageParametersObject;
 import unit.java.sdk.model.StopPaymentListResponse;
 import unit.java.sdk.model.StopPaymentResponse;
@@ -49,7 +49,7 @@ public class DefaultApiTest {
     @Test
     public void executeTest() throws ApiException {
         ListPageParametersObject page = null;
-        ExecuteFilterParameter20 filter = null;
+        ExecuteFilterParameter21 filter = null;
         String sort = null;
         StopPaymentListResponse response = 
         api.execute(page, filter, sort);

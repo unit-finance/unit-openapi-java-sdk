@@ -48,12 +48,4 @@ public class RepaymentTest {
         // TODO: test id
     }
 
-    /**
-     * Test the property 'type'
-     */
-    @Test
-    public void typeTest() {
-        // TODO: test type
-    }
-
 }

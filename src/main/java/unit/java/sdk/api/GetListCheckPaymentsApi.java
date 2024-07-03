@@ -17,7 +17,7 @@ import unit.java.sdk.ApiException;
 import unit.java.sdk.ApiResponse;
 import unit.java.sdk.Pair;
 
-import unit.java.sdk.model.ExecuteFilterParameter19;
+import unit.java.sdk.model.ExecuteFilterParameter20;
 import unit.java.sdk.model.ListPageParametersObject;
 import unit.java.sdk.model.UnitListCheckPaymentsResponse;
 
@@ -93,7 +93,7 @@ public class GetListCheckPaymentsApi {
    * @return UnitListCheckPaymentsResponse
    * @throws ApiException if fails to make API call
    */
-  public UnitListCheckPaymentsResponse execute(ListPageParametersObject page, ExecuteFilterParameter19 filter, String sort, String include) throws ApiException {
+  public UnitListCheckPaymentsResponse execute(ListPageParametersObject page, ExecuteFilterParameter20 filter, String sort, String include) throws ApiException {
     ApiResponse<UnitListCheckPaymentsResponse> localVarResponse = executeWithHttpInfo(page, filter, sort, include);
     return localVarResponse.getData();
   }
@@ -108,7 +108,7 @@ public class GetListCheckPaymentsApi {
    * @return ApiResponse&lt;UnitListCheckPaymentsResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<UnitListCheckPaymentsResponse> executeWithHttpInfo(ListPageParametersObject page, ExecuteFilterParameter19 filter, String sort, String include) throws ApiException {
+  public ApiResponse<UnitListCheckPaymentsResponse> executeWithHttpInfo(ListPageParametersObject page, ExecuteFilterParameter20 filter, String sort, String include) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = executeRequestBuilder(page, filter, sort, include);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -137,7 +137,7 @@ public class GetListCheckPaymentsApi {
     }
   }
 
-  private HttpRequest.Builder executeRequestBuilder(ListPageParametersObject page, ExecuteFilterParameter19 filter, String sort, String include) throws ApiException {
+  private HttpRequest.Builder executeRequestBuilder(ListPageParametersObject page, ExecuteFilterParameter20 filter, String sort, String include) throws ApiException {
 
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 

@@ -58,9 +58,31 @@ public class ExecuteFilterParameter20 {
    * Gets or Sets status
    */
   public enum StatusEnum {
-    ACTIVE("Active"),
+    NEW("New"),
     
-    DISABLED("Disabled");
+    PENDING("Pending"),
+    
+    CANCELED("Canceled"),
+    
+    REJECTED("Rejected"),
+    
+    INDELIVERY("InDelivery"),
+    
+    INPRODUCTION("InProduction"),
+    
+    DELIVERED("Delivered"),
+    
+    RETURNEDTOSENDER("ReturnedToSender"),
+    
+    PENDING2("Pending"),
+    
+    PROCESSED("Processed"),
+    
+    PENDINGREVIEW("PendingReview"),
+    
+    MARKEDFORRETURN("MarkedForReturn"),
+    
+    RETURNED("Returned");
 
     private String value;
 

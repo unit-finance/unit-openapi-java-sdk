@@ -71,14 +71,6 @@ public class AchRepaymentAllOfAttributesTest {
     }
 
     /**
-     * Test the property 'sameDay'
-     */
-    @Test
-    public void sameDayTest() {
-        // TODO: test sameDay
-    }
-
-    /**
      * Test the property 'status'
      */
     @Test

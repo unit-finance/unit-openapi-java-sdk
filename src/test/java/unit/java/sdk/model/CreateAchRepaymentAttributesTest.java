@@ -78,6 +78,14 @@ public class CreateAchRepaymentAttributesTest {
     }
 
     /**
+     * Test the property 'secCode'
+     */
+    @Test
+    public void secCodeTest() {
+        // TODO: test secCode
+    }
+
+    /**
      * Test the property 'tags'
      */
     @Test

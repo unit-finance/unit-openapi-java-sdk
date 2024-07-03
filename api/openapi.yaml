@@ -2974,7 +2974,7 @@ paths:
         default: {}
       summary: Create a Repayment
       tags:
-      - Create a Repayment
+      - Create Repayment
       x-content-type: application/vnd.api+json
       x-accepts: application/vnd.api+json; charset=utf-8
   /repayments/{repaymentId}:
@@ -3003,6 +3003,142 @@ paths:
       tags:
       - Get Repayment
       x-accepts: application/vnd.api+json; charset=utf-8
+  /recurring-repayments:
+    get:
+      description: 'Get List Recurring Repayments from API '
+      operationId: execute
+      parameters:
+      - in: query
+        name: page
+        schema:
+          $ref: '#/components/schemas/listPageParametersObject'
+        style: deepObject
+      - allowReserved: true
+        in: query
+        name: filter
+        schema:
+          $ref: '#/components/schemas/execute_filter_parameter_19'
+        style: deepObject
+      - in: query
+        name: sort
+        schema:
+          enum:
+          - createdAt
+          - -createdAt
+          type: string
+      responses:
+        "200":
+          content:
+            application/vnd.api+json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Unit_Recurring_Repayments_List_Response'
+          description: Successful Response
+        "401": {}
+      summary: Get List Recurring Repayments
+      tags:
+      - Get List Recurring Repayments
+      x-accepts: application/vnd.api+json; charset=utf-8
+    post:
+      description: Create a Recurring Repayment via API
+      operationId: execute
+      requestBody:
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/CreateRecurringRepaymentRequest'
+        description: Create a Recurring Repayment Request
+        required: true
+      responses:
+        "201":
+          content:
+            application/vnd.api+json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/UnitRecurringRepaymentResponse'
+          description: Successful Response
+        default: {}
+      summary: Create a Recurring Repayment
+      tags:
+      - Create Recurring Repayment
+      x-content-type: application/vnd.api+json
+      x-accepts: application/vnd.api+json; charset=utf-8
+  /recurring-repayments/{recurringRepaymentId}:
+    get:
+      description: 'Get a Recurring Repayment from API '
+      operationId: execute
+      parameters:
+      - description: ID of the recurring repayment to get
+        in: path
+        name: recurringRepaymentId
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: include
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/vnd.api+json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/UnitRecurringRepaymentResponse'
+          description: Successful Response
+      summary: Get Recurring Repayment by Id
+      tags:
+      - Get Recurring Repayment
+      x-accepts: application/vnd.api+json; charset=utf-8
+  /recurring-repayments/{recurringRepaymentId}/disable:
+    post:
+      description: Disable a Recurring Repayment
+      operationId: execute
+      parameters:
+      - description: ID of the recurring repayment to disable
+        in: path
+        name: recurringRepaymentId
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: include
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/vnd.api+json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/UnitRecurringRepaymentResponse'
+          description: Successful Response
+      summary: Disable Recurring Repayment by Id
+      tags:
+      - Disable Recurring Repayment
+      x-accepts: application/vnd.api+json; charset=utf-8
+  /recurring-repayments/{recurringRepaymentId}/enable:
+    post:
+      description: Enable a Recurring Repayment
+      operationId: execute
+      parameters:
+      - description: ID of the recurring repayment to enable
+        in: path
+        name: recurringRepaymentId
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: include
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/vnd.api+json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/UnitRecurringRepaymentResponse'
+          description: Successful Response
+      summary: Enable Recurring Repayment by Id
+      tags:
+      - Enable Recurring Repayment
+      x-accepts: application/vnd.api+json; charset=utf-8
   /check-payments:
     get:
       description: 'Get List Check Payments from API '
@@ -3016,7 +3152,7 @@ paths:
       - in: query
         name: filter
         schema:
-          $ref: '#/components/schemas/execute_filter_parameter_19'
+          $ref: '#/components/schemas/execute_filter_parameter_20'
       - in: query
         name: sort
         schema:
@@ -3220,7 +3356,7 @@ paths:
       - in: query
         name: filter
         schema:
-          $ref: '#/components/schemas/execute_filter_parameter_20'
+          $ref: '#/components/schemas/execute_filter_parameter_21'
       - in: query
         name: sort
         schema:
@@ -6741,42 +6877,140 @@ components:
       - transaction
       title: disputeRelationships
       type: object
-    repayment:
+    Repayment:
       discriminator:
         mapping:
           achRepayment: '#/components/schemas/AchRepayment'
           bookRepayment: '#/components/schemas/BookRepayment'
+          capitalPartnerAchRepayment: '#/components/schemas/CapitalPartnerAchRepayment'
+          capitalPartnerBookRepayment: '#/components/schemas/CapitalPartnerBookRepayment'
         propertyName: type
       properties:
         id:
           pattern: "^[1-9]\\d*$"
           type: string
-        type:
-          type: string
       title: Repayment Resource
       type: object
     AchRepayment:
       allOf:
-      - $ref: '#/components/schemas/repayment'
+      - $ref: '#/components/schemas/Repayment'
       - properties:
+          type:
+            default: achRepayment
+            type: string
           attributes:
             $ref: '#/components/schemas/AchRepayment_allOf_attributes'
           relationships:
-            $ref: '#/components/schemas/AchRepayment_allOf_relationships'
+            $ref: '#/components/schemas/AchRepaymentRelationships'
         type: object
       title: ACH Repayment
       type: object
+    AchRepaymentRelationships:
+      allOf:
+      - $ref: '#/components/schemas/RepaymentRelationshipsBase'
+      - additionalProperties: false
+        properties:
+          account:
+            $ref: '#/components/schemas/AchRepaymentRelationships_allOf_account'
+          counterparty:
+            $ref: '#/components/schemas/AchRepaymentRelationships_allOf_counterparty'
+        required:
+        - account
+        - counterparty
+        type: object
+    RepaymentRelationshipsBase:
+      additionalProperties: false
+      properties:
+        creditAccount:
+          $ref: '#/components/schemas/RepaymentRelationshipsBase_creditAccount'
+        org:
+          $ref: '#/components/schemas/RepaymentRelationshipsBase_org'
+        customer:
+          $ref: '#/components/schemas/receivedPaymentRelationships_customer'
+        payment:
+          $ref: '#/components/schemas/RepaymentRelationshipsBase_payment'
+        recurringPayment:
+          $ref: '#/components/schemas/RepaymentRelationshipsBase_recurringPayment'
+      required:
+      - creditAccount
+      - org
+      - payment
+      type: object
     BookRepayment:
       allOf:
-      - $ref: '#/components/schemas/repayment'
+      - $ref: '#/components/schemas/Repayment'
       - properties:
+          type:
+            default: bookRepayment
+            type: string
           attributes:
             $ref: '#/components/schemas/BookRepayment_allOf_attributes'
           relationships:
-            $ref: '#/components/schemas/BookRepayment_allOf_relationships'
+            $ref: '#/components/schemas/BookRepaymentRelationships'
         type: object
       title: Book Repayment
       type: object
+    BookRepaymentRelationships:
+      allOf:
+      - $ref: '#/components/schemas/RepaymentRelationshipsBase'
+      - additionalProperties: false
+        properties:
+          account:
+            $ref: '#/components/schemas/AchRepaymentRelationships_allOf_account'
+          counterpartyAccount:
+            $ref: '#/components/schemas/BookRepaymentRelationships_allOf_counterpartyAccount'
+        required:
+        - account
+        - counterpartyAccount
+        type: object
+    CapitalPartnerAchRepayment:
+      allOf:
+      - $ref: '#/components/schemas/Repayment'
+      - properties:
+          type:
+            default: capitalPartnerAchRepayment
+            type: string
+          attributes:
+            $ref: '#/components/schemas/AchRepayment_allOf_attributes'
+          relationships:
+            $ref: '#/components/schemas/CapitalPartnerAchRepaymentRelationships'
+        type: object
+      title: Capital Partner ACH Repayment
+      type: object
+    CapitalPartnerAchRepaymentRelationships:
+      allOf:
+      - $ref: '#/components/schemas/RepaymentRelationshipsBase'
+      - additionalProperties: false
+        properties:
+          counterparty:
+            $ref: '#/components/schemas/AchRepaymentRelationships_allOf_counterparty'
+        required:
+        - counterparty
+        type: object
+    CapitalPartnerBookRepayment:
+      allOf:
+      - $ref: '#/components/schemas/Repayment'
+      - properties:
+          type:
+            default: capitalPartnerBookRepayment
+            type: string
+          attributes:
+            $ref: '#/components/schemas/BookRepayment_allOf_attributes'
+          relationships:
+            $ref: '#/components/schemas/CapitalPartnerBookRepaymentRelationships'
+        type: object
+      title: Capital Partner Book Repayment
+      type: object
+    CapitalPartnerBookRepaymentRelationships:
+      allOf:
+      - $ref: '#/components/schemas/RepaymentRelationshipsBase'
+      - additionalProperties: false
+        properties:
+          counterpartyAccount:
+            $ref: '#/components/schemas/BookRepaymentRelationships_allOf_counterpartyAccount'
+        required:
+        - counterpartyAccount
+        type: object
     createRepayment:
       properties:
         data:
@@ -6791,12 +7025,26 @@ components:
         attributes:
           $ref: '#/components/schemas/CreateAchRepayment_attributes'
         relationships:
-          $ref: '#/components/schemas/CreateAchRepayment_relationships'
+          $ref: '#/components/schemas/CreateAchRepaymentRelationships'
       required:
       - attributes
       - relationships
       - type
       title: Create ACH Repayment
+      type: object
+    CreateAchRepaymentRelationships:
+      additionalProperties: false
+      properties:
+        account:
+          $ref: '#/components/schemas/Relationship'
+        creditAccount:
+          $ref: '#/components/schemas/Relationship'
+        counterparty:
+          $ref: '#/components/schemas/Relationship'
+      required:
+      - account
+      - counterparty
+      - creditAccount
       type: object
     CreateBookRepayment:
       additionalProperties: false
@@ -6807,18 +7055,282 @@ components:
         attributes:
           $ref: '#/components/schemas/CreateBookRepayment_attributes'
         relationships:
-          $ref: '#/components/schemas/CreateBookRepayment_relationships'
+          $ref: '#/components/schemas/CreateBookRepaymentRelationships'
       required:
       - attributes
       - relationships
       - type
       title: Create Book Repayment
       type: object
+    CreateBookRepaymentRelationships:
+      additionalProperties: false
+      properties:
+        account:
+          $ref: '#/components/schemas/Relationship'
+        creditAccount:
+          $ref: '#/components/schemas/Relationship'
+        counterpartyAccount:
+          $ref: '#/components/schemas/Relationship'
+      required:
+      - account
+      - counterpartyAccount
+      - creditAccount
+      type: object
+    CreateCapitalPartnerAchRepayment:
+      additionalProperties: false
+      properties:
+        type:
+          default: capitalPartnerAchRepayment
+          type: string
+        attributes:
+          $ref: '#/components/schemas/CreateAchRepayment_attributes'
+        relationships:
+          $ref: '#/components/schemas/CreateCapitalPartnerAchRepaymentRelationships'
+      required:
+      - attributes
+      - relationships
+      - type
+      type: object
+    CreateCapitalPartnerAchRepaymentRelationships:
+      additionalProperties: false
+      properties:
+        creditAccount:
+          $ref: '#/components/schemas/Relationship'
+        counterparty:
+          $ref: '#/components/schemas/Relationship'
+      required:
+      - account
+      - counterparty
+      type: object
+    CreateCapitalPartnerBookRepayment:
+      additionalProperties: false
+      properties:
+        type:
+          default: capitalPartnerBookRepayment
+          type: string
+        attributes:
+          $ref: '#/components/schemas/CreateBookRepayment_attributes'
+        relationships:
+          $ref: '#/components/schemas/CreateCapitalPartnerBookRepaymentRelationships'
+      required:
+      - attributes
+      - relationships
+      - type
+      type: object
+    CreateCapitalPartnerBookRepaymentRelationships:
+      additionalProperties: false
+      properties:
+        creditAccount:
+          $ref: '#/components/schemas/Relationship'
+        counterpartyAccount:
+          $ref: '#/components/schemas/Relationship'
+      required:
+      - account
+      - counterpartyAccount
+      type: object
     UnitRepaymentResponse:
       properties:
         data:
-          $ref: '#/components/schemas/repayment'
+          $ref: '#/components/schemas/Repayment'
       title: UnitRepaymentResponse
+      type: object
+    UnitRecurringRepaymentResponse:
+      properties:
+        data:
+          $ref: '#/components/schemas/RecurringRepayment'
+      title: UnitRepaymentResponse
+      type: object
+    RecurringRepayment:
+      discriminator:
+        mapping:
+          achRecurringRepayment: '#/components/schemas/RecurringAchRepayment'
+          bookRecurringRepayment: '#/components/schemas/RecurringBookRepayment'
+          capitalPartnerAchRecurringRepayment: '#/components/schemas/RecurringCapitalPartnerAchRepayment'
+          capitalPartnerBookRecurringRepayment: '#/components/schemas/RecurringCapitalPartnerBookRepayment'
+        propertyName: type
+      properties:
+        id:
+          pattern: "^[1-9]\\d*$"
+          type: string
+      title: Recurring Repayment Resource
+      type: object
+    RecurringAchRepayment:
+      allOf:
+      - $ref: '#/components/schemas/RecurringRepayment'
+      - properties:
+          type:
+            default: recurringAchRepayment
+            type: string
+          attributes:
+            $ref: '#/components/schemas/RecurringAchRepayment_allOf_attributes'
+          relationships: {}
+        type: object
+      title: Recurring ACH Repayment
+      type: object
+    RecurringRepaymentStatus:
+      enum:
+      - Pending
+      - PendingReview
+      - Sent
+      - Returned
+      - Rejected
+      - Clearing
+      type: string
+    RecurringBookRepayment:
+      allOf:
+      - $ref: '#/components/schemas/RecurringRepayment'
+      - properties:
+          type:
+            default: recurringBookRepayment
+            type: string
+          attributes:
+            $ref: '#/components/schemas/RecurringBookRepayment_allOf_attributes'
+          relationships: {}
+        type: object
+      title: Recurring Book Repayment
+      type: object
+    RecurringCapitalPartnerAchRepayment:
+      allOf:
+      - $ref: '#/components/schemas/RecurringRepayment'
+      - properties:
+          type:
+            default: recurrinCapitalPartnerAchRepayment
+            type: string
+          attributes:
+            $ref: '#/components/schemas/RecurringCapitalPartnerAchRepayment_allOf_attributes'
+          relationships: {}
+        type: object
+      title: Recurring Capital Partner ACH Repayment
+      type: object
+    RecurringCapitalPartnerBookRepayment:
+      allOf:
+      - $ref: '#/components/schemas/RecurringRepayment'
+      - properties:
+          type:
+            default: recurringBookRepayment
+            type: string
+          attributes:
+            $ref: '#/components/schemas/RecurringBookRepayment_allOf_attributes'
+          relationships: {}
+        type: object
+      title: Recurring Capital Partner Book Repayment
+      type: object
+    CreateRecurringRepaymentRequest:
+      properties:
+        data:
+          $ref: '#/components/schemas/CreateRecurringRepaymentRequest_data'
+      type: object
+    CreateRecurringAchRepayment:
+      additionalProperties: false
+      properties:
+        type:
+          default: recurringAchRepayment
+          type: string
+        attributes:
+          $ref: '#/components/schemas/CreateRecurringAchRepayment_attributes'
+        relationships:
+          $ref: '#/components/schemas/CreateRecurringAchRepaymentRelationships'
+      required:
+      - attributes
+      - relationships
+      - type
+      title: Create Recurring ACH Repayment
+      type: object
+    CreateRecurringAchRepaymentRelationships:
+      additionalProperties: false
+      properties:
+        account:
+          $ref: '#/components/schemas/Relationship'
+        creditAccount:
+          $ref: '#/components/schemas/Relationship'
+        counterparty:
+          $ref: '#/components/schemas/Relationship'
+      required:
+      - account
+      - counterparty
+      - creditAccount
+      type: object
+    CreateRecurringBookRepayment:
+      additionalProperties: false
+      properties:
+        type:
+          default: recurringBookRepayment
+          type: string
+        attributes:
+          $ref: '#/components/schemas/CreateRecurringBookRepayment_attributes'
+        relationships:
+          $ref: '#/components/schemas/CreateRecurringBookRepaymentRelationships'
+      required:
+      - attributes
+      - relationships
+      - type
+      title: Create Recurring Book Repayment
+      type: object
+    CreateRecurringBookRepaymentRelationships:
+      additionalProperties: false
+      properties:
+        account:
+          $ref: '#/components/schemas/Relationship'
+        creditAccount:
+          $ref: '#/components/schemas/Relationship'
+        counterpartyAccount:
+          $ref: '#/components/schemas/Relationship'
+      required:
+      - account
+      - counterpartyAccount
+      - creditAccount
+      type: object
+    CreateRecurringCapitalPartnerAchRepayment:
+      additionalProperties: false
+      properties:
+        type:
+          default: recurringCapitalPartnerAchRepayment
+          type: string
+        attributes:
+          $ref: '#/components/schemas/CreateRecurringAchRepayment_attributes'
+        relationships:
+          $ref: '#/components/schemas/CreateRecurringCapitalPartnerAchRepaymentRelationships'
+      required:
+      - attributes
+      - relationships
+      - type
+      type: object
+    CreateRecurringCapitalPartnerAchRepaymentRelationships:
+      additionalProperties: false
+      properties:
+        creditAccount:
+          $ref: '#/components/schemas/Relationship'
+        counterparty:
+          $ref: '#/components/schemas/Relationship'
+      required:
+      - account
+      - counterparty
+      type: object
+    CreateRecurringCapitalPartnerBookRepayment:
+      additionalProperties: false
+      properties:
+        type:
+          default: recurringCapitalPartnerBookRepayment
+          type: string
+        attributes:
+          $ref: '#/components/schemas/CreateRecurringBookRepayment_attributes'
+        relationships:
+          $ref: '#/components/schemas/CreateRecurringCapitalPartnerBookRepaymentRelationships'
+      required:
+      - attributes
+      - relationships
+      - type
+      type: object
+    CreateRecurringCapitalPartnerBookRepaymentRelationships:
+      additionalProperties: false
+      properties:
+        creditAccount:
+          $ref: '#/components/schemas/Relationship'
+        counterpartyAccount:
+          $ref: '#/components/schemas/Relationship'
+      required:
+      - account
+      - counterpartyAccount
       type: object
     CheckPayment:
       additionalProperties: false
@@ -8624,13 +9136,43 @@ components:
       properties:
         data:
           items:
-            $ref: '#/components/schemas/repayment'
+            $ref: '#/components/schemas/Repayment'
           type: array
         meta:
           $ref: '#/components/schemas/paginationMeta'
       title: UnitRepaymentsListResponse
       type: object
     execute_filter_parameter_19:
+      properties:
+        creditAccountId:
+          type: string
+        customerId:
+          type: string
+        status:
+          items:
+            enum:
+            - Active
+            - Disabled
+            type: string
+          type: array
+        fromStartTime:
+          format: date
+          type: string
+        toStartTime:
+          format: date
+          type: string
+      type: object
+    Unit_Recurring_Repayments_List_Response:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/RecurringRepayment'
+          type: array
+        meta:
+          $ref: '#/components/schemas/paginationMeta'
+      title: Unit Recurring Repayments List Response
+      type: object
+    execute_filter_parameter_20:
       properties:
         accountId:
           type: string
@@ -8708,7 +9250,7 @@ components:
           $ref: '#/components/schemas/ReturnCheckPaymentRequest_data'
       title: ReturnCheckPaymentRequest
       type: object
-    execute_filter_parameter_20:
+    execute_filter_parameter_21:
       properties:
         accountId:
           type: string
@@ -14168,8 +14710,6 @@ components:
           additionalProperties: false
           maxProperties: 15
           type: object
-        sameDay:
-          type: boolean
         status:
           enum:
           - Pending
@@ -14183,9 +14723,10 @@ components:
       - amount
       - createdAt
       - status
+      - updatedAt
       type: object
       example: null
-    AchRepayment_allOf_relationships_account_data:
+    AchRepaymentRelationships_allOf_account_data:
       properties:
         type:
           enum:
@@ -14200,36 +14741,15 @@ components:
       - type
       type: object
       example: null
-    AchRepayment_allOf_relationships_account:
+    AchRepaymentRelationships_allOf_account:
       properties:
         data:
-          $ref: '#/components/schemas/AchRepayment_allOf_relationships_account_data'
+          $ref: '#/components/schemas/AchRepaymentRelationships_allOf_account_data'
       required:
       - data
       type: object
       example: null
-    AchRepayment_allOf_relationships_creditAccount_data:
-      properties:
-        type:
-          default: creditAccount
-          type: string
-        id:
-          pattern: "^[1-9]\\d*$"
-          type: string
-      required:
-      - id
-      - type
-      type: object
-      example: null
-    AchRepayment_allOf_relationships_creditAccount:
-      properties:
-        data:
-          $ref: '#/components/schemas/AchRepayment_allOf_relationships_creditAccount_data'
-      required:
-      - data
-      type: object
-      example: null
-    AchRepayment_allOf_relationships_counterparty_data:
+    AchRepaymentRelationships_allOf_counterparty_data:
       properties:
         type:
           default: counterparty
@@ -14242,21 +14762,19 @@ components:
       - type
       type: object
       example: null
-    AchRepayment_allOf_relationships_counterparty:
+    AchRepaymentRelationships_allOf_counterparty:
       properties:
         data:
-          $ref: '#/components/schemas/AchRepayment_allOf_relationships_counterparty_data'
+          $ref: '#/components/schemas/AchRepaymentRelationships_allOf_counterparty_data'
       required:
       - data
       type: object
       example: null
-    AchRepayment_allOf_relationships_customer_data:
+    RepaymentRelationshipsBase_creditAccount_data:
+      additionalProperties: false
       properties:
         type:
-          enum:
-          - businessCustomer
-          - individualCustomer
-          - customer
+          default: creditAccount
           type: string
         id:
           pattern: "^[1-9]\\d*$"
@@ -14265,19 +14783,19 @@ components:
       - id
       - type
       type: object
-      example: null
-    AchRepayment_allOf_relationships_customer:
+    RepaymentRelationshipsBase_creditAccount:
+      additionalProperties: false
       properties:
         data:
-          $ref: '#/components/schemas/AchRepayment_allOf_relationships_customer_data'
+          $ref: '#/components/schemas/RepaymentRelationshipsBase_creditAccount_data'
       required:
       - data
       type: object
-      example: null
-    AchRepayment_allOf_relationships_payment_data:
+    RepaymentRelationshipsBase_org_data:
+      additionalProperties: false
       properties:
         type:
-          default: payment
+          default: org
           type: string
         id:
           pattern: "^[1-9]\\d*$"
@@ -14286,29 +14804,30 @@ components:
       - id
       - type
       type: object
-      example: null
-    AchRepayment_allOf_relationships_payment:
+    RepaymentRelationshipsBase_org:
+      additionalProperties: false
       properties:
         data:
-          $ref: '#/components/schemas/AchRepayment_allOf_relationships_payment_data'
+          $ref: '#/components/schemas/RepaymentRelationshipsBase_org_data'
       required:
       - data
       type: object
-      example: null
-    AchRepayment_allOf_relationships:
+    RepaymentRelationshipsBase_payment:
+      additionalProperties: false
       properties:
-        account:
-          $ref: '#/components/schemas/AchRepayment_allOf_relationships_account'
-        creditAccount:
-          $ref: '#/components/schemas/AchRepayment_allOf_relationships_creditAccount'
-        counterparty:
-          $ref: '#/components/schemas/AchRepayment_allOf_relationships_counterparty'
-        customer:
-          $ref: '#/components/schemas/AchRepayment_allOf_relationships_customer'
-        payment:
-          $ref: '#/components/schemas/AchRepayment_allOf_relationships_payment'
+        data:
+          $ref: '#/components/schemas/paymentRelationship_data'
+      required:
+      - data
       type: object
-      example: null
+    RepaymentRelationshipsBase_recurringPayment:
+      additionalProperties: false
+      properties:
+        data:
+          $ref: '#/components/schemas/recurringPaymentRelationship_data'
+      required:
+      - data
+      type: object
     BookRepayment_allOf_attributes:
       properties:
         createdAt:
@@ -14336,9 +14855,10 @@ components:
       - amount
       - createdAt
       - status
+      - updatedAt
       type: object
       example: null
-    BookRepayment_allOf_relationships_counterpartyAccount_data:
+    BookRepaymentRelationships_allOf_counterpartyAccount_data:
       properties:
         type:
           default: account
@@ -14351,32 +14871,20 @@ components:
       - type
       type: object
       example: null
-    BookRepayment_allOf_relationships_counterpartyAccount:
+    BookRepaymentRelationships_allOf_counterpartyAccount:
       properties:
         data:
-          $ref: '#/components/schemas/BookRepayment_allOf_relationships_counterpartyAccount_data'
+          $ref: '#/components/schemas/BookRepaymentRelationships_allOf_counterpartyAccount_data'
       required:
       - data
-      type: object
-      example: null
-    BookRepayment_allOf_relationships:
-      properties:
-        account:
-          $ref: '#/components/schemas/AchRepayment_allOf_relationships_account'
-        creditAccount:
-          $ref: '#/components/schemas/AchRepayment_allOf_relationships_creditAccount'
-        counterpartyAccount:
-          $ref: '#/components/schemas/BookRepayment_allOf_relationships_counterpartyAccount'
-        customer:
-          $ref: '#/components/schemas/AchRepayment_allOf_relationships_customer'
-        payment:
-          $ref: '#/components/schemas/AchRepayment_allOf_relationships_payment'
       type: object
       example: null
     createRepayment_data:
       oneOf:
       - $ref: '#/components/schemas/CreateAchRepayment'
       - $ref: '#/components/schemas/CreateBookRepayment'
+      - $ref: '#/components/schemas/CreateCapitalPartnerAchRepayment'
+      - $ref: '#/components/schemas/CreateCapitalPartnerBookRepayment'
     CreateAchRepayment_attributes:
       additionalProperties: false
       properties:
@@ -14397,6 +14905,8 @@ components:
           type: string
         sameDay:
           type: boolean
+        secCode:
+          type: string
         tags:
           additionalProperties: false
           maxProperties: 15
@@ -14404,20 +14914,6 @@ components:
       required:
       - amount
       - description
-      type: object
-    CreateAchRepayment_relationships:
-      additionalProperties: false
-      properties:
-        account:
-          $ref: '#/components/schemas/Relationship'
-        creditAccount:
-          $ref: '#/components/schemas/Relationship'
-        counterparty:
-          $ref: '#/components/schemas/Relationship'
-      required:
-      - account
-      - counterparty
-      - creditAccount
       type: object
     CreateBookRepayment_attributes:
       additionalProperties: false
@@ -14445,19 +14941,164 @@ components:
       - amount
       - description
       type: object
-    CreateBookRepayment_relationships:
+    RecurringAchRepayment_allOf_attributes:
+      properties:
+        createdAt:
+          format: date
+          type: string
+        updatedAt:
+          format: date
+          type: string
+        schedule:
+          $ref: '#/components/schemas/schedule'
+        description:
+          maxLength: 50
+          type: string
+        addenda:
+          maxLength: 80
+          type: string
+        sameDay:
+          default: false
+          type: boolean
+        numberOfRepayments:
+          type: integer
+        tags:
+          additionalProperties: false
+          maxProperties: 15
+          type: object
+        status:
+          $ref: '#/components/schemas/RecurringRepaymentStatus'
+      required:
+      - createdAt
+      - description
+      - numberOfRepayments
+      - schedule
+      - status
+      - updatedAt
+      type: object
+      example: null
+    RecurringBookRepayment_allOf_attributes:
+      properties:
+        createdAt:
+          format: date
+          type: string
+        updatedAt:
+          format: date
+          type: string
+        schedule:
+          $ref: '#/components/schemas/schedule'
+        description:
+          maxLength: 50
+          type: string
+        transactionSummaryOverride:
+          maxLength: 100
+          type: string
+        tags:
+          additionalProperties: false
+          maxProperties: 15
+          type: object
+        numberOfRepayments:
+          type: integer
+        status:
+          $ref: '#/components/schemas/RecurringRepaymentStatus'
+      required:
+      - createdAt
+      - description
+      - numberOfRepayments
+      - schedule
+      - status
+      - updatedAt
+      type: object
+      example: null
+    RecurringCapitalPartnerAchRepayment_allOf_attributes:
+      properties:
+        createdAt:
+          format: date
+          type: string
+        updatedAt:
+          format: date
+          type: string
+        schedule:
+          $ref: '#/components/schemas/schedule'
+        description:
+          maxLength: 50
+          type: string
+        addenda:
+          maxLength: 80
+          type: string
+        sameDay:
+          default: false
+          type: boolean
+        tags:
+          additionalProperties: false
+          maxProperties: 15
+          type: object
+        numberOfRepayments:
+          type: integer
+        status:
+          $ref: '#/components/schemas/RecurringRepaymentStatus'
+      required:
+      - createdAt
+      - description
+      - numberOfRepayments
+      - schedule
+      - status
+      - updatedAt
+      type: object
+      example: null
+    CreateRecurringRepaymentRequest_data:
+      oneOf:
+      - $ref: '#/components/schemas/CreateRecurringAchRepayment'
+      - $ref: '#/components/schemas/CreateRecurringBookRepayment'
+      - $ref: '#/components/schemas/CreateRecurringCapitalPartnerAchRepayment'
+      - $ref: '#/components/schemas/CreateRecurringCapitalPartnerBookRepayment'
+    CreateRecurringAchRepayment_attributes:
       additionalProperties: false
       properties:
-        account:
-          $ref: '#/components/schemas/Relationship'
-        creditAccount:
-          $ref: '#/components/schemas/Relationship'
-        counterpartyAccount:
-          $ref: '#/components/schemas/Relationship'
+        description:
+          maxLength: 10
+          minLength: 1
+          type: string
+        addenda:
+          maxLength: 80
+          minLength: 1
+          type: string
+        idempotencyKey:
+          maxLength: 255
+          minLength: 1
+          type: string
+        sameDay:
+          type: boolean
+        secCode:
+          type: string
+        tags:
+          additionalProperties: false
+          maxProperties: 15
+          type: object
       required:
-      - account
-      - counterpartyAccount
-      - creditAccount
+      - description
+      type: object
+    CreateRecurringBookRepayment_attributes:
+      additionalProperties: false
+      properties:
+        description:
+          maxLength: 80
+          minLength: 1
+          type: string
+        transactionSummaryOverride:
+          maxLength: 100
+          minLength: 1
+          type: string
+        idempotencyKey:
+          maxLength: 255
+          minLength: 1
+          type: string
+        tags:
+          additionalProperties: false
+          maxProperties: 15
+          type: object
+      required:
+      - description
       type: object
     CheckPayment_attributes_counterparty:
       additionalProperties: false

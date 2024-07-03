@@ -14,7 +14,7 @@
 package unit.java.sdk.api;
 
 import unit.java.sdk.ApiException;
-import unit.java.sdk.model.ExecuteFilterParameter19;
+import unit.java.sdk.model.ExecuteFilterParameter20;
 import unit.java.sdk.model.ListPageParametersObject;
 import unit.java.sdk.model.UnitListCheckPaymentsResponse;
 import org.junit.Test;
@@ -47,7 +47,7 @@ public class GetListCheckPaymentsApiTest {
     @Test
     public void executeTest() throws ApiException {
         ListPageParametersObject page = null;
-        ExecuteFilterParameter19 filter = null;
+        ExecuteFilterParameter20 filter = null;
         String sort = null;
         String include = null;
         UnitListCheckPaymentsResponse response = 

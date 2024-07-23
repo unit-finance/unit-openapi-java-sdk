@@ -19,48 +19,40 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import unit.java.sdk.model.CreateCheckPaymentAttributes;
-import unit.java.sdk.model.CreateCheckPaymentRelationships;
+import unit.java.sdk.model.CreateCheckPaymentRelationshipsAccount;
+import unit.java.sdk.model.CreateCheckPaymentRelationshipsCustomer;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Model tests for CreateCheckPayment
+ * Model tests for CreateCheckPaymentRelationships
  */
-public class CreateCheckPaymentTest {
-    private final CreateCheckPayment model = new CreateCheckPayment();
+public class CreateCheckPaymentRelationshipsTest {
+    private final CreateCheckPaymentRelationships model = new CreateCheckPaymentRelationships();
 
     /**
-     * Model tests for CreateCheckPayment
+     * Model tests for CreateCheckPaymentRelationships
      */
     @Test
-    public void testCreateCheckPayment() {
-        // TODO: test CreateCheckPayment
+    public void testCreateCheckPaymentRelationships() {
+        // TODO: test CreateCheckPaymentRelationships
     }
 
     /**
-     * Test the property 'type'
+     * Test the property 'account'
      */
     @Test
-    public void typeTest() {
-        // TODO: test type
+    public void accountTest() {
+        // TODO: test account
     }
 
     /**
-     * Test the property 'attributes'
+     * Test the property 'customer'
      */
     @Test
-    public void attributesTest() {
-        // TODO: test attributes
-    }
-
-    /**
-     * Test the property 'relationships'
-     */
-    @Test
-    public void relationshipsTest() {
-        // TODO: test relationships
+    public void customerTest() {
+        // TODO: test customer
     }
 
 }

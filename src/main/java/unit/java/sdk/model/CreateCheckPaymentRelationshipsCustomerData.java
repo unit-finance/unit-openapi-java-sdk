@@ -25,34 +25,63 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import unit.java.sdk.model.CreateCheckPaymentAttributes;
-import unit.java.sdk.model.CreateCheckPaymentRelationships;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * CreateCheckPayment
+ * CreateCheckPaymentRelationshipsCustomerData
  */
 @JsonPropertyOrder({
-  CreateCheckPayment.JSON_PROPERTY_TYPE,
-  CreateCheckPayment.JSON_PROPERTY_ATTRIBUTES,
-  CreateCheckPayment.JSON_PROPERTY_RELATIONSHIPS
+  CreateCheckPaymentRelationshipsCustomerData.JSON_PROPERTY_TYPE,
+  CreateCheckPaymentRelationshipsCustomerData.JSON_PROPERTY_ID
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class CreateCheckPayment {
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "checkPayment";
+public class CreateCheckPaymentRelationshipsCustomerData {
+  /**
+   * Gets or Sets type
+   */
+  public enum TypeEnum {
+    BUSINESSCUSTOMER("businessCustomer"),
+    
+    INDIVIDUALCUSTOMER("individualCustomer");
 
-  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private CreateCheckPaymentAttributes attributes;
+    private String value;
 
-  public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
-  private CreateCheckPaymentRelationships relationships;
+    TypeEnum(String value) {
+      this.value = value;
+    }
 
-  public CreateCheckPayment() { 
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static TypeEnum fromValue(String value) {
+      for (TypeEnum b : TypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
   }
 
-  public CreateCheckPayment type(String type) {
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private TypeEnum type;
+
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
+
+  public CreateCheckPaymentRelationshipsCustomerData() { 
+  }
+
+  public CreateCheckPaymentRelationshipsCustomerData type(TypeEnum type) {
     this.type = type;
     return this;
   }
@@ -65,70 +94,45 @@ public class CreateCheckPayment {
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getType() {
+  public TypeEnum getType() {
     return type;
   }
 
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setType(String type) {
+  public void setType(TypeEnum type) {
     this.type = type;
   }
 
 
-  public CreateCheckPayment attributes(CreateCheckPaymentAttributes attributes) {
-    this.attributes = attributes;
+  public CreateCheckPaymentRelationshipsCustomerData id(String id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get attributes
-   * @return attributes
+   * Get id
+   * @return id
   **/
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public CreateCheckPaymentAttributes getAttributes() {
-    return attributes;
+  public String getId() {
+    return id;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAttributes(CreateCheckPaymentAttributes attributes) {
-    this.attributes = attributes;
-  }
-
-
-  public CreateCheckPayment relationships(CreateCheckPaymentRelationships relationships) {
-    this.relationships = relationships;
-    return this;
-  }
-
-   /**
-   * Get relationships
-   * @return relationships
-  **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public CreateCheckPaymentRelationships getRelationships() {
-    return relationships;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setRelationships(CreateCheckPaymentRelationships relationships) {
-    this.relationships = relationships;
+  public void setId(String id) {
+    this.id = id;
   }
 
 
   /**
-   * Return true if this createCheckPayment object is equal to o.
+   * Return true if this createCheckPaymentRelationships_customer_data object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -138,24 +142,22 @@ public class CreateCheckPayment {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateCheckPayment createCheckPayment = (CreateCheckPayment) o;
-    return Objects.equals(this.type, createCheckPayment.type) &&
-        Objects.equals(this.attributes, createCheckPayment.attributes) &&
-        Objects.equals(this.relationships, createCheckPayment.relationships);
+    CreateCheckPaymentRelationshipsCustomerData createCheckPaymentRelationshipsCustomerData = (CreateCheckPaymentRelationshipsCustomerData) o;
+    return Objects.equals(this.type, createCheckPaymentRelationshipsCustomerData.type) &&
+        Objects.equals(this.id, createCheckPaymentRelationshipsCustomerData.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, attributes, relationships);
+    return Objects.hash(type, id);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateCheckPayment {\n");
+    sb.append("class CreateCheckPaymentRelationshipsCustomerData {\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
-    sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -208,14 +210,9 @@ public class CreateCheckPayment {
       joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
-    // add `attributes` to the URL query string
-    if (getAttributes() != null) {
-      joiner.add(getAttributes().toUrlQueryString(prefix + "attributes" + suffix));
-    }
-
-    // add `relationships` to the URL query string
-    if (getRelationships() != null) {
-      joiner.add(getRelationships().toUrlQueryString(prefix + "relationships" + suffix));
+    // add `id` to the URL query string
+    if (getId() != null) {
+      joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

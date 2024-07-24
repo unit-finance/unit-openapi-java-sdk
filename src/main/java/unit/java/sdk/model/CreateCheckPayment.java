@@ -25,8 +25,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import unit.java.sdk.model.CreateCheckPaymentAttributes;
-import unit.java.sdk.model.CreateCheckPaymentRelationships;
+import unit.java.sdk.model.CheckPayment;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
@@ -34,96 +33,38 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * CreateCheckPayment
  */
 @JsonPropertyOrder({
-  CreateCheckPayment.JSON_PROPERTY_TYPE,
-  CreateCheckPayment.JSON_PROPERTY_ATTRIBUTES,
-  CreateCheckPayment.JSON_PROPERTY_RELATIONSHIPS
+  CreateCheckPayment.JSON_PROPERTY_DATA
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateCheckPayment {
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "checkPayment";
-
-  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private CreateCheckPaymentAttributes attributes;
-
-  public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
-  private CreateCheckPaymentRelationships relationships;
+  public static final String JSON_PROPERTY_DATA = "data";
+  private CheckPayment data;
 
   public CreateCheckPayment() { 
   }
 
-  public CreateCheckPayment type(String type) {
-    this.type = type;
+  public CreateCheckPayment data(CheckPayment data) {
+    this.data = data;
     return this;
   }
 
    /**
-   * Get type
-   * @return type
+   * Get data
+   * @return data
   **/
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getType() {
-    return type;
+  public CheckPayment getData() {
+    return data;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setType(String type) {
-    this.type = type;
-  }
-
-
-  public CreateCheckPayment attributes(CreateCheckPaymentAttributes attributes) {
-    this.attributes = attributes;
-    return this;
-  }
-
-   /**
-   * Get attributes
-   * @return attributes
-  **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public CreateCheckPaymentAttributes getAttributes() {
-    return attributes;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAttributes(CreateCheckPaymentAttributes attributes) {
-    this.attributes = attributes;
-  }
-
-
-  public CreateCheckPayment relationships(CreateCheckPaymentRelationships relationships) {
-    this.relationships = relationships;
-    return this;
-  }
-
-   /**
-   * Get relationships
-   * @return relationships
-  **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public CreateCheckPaymentRelationships getRelationships() {
-    return relationships;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setRelationships(CreateCheckPaymentRelationships relationships) {
-    this.relationships = relationships;
+  public void setData(CheckPayment data) {
+    this.data = data;
   }
 
 
@@ -139,23 +80,19 @@ public class CreateCheckPayment {
       return false;
     }
     CreateCheckPayment createCheckPayment = (CreateCheckPayment) o;
-    return Objects.equals(this.type, createCheckPayment.type) &&
-        Objects.equals(this.attributes, createCheckPayment.attributes) &&
-        Objects.equals(this.relationships, createCheckPayment.relationships);
+    return Objects.equals(this.data, createCheckPayment.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, attributes, relationships);
+    return Objects.hash(data);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateCheckPayment {\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
-    sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -203,19 +140,9 @@ public class CreateCheckPayment {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `type` to the URL query string
-    if (getType() != null) {
-      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `attributes` to the URL query string
-    if (getAttributes() != null) {
-      joiner.add(getAttributes().toUrlQueryString(prefix + "attributes" + suffix));
-    }
-
-    // add `relationships` to the URL query string
-    if (getRelationships() != null) {
-      joiner.add(getRelationships().toUrlQueryString(prefix + "relationships" + suffix));
+    // add `data` to the URL query string
+    if (getData() != null) {
+      joiner.add(getData().toUrlQueryString(prefix + "data" + suffix));
     }
 
     return joiner.toString();

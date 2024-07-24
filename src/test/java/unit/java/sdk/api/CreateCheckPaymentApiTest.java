@@ -14,7 +14,7 @@
 package unit.java.sdk.api;
 
 import unit.java.sdk.ApiException;
-import unit.java.sdk.model.CreateCheckPaymentRequest;
+import unit.java.sdk.model.CreateCheckPayment;
 import unit.java.sdk.model.UnitCheckPaymentResponse;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -45,9 +45,9 @@ public class CreateCheckPaymentApiTest {
      */
     @Test
     public void executeTest() throws ApiException {
-        CreateCheckPaymentRequest createCheckPaymentRequest = null;
+        CreateCheckPayment createCheckPayment = null;
         UnitCheckPaymentResponse response = 
-        api.execute(createCheckPaymentRequest);
+        api.execute(createCheckPayment);
         
         // TODO: test validations
     }

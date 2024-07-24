@@ -40,8 +40,8 @@ public class PaymentTests {
         attributes.setDescription("Funding");
         createBookPayment.setAttributes(attributes);
 
-        DepositAccount account1 = (DepositAccount) CreateDepositAccount(null);
-        DepositAccount account2 = (DepositAccount) CreateDepositAccount(null);
+        DepositAccount account1 = (DepositAccount) CreateDepositAccount();
+        DepositAccount account2 = (DepositAccount) CreateDepositAccount();
 
         CreateBookPaymentRelationships relationships = new CreateBookPaymentRelationships();
 
@@ -80,7 +80,7 @@ public class PaymentTests {
         attributes.setDescription("Funding");
         createAchPayment.setAttributes(attributes);
 
-        DepositAccount account = (DepositAccount) CreateDepositAccount(null);
+        DepositAccount account = (DepositAccount) CreateDepositAccount();
 
         CreateAchPaymentRelationships relationships = new CreateAchPaymentRelationships();
         AccountRelationship accountRelationship = new AccountRelationship();
@@ -111,7 +111,7 @@ public class PaymentTests {
         attributes.setDescription("Wire payment");
         createWirePayment.setAttributes(attributes);
 
-        DepositAccount account = (DepositAccount) CreateDepositAccount(null);
+        DepositAccount account = (DepositAccount) CreateDepositAccount();
 
         CreateAchPaymentRelationships relationships = new CreateAchPaymentRelationships();
         AccountRelationship accountRelationship = new AccountRelationship();

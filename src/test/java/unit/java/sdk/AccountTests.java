@@ -78,12 +78,8 @@ public class AccountTests {
         });
     }
 
-    public static Account CreateDepositAccount(String customerId) throws ApiException {
-        String id = customerId;
-        if(id == null) {
-            IndividualCustomer customer = CreateIndividualCustomer();
-            id = customer.getId();
-        }
+    public static Account CreateDepositAccount() throws ApiException {
+        IndividualCustomer customer = CreateIndividualCustomer();
 
         CreateDepositAccount cda = new CreateDepositAccount();
         CreateDepositAccountAttributes attributes = new CreateDepositAccountAttributes();
@@ -91,7 +87,7 @@ public class AccountTests {
 
         CreateDepositAccountRelationships relationships = new CreateDepositAccountRelationships();
         CustomerLinkageData customerRelationshipData = new CustomerLinkageData();
-        customerRelationshipData.setId(id);
+        customerRelationshipData.setId(customer.getId());
         customerRelationshipData.setType(CustomerLinkageData.TypeEnum.CUSTOMER);
         CustomerLinkage customerLinkageRelationship = new CustomerLinkage();
         customerLinkageRelationship.setData(customerRelationshipData);
@@ -109,7 +105,7 @@ public class AccountTests {
 
     @Test
     public void CreateDepositAccountTest() throws ApiException {
-        assert CreateDepositAccount(null).getType().equals("depositAccount");
+        assert CreateDepositAccount().getType().equals("depositAccount");
     }
 
     public static Account CreateCreditAccount() throws ApiException {

@@ -19,8 +19,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import unit.java.sdk.model.CreateCheckPaymentAttributes;
-import unit.java.sdk.model.CreateCheckPaymentRelationships;
+import unit.java.sdk.model.CheckPayment;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -40,27 +39,11 @@ public class CreateCheckPaymentTest {
     }
 
     /**
-     * Test the property 'type'
+     * Test the property 'data'
      */
     @Test
-    public void typeTest() {
-        // TODO: test type
-    }
-
-    /**
-     * Test the property 'attributes'
-     */
-    @Test
-    public void attributesTest() {
-        // TODO: test attributes
-    }
-
-    /**
-     * Test the property 'relationships'
-     */
-    @Test
-    public void relationshipsTest() {
-        // TODO: test relationships
+    public void dataTest() {
+        // TODO: test data
     }
 
 }

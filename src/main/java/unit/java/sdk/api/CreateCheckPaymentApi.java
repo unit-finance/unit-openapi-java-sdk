@@ -17,7 +17,7 @@ import unit.java.sdk.ApiException;
 import unit.java.sdk.ApiResponse;
 import unit.java.sdk.Pair;
 
-import unit.java.sdk.model.CreateCheckPaymentRequest;
+import unit.java.sdk.model.CreateCheckPayment;
 import unit.java.sdk.model.UnitCheckPaymentResponse;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -85,24 +85,24 @@ public class CreateCheckPaymentApi {
   /**
    * Create Check Payment
    * Create Check Payment via API 
-   * @param createCheckPaymentRequest Create Check Payment Request (required)
+   * @param createCheckPayment Create Check Payment Request (required)
    * @return UnitCheckPaymentResponse
    * @throws ApiException if fails to make API call
    */
-  public UnitCheckPaymentResponse execute(CreateCheckPaymentRequest createCheckPaymentRequest) throws ApiException {
-    ApiResponse<UnitCheckPaymentResponse> localVarResponse = executeWithHttpInfo(createCheckPaymentRequest);
+  public UnitCheckPaymentResponse execute(CreateCheckPayment createCheckPayment) throws ApiException {
+    ApiResponse<UnitCheckPaymentResponse> localVarResponse = executeWithHttpInfo(createCheckPayment);
     return localVarResponse.getData();
   }
 
   /**
    * Create Check Payment
    * Create Check Payment via API 
-   * @param createCheckPaymentRequest Create Check Payment Request (required)
+   * @param createCheckPayment Create Check Payment Request (required)
    * @return ApiResponse&lt;UnitCheckPaymentResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<UnitCheckPaymentResponse> executeWithHttpInfo(CreateCheckPaymentRequest createCheckPaymentRequest) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = executeRequestBuilder(createCheckPaymentRequest);
+  public ApiResponse<UnitCheckPaymentResponse> executeWithHttpInfo(CreateCheckPayment createCheckPayment) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = executeRequestBuilder(createCheckPayment);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -130,10 +130,10 @@ public class CreateCheckPaymentApi {
     }
   }
 
-  private HttpRequest.Builder executeRequestBuilder(CreateCheckPaymentRequest createCheckPaymentRequest) throws ApiException {
-    // verify the required parameter 'createCheckPaymentRequest' is set
-    if (createCheckPaymentRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'createCheckPaymentRequest' when calling execute");
+  private HttpRequest.Builder executeRequestBuilder(CreateCheckPayment createCheckPayment) throws ApiException {
+    // verify the required parameter 'createCheckPayment' is set
+    if (createCheckPayment == null) {
+      throw new ApiException(400, "Missing the required parameter 'createCheckPayment' when calling execute");
     }
 
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
@@ -146,7 +146,7 @@ public class CreateCheckPaymentApi {
     localVarRequestBuilder.header("Accept", "application/vnd.api+json");
 
     try {
-      byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(createCheckPaymentRequest);
+      byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(createCheckPayment);
       localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
     } catch (IOException e) {
       throw new ApiException(e);

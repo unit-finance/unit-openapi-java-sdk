@@ -15,6 +15,7 @@ import unit.java.sdk.model.Contact;
 import unit.java.sdk.model.Counterparty;
 import unit.java.sdk.model.CreateApplication;
 import unit.java.sdk.model.CreateApplicationData;
+import unit.java.sdk.model.CreateBeneficialOwner;
 import unit.java.sdk.model.CreateBusinessApplication;
 import unit.java.sdk.model.CreateBusinessApplicationAttributes;
 import unit.java.sdk.model.CreateIndividualApplication;
@@ -23,9 +24,11 @@ import unit.java.sdk.model.CreateOfficer;
 import unit.java.sdk.model.EntityType;
 import unit.java.sdk.model.FullName;
 import unit.java.sdk.model.Occupation;
+import unit.java.sdk.model.Officer;
 import unit.java.sdk.model.Phone;
 import unit.java.sdk.model.SourceOfIncome;
 import unit.java.sdk.model.WireCounterparty;
+import unit.java.sdk.model.CreateOfficer.TitleEnum;
 
 public class TestHelpers {
     private static ApiClient apiClient;

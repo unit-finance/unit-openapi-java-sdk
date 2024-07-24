@@ -22,7 +22,7 @@ import unit.java.sdk.model.ReverseFeeRequestDataAttributes;
 
 public class FeeTests {
     public static Fee CreateFee() throws ApiException {
-        Account depositAccount = CreateDepositAccount();
+        Account depositAccount = CreateDepositAccount(null);
         assert depositAccount.getType().equals("depositAccount");
 
         CreateFeeRequest createFeeRequest = new CreateFeeRequest();

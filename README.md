@@ -25,7 +25,7 @@ Add this dependency to your project's POM:
     <dependency>
         <groupId>co.unit</groupId>
         <artifactId>java-sdk</artifactId>
-        <version>0.0.6</version>
+        <version>0.0.6.1</version>
     </dependency>
 </dependencies>
 ```

@@ -27,3 +27,12 @@ jobs:
           UNIT_API_URL: ${{ secrets.UNIT_API_URL }}
           UNIT_TOKEN: ${{ secrets.UNIT_TOKEN }}
           access_token: ${{ secrets.UNIT_TOKEN }}
+
+      - name: Store reports
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: reports
+          path: |
+            **/build/reports/
+            **/build/test-results/

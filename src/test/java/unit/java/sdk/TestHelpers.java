@@ -1,10 +1,10 @@
 package unit.java.sdk;
 
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import unit.java.sdk.api.UnitApi;
 import unit.java.sdk.model.Address;
 import unit.java.sdk.model.AnnualIncome;
 import unit.java.sdk.model.BusinessAnnualRevenue;
@@ -12,34 +12,68 @@ import unit.java.sdk.model.BusinessNumberOfEmployees;
 import unit.java.sdk.model.BusinessVertical;
 import unit.java.sdk.model.CashFlow;
 import unit.java.sdk.model.Contact;
-import unit.java.sdk.model.Counterparty;
-import unit.java.sdk.model.CreateApplication;
-import unit.java.sdk.model.CreateApplicationData;
+import unit.java.sdk.model.CreateApplicationRequest;
+import unit.java.sdk.model.CreateApplicationRequestData;
 import unit.java.sdk.model.CreateBusinessApplication;
 import unit.java.sdk.model.CreateBusinessApplicationAttributes;
-import unit.java.sdk.model.CreateIndividualApplication;
-import unit.java.sdk.model.CreateIndividualApplicationAttributes;
 import unit.java.sdk.model.CreateOfficer;
 import unit.java.sdk.model.EntityType;
 import unit.java.sdk.model.FullName;
 import unit.java.sdk.model.Occupation;
+import unit.java.sdk.model.PaymentCounterparty;
 import unit.java.sdk.model.Phone;
 import unit.java.sdk.model.SourceOfIncome;
-import unit.java.sdk.model.WireCounterparty;
+import unit.java.sdk.model.WirePaymentCounterparty;
 
 public class TestHelpers {
-    private static ApiClient apiClient;
-    static ApiClient getApiClient() {
-        if(apiClient == null){
+    private static UnitApi unitApi;
+    static UnitApi GenerateUnitApiClient() {
+        if(unitApi == null){
             String access_token = System.getenv("access_token");
-            apiClient = new ApiClient();
-            apiClient.setRequestInterceptor(r -> r.header("Authorization", "Bearer " + access_token));
+        ApiClient cl = new ApiClient();
+        cl.setRequestInterceptor(r -> r.header("Authorization", "Bearer " + access_token));
+        unitApi = new UnitApi(cl);
         }
 
-        return apiClient;
+        return unitApi;
     }
 
-    public static CreateApplication CreateBusinessApplicationRequest() {
+    public static CreateApplicationRequest GenerateCreateApplicationRequest() {
+        unit.java.sdk.model.CreateIndividualApplication createIndividualApplication = new unit.java.sdk.model.CreateIndividualApplication();
+        unit.java.sdk.model.CreateIndividualApplicationAttributes attr = new unit.java.sdk.model.CreateIndividualApplicationAttributes();
+
+        unit.java.sdk.model.FullName fn = new unit.java.sdk.model.FullName();
+        fn.setFirst("Peter");
+        fn.setLast("Parker");
+        attr.setFullName(fn);
+
+        unit.java.sdk.model.Address address = new unit.java.sdk.model.Address();
+        address.setStreet("20 Ingram St");
+        address.setCity("Forest Hills");
+        address.setPostalCode("11375");
+        address.setCountry("US");
+        address.setState("NY");
+        attr.setAddress(address);
+
+        attr.setSsn("721074426");
+        attr.setDateOfBirth(LocalDate.parse("2001-08-10"));
+        attr.setEmail("peter@oscorp.com");
+        unit.java.sdk.model.Phone p = new unit.java.sdk.model.Phone();
+        p.setNumber("5555555555");
+        p.setCountryCode("1");
+        attr.setPhone(p);
+        attr.setIdempotencyKey("3a1a33be-4e12-4603-9ed0-820922389fb8");
+        attr.setOccupation(unit.java.sdk.model.Occupation.ARCHITECTORENGINEER);
+
+        createIndividualApplication.setAttributes(attr);
+
+        CreateApplicationRequest ca = new CreateApplicationRequest();
+        ca.data(new CreateApplicationRequestData(createIndividualApplication));
+
+        return ca;
+    }
+
+    public static CreateApplicationRequest GenerateCreateBusinessApplicationRequest() {
         CreateBusinessApplication createBusinessApplication = new CreateBusinessApplication();
         CreateBusinessApplicationAttributes attr = new CreateBusinessApplicationAttributes();
 
@@ -104,53 +138,18 @@ public class TestHelpers {
 
         createBusinessApplication.setAttributes(attr);
 
-        CreateApplication ca = new CreateApplication();
-        ca.data(new CreateApplicationData(createBusinessApplication));
+        CreateApplicationRequest ca = new CreateApplicationRequest();
+        ca.data(new CreateApplicationRequestData(createBusinessApplication));
 
         return ca;
     }
 
-    public static CreateApplication CreateApplicationRequest() {
-        CreateIndividualApplication createIndividualApplication = new CreateIndividualApplication();
-        CreateIndividualApplicationAttributes attr = new CreateIndividualApplicationAttributes();
-
-        FullName fn = new FullName();
-        fn.setFirst("Peter");
-        fn.setLast("Parker");
-        attr.setFullName(fn);
-
-        Address address = new Address();
-        address.setStreet("20 Ingram St");
-        address.setCity("Forest Hills");
-        address.setPostalCode("11375");
-        address.setCountry("US");
-        address.setState("NY");
-        attr.setAddress(address);
-
-        attr.setSsn("721074426");
-        attr.setDateOfBirth(LocalDate.parse("2001-08-10"));
-        attr.setEmail("peter@oscorp.com");
-        Phone p = new Phone();
-        p.setNumber("5555555555");
-        p.setCountryCode("1");
-        attr.setPhone(p);
-        attr.setIdempotencyKey("3a1a33be-4e12-4603-9ed0-820922389fb8");
-        attr.setOccupation(Occupation.ARCHITECTORENGINEER);
-
-        createIndividualApplication.setAttributes(attr);
-
-        CreateApplication ca = new CreateApplication();
-        ca.data(new CreateApplicationData(createIndividualApplication));
-
-        return ca;
-    }
-
-    public static Counterparty CreateCounterparty() {
-        Counterparty counterparty = new Counterparty();
+    public static PaymentCounterparty CreatePaymentCounterparty() {
+        PaymentCounterparty counterparty = new PaymentCounterparty();
         counterparty.setName("Jane Doe");
         counterparty.setRoutingNumber("812345673");
         counterparty.setAccountNumber("12345569");
-        counterparty.setAccountType(Counterparty.AccountTypeEnum.CHECKING);
+        counterparty.setAccountType(PaymentCounterparty.AccountTypeEnum.CHECKING);
 
         return counterparty;
     }
@@ -166,8 +165,8 @@ public class TestHelpers {
         return address;
     }
 
-    public static WireCounterparty CreateWireCounterparty() {
-        WireCounterparty counterparty = new WireCounterparty();
+    public static WirePaymentCounterparty CreateWirePaymentCounterparty() {
+        WirePaymentCounterparty counterparty = new WirePaymentCounterparty();
         counterparty.setName("April Oniel");
         counterparty.setAccountNumber("1000000001");
         counterparty.setRoutingNumber("812345678");

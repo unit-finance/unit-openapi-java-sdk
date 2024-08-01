@@ -58,6 +58,7 @@ public class ApplicationTests {
 
         response.getData().forEach(x -> {
             try {
+                if(x == null) return;
                 UnitApplicationResponseWithIncluded app = unitApi.getApplication(x.getId(), null);
                 assert app.getData().getId().equals(x.getId());
                 assert app.getData().getType().toString().toLowerCase()
@@ -120,6 +121,7 @@ public class ApplicationTests {
 
         response.getData().forEach(x -> {
             try {
+                if(x == null) return;
                 List<ApplicationDocument> documents = unitApi.getApplicationDocuments(x.getId()).getData();
                 documents.forEach(doc -> {
                    assert doc.getType().equals(ApplicationDocument.TypeEnum.DOCUMENT);

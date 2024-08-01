@@ -4,7 +4,7 @@ apply plugin: 'java'
 apply plugin: 'com.diffplug.spotless'
 
 group = 'co.unit.sdk'
-version = '0.0.7'
+version = '0.1.0'
 
 buildscript {
     repositories {
@@ -91,7 +91,7 @@ if(hasProperty('target') && target == 'android') {
             maven(MavenPublication) {
                 groupId = 'co.unit'
                 artifactId = 'java-sdk'
-                version = '0.0.7'
+                version = '0.1.0'
                 from components.java
 
                 pom {

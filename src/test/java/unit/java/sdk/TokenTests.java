@@ -1,39 +1,53 @@
 package unit.java.sdk;
 
-import org.junit.Test;
-import unit.java.sdk.api.CreateCustomerTokenApi;
-import unit.java.sdk.api.GetListOrgApiTokensApi;
-import unit.java.sdk.model.*;
-
-
+import java.util.ArrayList;
 import java.util.List;
 
-import static unit.java.sdk.TestHelpers.getApiClient;
+import org.junit.Test;
+
+import unit.java.sdk.api.UnitApi;
+import unit.java.sdk.model.ApiToken;
+import unit.java.sdk.model.CreateApiTokenRequestDataAttributesResourcesInner;
+import unit.java.sdk.model.CreateCustomerTokenRequest;
+import unit.java.sdk.model.CreateCustomerTokenRequestData;
+import unit.java.sdk.model.CreateCustomerTokenRequestDataAttributes;
+import unit.java.sdk.model.CustomerToken;
+import unit.java.sdk.model.UnitCustomerTokenResponse;
 
 public class TokenTests {
+    UnitApi unitApi = TestHelpers.GenerateUnitApiClient();
+
     @Test
     public void GetOrgTokensTest() throws ApiException {
-        GetListOrgApiTokensApi listApi = new GetListOrgApiTokensApi(getApiClient());
-        List<ApiToken> response = listApi.execute("252").getData();
+        // TODO: Is it alright that userId is hardcoded in the test?
+        List<ApiToken> response = unitApi.getApiTokensList("252").getData();
 
-        for (ApiToken t : response) {
-            assert t.getType().equals("apiToken");
+        for (ApiToken t: response) {
+            assert t.getType().equals(ApiToken.TypeEnum.APITOKEN);
         }
     }
 
     @Test
     public void CreateCustomerToken() throws ApiException {
-        CreateCustomerTokenApi createApi = new CreateCustomerTokenApi(getApiClient());
-
-        CreateCustomerToken request = new CreateCustomerToken();
-
-        CreateCustomerTokenData data = new CreateCustomerTokenData();
-        CreateCustomerTokenDataAttributes attributes = new CreateCustomerTokenDataAttributes();
+        CreateCustomerTokenRequest request = new CreateCustomerTokenRequest();
+        CreateCustomerTokenRequestData cct = new CreateCustomerTokenRequestData();
+        CreateCustomerTokenRequestDataAttributes attributes = new CreateCustomerTokenRequestDataAttributes();
         attributes.setScope("customers accounts");
-        data.setAttributes(attributes);
-        request.setData(data);
 
-        UnitCustomerTokenResponse res = createApi.execute("1527981", request);
-        assert res.getData().getType().equals("customerBearerToken");
+        CreateApiTokenRequestDataAttributesResourcesInner resource = new CreateApiTokenRequestDataAttributesResourcesInner();
+        resource.setType(CreateApiTokenRequestDataAttributesResourcesInner.TypeEnum.ACCOUNT);
+        List<String> Ids = new ArrayList<String>();
+        Ids.add("1527981");
+        resource.setIds(Ids);
+        
+        List<CreateApiTokenRequestDataAttributesResourcesInner> resources = new ArrayList<CreateApiTokenRequestDataAttributesResourcesInner>();
+        resources.add(resource);
+        attributes.setResources(resources);
+        
+        cct.setAttributes(attributes);
+        request.setData(cct);
+
+        UnitCustomerTokenResponse res = unitApi.createCustomerToken("1527981", request);
+        assert res.getData().getType().equals(CustomerToken.TypeEnum.CUSTOMERBEARERTOKEN);
     }
 }

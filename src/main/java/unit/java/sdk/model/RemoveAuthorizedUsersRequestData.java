@@ -25,24 +25,24 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import unit.java.sdk.model.UpdateBusinessApplicationOfficerAttributes;
+import unit.java.sdk.model.RemoveAuthorizedUsersRequestDataAttributes;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * UpdateBusinessApplicationOfficer
+ * RemoveAuthorizedUsersRequestData
  */
 @JsonPropertyOrder({
-  UpdateBusinessApplicationOfficer.JSON_PROPERTY_TYPE,
-  UpdateBusinessApplicationOfficer.JSON_PROPERTY_ATTRIBUTES
+  RemoveAuthorizedUsersRequestData.JSON_PROPERTY_TYPE,
+  RemoveAuthorizedUsersRequestData.JSON_PROPERTY_ATTRIBUTES
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
-public class UpdateBusinessApplicationOfficer {
+public class RemoveAuthorizedUsersRequestData {
   /**
    * Gets or Sets type
    */
   public enum TypeEnum {
-    BUSINESSAPPLICATION("businessApplication");
+    REMOVEAUTHORIZEDUSERS("removeAuthorizedUsers");
 
     private String value;
 
@@ -72,15 +72,15 @@ public class UpdateBusinessApplicationOfficer {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.BUSINESSAPPLICATION;
+  private TypeEnum type = TypeEnum.REMOVEAUTHORIZEDUSERS;
 
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private UpdateBusinessApplicationOfficerAttributes attributes;
+  private RemoveAuthorizedUsersRequestDataAttributes attributes;
 
-  public UpdateBusinessApplicationOfficer() { 
+  public RemoveAuthorizedUsersRequestData() { 
   }
 
-  public UpdateBusinessApplicationOfficer type(TypeEnum type) {
+  public RemoveAuthorizedUsersRequestData type(TypeEnum type) {
     this.type = type;
     return this;
   }
@@ -89,9 +89,9 @@ public class UpdateBusinessApplicationOfficer {
    * Get type
    * @return type
   **/
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public TypeEnum getType() {
     return type;
@@ -99,13 +99,13 @@ public class UpdateBusinessApplicationOfficer {
 
 
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
 
 
-  public UpdateBusinessApplicationOfficer attributes(UpdateBusinessApplicationOfficerAttributes attributes) {
+  public RemoveAuthorizedUsersRequestData attributes(RemoveAuthorizedUsersRequestDataAttributes attributes) {
     this.attributes = attributes;
     return this;
   }
@@ -114,24 +114,24 @@ public class UpdateBusinessApplicationOfficer {
    * Get attributes
    * @return attributes
   **/
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public UpdateBusinessApplicationOfficerAttributes getAttributes() {
+  public RemoveAuthorizedUsersRequestDataAttributes getAttributes() {
     return attributes;
   }
 
 
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAttributes(UpdateBusinessApplicationOfficerAttributes attributes) {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAttributes(RemoveAuthorizedUsersRequestDataAttributes attributes) {
     this.attributes = attributes;
   }
 
 
   /**
-   * Return true if this UpdateBusinessApplicationOfficer object is equal to o.
+   * Return true if this RemoveAuthorizedUsersRequest_data object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -141,9 +141,9 @@ public class UpdateBusinessApplicationOfficer {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UpdateBusinessApplicationOfficer updateBusinessApplicationOfficer = (UpdateBusinessApplicationOfficer) o;
-    return Objects.equals(this.type, updateBusinessApplicationOfficer.type) &&
-        Objects.equals(this.attributes, updateBusinessApplicationOfficer.attributes);
+    RemoveAuthorizedUsersRequestData removeAuthorizedUsersRequestData = (RemoveAuthorizedUsersRequestData) o;
+    return Objects.equals(this.type, removeAuthorizedUsersRequestData.type) &&
+        Objects.equals(this.attributes, removeAuthorizedUsersRequestData.attributes);
   }
 
   @Override
@@ -154,7 +154,7 @@ public class UpdateBusinessApplicationOfficer {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UpdateBusinessApplicationOfficer {\n");
+    sb.append("class RemoveAuthorizedUsersRequestData {\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("}");

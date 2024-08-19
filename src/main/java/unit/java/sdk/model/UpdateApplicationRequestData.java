@@ -27,9 +27,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import unit.java.sdk.model.UpdateBusinessApplication;
 import unit.java.sdk.model.UpdateBusinessApplicationBeneficialOwner;
-import unit.java.sdk.model.UpdateBusinessApplicationOfficer;
+import unit.java.sdk.model.UpdateBusinessOfficer;
+import unit.java.sdk.model.UpdateBusinessOfficerAttributes;
 import unit.java.sdk.model.UpdateIndividualApplication;
-import unit.java.sdk.model.UpdateIndividualApplicationAttributes;
 import unit.java.sdk.model.UpdateSoleProprietorApplication;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
@@ -146,30 +146,30 @@ public class UpdateApplicationRequestData extends AbstractOpenApiSchema {
                 log.log(Level.FINER, "Input data does not match schema 'UpdateBusinessApplicationBeneficialOwner'", e);
             }
 
-            // deserialize UpdateBusinessApplicationOfficer
+            // deserialize UpdateBusinessOfficer
             try {
                 boolean attemptParsing = true;
                 // ensure that we respect type coercion as set on the client ObjectMapper
-                if (UpdateBusinessApplicationOfficer.class.equals(Integer.class) || UpdateBusinessApplicationOfficer.class.equals(Long.class) || UpdateBusinessApplicationOfficer.class.equals(Float.class) || UpdateBusinessApplicationOfficer.class.equals(Double.class) || UpdateBusinessApplicationOfficer.class.equals(Boolean.class) || UpdateBusinessApplicationOfficer.class.equals(String.class)) {
+                if (UpdateBusinessOfficer.class.equals(Integer.class) || UpdateBusinessOfficer.class.equals(Long.class) || UpdateBusinessOfficer.class.equals(Float.class) || UpdateBusinessOfficer.class.equals(Double.class) || UpdateBusinessOfficer.class.equals(Boolean.class) || UpdateBusinessOfficer.class.equals(String.class)) {
                     attemptParsing = typeCoercion;
                     if (!attemptParsing) {
-                        attemptParsing |= ((UpdateBusinessApplicationOfficer.class.equals(Integer.class) || UpdateBusinessApplicationOfficer.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
-                        attemptParsing |= ((UpdateBusinessApplicationOfficer.class.equals(Float.class) || UpdateBusinessApplicationOfficer.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
-                        attemptParsing |= (UpdateBusinessApplicationOfficer.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-                        attemptParsing |= (UpdateBusinessApplicationOfficer.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                        attemptParsing |= ((UpdateBusinessOfficer.class.equals(Integer.class) || UpdateBusinessOfficer.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((UpdateBusinessOfficer.class.equals(Float.class) || UpdateBusinessOfficer.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (UpdateBusinessOfficer.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (UpdateBusinessOfficer.class.equals(String.class) && token == JsonToken.VALUE_STRING);
                     }
                 }
                 if (attemptParsing) {
-                    deserialized = tree.traverse(jp.getCodec()).readValueAs(UpdateBusinessApplicationOfficer.class);
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(UpdateBusinessOfficer.class);
                     // TODO: there is no validation against JSON schema constraints
                     // (min, max, enum, pattern...), this does not perform a strict JSON
                     // validation, which means the 'match' count may be higher than it should be.
                     match++;
-                    log.log(Level.FINER, "Input data matches schema 'UpdateBusinessApplicationOfficer'");
+                    log.log(Level.FINER, "Input data matches schema 'UpdateBusinessOfficer'");
                 }
             } catch (Exception e) {
                 // deserialization failed, continue
-                log.log(Level.FINER, "Input data does not match schema 'UpdateBusinessApplicationOfficer'", e);
+                log.log(Level.FINER, "Input data does not match schema 'UpdateBusinessOfficer'", e);
             }
 
             // deserialize UpdateIndividualApplication
@@ -258,7 +258,7 @@ public class UpdateApplicationRequestData extends AbstractOpenApiSchema {
         setActualInstance(o);
     }
 
-    public UpdateApplicationRequestData(UpdateBusinessApplicationOfficer o) {
+    public UpdateApplicationRequestData(UpdateBusinessOfficer o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
@@ -276,7 +276,7 @@ public class UpdateApplicationRequestData extends AbstractOpenApiSchema {
     static {
         schemas.put("UpdateBusinessApplication", UpdateBusinessApplication.class);
         schemas.put("UpdateBusinessApplicationBeneficialOwner", UpdateBusinessApplicationBeneficialOwner.class);
-        schemas.put("UpdateBusinessApplicationOfficer", UpdateBusinessApplicationOfficer.class);
+        schemas.put("UpdateBusinessOfficer", UpdateBusinessOfficer.class);
         schemas.put("UpdateIndividualApplication", UpdateIndividualApplication.class);
         schemas.put("UpdateSoleProprietorApplication", UpdateSoleProprietorApplication.class);
         JSON.registerDescendants(UpdateApplicationRequestData.class, Collections.unmodifiableMap(schemas));
@@ -290,7 +290,7 @@ public class UpdateApplicationRequestData extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * UpdateBusinessApplication, UpdateBusinessApplicationBeneficialOwner, UpdateBusinessApplicationOfficer, UpdateIndividualApplication, UpdateSoleProprietorApplication
+     * UpdateBusinessApplication, UpdateBusinessApplicationBeneficialOwner, UpdateBusinessOfficer, UpdateIndividualApplication, UpdateSoleProprietorApplication
      *
      * It could be an instance of the 'oneOf' schemas.
      * The oneOf child schemas may themselves be a composed schema (allOf, anyOf, oneOf).
@@ -307,7 +307,7 @@ public class UpdateApplicationRequestData extends AbstractOpenApiSchema {
             return;
         }
 
-        if (JSON.isInstanceOf(UpdateBusinessApplicationOfficer.class, instance, new HashSet<Class<?>>())) {
+        if (JSON.isInstanceOf(UpdateBusinessOfficer.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
@@ -322,14 +322,14 @@ public class UpdateApplicationRequestData extends AbstractOpenApiSchema {
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be UpdateBusinessApplication, UpdateBusinessApplicationBeneficialOwner, UpdateBusinessApplicationOfficer, UpdateIndividualApplication, UpdateSoleProprietorApplication");
+        throw new RuntimeException("Invalid instance type. Must be UpdateBusinessApplication, UpdateBusinessApplicationBeneficialOwner, UpdateBusinessOfficer, UpdateIndividualApplication, UpdateSoleProprietorApplication");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * UpdateBusinessApplication, UpdateBusinessApplicationBeneficialOwner, UpdateBusinessApplicationOfficer, UpdateIndividualApplication, UpdateSoleProprietorApplication
+     * UpdateBusinessApplication, UpdateBusinessApplicationBeneficialOwner, UpdateBusinessOfficer, UpdateIndividualApplication, UpdateSoleProprietorApplication
      *
-     * @return The actual instance (UpdateBusinessApplication, UpdateBusinessApplicationBeneficialOwner, UpdateBusinessApplicationOfficer, UpdateIndividualApplication, UpdateSoleProprietorApplication)
+     * @return The actual instance (UpdateBusinessApplication, UpdateBusinessApplicationBeneficialOwner, UpdateBusinessOfficer, UpdateIndividualApplication, UpdateSoleProprietorApplication)
      */
     @Override
     public Object getActualInstance() {
@@ -359,14 +359,14 @@ public class UpdateApplicationRequestData extends AbstractOpenApiSchema {
     }
 
     /**
-     * Get the actual instance of `UpdateBusinessApplicationOfficer`. If the actual instance is not `UpdateBusinessApplicationOfficer`,
+     * Get the actual instance of `UpdateBusinessOfficer`. If the actual instance is not `UpdateBusinessOfficer`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `UpdateBusinessApplicationOfficer`
-     * @throws ClassCastException if the instance is not `UpdateBusinessApplicationOfficer`
+     * @return The actual instance of `UpdateBusinessOfficer`
+     * @throws ClassCastException if the instance is not `UpdateBusinessOfficer`
      */
-    public UpdateBusinessApplicationOfficer getUpdateBusinessApplicationOfficer() throws ClassCastException {
-        return (UpdateBusinessApplicationOfficer)super.getActualInstance();
+    public UpdateBusinessOfficer getUpdateBusinessOfficer() throws ClassCastException {
+        return (UpdateBusinessOfficer)super.getActualInstance();
     }
 
     /**
@@ -431,27 +431,27 @@ public class UpdateApplicationRequestData extends AbstractOpenApiSchema {
         }
         return joiner.toString();
     }
-    if (getActualInstance() instanceof UpdateBusinessApplicationOfficer) {
-        if (getActualInstance() != null) {
-          joiner.add(((UpdateBusinessApplicationOfficer)getActualInstance()).toUrlQueryString(prefix + "one_of_1" + suffix));
-        }
-        return joiner.toString();
-    }
     if (getActualInstance() instanceof UpdateBusinessApplicationBeneficialOwner) {
         if (getActualInstance() != null) {
-          joiner.add(((UpdateBusinessApplicationBeneficialOwner)getActualInstance()).toUrlQueryString(prefix + "one_of_2" + suffix));
+          joiner.add(((UpdateBusinessApplicationBeneficialOwner)getActualInstance()).toUrlQueryString(prefix + "one_of_1" + suffix));
         }
         return joiner.toString();
     }
     if (getActualInstance() instanceof UpdateSoleProprietorApplication) {
         if (getActualInstance() != null) {
-          joiner.add(((UpdateSoleProprietorApplication)getActualInstance()).toUrlQueryString(prefix + "one_of_3" + suffix));
+          joiner.add(((UpdateSoleProprietorApplication)getActualInstance()).toUrlQueryString(prefix + "one_of_2" + suffix));
         }
         return joiner.toString();
     }
     if (getActualInstance() instanceof UpdateIndividualApplication) {
         if (getActualInstance() != null) {
-          joiner.add(((UpdateIndividualApplication)getActualInstance()).toUrlQueryString(prefix + "one_of_4" + suffix));
+          joiner.add(((UpdateIndividualApplication)getActualInstance()).toUrlQueryString(prefix + "one_of_3" + suffix));
+        }
+        return joiner.toString();
+    }
+    if (getActualInstance() instanceof UpdateBusinessOfficer) {
+        if (getActualInstance() != null) {
+          joiner.add(((UpdateBusinessOfficer)getActualInstance()).toUrlQueryString(prefix + "one_of_4" + suffix));
         }
         return joiner.toString();
     }

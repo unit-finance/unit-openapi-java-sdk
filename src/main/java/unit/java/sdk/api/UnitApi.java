@@ -17,6 +17,7 @@ import unit.java.sdk.ApiException;
 import unit.java.sdk.ApiResponse;
 import unit.java.sdk.Pair;
 
+import unit.java.sdk.model.AddAuthorizedUsersRequest;
 import unit.java.sdk.model.ApproveAuthorizationRequest;
 import unit.java.sdk.model.ApproveCheckPaymentRequest;
 import unit.java.sdk.model.ArchiveCustomerRequest;
@@ -47,7 +48,7 @@ import unit.java.sdk.model.Dispute;
 import java.io.File;
 import unit.java.sdk.model.FreezeAccountRequest;
 import unit.java.sdk.model.GetAccountsListFilterParameter;
-import unit.java.sdk.model.GetApplicationFormsFilterParameter;
+import unit.java.sdk.model.GetApplicationFormsListFilterParameter;
 import unit.java.sdk.model.GetApplicationsListFilterParameter;
 import unit.java.sdk.model.GetAtmLocationsListFilterParameter;
 import unit.java.sdk.model.GetAuthorizationRequestsListFilterParameter;
@@ -69,6 +70,7 @@ import unit.java.sdk.model.GetStopPaymentsListFilterParameter;
 import unit.java.sdk.model.GetTransactionsListFilterParameter;
 import unit.java.sdk.model.GetWebhooksListFilterParameter;
 import unit.java.sdk.model.ListPageParameters;
+import unit.java.sdk.model.RemoveAuthorizedUsersRequest;
 import unit.java.sdk.model.ReturnCheckPaymentRequest;
 import unit.java.sdk.model.StopPaymentListResponse;
 import unit.java.sdk.model.StopPaymentResponse;
@@ -84,6 +86,7 @@ import unit.java.sdk.model.UnitAuthorizationRequestResponse;
 import unit.java.sdk.model.UnitAuthorizationRequestsResponse;
 import unit.java.sdk.model.UnitAuthorizationResponse;
 import unit.java.sdk.model.UnitBackCheckDepositResponse;
+import unit.java.sdk.model.UnitBeneficialOwnerResponse;
 import unit.java.sdk.model.UnitCancelApplicationResponse;
 import unit.java.sdk.model.UnitCardLimitsResponse;
 import unit.java.sdk.model.UnitCardResponse;
@@ -147,6 +150,7 @@ import unit.java.sdk.model.UnitUpdateCheckDepositResponse;
 import unit.java.sdk.model.UnitWebhooksListResponse;
 import unit.java.sdk.model.UpdateAccountRequest;
 import unit.java.sdk.model.UpdateApplicationRequest;
+import unit.java.sdk.model.UpdateBusinessBeneficialOwnerRequest;
 import unit.java.sdk.model.UpdateCardRequest;
 import unit.java.sdk.model.UpdateCheckDepositRequest;
 import unit.java.sdk.model.UpdateCounterpartyRequest;
@@ -285,6 +289,91 @@ public class UnitApi {
     localVarRequestBuilder.header("Accept", "application/vnd.api+json; charset=utf-8");
 
     localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
+   * Add Authorized Users by Id
+   * Add Authorized Users via API
+   * @param customerId ID of the customer to add authorized users to (required)
+   * @param addAuthorizedUsersRequest Add Authorized Users Request (required)
+   * @return UnitCustomerResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UnitCustomerResponse addAuthorizedUsers(String customerId, AddAuthorizedUsersRequest addAuthorizedUsersRequest) throws ApiException {
+    ApiResponse<UnitCustomerResponse> localVarResponse = addAuthorizedUsersWithHttpInfo(customerId, addAuthorizedUsersRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Add Authorized Users by Id
+   * Add Authorized Users via API
+   * @param customerId ID of the customer to add authorized users to (required)
+   * @param addAuthorizedUsersRequest Add Authorized Users Request (required)
+   * @return ApiResponse&lt;UnitCustomerResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<UnitCustomerResponse> addAuthorizedUsersWithHttpInfo(String customerId, AddAuthorizedUsersRequest addAuthorizedUsersRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = addAuthorizedUsersRequestBuilder(customerId, addAuthorizedUsersRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("addAuthorizedUsers", localVarResponse);
+        }
+        return new ApiResponse<UnitCustomerResponse>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitCustomerResponse>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder addAuthorizedUsersRequestBuilder(String customerId, AddAuthorizedUsersRequest addAuthorizedUsersRequest) throws ApiException {
+    // verify the required parameter 'customerId' is set
+    if (customerId == null) {
+      throw new ApiException(400, "Missing the required parameter 'customerId' when calling addAuthorizedUsers");
+    }
+    // verify the required parameter 'addAuthorizedUsersRequest' is set
+    if (addAuthorizedUsersRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'addAuthorizedUsersRequest' when calling addAuthorizedUsers");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/customers/{customerId}/authorized-users"
+        .replace("{customerId}", ApiClient.urlEncode(customerId.toString()));
+
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/vnd.api+json");
+    localVarRequestBuilder.header("Accept", "application/vnd.api+json; charset=utf-8");
+
+    try {
+      byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(addAuthorizedUsersRequest);
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }
@@ -4573,8 +4662,8 @@ public class UnitApi {
    * @return UnitApplicationFormsListResponse
    * @throws ApiException if fails to make API call
    */
-  public UnitApplicationFormsListResponse getApplicationForms(ListPageParameters page, GetApplicationFormsFilterParameter filter, String sort) throws ApiException {
-    ApiResponse<UnitApplicationFormsListResponse> localVarResponse = getApplicationFormsWithHttpInfo(page, filter, sort);
+  public UnitApplicationFormsListResponse getApplicationFormsList(ListPageParameters page, GetApplicationFormsListFilterParameter filter, String sort) throws ApiException {
+    ApiResponse<UnitApplicationFormsListResponse> localVarResponse = getApplicationFormsListWithHttpInfo(page, filter, sort);
     return localVarResponse.getData();
   }
 
@@ -4587,8 +4676,8 @@ public class UnitApi {
    * @return ApiResponse&lt;UnitApplicationFormsListResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<UnitApplicationFormsListResponse> getApplicationFormsWithHttpInfo(ListPageParameters page, GetApplicationFormsFilterParameter filter, String sort) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = getApplicationFormsRequestBuilder(page, filter, sort);
+  public ApiResponse<UnitApplicationFormsListResponse> getApplicationFormsListWithHttpInfo(ListPageParameters page, GetApplicationFormsListFilterParameter filter, String sort) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getApplicationFormsListRequestBuilder(page, filter, sort);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -4598,7 +4687,7 @@ public class UnitApi {
       }
       try {
         if (localVarResponse.statusCode()/ 100 != 2) {
-          throw getApiException("getApplicationForms", localVarResponse);
+          throw getApiException("getApplicationFormsList", localVarResponse);
         }
         return new ApiResponse<UnitApplicationFormsListResponse>(
           localVarResponse.statusCode(),
@@ -4616,7 +4705,7 @@ public class UnitApi {
     }
   }
 
-  private HttpRequest.Builder getApplicationFormsRequestBuilder(ListPageParameters page, GetApplicationFormsFilterParameter filter, String sort) throws ApiException {
+  private HttpRequest.Builder getApplicationFormsListRequestBuilder(ListPageParameters page, GetApplicationFormsListFilterParameter filter, String sort) throws ApiException {
 
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
@@ -8981,6 +9070,91 @@ public class UnitApi {
   }
 
   /**
+   * Remove Authorized Users by Id
+   * Remove Authorized Users via API
+   * @param customerId ID of the customer to remove authorized users from (required)
+   * @param removeAuthorizedUsersRequest Add Authorized Users Request (required)
+   * @return UnitCustomerResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UnitCustomerResponse removeAuthorizedUsers(String customerId, RemoveAuthorizedUsersRequest removeAuthorizedUsersRequest) throws ApiException {
+    ApiResponse<UnitCustomerResponse> localVarResponse = removeAuthorizedUsersWithHttpInfo(customerId, removeAuthorizedUsersRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Remove Authorized Users by Id
+   * Remove Authorized Users via API
+   * @param customerId ID of the customer to remove authorized users from (required)
+   * @param removeAuthorizedUsersRequest Add Authorized Users Request (required)
+   * @return ApiResponse&lt;UnitCustomerResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<UnitCustomerResponse> removeAuthorizedUsersWithHttpInfo(String customerId, RemoveAuthorizedUsersRequest removeAuthorizedUsersRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = removeAuthorizedUsersRequestBuilder(customerId, removeAuthorizedUsersRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("removeAuthorizedUsers", localVarResponse);
+        }
+        return new ApiResponse<UnitCustomerResponse>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitCustomerResponse>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder removeAuthorizedUsersRequestBuilder(String customerId, RemoveAuthorizedUsersRequest removeAuthorizedUsersRequest) throws ApiException {
+    // verify the required parameter 'customerId' is set
+    if (customerId == null) {
+      throw new ApiException(400, "Missing the required parameter 'customerId' when calling removeAuthorizedUsers");
+    }
+    // verify the required parameter 'removeAuthorizedUsersRequest' is set
+    if (removeAuthorizedUsersRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'removeAuthorizedUsersRequest' when calling removeAuthorizedUsers");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/customers/{customerId}/authorized-users"
+        .replace("{customerId}", ApiClient.urlEncode(customerId.toString()));
+
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/vnd.api+json");
+    localVarRequestBuilder.header("Accept", "application/vnd.api+json; charset=utf-8");
+
+    try {
+      byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(removeAuthorizedUsersRequest);
+      localVarRequestBuilder.method("DELETE", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
    * Reopen an Account by Id
    * Reopen an Account via API 
    * @param accountId ID of the account to close (required)
@@ -9587,6 +9761,91 @@ public class UnitApi {
 
     try {
       byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(updateApplicationRequest);
+      localVarRequestBuilder.method("PATCH", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
+   * Update a Business Beneficial Owner via API
+   * Update a Business Beneficial Owner
+   * @param beneficialOwnerId ID of the beneficial owner to update (required)
+   * @param updateBusinessBeneficialOwnerRequest Update Business Beneficial Owner Request (required)
+   * @return UnitBeneficialOwnerResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UnitBeneficialOwnerResponse updateBusinessBeneficialOwner(String beneficialOwnerId, UpdateBusinessBeneficialOwnerRequest updateBusinessBeneficialOwnerRequest) throws ApiException {
+    ApiResponse<UnitBeneficialOwnerResponse> localVarResponse = updateBusinessBeneficialOwnerWithHttpInfo(beneficialOwnerId, updateBusinessBeneficialOwnerRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Update a Business Beneficial Owner via API
+   * Update a Business Beneficial Owner
+   * @param beneficialOwnerId ID of the beneficial owner to update (required)
+   * @param updateBusinessBeneficialOwnerRequest Update Business Beneficial Owner Request (required)
+   * @return ApiResponse&lt;UnitBeneficialOwnerResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<UnitBeneficialOwnerResponse> updateBusinessBeneficialOwnerWithHttpInfo(String beneficialOwnerId, UpdateBusinessBeneficialOwnerRequest updateBusinessBeneficialOwnerRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = updateBusinessBeneficialOwnerRequestBuilder(beneficialOwnerId, updateBusinessBeneficialOwnerRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("updateBusinessBeneficialOwner", localVarResponse);
+        }
+        return new ApiResponse<UnitBeneficialOwnerResponse>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitBeneficialOwnerResponse>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder updateBusinessBeneficialOwnerRequestBuilder(String beneficialOwnerId, UpdateBusinessBeneficialOwnerRequest updateBusinessBeneficialOwnerRequest) throws ApiException {
+    // verify the required parameter 'beneficialOwnerId' is set
+    if (beneficialOwnerId == null) {
+      throw new ApiException(400, "Missing the required parameter 'beneficialOwnerId' when calling updateBusinessBeneficialOwner");
+    }
+    // verify the required parameter 'updateBusinessBeneficialOwnerRequest' is set
+    if (updateBusinessBeneficialOwnerRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'updateBusinessBeneficialOwnerRequest' when calling updateBusinessBeneficialOwner");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/beneficial-owner/{beneficialOwnerId}"
+        .replace("{beneficialOwnerId}", ApiClient.urlEncode(beneficialOwnerId.toString()));
+
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/vnd.api+json");
+    localVarRequestBuilder.header("Accept", "application/vnd.api+json; charset=utf-8");
+
+    try {
+      byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(updateBusinessBeneficialOwnerRequest);
       localVarRequestBuilder.method("PATCH", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
     } catch (IOException e) {
       throw new ApiException(e);

@@ -25,24 +25,26 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import unit.java.sdk.model.CancelApplicationRequestDataAttributes;
+import unit.java.sdk.model.UpdateBusinessBeneficialOwnerAttributes;
+import unit.java.sdk.model.UpdateBusinessBeneficialOwnerRelationships;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * CancelApplicationRequestData
+ * UpdateBusinessBeneficialOwner
  */
 @JsonPropertyOrder({
-  CancelApplicationRequestData.JSON_PROPERTY_TYPE,
-  CancelApplicationRequestData.JSON_PROPERTY_ATTRIBUTES
+  UpdateBusinessBeneficialOwner.JSON_PROPERTY_TYPE,
+  UpdateBusinessBeneficialOwner.JSON_PROPERTY_ATTRIBUTES,
+  UpdateBusinessBeneficialOwner.JSON_PROPERTY_RELATIONSHIPS
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
-public class CancelApplicationRequestData {
+public class UpdateBusinessBeneficialOwner {
   /**
    * Gets or Sets type
    */
   public enum TypeEnum {
-    APPLICATIONCANCEL("applicationCancel");
+    BENEFICIALOWNER("beneficialOwner");
 
     private String value;
 
@@ -72,15 +74,18 @@ public class CancelApplicationRequestData {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type;
+  private TypeEnum type = TypeEnum.BENEFICIALOWNER;
 
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private CancelApplicationRequestDataAttributes attributes;
+  private UpdateBusinessBeneficialOwnerAttributes attributes;
 
-  public CancelApplicationRequestData() { 
+  public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
+  private UpdateBusinessBeneficialOwnerRelationships relationships;
+
+  public UpdateBusinessBeneficialOwner() { 
   }
 
-  public CancelApplicationRequestData type(TypeEnum type) {
+  public UpdateBusinessBeneficialOwner type(TypeEnum type) {
     this.type = type;
     return this;
   }
@@ -89,9 +94,9 @@ public class CancelApplicationRequestData {
    * Get type
    * @return type
   **/
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public TypeEnum getType() {
     return type;
@@ -99,13 +104,13 @@ public class CancelApplicationRequestData {
 
 
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setType(TypeEnum type) {
     this.type = type;
   }
 
 
-  public CancelApplicationRequestData attributes(CancelApplicationRequestDataAttributes attributes) {
+  public UpdateBusinessBeneficialOwner attributes(UpdateBusinessBeneficialOwnerAttributes attributes) {
     this.attributes = attributes;
     return this;
   }
@@ -114,24 +119,49 @@ public class CancelApplicationRequestData {
    * Get attributes
    * @return attributes
   **/
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public CancelApplicationRequestDataAttributes getAttributes() {
+  public UpdateBusinessBeneficialOwnerAttributes getAttributes() {
     return attributes;
   }
 
 
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAttributes(CancelApplicationRequestDataAttributes attributes) {
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setAttributes(UpdateBusinessBeneficialOwnerAttributes attributes) {
     this.attributes = attributes;
   }
 
 
+  public UpdateBusinessBeneficialOwner relationships(UpdateBusinessBeneficialOwnerRelationships relationships) {
+    this.relationships = relationships;
+    return this;
+  }
+
+   /**
+   * Get relationships
+   * @return relationships
+  **/
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public UpdateBusinessBeneficialOwnerRelationships getRelationships() {
+    return relationships;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setRelationships(UpdateBusinessBeneficialOwnerRelationships relationships) {
+    this.relationships = relationships;
+  }
+
+
   /**
-   * Return true if this Cancel_Application_Request_data object is equal to o.
+   * Return true if this UpdateBusinessBeneficialOwner object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -141,22 +171,24 @@ public class CancelApplicationRequestData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CancelApplicationRequestData cancelApplicationRequestData = (CancelApplicationRequestData) o;
-    return Objects.equals(this.type, cancelApplicationRequestData.type) &&
-        Objects.equals(this.attributes, cancelApplicationRequestData.attributes);
+    UpdateBusinessBeneficialOwner updateBusinessBeneficialOwner = (UpdateBusinessBeneficialOwner) o;
+    return Objects.equals(this.type, updateBusinessBeneficialOwner.type) &&
+        Objects.equals(this.attributes, updateBusinessBeneficialOwner.attributes) &&
+        Objects.equals(this.relationships, updateBusinessBeneficialOwner.relationships);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, attributes);
+    return Objects.hash(type, attributes, relationships);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CancelApplicationRequestData {\n");
+    sb.append("class UpdateBusinessBeneficialOwner {\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -212,6 +244,11 @@ public class CancelApplicationRequestData {
     // add `attributes` to the URL query string
     if (getAttributes() != null) {
       joiner.add(getAttributes().toUrlQueryString(prefix + "attributes" + suffix));
+    }
+
+    // add `relationships` to the URL query string
+    if (getRelationships() != null) {
+      joiner.add(getRelationships().toUrlQueryString(prefix + "relationships" + suffix));
     }
 
     return joiner.toString();

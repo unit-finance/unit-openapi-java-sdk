@@ -33,16 +33,16 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * GetApplicationFormsFilterParameter
+ * GetApplicationFormsListFilterParameter
  */
 @JsonPropertyOrder({
-  GetApplicationFormsFilterParameter.JSON_PROPERTY_QUERY,
-  GetApplicationFormsFilterParameter.JSON_PROPERTY_STATUS,
-  GetApplicationFormsFilterParameter.JSON_PROPERTY_EMAIL,
-  GetApplicationFormsFilterParameter.JSON_PROPERTY_TAGS
+  GetApplicationFormsListFilterParameter.JSON_PROPERTY_QUERY,
+  GetApplicationFormsListFilterParameter.JSON_PROPERTY_STATUS,
+  GetApplicationFormsListFilterParameter.JSON_PROPERTY_EMAIL,
+  GetApplicationFormsListFilterParameter.JSON_PROPERTY_TAGS
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
-public class GetApplicationFormsFilterParameter {
+public class GetApplicationFormsListFilterParameter {
   public static final String JSON_PROPERTY_QUERY = "query";
   private String query;
 
@@ -90,10 +90,10 @@ public class GetApplicationFormsFilterParameter {
   public static final String JSON_PROPERTY_TAGS = "tags";
   private Map<String, String> tags = new HashMap<>();
 
-  public GetApplicationFormsFilterParameter() { 
+  public GetApplicationFormsListFilterParameter() { 
   }
 
-  public GetApplicationFormsFilterParameter query(String query) {
+  public GetApplicationFormsListFilterParameter query(String query) {
     this.query = query;
     return this;
   }
@@ -118,12 +118,12 @@ public class GetApplicationFormsFilterParameter {
   }
 
 
-  public GetApplicationFormsFilterParameter status(List<StatusEnum> status) {
+  public GetApplicationFormsListFilterParameter status(List<StatusEnum> status) {
     this.status = status;
     return this;
   }
 
-  public GetApplicationFormsFilterParameter addStatusItem(StatusEnum statusItem) {
+  public GetApplicationFormsListFilterParameter addStatusItem(StatusEnum statusItem) {
     if (this.status == null) {
       this.status = new ArrayList<>();
     }
@@ -151,7 +151,7 @@ public class GetApplicationFormsFilterParameter {
   }
 
 
-  public GetApplicationFormsFilterParameter email(String email) {
+  public GetApplicationFormsListFilterParameter email(String email) {
     this.email = email;
     return this;
   }
@@ -176,12 +176,12 @@ public class GetApplicationFormsFilterParameter {
   }
 
 
-  public GetApplicationFormsFilterParameter tags(Map<String, String> tags) {
+  public GetApplicationFormsListFilterParameter tags(Map<String, String> tags) {
     this.tags = tags;
     return this;
   }
 
-  public GetApplicationFormsFilterParameter putTagsItem(String key, String tagsItem) {
+  public GetApplicationFormsListFilterParameter putTagsItem(String key, String tagsItem) {
     if (this.tags == null) {
       this.tags = new HashMap<>();
     }
@@ -210,7 +210,7 @@ public class GetApplicationFormsFilterParameter {
 
 
   /**
-   * Return true if this getApplicationForms_filter_parameter object is equal to o.
+   * Return true if this getApplicationFormsList_filter_parameter object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -220,11 +220,11 @@ public class GetApplicationFormsFilterParameter {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetApplicationFormsFilterParameter getApplicationFormsFilterParameter = (GetApplicationFormsFilterParameter) o;
-    return Objects.equals(this.query, getApplicationFormsFilterParameter.query) &&
-        Objects.equals(this.status, getApplicationFormsFilterParameter.status) &&
-        Objects.equals(this.email, getApplicationFormsFilterParameter.email) &&
-        Objects.equals(this.tags, getApplicationFormsFilterParameter.tags);
+    GetApplicationFormsListFilterParameter getApplicationFormsListFilterParameter = (GetApplicationFormsListFilterParameter) o;
+    return Objects.equals(this.query, getApplicationFormsListFilterParameter.query) &&
+        Objects.equals(this.status, getApplicationFormsListFilterParameter.status) &&
+        Objects.equals(this.email, getApplicationFormsListFilterParameter.email) &&
+        Objects.equals(this.tags, getApplicationFormsListFilterParameter.tags);
   }
 
   @Override
@@ -235,7 +235,7 @@ public class GetApplicationFormsFilterParameter {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetApplicationFormsFilterParameter {\n");
+    sb.append("class GetApplicationFormsListFilterParameter {\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");

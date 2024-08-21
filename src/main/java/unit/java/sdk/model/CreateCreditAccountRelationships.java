@@ -25,79 +25,51 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
+import unit.java.sdk.model.CustomerRelationship;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * BeneficiariesRelationshipDataInner
+ * CreateCreditAccountRelationships
  */
 @JsonPropertyOrder({
-  BeneficiariesRelationshipDataInner.JSON_PROPERTY_TYPE,
-  BeneficiariesRelationshipDataInner.JSON_PROPERTY_ID
+  CreateCreditAccountRelationships.JSON_PROPERTY_CUSTOMER
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
-public class BeneficiariesRelationshipDataInner {
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "beneficiary";
+public class CreateCreditAccountRelationships {
+  public static final String JSON_PROPERTY_CUSTOMER = "customer";
+  private CustomerRelationship customer;
 
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
-
-  public BeneficiariesRelationshipDataInner() { 
+  public CreateCreditAccountRelationships() { 
   }
 
-  public BeneficiariesRelationshipDataInner type(String type) {
-    this.type = type;
+  public CreateCreditAccountRelationships customer(CustomerRelationship customer) {
+    this.customer = customer;
     return this;
   }
 
    /**
-   * Get type
-   * @return type
+   * Get customer
+   * @return customer
   **/
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_CUSTOMER)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getType() {
-    return type;
+  public CustomerRelationship getCustomer() {
+    return customer;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setType(String type) {
-    this.type = type;
-  }
-
-
-  public BeneficiariesRelationshipDataInner id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * Get id
-   * @return id
-  **/
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getId() {
-    return id;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setId(String id) {
-    this.id = id;
+  @JsonProperty(JSON_PROPERTY_CUSTOMER)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setCustomer(CustomerRelationship customer) {
+    this.customer = customer;
   }
 
 
   /**
-   * Return true if this Beneficiaries_Relationship_data_inner object is equal to o.
+   * Return true if this CreateCreditAccount_relationships object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -107,22 +79,20 @@ public class BeneficiariesRelationshipDataInner {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    BeneficiariesRelationshipDataInner beneficiariesRelationshipDataInner = (BeneficiariesRelationshipDataInner) o;
-    return Objects.equals(this.type, beneficiariesRelationshipDataInner.type) &&
-        Objects.equals(this.id, beneficiariesRelationshipDataInner.id);
+    CreateCreditAccountRelationships createCreditAccountRelationships = (CreateCreditAccountRelationships) o;
+    return Objects.equals(this.customer, createCreditAccountRelationships.customer);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, id);
+    return Objects.hash(customer);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BeneficiariesRelationshipDataInner {\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("class CreateCreditAccountRelationships {\n");
+    sb.append("    customer: ").append(toIndentedString(customer)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -170,14 +140,9 @@ public class BeneficiariesRelationshipDataInner {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `type` to the URL query string
-    if (getType() != null) {
-      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `id` to the URL query string
-    if (getId() != null) {
-      joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `customer` to the URL query string
+    if (getCustomer() != null) {
+      joiner.add(getCustomer().toUrlQueryString(prefix + "customer" + suffix));
     }
 
     return joiner.toString();

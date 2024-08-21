@@ -4303,20 +4303,11 @@ components:
       required:
       - data
       type: object
-    TrusteesRelationship:
+    OrgRelationship:
+      additionalProperties: false
       properties:
-        trustees:
-          $ref: '#/components/schemas/Trustees_Relationship'
-      type: object
-    BeneficiariesRelationship:
-      properties:
-        beneficiaries:
-          $ref: '#/components/schemas/Beneficiaries_Relationship'
-      type: object
-    BeneficialOwnersRelationship:
-      properties:
-        beneficialOwners:
-          $ref: '#/components/schemas/Beneficial_Owners_Relationship'
+        org:
+          $ref: '#/components/schemas/Org_Relationship'
       type: object
     Relationship:
       additionalProperties: false
@@ -4327,16 +4318,14 @@ components:
       - data
       title: Relationship
       type: object
-    ApplicationRelationships:
+    IndividualApplicationRelationships:
       allOf:
       - additionalProperties: false
         title: Application Relationships
         type: object
       - $ref: '#/components/schemas/CustomerRelationship'
       - $ref: '#/components/schemas/DocumentsRelationship'
-      - $ref: '#/components/schemas/TrusteesRelationship'
-      - $ref: '#/components/schemas/BeneficiariesRelationship'
-      - $ref: '#/components/schemas/BeneficialOwnersRelationship'
+      - $ref: '#/components/schemas/OrgRelationship'
       - properties:
           applicationForm:
             $ref: '#/components/schemas/Relationship'
@@ -4349,7 +4338,7 @@ components:
           attributes:
             $ref: '#/components/schemas/IndividualApplication_allOf_attributes'
           relationships:
-            $ref: '#/components/schemas/ApplicationRelationships'
+            $ref: '#/components/schemas/IndividualApplicationRelationships'
         required:
         - attributes
         - id
@@ -4535,6 +4524,24 @@ components:
     Year:
       pattern: "^\\d{4}$"
       type: string
+    BeneficialOwnersRelationship:
+      properties:
+        beneficialOwners:
+          $ref: '#/components/schemas/Beneficial_Owners_Relationship'
+      type: object
+    BusinessApplicationRelationships:
+      allOf:
+      - additionalProperties: false
+        title: Application Relationships
+        type: object
+      - $ref: '#/components/schemas/CustomerRelationship'
+      - $ref: '#/components/schemas/DocumentsRelationship'
+      - $ref: '#/components/schemas/BeneficialOwnersRelationship'
+      - $ref: '#/components/schemas/OrgRelationship'
+      - properties:
+          applicationForm:
+            $ref: '#/components/schemas/Relationship'
+        type: object
     BusinessApplication:
       allOf:
       - $ref: '#/components/schemas/Application'
@@ -4543,7 +4550,7 @@ components:
           attributes:
             $ref: '#/components/schemas/BusinessApplication_allOf_attributes'
           relationships:
-            $ref: '#/components/schemas/ApplicationRelationships'
+            $ref: '#/components/schemas/BusinessApplicationRelationships'
         required:
         - attributes
         - id
@@ -5220,12 +5227,6 @@ components:
       - phone
       title: Authorized User
       type: object
-    OrgRelationship:
-      additionalProperties: false
-      properties:
-        org:
-          $ref: '#/components/schemas/Org_Relationship'
-      type: object
     CustomerRelationships:
       allOf:
       - additionalProperties: true
@@ -5279,7 +5280,7 @@ components:
         attributes:
           $ref: '#/components/schemas/CreateCreditAccount_attributes'
         relationships:
-          $ref: '#/components/schemas/CustomerRelationship'
+          $ref: '#/components/schemas/CreateCreditAccount_relationships'
       title: Create Credit Account
       type: object
     CustomersRelationship:
@@ -10436,62 +10437,27 @@ components:
           type: array
       title: Documents Relationship
       type: object
-    Trustees_Relationship_data_inner:
+    Org_Relationship_data:
       additionalProperties: false
       properties:
-        type:
-          default: trustee
-          type: string
         id:
           pattern: "^[1-9]\\d*$"
           type: string
-      type: object
-    Trustees_Relationship:
-      additionalProperties: false
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/Trustees_Relationship_data_inner'
-          type: array
-      title: Trustees Relationship
-      type: object
-    Beneficiaries_Relationship_data_inner:
-      additionalProperties: false
-      properties:
         type:
-          default: beneficiary
+          default: org
           type: string
-        id:
-          pattern: "^[1-9]\\d*$"
-          type: string
+      required:
+      - id
+      - type
       type: object
-    Beneficiaries_Relationship:
+    Org_Relationship:
       additionalProperties: false
       properties:
         data:
-          items:
-            $ref: '#/components/schemas/Beneficiaries_Relationship_data_inner'
-          type: array
-      title: Beneficiaries Relationship
-      type: object
-    Beneficial_Owners_Relationship_data_inner:
-      additionalProperties: false
-      properties:
-        type:
-          default: beneficialOwner
-          type: string
-        id:
-          pattern: "^[1-9]\\d*$"
-          type: string
-      type: object
-    Beneficial_Owners_Relationship:
-      additionalProperties: false
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/Beneficial_Owners_Relationship_data_inner'
-          type: array
-      title: Beneficial Owners Relationship
+          $ref: '#/components/schemas/Org_Relationship_data'
+      required:
+      - data
+      title: Org Relationship
       type: object
     Relationship_data:
       additionalProperties: false
@@ -10627,6 +10593,25 @@ components:
       - createdAt
       - fullName
       - status
+      type: object
+    Beneficial_Owners_Relationship_data_inner:
+      additionalProperties: false
+      properties:
+        type:
+          default: beneficialOwner
+          type: string
+        id:
+          pattern: "^[1-9]\\d*$"
+          type: string
+      type: object
+    Beneficial_Owners_Relationship:
+      additionalProperties: false
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/Beneficial_Owners_Relationship_data_inner'
+          type: array
+      title: Beneficial Owners Relationship
       type: object
     BusinessApplication_allOf_attributes:
       properties:
@@ -11541,28 +11526,6 @@ components:
         title: Credit Account Relationships
         type: object
       - $ref: '#/components/schemas/CustomerRelationship'
-    Org_Relationship_data:
-      additionalProperties: false
-      properties:
-        id:
-          pattern: "^[1-9]\\d*$"
-          type: string
-        type:
-          default: org
-          type: string
-      required:
-      - id
-      - type
-      type: object
-    Org_Relationship:
-      additionalProperties: false
-      properties:
-        data:
-          $ref: '#/components/schemas/Org_Relationship_data'
-      required:
-      - data
-      title: Org Relationship
-      type: object
     IndividualCustomer_allOf_attributes:
       properties:
         createdAt:
@@ -11767,6 +11730,13 @@ components:
       - creditLimit
       - creditTerms
       type: object
+    CreateCreditAccount_relationships:
+      allOf:
+      - additionalProperties: false
+        required:
+        - customer
+        type: object
+      - $ref: '#/components/schemas/CustomerRelationship'
     Customers_Relationship_data_inner:
       properties:
         id:

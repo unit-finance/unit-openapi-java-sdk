@@ -26,49 +26,44 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import unit.java.sdk.model.BeneficialOwnersRelationship;
-import unit.java.sdk.model.BeneficiariesRelationship;
 import unit.java.sdk.model.CustomerRelationship;
 import unit.java.sdk.model.DocumentsRelationship;
+import unit.java.sdk.model.OrgRelationship;
 import unit.java.sdk.model.Relationship;
-import unit.java.sdk.model.TrusteesRelationship;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * ApplicationRelationships
+ * BusinessApplicationRelationships
  */
 @JsonPropertyOrder({
-  ApplicationRelationships.JSON_PROPERTY_CUSTOMER,
-  ApplicationRelationships.JSON_PROPERTY_DOCUMENTS,
-  ApplicationRelationships.JSON_PROPERTY_TRUSTEES,
-  ApplicationRelationships.JSON_PROPERTY_BENEFICIARIES,
-  ApplicationRelationships.JSON_PROPERTY_BENEFICIAL_OWNERS,
-  ApplicationRelationships.JSON_PROPERTY_APPLICATION_FORM
+  BusinessApplicationRelationships.JSON_PROPERTY_CUSTOMER,
+  BusinessApplicationRelationships.JSON_PROPERTY_DOCUMENTS,
+  BusinessApplicationRelationships.JSON_PROPERTY_BENEFICIAL_OWNERS,
+  BusinessApplicationRelationships.JSON_PROPERTY_ORG,
+  BusinessApplicationRelationships.JSON_PROPERTY_APPLICATION_FORM
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
-public class ApplicationRelationships {
+public class BusinessApplicationRelationships {
   public static final String JSON_PROPERTY_CUSTOMER = "customer";
   private CustomerRelationship customer;
 
   public static final String JSON_PROPERTY_DOCUMENTS = "documents";
   private DocumentsRelationship documents;
 
-  public static final String JSON_PROPERTY_TRUSTEES = "trustees";
-  private TrusteesRelationship trustees;
-
-  public static final String JSON_PROPERTY_BENEFICIARIES = "beneficiaries";
-  private BeneficiariesRelationship beneficiaries;
-
   public static final String JSON_PROPERTY_BENEFICIAL_OWNERS = "beneficialOwners";
   private BeneficialOwnersRelationship beneficialOwners;
+
+  public static final String JSON_PROPERTY_ORG = "org";
+  private OrgRelationship org;
 
   public static final String JSON_PROPERTY_APPLICATION_FORM = "applicationForm";
   private Relationship applicationForm;
 
-  public ApplicationRelationships() { 
+  public BusinessApplicationRelationships() { 
   }
 
-  public ApplicationRelationships customer(CustomerRelationship customer) {
+  public BusinessApplicationRelationships customer(CustomerRelationship customer) {
     this.customer = customer;
     return this;
   }
@@ -93,7 +88,7 @@ public class ApplicationRelationships {
   }
 
 
-  public ApplicationRelationships documents(DocumentsRelationship documents) {
+  public BusinessApplicationRelationships documents(DocumentsRelationship documents) {
     this.documents = documents;
     return this;
   }
@@ -118,57 +113,7 @@ public class ApplicationRelationships {
   }
 
 
-  public ApplicationRelationships trustees(TrusteesRelationship trustees) {
-    this.trustees = trustees;
-    return this;
-  }
-
-   /**
-   * Get trustees
-   * @return trustees
-  **/
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TRUSTEES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public TrusteesRelationship getTrustees() {
-    return trustees;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_TRUSTEES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTrustees(TrusteesRelationship trustees) {
-    this.trustees = trustees;
-  }
-
-
-  public ApplicationRelationships beneficiaries(BeneficiariesRelationship beneficiaries) {
-    this.beneficiaries = beneficiaries;
-    return this;
-  }
-
-   /**
-   * Get beneficiaries
-   * @return beneficiaries
-  **/
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_BENEFICIARIES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public BeneficiariesRelationship getBeneficiaries() {
-    return beneficiaries;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_BENEFICIARIES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBeneficiaries(BeneficiariesRelationship beneficiaries) {
-    this.beneficiaries = beneficiaries;
-  }
-
-
-  public ApplicationRelationships beneficialOwners(BeneficialOwnersRelationship beneficialOwners) {
+  public BusinessApplicationRelationships beneficialOwners(BeneficialOwnersRelationship beneficialOwners) {
     this.beneficialOwners = beneficialOwners;
     return this;
   }
@@ -193,7 +138,32 @@ public class ApplicationRelationships {
   }
 
 
-  public ApplicationRelationships applicationForm(Relationship applicationForm) {
+  public BusinessApplicationRelationships org(OrgRelationship org) {
+    this.org = org;
+    return this;
+  }
+
+   /**
+   * Get org
+   * @return org
+  **/
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ORG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public OrgRelationship getOrg() {
+    return org;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ORG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setOrg(OrgRelationship org) {
+    this.org = org;
+  }
+
+
+  public BusinessApplicationRelationships applicationForm(Relationship applicationForm) {
     this.applicationForm = applicationForm;
     return this;
   }
@@ -219,7 +189,7 @@ public class ApplicationRelationships {
 
 
   /**
-   * Return true if this ApplicationRelationships object is equal to o.
+   * Return true if this BusinessApplicationRelationships object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -229,29 +199,27 @@ public class ApplicationRelationships {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ApplicationRelationships applicationRelationships = (ApplicationRelationships) o;
-    return Objects.equals(this.customer, applicationRelationships.customer) &&
-        Objects.equals(this.documents, applicationRelationships.documents) &&
-        Objects.equals(this.trustees, applicationRelationships.trustees) &&
-        Objects.equals(this.beneficiaries, applicationRelationships.beneficiaries) &&
-        Objects.equals(this.beneficialOwners, applicationRelationships.beneficialOwners) &&
-        Objects.equals(this.applicationForm, applicationRelationships.applicationForm);
+    BusinessApplicationRelationships businessApplicationRelationships = (BusinessApplicationRelationships) o;
+    return Objects.equals(this.customer, businessApplicationRelationships.customer) &&
+        Objects.equals(this.documents, businessApplicationRelationships.documents) &&
+        Objects.equals(this.beneficialOwners, businessApplicationRelationships.beneficialOwners) &&
+        Objects.equals(this.org, businessApplicationRelationships.org) &&
+        Objects.equals(this.applicationForm, businessApplicationRelationships.applicationForm);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(customer, documents, trustees, beneficiaries, beneficialOwners, applicationForm);
+    return Objects.hash(customer, documents, beneficialOwners, org, applicationForm);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ApplicationRelationships {\n");
+    sb.append("class BusinessApplicationRelationships {\n");
     sb.append("    customer: ").append(toIndentedString(customer)).append("\n");
     sb.append("    documents: ").append(toIndentedString(documents)).append("\n");
-    sb.append("    trustees: ").append(toIndentedString(trustees)).append("\n");
-    sb.append("    beneficiaries: ").append(toIndentedString(beneficiaries)).append("\n");
     sb.append("    beneficialOwners: ").append(toIndentedString(beneficialOwners)).append("\n");
+    sb.append("    org: ").append(toIndentedString(org)).append("\n");
     sb.append("    applicationForm: ").append(toIndentedString(applicationForm)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -310,19 +278,14 @@ public class ApplicationRelationships {
       joiner.add(getDocuments().toUrlQueryString(prefix + "documents" + suffix));
     }
 
-    // add `trustees` to the URL query string
-    if (getTrustees() != null) {
-      joiner.add(getTrustees().toUrlQueryString(prefix + "trustees" + suffix));
-    }
-
-    // add `beneficiaries` to the URL query string
-    if (getBeneficiaries() != null) {
-      joiner.add(getBeneficiaries().toUrlQueryString(prefix + "beneficiaries" + suffix));
-    }
-
     // add `beneficialOwners` to the URL query string
     if (getBeneficialOwners() != null) {
       joiner.add(getBeneficialOwners().toUrlQueryString(prefix + "beneficialOwners" + suffix));
+    }
+
+    // add `org` to the URL query string
+    if (getOrg() != null) {
+      joiner.add(getOrg().toUrlQueryString(prefix + "org" + suffix));
     }
 
     // add `applicationForm` to the URL query string

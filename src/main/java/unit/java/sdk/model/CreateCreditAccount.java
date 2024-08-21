@@ -26,7 +26,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import unit.java.sdk.model.CreateCreditAccountAttributes;
-import unit.java.sdk.model.CustomerRelationship;
+import unit.java.sdk.model.CreateCreditAccountRelationships;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
@@ -80,7 +80,7 @@ public class CreateCreditAccount {
   private CreateCreditAccountAttributes attributes;
 
   public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
-  private CustomerRelationship relationships;
+  private CreateCreditAccountRelationships relationships;
 
   public CreateCreditAccount() { 
   }
@@ -135,7 +135,7 @@ public class CreateCreditAccount {
   }
 
 
-  public CreateCreditAccount relationships(CustomerRelationship relationships) {
+  public CreateCreditAccount relationships(CreateCreditAccountRelationships relationships) {
     this.relationships = relationships;
     return this;
   }
@@ -148,14 +148,14 @@ public class CreateCreditAccount {
   @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public CustomerRelationship getRelationships() {
+  public CreateCreditAccountRelationships getRelationships() {
     return relationships;
   }
 
 
   @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRelationships(CustomerRelationship relationships) {
+  public void setRelationships(CreateCreditAccountRelationships relationships) {
     this.relationships = relationships;
   }
 

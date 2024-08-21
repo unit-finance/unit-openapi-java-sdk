@@ -32,15 +32,15 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * UpdateBusinessApplicationOfficerAttributesOfficer
+ * BusinessOfficer
  */
 @JsonPropertyOrder({
-  UpdateBusinessApplicationOfficerAttributesOfficer.JSON_PROPERTY_OCCUPATION,
-  UpdateBusinessApplicationOfficerAttributesOfficer.JSON_PROPERTY_ANNUAL_INCOME,
-  UpdateBusinessApplicationOfficerAttributesOfficer.JSON_PROPERTY_SOURCE_OF_INCOME
+  BusinessOfficer.JSON_PROPERTY_OCCUPATION,
+  BusinessOfficer.JSON_PROPERTY_ANNUAL_INCOME,
+  BusinessOfficer.JSON_PROPERTY_SOURCE_OF_INCOME
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
-public class UpdateBusinessApplicationOfficerAttributesOfficer {
+public class BusinessOfficer {
   public static final String JSON_PROPERTY_OCCUPATION = "occupation";
   private Occupation occupation;
 
@@ -50,10 +50,10 @@ public class UpdateBusinessApplicationOfficerAttributesOfficer {
   public static final String JSON_PROPERTY_SOURCE_OF_INCOME = "sourceOfIncome";
   private SourceOfIncome sourceOfIncome;
 
-  public UpdateBusinessApplicationOfficerAttributesOfficer() { 
+  public BusinessOfficer() { 
   }
 
-  public UpdateBusinessApplicationOfficerAttributesOfficer occupation(Occupation occupation) {
+  public BusinessOfficer occupation(Occupation occupation) {
     this.occupation = occupation;
     return this;
   }
@@ -78,7 +78,7 @@ public class UpdateBusinessApplicationOfficerAttributesOfficer {
   }
 
 
-  public UpdateBusinessApplicationOfficerAttributesOfficer annualIncome(AnnualIncome annualIncome) {
+  public BusinessOfficer annualIncome(AnnualIncome annualIncome) {
     this.annualIncome = annualIncome;
     return this;
   }
@@ -103,7 +103,7 @@ public class UpdateBusinessApplicationOfficerAttributesOfficer {
   }
 
 
-  public UpdateBusinessApplicationOfficerAttributesOfficer sourceOfIncome(SourceOfIncome sourceOfIncome) {
+  public BusinessOfficer sourceOfIncome(SourceOfIncome sourceOfIncome) {
     this.sourceOfIncome = sourceOfIncome;
     return this;
   }
@@ -129,7 +129,7 @@ public class UpdateBusinessApplicationOfficerAttributesOfficer {
 
 
   /**
-   * Return true if this UpdateBusinessApplicationOfficer_attributes_officer object is equal to o.
+   * Return true if this BusinessOfficer object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -139,10 +139,10 @@ public class UpdateBusinessApplicationOfficerAttributesOfficer {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UpdateBusinessApplicationOfficerAttributesOfficer updateBusinessApplicationOfficerAttributesOfficer = (UpdateBusinessApplicationOfficerAttributesOfficer) o;
-    return Objects.equals(this.occupation, updateBusinessApplicationOfficerAttributesOfficer.occupation) &&
-        Objects.equals(this.annualIncome, updateBusinessApplicationOfficerAttributesOfficer.annualIncome) &&
-        Objects.equals(this.sourceOfIncome, updateBusinessApplicationOfficerAttributesOfficer.sourceOfIncome);
+    BusinessOfficer businessOfficer = (BusinessOfficer) o;
+    return Objects.equals(this.occupation, businessOfficer.occupation) &&
+        Objects.equals(this.annualIncome, businessOfficer.annualIncome) &&
+        Objects.equals(this.sourceOfIncome, businessOfficer.sourceOfIncome);
   }
 
   @Override
@@ -153,7 +153,7 @@ public class UpdateBusinessApplicationOfficerAttributesOfficer {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UpdateBusinessApplicationOfficerAttributesOfficer {\n");
+    sb.append("class BusinessOfficer {\n");
     sb.append("    occupation: ").append(toIndentedString(occupation)).append("\n");
     sb.append("    annualIncome: ").append(toIndentedString(annualIncome)).append("\n");
     sb.append("    sourceOfIncome: ").append(toIndentedString(sourceOfIncome)).append("\n");

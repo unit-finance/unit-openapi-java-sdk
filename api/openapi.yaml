@@ -177,7 +177,7 @@ paths:
   /application-forms:
     get:
       description: 'Get List Application Forms from API '
-      operationId: getApplicationForms
+      operationId: getApplicationFormsList
       parameters:
       - explode: false
         in: query
@@ -192,7 +192,7 @@ paths:
         name: filter
         required: false
         schema:
-          $ref: '#/components/schemas/getApplicationForms_filter_parameter'
+          $ref: '#/components/schemas/getApplicationFormsList_filter_parameter'
         style: deepObject
       - explode: true
         in: query
@@ -261,12 +261,6 @@ paths:
           application/pdf:
             schema:
               $ref: '#/components/schemas/UploadPdfDocument'
-          image/png:
-            schema:
-              $ref: '#/components/schemas/UploadPngDocument'
-          image/jpeg:
-            schema:
-              $ref: '#/components/schemas/UploadJpegDocument'
         description: An application document file. SDK only temporarily supports only
           ... files
         required: true
@@ -530,6 +524,39 @@ paths:
       summary: Get ApplicationForm by Id
       tags:
       - unit
+      x-accepts:
+      - application/vnd.api+json; charset=utf-8
+  /beneficial-owner/{beneficialOwnerId}:
+    patch:
+      description: Update a Business Beneficial Owner
+      operationId: updateBusinessBeneficialOwner
+      parameters:
+      - description: ID of the beneficial owner to update
+        explode: false
+        in: path
+        name: beneficialOwnerId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/UpdateBusinessBeneficialOwnerRequest'
+        description: Update Business Beneficial Owner Request
+        required: true
+      responses:
+        "200":
+          content:
+            application/vnd.api+json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/UnitBeneficialOwnerResponse'
+          description: Successful Response
+      summary: Update a Business Beneficial Owner via API
+      tags:
+      - unit
+      x-content-type: application/vnd.api+json
       x-accepts:
       - application/vnd.api+json; charset=utf-8
   /accounts:
@@ -1112,6 +1139,71 @@ paths:
                 $ref: '#/components/schemas/UnitCustomerResponse'
           description: Successful Response
       summary: Archive Customer by Id
+      tags:
+      - unit
+      x-content-type: application/vnd.api+json
+      x-accepts:
+      - application/vnd.api+json; charset=utf-8
+  /customers/{customerId}/authorized-users:
+    delete:
+      description: Remove Authorized Users via API
+      operationId: removeAuthorizedUsers
+      parameters:
+      - description: ID of the customer to remove authorized users from
+        explode: false
+        in: path
+        name: customerId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/RemoveAuthorizedUsersRequest'
+        description: Add Authorized Users Request
+        required: true
+      responses:
+        "200":
+          content:
+            application/vnd.api+json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/UnitCustomerResponse'
+          description: Successful Response
+      summary: Remove Authorized Users by Id
+      tags:
+      - unit
+      x-content-type: application/vnd.api+json
+      x-accepts:
+      - application/vnd.api+json; charset=utf-8
+    post:
+      description: Add Authorized Users via API
+      operationId: addAuthorizedUsers
+      parameters:
+      - description: ID of the customer to add authorized users to
+        explode: false
+        in: path
+        name: customerId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/vnd.api+json:
+            schema:
+              $ref: '#/components/schemas/AddAuthorizedUsersRequest'
+        description: Add Authorized Users Request
+        required: true
+      responses:
+        "200":
+          content:
+            application/vnd.api+json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/UnitCustomerResponse'
+          description: Successful Response
+      summary: Add Authorized Users by Id
       tags:
       - unit
       x-content-type: application/vnd.api+json
@@ -4488,21 +4580,6 @@ components:
       - type
       title: Update Business Application
       type: object
-    UpdateBusinessApplicationOfficer:
-      additionalProperties: false
-      properties:
-        type:
-          default: businessApplication
-          enum:
-          - businessApplication
-          type: string
-        attributes:
-          $ref: '#/components/schemas/UpdateBusinessApplicationOfficer_attributes'
-      required:
-      - attributes
-      - type
-      title: Update Business Application
-      type: object
     ApplicationRelationship:
       properties:
         application:
@@ -4536,7 +4613,7 @@ components:
       required:
       - attributes
       - type
-      title: Update Individual Application
+      title: Update Sole Proprietor Application
       type: object
     UpdateIndividualApplication:
       additionalProperties: false
@@ -4552,6 +4629,29 @@ components:
       - attributes
       - type
       title: Update Individual Application
+      type: object
+    BusinessOfficer:
+      properties:
+        occupation:
+          $ref: '#/components/schemas/Occupation'
+        annualIncome:
+          $ref: '#/components/schemas/AnnualIncome'
+        sourceOfIncome:
+          $ref: '#/components/schemas/SourceOfIncome'
+      type: object
+    UpdateBusinessOfficer:
+      properties:
+        type:
+          default: businessApplication
+          enum:
+          - businessApplication
+          type: string
+        attributes:
+          $ref: '#/components/schemas/UpdateBusinessOfficer_attributes'
+      required:
+      - attributes
+      - type
+      title: Update Business Officer
       type: object
     UpdateApplicationRequest:
       additionalProperties: false
@@ -4992,15 +5092,6 @@ components:
       type: object
     UploadPdfDocument:
       format: binary
-      title: work pls 2
-      type: string
-    UploadPngDocument:
-      format: binary
-      title: work pls
-      type: string
-    UploadJpegDocument:
-      format: binary
-      title: work pls 3
       type: string
     UnitDocumentResponse:
       properties:
@@ -5012,6 +5103,39 @@ components:
       enum:
       - application/vnd.api+json
       type: string
+    UpdateBusinessBeneficialOwner:
+      properties:
+        type:
+          default: beneficialOwner
+          enum:
+          - beneficialOwner
+          type: string
+        attributes:
+          $ref: '#/components/schemas/UpdateBusinessBeneficialOwner_attributes'
+        relationships:
+          $ref: '#/components/schemas/UpdateBusinessBeneficialOwner_relationships'
+      required:
+      - attributes
+      - relationships
+      - type
+      title: Update Business Beneficial Owner
+      type: object
+    UpdateBusinessBeneficialOwnerRequest:
+      properties:
+        data:
+          $ref: '#/components/schemas/UpdateBusinessBeneficialOwnerRequest_data'
+      required:
+      - data
+      title: Update Business Beneficial Owner Request
+      type: object
+    UnitBeneficialOwnerResponse:
+      properties:
+        data:
+          $ref: '#/components/schemas/UnitBeneficialOwnerResponse_data'
+      required:
+      - data
+      title: Unit Beneficial Owner Response
+      type: object
     Account:
       discriminator:
         mapping:
@@ -5064,6 +5188,7 @@ components:
         mapping:
           individualCustomer: '#/components/schemas/IndividualCustomer'
           businessCustomer: '#/components/schemas/BusinessCustomer'
+          businessWalletCustomer: '#/components/schemas/BusinessWalletCustomer'
         propertyName: type
       properties:
         id:
@@ -5131,6 +5256,18 @@ components:
             $ref: '#/components/schemas/CustomerRelationships'
         type: object
       title: Business Customer
+      type: object
+    BusinessWalletCustomer:
+      additionalProperties: false
+      allOf:
+      - $ref: '#/components/schemas/Customer'
+      - properties:
+          attributes:
+            $ref: '#/components/schemas/BusinessWalletCustomer_allOf_attributes'
+          relationships:
+            $ref: '#/components/schemas/OrgRelationship'
+        type: object
+      title: Business Wallet Customer
       type: object
     CreateCreditAccount:
       properties:
@@ -5367,6 +5504,16 @@ components:
       - attributes
       - type
       title: Archive Customer Request
+      type: object
+    AddAuthorizedUsersRequest:
+      properties:
+        data:
+          $ref: '#/components/schemas/AddAuthorizedUsersRequest_data'
+      type: object
+    RemoveAuthorizedUsersRequest:
+      properties:
+        data:
+          $ref: '#/components/schemas/RemoveAuthorizedUsersRequest_data'
       type: object
     Payment:
       additionalProperties: false
@@ -9149,7 +9296,7 @@ components:
       properties:
         type:
           enum:
-          - cancelApplication
+          - applicationCancel
           type: string
         attributes:
           $ref: '#/components/schemas/Cancel_Application_Request_data_attributes'
@@ -9212,7 +9359,7 @@ components:
           type: array
       title: Unit Create Application Response
       type: object
-    getApplicationForms_filter_parameter:
+    getApplicationFormsList_filter_parameter:
       properties:
         query:
           type: string
@@ -10640,21 +10787,6 @@ components:
         businessVertical:
           $ref: '#/components/schemas/BusinessVertical'
       type: object
-    UpdateBusinessApplicationOfficer_attributes_officer:
-      properties:
-        occupation:
-          $ref: '#/components/schemas/Occupation'
-        annualIncome:
-          $ref: '#/components/schemas/AnnualIncome'
-        sourceOfIncome:
-          $ref: '#/components/schemas/SourceOfIncome'
-      type: object
-    UpdateBusinessApplicationOfficer_attributes:
-      additionalProperties: false
-      properties:
-        officer:
-          $ref: '#/components/schemas/UpdateBusinessApplicationOfficer_attributes_officer'
-      type: object
     Application_Relationship_data:
       additionalProperties: false
       properties:
@@ -10728,13 +10860,18 @@ components:
         sourceOfIncome:
           $ref: '#/components/schemas/SourceOfIncome'
       type: object
+    UpdateBusinessOfficer_attributes:
+      properties:
+        officer:
+          $ref: '#/components/schemas/BusinessOfficer'
+      type: object
     UpdateApplicationRequest_data:
       oneOf:
       - $ref: '#/components/schemas/UpdateBusinessApplication'
-      - $ref: '#/components/schemas/UpdateBusinessApplicationOfficer'
       - $ref: '#/components/schemas/UpdateBusinessApplicationBeneficialOwner'
       - $ref: '#/components/schemas/UpdateSoleProprietorApplication'
       - $ref: '#/components/schemas/UpdateIndividualApplication'
+      - $ref: '#/components/schemas/UpdateBusinessOfficer'
     ApplicationDocument_attributes:
       additionalProperties: false
       properties:
@@ -11176,6 +11313,39 @@ components:
       required:
       - type
       type: object
+    UpdateBusinessBeneficialOwner_attributes:
+      properties:
+        occupation:
+          $ref: '#/components/schemas/Occupation'
+        annualIncome:
+          $ref: '#/components/schemas/AnnualIncome'
+        sourceOfIncome:
+          $ref: '#/components/schemas/SourceOfIncome'
+      type: object
+    UpdateBusinessBeneficialOwner_relationships:
+      allOf:
+      - additionalProperties: true
+        required:
+        - application
+        title: Update Business Beneficial Owner Relationships
+        type: object
+      - $ref: '#/components/schemas/ApplicationRelationship'
+    UpdateBusinessBeneficialOwnerRequest_data:
+      oneOf:
+      - $ref: '#/components/schemas/UpdateBusinessBeneficialOwner'
+    UnitBeneficialOwnerResponse_data:
+      properties:
+        id:
+          pattern: "^[1-9]\\d*$"
+          type: string
+        type:
+          default: beneficialOwner
+          enum:
+          - beneficialOwner
+          type: string
+        attributes:
+          $ref: '#/components/schemas/BeneficialOwner'
+      type: object
     DepositAccount_allOf_attributes_secondaryAccountNumber:
       properties:
         routingNumber:
@@ -11542,6 +11712,43 @@ components:
       - stateOfIncorporation
       - status
       type: object
+    BusinessWalletCustomer_allOf_attributes:
+      properties:
+        createdAt:
+          format: date-time
+          type: string
+        bankName:
+          type: string
+        businessName:
+          type: string
+        name:
+          type: string
+        address:
+          $ref: '#/components/schemas/Address'
+        ein:
+          pattern: "^\\d{9}$"
+          type: string
+        businessVertical:
+          $ref: '#/components/schemas/BusinessVertical'
+        numberOfEmployees:
+          $ref: '#/components/schemas/BusinessNumberOfEmployees'
+        tags:
+          additionalProperties:
+            maxLength: 255
+            minLength: 1
+            type: string
+          maxProperties: 15
+          type: object
+      required:
+      - address
+      - bankName
+      - businessName
+      - businessVertical
+      - createdAt
+      - ein
+      - name
+      - numberOfEmployees
+      type: object
     CreateCreditAccount_attributes:
       additionalProperties: false
       properties:
@@ -11854,6 +12061,41 @@ components:
           type: string
         attributes:
           $ref: '#/components/schemas/ArchiveCustomerRequest_data_attributes'
+      type: object
+    AddAuthorizedUsersRequest_data_attributes:
+      properties:
+        authorizedUsers:
+          items:
+            $ref: '#/components/schemas/AuthorizedUser'
+          type: array
+      type: object
+    AddAuthorizedUsersRequest_data:
+      properties:
+        type:
+          default: addAuthorizedUsers
+          enum:
+          - addAuthorizedUsers
+          type: string
+        attributes:
+          $ref: '#/components/schemas/AddAuthorizedUsersRequest_data_attributes'
+      type: object
+    RemoveAuthorizedUsersRequest_data_attributes:
+      properties:
+        authorizedUsersEmails:
+          items:
+            format: email
+            type: string
+          type: array
+      type: object
+    RemoveAuthorizedUsersRequest_data:
+      properties:
+        type:
+          default: removeAuthorizedUsers
+          enum:
+          - removeAuthorizedUsers
+          type: string
+        attributes:
+          $ref: '#/components/schemas/RemoveAuthorizedUsersRequest_data_attributes'
       type: object
     Counterparty_Relationship_data:
       additionalProperties: false

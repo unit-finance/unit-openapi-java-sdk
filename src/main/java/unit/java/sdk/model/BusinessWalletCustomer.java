@@ -28,16 +28,19 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
+import unit.java.sdk.model.BusinessWalletCustomerAllOfAttributes;
+import unit.java.sdk.model.Customer;
+import unit.java.sdk.model.OrgRelationship;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 import unit.java.sdk.JSON;
 /**
- * Customer
+ * BusinessWalletCustomer
  */
 @JsonPropertyOrder({
-  Customer.JSON_PROPERTY_ID,
-  Customer.JSON_PROPERTY_TYPE
+  BusinessWalletCustomer.JSON_PROPERTY_ATTRIBUTES,
+  BusinessWalletCustomer.JSON_PROPERTY_RELATIONSHIPS
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
 @JsonIgnoreProperties(
@@ -45,109 +48,81 @@ import unit.java.sdk.JSON;
   allowSetters = true // allows the type to be set during deserialization
 )
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type", visible = true)
-@JsonSubTypes({
-  @JsonSubTypes.Type(value = BusinessCustomer.class, name = "businessCustomer"),
-  @JsonSubTypes.Type(value = BusinessWalletCustomer.class, name = "businessWalletCustomer"),
-  @JsonSubTypes.Type(value = IndividualCustomer.class, name = "individualCustomer"),
-})
 
-public class Customer {
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
+public class BusinessWalletCustomer extends Customer {
+  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  private BusinessWalletCustomerAllOfAttributes attributes;
 
-  /**
-   * Gets or Sets type
-   */
-  public enum TypeEnum {
-    INDIVIDUALCUSTOMER("individualCustomer"),
-    
-    BUSINESSCUSTOMER("businessCustomer");
+  public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
+  private OrgRelationship relationships;
 
-    private String value;
-
-    TypeEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static TypeEnum fromValue(String value) {
-      for (TypeEnum b : TypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
+  public BusinessWalletCustomer() { 
   }
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type;
-
-  public Customer() { 
-  }
-
-  public Customer id(String id) {
-    this.id = id;
+  public BusinessWalletCustomer attributes(BusinessWalletCustomerAllOfAttributes attributes) {
+    this.attributes = attributes;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get attributes
+   * @return attributes
   **/
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getId() {
-    return id;
+  public BusinessWalletCustomerAllOfAttributes getAttributes() {
+    return attributes;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setId(String id) {
-    this.id = id;
+  public void setAttributes(BusinessWalletCustomerAllOfAttributes attributes) {
+    this.attributes = attributes;
   }
 
 
-  public Customer type(TypeEnum type) {
-    this.type = type;
+  public BusinessWalletCustomer relationships(OrgRelationship relationships) {
+    this.relationships = relationships;
     return this;
   }
 
    /**
-   * Get type
-   * @return type
+   * Get relationships
+   * @return relationships
   **/
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public TypeEnum getType() {
-    return type;
+  public OrgRelationship getRelationships() {
+    return relationships;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setType(TypeEnum type) {
-    this.type = type;
+  public void setRelationships(OrgRelationship relationships) {
+    this.relationships = relationships;
   }
 
+
+  @Override
+  public BusinessWalletCustomer id(String id) {
+    this.setId(id);
+    return this;
+  }
+
+  @Override
+  public BusinessWalletCustomer type(TypeEnum type) {
+    this.setType(type);
+    return this;
+  }
 
   /**
-   * Return true if this Customer object is equal to o.
+   * Return true if this BusinessWalletCustomer object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -157,22 +132,24 @@ public class Customer {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Customer customer = (Customer) o;
-    return Objects.equals(this.id, customer.id) &&
-        Objects.equals(this.type, customer.type);
+    BusinessWalletCustomer businessWalletCustomer = (BusinessWalletCustomer) o;
+    return Objects.equals(this.attributes, businessWalletCustomer.attributes) &&
+        Objects.equals(this.relationships, businessWalletCustomer.relationships) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type);
+    return Objects.hash(attributes, relationships, super.hashCode());
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Customer {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("class BusinessWalletCustomer {\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -230,16 +207,23 @@ public class Customer {
       joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
+    // add `attributes` to the URL query string
+    if (getAttributes() != null) {
+      joiner.add(getAttributes().toUrlQueryString(prefix + "attributes" + suffix));
+    }
+
+    // add `relationships` to the URL query string
+    if (getRelationships() != null) {
+      joiner.add(getRelationships().toUrlQueryString(prefix + "relationships" + suffix));
+    }
+
     return joiner.toString();
   }
 static {
   // Initialize and register the discriminator mappings.
   Map<String, Class<?>> mappings = new HashMap<String, Class<?>>();
-  mappings.put("businessCustomer", BusinessCustomer.class);
-  mappings.put("businessWalletCustomer", BusinessWalletCustomer.class);
-  mappings.put("individualCustomer", IndividualCustomer.class);
-  mappings.put("Customer", Customer.class);
-  JSON.registerDiscriminator(Customer.class, "type", mappings);
+  mappings.put("BusinessWalletCustomer", BusinessWalletCustomer.class);
+  JSON.registerDiscriminator(BusinessWalletCustomer.class, "type", mappings);
 }
 }
 

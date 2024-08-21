@@ -25,25 +25,25 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import unit.java.sdk.model.UpdateBusinessApplicationOfficerAttributesOfficer;
+import unit.java.sdk.model.BusinessOfficer;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * UpdateBusinessApplicationOfficerAttributes
+ * UpdateBusinessOfficerAttributes
  */
 @JsonPropertyOrder({
-  UpdateBusinessApplicationOfficerAttributes.JSON_PROPERTY_OFFICER
+  UpdateBusinessOfficerAttributes.JSON_PROPERTY_OFFICER
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
-public class UpdateBusinessApplicationOfficerAttributes {
+public class UpdateBusinessOfficerAttributes {
   public static final String JSON_PROPERTY_OFFICER = "officer";
-  private UpdateBusinessApplicationOfficerAttributesOfficer officer;
+  private BusinessOfficer officer;
 
-  public UpdateBusinessApplicationOfficerAttributes() { 
+  public UpdateBusinessOfficerAttributes() { 
   }
 
-  public UpdateBusinessApplicationOfficerAttributes officer(UpdateBusinessApplicationOfficerAttributesOfficer officer) {
+  public UpdateBusinessOfficerAttributes officer(BusinessOfficer officer) {
     this.officer = officer;
     return this;
   }
@@ -56,20 +56,20 @@ public class UpdateBusinessApplicationOfficerAttributes {
   @JsonProperty(JSON_PROPERTY_OFFICER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public UpdateBusinessApplicationOfficerAttributesOfficer getOfficer() {
+  public BusinessOfficer getOfficer() {
     return officer;
   }
 
 
   @JsonProperty(JSON_PROPERTY_OFFICER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setOfficer(UpdateBusinessApplicationOfficerAttributesOfficer officer) {
+  public void setOfficer(BusinessOfficer officer) {
     this.officer = officer;
   }
 
 
   /**
-   * Return true if this UpdateBusinessApplicationOfficer_attributes object is equal to o.
+   * Return true if this UpdateBusinessOfficer_attributes object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -79,8 +79,8 @@ public class UpdateBusinessApplicationOfficerAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UpdateBusinessApplicationOfficerAttributes updateBusinessApplicationOfficerAttributes = (UpdateBusinessApplicationOfficerAttributes) o;
-    return Objects.equals(this.officer, updateBusinessApplicationOfficerAttributes.officer);
+    UpdateBusinessOfficerAttributes updateBusinessOfficerAttributes = (UpdateBusinessOfficerAttributes) o;
+    return Objects.equals(this.officer, updateBusinessOfficerAttributes.officer);
   }
 
   @Override
@@ -91,7 +91,7 @@ public class UpdateBusinessApplicationOfficerAttributes {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UpdateBusinessApplicationOfficerAttributes {\n");
+    sb.append("class UpdateBusinessOfficerAttributes {\n");
     sb.append("    officer: ").append(toIndentedString(officer)).append("\n");
     sb.append("}");
     return sb.toString();

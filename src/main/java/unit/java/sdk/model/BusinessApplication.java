@@ -29,8 +29,8 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import unit.java.sdk.model.Application;
-import unit.java.sdk.model.ApplicationRelationships;
 import unit.java.sdk.model.BusinessApplicationAllOfAttributes;
+import unit.java.sdk.model.BusinessApplicationRelationships;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
@@ -54,7 +54,7 @@ public class BusinessApplication extends Application {
   private BusinessApplicationAllOfAttributes attributes;
 
   public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
-  private ApplicationRelationships relationships;
+  private BusinessApplicationRelationships relationships;
 
   public BusinessApplication() { 
   }
@@ -84,7 +84,7 @@ public class BusinessApplication extends Application {
   }
 
 
-  public BusinessApplication relationships(ApplicationRelationships relationships) {
+  public BusinessApplication relationships(BusinessApplicationRelationships relationships) {
     this.relationships = relationships;
     return this;
   }
@@ -97,14 +97,14 @@ public class BusinessApplication extends Application {
   @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public ApplicationRelationships getRelationships() {
+  public BusinessApplicationRelationships getRelationships() {
     return relationships;
   }
 
 
   @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRelationships(ApplicationRelationships relationships) {
+  public void setRelationships(BusinessApplicationRelationships relationships) {
     this.relationships = relationships;
   }
 

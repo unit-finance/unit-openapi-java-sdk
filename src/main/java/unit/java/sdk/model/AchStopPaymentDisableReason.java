@@ -34,7 +34,7 @@ public enum AchStopPaymentDisableReason {
   
   REQUESTED("Requested"),
   
-  PAYMENTSTOPPED("PaymentStopped");
+  PAYMENT_STOPPED("PaymentStopped");
 
   private String value;
 

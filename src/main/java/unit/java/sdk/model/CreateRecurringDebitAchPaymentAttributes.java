@@ -31,6 +31,7 @@ import unit.java.sdk.model.Schedule;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * CreateRecurringDebitAchPaymentAttributes
  */
@@ -45,7 +46,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateRecurringDebitAchPaymentAttributes.JSON_PROPERTY_SCHEDULE,
   CreateRecurringDebitAchPaymentAttributes.JSON_PROPERTY_CLEARING_DAYS_OVERRIDE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CreateRecurringDebitAchPaymentAttributes {
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Integer amount;
@@ -82,15 +83,14 @@ public class CreateRecurringDebitAchPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get amount
    * minimum: 1
    * @return amount
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Integer getAmount() {
     return amount;
   }
@@ -108,14 +108,13 @@ public class CreateRecurringDebitAchPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get description
    * @return description
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getDescription() {
     return description;
   }
@@ -133,14 +132,13 @@ public class CreateRecurringDebitAchPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get addenda
    * @return addenda
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ADDENDA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAddenda() {
     return addenda;
   }
@@ -158,14 +156,13 @@ public class CreateRecurringDebitAchPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get idempotencyKey
    * @return idempotencyKey
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IDEMPOTENCY_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getIdempotencyKey() {
     return idempotencyKey;
   }
@@ -183,14 +180,13 @@ public class CreateRecurringDebitAchPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get sameDay
    * @return sameDay
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SAME_DAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getSameDay() {
     return sameDay;
   }
@@ -208,14 +204,13 @@ public class CreateRecurringDebitAchPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get verifyCounterpartyBalance
    * @return verifyCounterpartyBalance
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERIFY_COUNTERPARTY_BALANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getVerifyCounterpartyBalance() {
     return verifyCounterpartyBalance;
   }
@@ -241,14 +236,13 @@ public class CreateRecurringDebitAchPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get tags
    * @return tags
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getTags() {
     return tags;
   }
@@ -266,14 +260,13 @@ public class CreateRecurringDebitAchPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get schedule
    * @return schedule
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_SCHEDULE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Schedule getSchedule() {
     return schedule;
   }
@@ -291,15 +284,14 @@ public class CreateRecurringDebitAchPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get clearingDaysOverride
    * minimum: 0
    * @return clearingDaysOverride
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CLEARING_DAYS_OVERRIDE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getClearingDaysOverride() {
     return clearingDaysOverride;
   }
@@ -402,32 +394,32 @@ public class CreateRecurringDebitAchPaymentAttributes {
 
     // add `amount` to the URL query string
     if (getAmount() != null) {
-      joiner.add(String.format("%samount%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAmount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%samount%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getAmount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `description` to the URL query string
     if (getDescription() != null) {
-      joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDescription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDescription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `addenda` to the URL query string
     if (getAddenda() != null) {
-      joiner.add(String.format("%saddenda%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAddenda()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%saddenda%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getAddenda()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `idempotencyKey` to the URL query string
     if (getIdempotencyKey() != null) {
-      joiner.add(String.format("%sidempotencyKey%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIdempotencyKey()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sidempotencyKey%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getIdempotencyKey()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `sameDay` to the URL query string
     if (getSameDay() != null) {
-      joiner.add(String.format("%ssameDay%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSameDay()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%ssameDay%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getSameDay()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `verifyCounterpartyBalance` to the URL query string
     if (getVerifyCounterpartyBalance() != null) {
-      joiner.add(String.format("%sverifyCounterpartyBalance%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getVerifyCounterpartyBalance()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sverifyCounterpartyBalance%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getVerifyCounterpartyBalance()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `tags` to the URL query string
@@ -435,7 +427,7 @@ public class CreateRecurringDebitAchPaymentAttributes {
       for (String _key : getTags().keySet()) {
         joiner.add(String.format("%stags%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
-            getTags().get(_key), URLEncoder.encode(String.valueOf(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+            getTags().get(_key), URLEncoder.encode(ApiClient.valueToString(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
     }
 
@@ -446,7 +438,7 @@ public class CreateRecurringDebitAchPaymentAttributes {
 
     // add `clearingDaysOverride` to the URL query string
     if (getClearingDaysOverride() != null) {
-      joiner.add(String.format("%sclearingDaysOverride%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getClearingDaysOverride()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sclearingDaysOverride%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getClearingDaysOverride()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

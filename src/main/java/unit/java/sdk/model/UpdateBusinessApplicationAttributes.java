@@ -36,6 +36,7 @@ import unit.java.sdk.model.CashFlow;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * UpdateBusinessApplicationAttributes
  */
@@ -50,7 +51,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   UpdateBusinessApplicationAttributes.JSON_PROPERTY_WEBSITE,
   UpdateBusinessApplicationAttributes.JSON_PROPERTY_BUSINESS_VERTICAL
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class UpdateBusinessApplicationAttributes {
   public static final String JSON_PROPERTY_TAGS = "tags";
   private Map<String, String> tags = new HashMap<>();
@@ -95,14 +96,13 @@ public class UpdateBusinessApplicationAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get tags
    * @return tags
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getTags() {
     return tags;
   }
@@ -120,14 +120,13 @@ public class UpdateBusinessApplicationAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get annualRevenue
    * @return annualRevenue
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ANNUAL_REVENUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public BusinessAnnualRevenue getAnnualRevenue() {
     return annualRevenue;
   }
@@ -145,14 +144,13 @@ public class UpdateBusinessApplicationAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get numberOfEmployees
    * @return numberOfEmployees
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NUMBER_OF_EMPLOYEES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public BusinessNumberOfEmployees getNumberOfEmployees() {
     return numberOfEmployees;
   }
@@ -170,14 +168,13 @@ public class UpdateBusinessApplicationAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get cashFlow
    * @return cashFlow
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CASH_FLOW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CashFlow getCashFlow() {
     return cashFlow;
   }
@@ -195,14 +192,13 @@ public class UpdateBusinessApplicationAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get yearOfIncorporation
    * @return yearOfIncorporation
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_YEAR_OF_INCORPORATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getYearOfIncorporation() {
     return yearOfIncorporation;
   }
@@ -228,14 +224,13 @@ public class UpdateBusinessApplicationAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get countriesOfOperation
    * @return countriesOfOperation
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COUNTRIES_OF_OPERATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getCountriesOfOperation() {
     return countriesOfOperation;
   }
@@ -253,14 +248,13 @@ public class UpdateBusinessApplicationAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get stockSymbol
    * @return stockSymbol
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STOCK_SYMBOL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStockSymbol() {
     return stockSymbol;
   }
@@ -278,14 +272,13 @@ public class UpdateBusinessApplicationAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get website
    * @return website
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_WEBSITE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getWebsite() {
     return website;
   }
@@ -303,14 +296,13 @@ public class UpdateBusinessApplicationAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get businessVertical
    * @return businessVertical
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BUSINESS_VERTICAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public BusinessVertical getBusinessVertical() {
     return businessVertical;
   }
@@ -416,28 +408,28 @@ public class UpdateBusinessApplicationAttributes {
       for (String _key : getTags().keySet()) {
         joiner.add(String.format("%stags%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
-            getTags().get(_key), URLEncoder.encode(String.valueOf(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+            getTags().get(_key), URLEncoder.encode(ApiClient.valueToString(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
     }
 
     // add `annualRevenue` to the URL query string
     if (getAnnualRevenue() != null) {
-      joiner.add(String.format("%sannualRevenue%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAnnualRevenue()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sannualRevenue%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getAnnualRevenue()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `numberOfEmployees` to the URL query string
     if (getNumberOfEmployees() != null) {
-      joiner.add(String.format("%snumberOfEmployees%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getNumberOfEmployees()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%snumberOfEmployees%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getNumberOfEmployees()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `cashFlow` to the URL query string
     if (getCashFlow() != null) {
-      joiner.add(String.format("%scashFlow%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCashFlow()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%scashFlow%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCashFlow()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `yearOfIncorporation` to the URL query string
     if (getYearOfIncorporation() != null) {
-      joiner.add(String.format("%syearOfIncorporation%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getYearOfIncorporation()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%syearOfIncorporation%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getYearOfIncorporation()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `countriesOfOperation` to the URL query string
@@ -445,23 +437,23 @@ public class UpdateBusinessApplicationAttributes {
       for (int i = 0; i < getCountriesOfOperation().size(); i++) {
         joiner.add(String.format("%scountriesOfOperation%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
-            URLEncoder.encode(String.valueOf(getCountriesOfOperation().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+            URLEncoder.encode(ApiClient.valueToString(getCountriesOfOperation().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
     }
 
     // add `stockSymbol` to the URL query string
     if (getStockSymbol() != null) {
-      joiner.add(String.format("%sstockSymbol%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStockSymbol()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sstockSymbol%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getStockSymbol()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `website` to the URL query string
     if (getWebsite() != null) {
-      joiner.add(String.format("%swebsite%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getWebsite()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%swebsite%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getWebsite()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `businessVertical` to the URL query string
     if (getBusinessVertical() != null) {
-      joiner.add(String.format("%sbusinessVertical%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getBusinessVertical()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sbusinessVertical%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getBusinessVertical()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

@@ -32,6 +32,7 @@ import unit.java.sdk.model.SourceOfIncome;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * UpdateBusinessApplicationBeneficialOwnerAttributes
  */
@@ -41,7 +42,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   UpdateBusinessApplicationBeneficialOwnerAttributes.JSON_PROPERTY_SOURCE_OF_INCOME,
   UpdateBusinessApplicationBeneficialOwnerAttributes.JSON_PROPERTY_RELATIONSHIPS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class UpdateBusinessApplicationBeneficialOwnerAttributes {
   public static final String JSON_PROPERTY_OCCUPATION = "occupation";
   private Occupation occupation;
@@ -63,14 +64,13 @@ public class UpdateBusinessApplicationBeneficialOwnerAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get occupation
    * @return occupation
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OCCUPATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Occupation getOccupation() {
     return occupation;
   }
@@ -88,14 +88,13 @@ public class UpdateBusinessApplicationBeneficialOwnerAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get annualIncome
    * @return annualIncome
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ANNUAL_INCOME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public AnnualIncome getAnnualIncome() {
     return annualIncome;
   }
@@ -113,14 +112,13 @@ public class UpdateBusinessApplicationBeneficialOwnerAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get sourceOfIncome
    * @return sourceOfIncome
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SOURCE_OF_INCOME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public SourceOfIncome getSourceOfIncome() {
     return sourceOfIncome;
   }
@@ -138,14 +136,13 @@ public class UpdateBusinessApplicationBeneficialOwnerAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get relationships
    * @return relationships
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ApplicationRelationship getRelationships() {
     return relationships;
   }
@@ -238,17 +235,17 @@ public class UpdateBusinessApplicationBeneficialOwnerAttributes {
 
     // add `occupation` to the URL query string
     if (getOccupation() != null) {
-      joiner.add(String.format("%soccupation%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getOccupation()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%soccupation%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getOccupation()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `annualIncome` to the URL query string
     if (getAnnualIncome() != null) {
-      joiner.add(String.format("%sannualIncome%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAnnualIncome()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sannualIncome%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getAnnualIncome()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `sourceOfIncome` to the URL query string
     if (getSourceOfIncome() != null) {
-      joiner.add(String.format("%ssourceOfIncome%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSourceOfIncome()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%ssourceOfIncome%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getSourceOfIncome()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `relationships` to the URL query string

@@ -32,6 +32,7 @@ import unit.java.sdk.model.CustomersRelationship;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * CheckStopPaymentRelationships
  */
@@ -41,7 +42,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CheckStopPaymentRelationships.JSON_PROPERTY_CUSTOMERS,
   CheckStopPaymentRelationships.JSON_PROPERTY_STOPPED_PAYMENTS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CheckStopPaymentRelationships {
   public static final String JSON_PROPERTY_ACCOUNT = "account";
   private AccountRelationship account;
@@ -63,14 +64,13 @@ public class CheckStopPaymentRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get account
    * @return account
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public AccountRelationship getAccount() {
     return account;
   }
@@ -88,14 +88,13 @@ public class CheckStopPaymentRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get customer
    * @return customer
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOMER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CustomerRelationship getCustomer() {
     return customer;
   }
@@ -113,14 +112,13 @@ public class CheckStopPaymentRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get customers
    * @return customers
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOMERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CustomersRelationship getCustomers() {
     return customers;
   }
@@ -138,14 +136,13 @@ public class CheckStopPaymentRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get stoppedPayments
    * @return stoppedPayments
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STOPPED_PAYMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CheckStopPaymentRelationshipsAllOfStoppedPayments getStoppedPayments() {
     return stoppedPayments;
   }

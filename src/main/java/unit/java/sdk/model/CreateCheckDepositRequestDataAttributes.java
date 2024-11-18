@@ -30,19 +30,24 @@ import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * CreateCheckDepositRequestDataAttributes
  */
 @JsonPropertyOrder({
   CreateCheckDepositRequestDataAttributes.JSON_PROPERTY_AMOUNT,
+  CreateCheckDepositRequestDataAttributes.JSON_PROPERTY_CLEARING_DAYS_OVERRIDE,
   CreateCheckDepositRequestDataAttributes.JSON_PROPERTY_DESCRIPTION,
   CreateCheckDepositRequestDataAttributes.JSON_PROPERTY_IDEMPOTENCY_KEY,
   CreateCheckDepositRequestDataAttributes.JSON_PROPERTY_TAGS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CreateCheckDepositRequestDataAttributes {
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Integer amount;
+
+  public static final String JSON_PROPERTY_CLEARING_DAYS_OVERRIDE = "clearingDaysOverride";
+  private Integer clearingDaysOverride;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
@@ -61,15 +66,14 @@ public class CreateCheckDepositRequestDataAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get amount
    * minimum: 1
    * @return amount
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Integer getAmount() {
     return amount;
   }
@@ -82,19 +86,43 @@ public class CreateCheckDepositRequestDataAttributes {
   }
 
 
+  public CreateCheckDepositRequestDataAttributes clearingDaysOverride(Integer clearingDaysOverride) {
+    this.clearingDaysOverride = clearingDaysOverride;
+    return this;
+  }
+
+  /**
+   * Get clearingDaysOverride
+   * minimum: 1
+   * @return clearingDaysOverride
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CLEARING_DAYS_OVERRIDE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Integer getClearingDaysOverride() {
+    return clearingDaysOverride;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CLEARING_DAYS_OVERRIDE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setClearingDaysOverride(Integer clearingDaysOverride) {
+    this.clearingDaysOverride = clearingDaysOverride;
+  }
+
+
   public CreateCheckDepositRequestDataAttributes description(String description) {
     this.description = description;
     return this;
   }
 
-   /**
+  /**
    * Get description
    * @return description
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getDescription() {
     return description;
   }
@@ -112,14 +140,13 @@ public class CreateCheckDepositRequestDataAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get idempotencyKey
    * @return idempotencyKey
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IDEMPOTENCY_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getIdempotencyKey() {
     return idempotencyKey;
   }
@@ -145,14 +172,13 @@ public class CreateCheckDepositRequestDataAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get tags
    * @return tags
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getTags() {
     return tags;
   }
@@ -178,6 +204,7 @@ public class CreateCheckDepositRequestDataAttributes {
     }
     CreateCheckDepositRequestDataAttributes createCheckDepositRequestDataAttributes = (CreateCheckDepositRequestDataAttributes) o;
     return Objects.equals(this.amount, createCheckDepositRequestDataAttributes.amount) &&
+        Objects.equals(this.clearingDaysOverride, createCheckDepositRequestDataAttributes.clearingDaysOverride) &&
         Objects.equals(this.description, createCheckDepositRequestDataAttributes.description) &&
         Objects.equals(this.idempotencyKey, createCheckDepositRequestDataAttributes.idempotencyKey) &&
         Objects.equals(this.tags, createCheckDepositRequestDataAttributes.tags);
@@ -185,7 +212,7 @@ public class CreateCheckDepositRequestDataAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, description, idempotencyKey, tags);
+    return Objects.hash(amount, clearingDaysOverride, description, idempotencyKey, tags);
   }
 
   @Override
@@ -193,6 +220,7 @@ public class CreateCheckDepositRequestDataAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateCheckDepositRequestDataAttributes {\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+    sb.append("    clearingDaysOverride: ").append(toIndentedString(clearingDaysOverride)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    idempotencyKey: ").append(toIndentedString(idempotencyKey)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
@@ -245,17 +273,22 @@ public class CreateCheckDepositRequestDataAttributes {
 
     // add `amount` to the URL query string
     if (getAmount() != null) {
-      joiner.add(String.format("%samount%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAmount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%samount%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getAmount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `clearingDaysOverride` to the URL query string
+    if (getClearingDaysOverride() != null) {
+      joiner.add(String.format("%sclearingDaysOverride%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getClearingDaysOverride()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `description` to the URL query string
     if (getDescription() != null) {
-      joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDescription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDescription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `idempotencyKey` to the URL query string
     if (getIdempotencyKey() != null) {
-      joiner.add(String.format("%sidempotencyKey%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIdempotencyKey()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sidempotencyKey%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getIdempotencyKey()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `tags` to the URL query string
@@ -263,7 +296,7 @@ public class CreateCheckDepositRequestDataAttributes {
       for (String _key : getTags().keySet()) {
         joiner.add(String.format("%stags%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
-            getTags().get(_key), URLEncoder.encode(String.valueOf(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+            getTags().get(_key), URLEncoder.encode(ApiClient.valueToString(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
     }
 

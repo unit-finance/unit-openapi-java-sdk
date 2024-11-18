@@ -25,50 +25,51 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
+import unit.java.sdk.model.FreezeAccountRequestData;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * FreezeAccountRequest
  */
 @JsonPropertyOrder({
   FreezeAccountRequest.JSON_PROPERTY_DATA
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class FreezeAccountRequest {
   public static final String JSON_PROPERTY_DATA = "data";
-  private FreezeAccountRequest data;
+  private FreezeAccountRequestData data;
 
   public FreezeAccountRequest() { 
   }
 
-  public FreezeAccountRequest data(FreezeAccountRequest data) {
+  public FreezeAccountRequest data(FreezeAccountRequestData data) {
     this.data = data;
     return this;
   }
 
-   /**
+  /**
    * Get data
    * @return data
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public FreezeAccountRequest getData() {
+  public FreezeAccountRequestData getData() {
     return data;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setData(FreezeAccountRequest data) {
+  public void setData(FreezeAccountRequestData data) {
     this.data = data;
   }
 
 
   /**
-   * Return true if this Freeze_Account_Request object is equal to o.
+   * Return true if this FreezeAccountRequest object is equal to o.
    */
   @Override
   public boolean equals(Object o) {

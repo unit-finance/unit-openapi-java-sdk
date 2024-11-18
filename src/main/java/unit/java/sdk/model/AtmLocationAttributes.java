@@ -30,6 +30,7 @@ import unit.java.sdk.model.Coordinates;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * AtmLocationAttributes
  */
@@ -42,7 +43,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   AtmLocationAttributes.JSON_PROPERTY_SURCHARGE_FREE,
   AtmLocationAttributes.JSON_PROPERTY_ACCEPT_DEPOSITS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class AtmLocationAttributes {
   public static final String JSON_PROPERTY_NETWORK = "network";
   private String network;
@@ -73,14 +74,13 @@ public class AtmLocationAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get network
    * @return network
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NETWORK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getNetwork() {
     return network;
   }
@@ -98,14 +98,13 @@ public class AtmLocationAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get locationName
    * @return locationName
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LOCATION_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getLocationName() {
     return locationName;
   }
@@ -123,14 +122,13 @@ public class AtmLocationAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get coordinates
    * @return coordinates
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COORDINATES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Coordinates getCoordinates() {
     return coordinates;
   }
@@ -148,14 +146,13 @@ public class AtmLocationAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get address
    * @return address
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Address getAddress() {
     return address;
   }
@@ -173,14 +170,13 @@ public class AtmLocationAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get distance
    * @return distance
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DISTANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getDistance() {
     return distance;
   }
@@ -198,14 +194,13 @@ public class AtmLocationAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get surchargeFree
    * @return surchargeFree
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SURCHARGE_FREE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getSurchargeFree() {
     return surchargeFree;
   }
@@ -223,14 +218,13 @@ public class AtmLocationAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get acceptDeposits
    * @return acceptDeposits
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ACCEPT_DEPOSITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getAcceptDeposits() {
     return acceptDeposits;
   }
@@ -329,12 +323,12 @@ public class AtmLocationAttributes {
 
     // add `network` to the URL query string
     if (getNetwork() != null) {
-      joiner.add(String.format("%snetwork%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getNetwork()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%snetwork%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getNetwork()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `locationName` to the URL query string
     if (getLocationName() != null) {
-      joiner.add(String.format("%slocationName%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLocationName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%slocationName%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getLocationName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `coordinates` to the URL query string
@@ -349,17 +343,17 @@ public class AtmLocationAttributes {
 
     // add `distance` to the URL query string
     if (getDistance() != null) {
-      joiner.add(String.format("%sdistance%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDistance()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sdistance%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDistance()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `surchargeFree` to the URL query string
     if (getSurchargeFree() != null) {
-      joiner.add(String.format("%ssurchargeFree%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSurchargeFree()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%ssurchargeFree%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getSurchargeFree()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `acceptDeposits` to the URL query string
     if (getAcceptDeposits() != null) {
-      joiner.add(String.format("%sacceptDeposits%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAcceptDeposits()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sacceptDeposits%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getAcceptDeposits()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

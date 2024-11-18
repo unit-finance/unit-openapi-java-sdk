@@ -33,6 +33,7 @@ import unit.java.sdk.model.Transaction;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * UnitTransactionsListResponse
  */
@@ -41,7 +42,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   UnitTransactionsListResponse.JSON_PROPERTY_INCLUDED,
   UnitTransactionsListResponse.JSON_PROPERTY_META
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class UnitTransactionsListResponse {
   public static final String JSON_PROPERTY_DATA = "data";
   private List<Transaction> data = new ArrayList<>();
@@ -68,14 +69,13 @@ public class UnitTransactionsListResponse {
     return this;
   }
 
-   /**
+  /**
    * Get data
    * @return data
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<Transaction> getData() {
     return data;
   }
@@ -101,14 +101,13 @@ public class UnitTransactionsListResponse {
     return this;
   }
 
-   /**
+  /**
    * Get included
    * @return included
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INCLUDED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<IncludedResourceInner> getIncluded() {
     return included;
   }
@@ -126,14 +125,13 @@ public class UnitTransactionsListResponse {
     return this;
   }
 
-   /**
+  /**
    * Get meta
    * @return meta
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public PaginationMeta getMeta() {
     return meta;
   }

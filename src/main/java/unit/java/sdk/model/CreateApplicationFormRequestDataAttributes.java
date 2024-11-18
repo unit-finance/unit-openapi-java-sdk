@@ -35,6 +35,7 @@ import unit.java.sdk.model.RequireIdVerification;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * CreateApplicationFormRequestDataAttributes
  */
@@ -47,7 +48,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateApplicationFormRequestDataAttributes.JSON_PROPERTY_LANG,
   CreateApplicationFormRequestDataAttributes.JSON_PROPERTY_HIDE_APPLICATION_PROGRESS_TRACKER
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CreateApplicationFormRequestDataAttributes {
   public static final String JSON_PROPERTY_TAGS = "tags";
   private Map<String, String> tags = new HashMap<>();
@@ -69,7 +70,7 @@ public class CreateApplicationFormRequestDataAttributes {
     
     BUSINESS("Business"),
     
-    SOLEPROPRIETORSHIP("SoleProprietorship");
+    SOLE_PROPRIETORSHIP("SoleProprietorship");
 
     private String value;
 
@@ -158,14 +159,13 @@ public class CreateApplicationFormRequestDataAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get tags
    * @return tags
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getTags() {
     return tags;
   }
@@ -183,14 +183,13 @@ public class CreateApplicationFormRequestDataAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get applicantDetails
    * @return applicantDetails
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_APPLICANT_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ApplicationFormPrefill getApplicantDetails() {
     return applicantDetails;
   }
@@ -208,14 +207,13 @@ public class CreateApplicationFormRequestDataAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get settingsOverride
    * @return settingsOverride
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SETTINGS_OVERRIDE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ApplicationFormSettingsOverride getSettingsOverride() {
     return settingsOverride;
   }
@@ -233,14 +231,13 @@ public class CreateApplicationFormRequestDataAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get requireIdVerification
    * @return requireIdVerification
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REQUIRE_ID_VERIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public RequireIdVerification getRequireIdVerification() {
     return requireIdVerification;
   }
@@ -266,14 +263,13 @@ public class CreateApplicationFormRequestDataAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get allowedApplicationTypes
    * @return allowedApplicationTypes
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ALLOWED_APPLICATION_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<AllowedApplicationTypesEnum> getAllowedApplicationTypes() {
     return allowedApplicationTypes;
   }
@@ -291,14 +287,13 @@ public class CreateApplicationFormRequestDataAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get lang
    * @return lang
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LANG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LangEnum getLang() {
     return lang;
   }
@@ -316,14 +311,13 @@ public class CreateApplicationFormRequestDataAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get hideApplicationProgressTracker
    * @return hideApplicationProgressTracker
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HIDE_APPLICATION_PROGRESS_TRACKER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getHideApplicationProgressTracker() {
     return hideApplicationProgressTracker;
   }
@@ -425,7 +419,7 @@ public class CreateApplicationFormRequestDataAttributes {
       for (String _key : getTags().keySet()) {
         joiner.add(String.format("%stags%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
-            getTags().get(_key), URLEncoder.encode(String.valueOf(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+            getTags().get(_key), URLEncoder.encode(ApiClient.valueToString(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
     }
 
@@ -449,18 +443,18 @@ public class CreateApplicationFormRequestDataAttributes {
       for (int i = 0; i < getAllowedApplicationTypes().size(); i++) {
         joiner.add(String.format("%sallowedApplicationTypes%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
-            URLEncoder.encode(String.valueOf(getAllowedApplicationTypes().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+            URLEncoder.encode(ApiClient.valueToString(getAllowedApplicationTypes().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
     }
 
     // add `lang` to the URL query string
     if (getLang() != null) {
-      joiner.add(String.format("%slang%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLang()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%slang%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getLang()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `hideApplicationProgressTracker` to the URL query string
     if (getHideApplicationProgressTracker() != null) {
-      joiner.add(String.format("%shideApplicationProgressTracker%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getHideApplicationProgressTracker()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%shideApplicationProgressTracker%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getHideApplicationProgressTracker()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

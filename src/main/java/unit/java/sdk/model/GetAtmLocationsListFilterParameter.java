@@ -28,6 +28,7 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * GetAtmLocationsListFilterParameter
  */
@@ -37,7 +38,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   GetAtmLocationsListFilterParameter.JSON_PROPERTY_POSTAL_CODE,
   GetAtmLocationsListFilterParameter.JSON_PROPERTY_ADDRESS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class GetAtmLocationsListFilterParameter {
   public static final String JSON_PROPERTY_COORDINATES = "coordinates";
   private Object coordinates;
@@ -59,14 +60,13 @@ public class GetAtmLocationsListFilterParameter {
     return this;
   }
 
-   /**
+  /**
    * Get coordinates
    * @return coordinates
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COORDINATES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Object getCoordinates() {
     return coordinates;
   }
@@ -84,14 +84,13 @@ public class GetAtmLocationsListFilterParameter {
     return this;
   }
 
-   /**
+  /**
    * Get searchRadius
    * @return searchRadius
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SEARCH_RADIUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getSearchRadius() {
     return searchRadius;
   }
@@ -109,14 +108,13 @@ public class GetAtmLocationsListFilterParameter {
     return this;
   }
 
-   /**
+  /**
    * Get postalCode
    * @return postalCode
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPostalCode() {
     return postalCode;
   }
@@ -134,14 +132,13 @@ public class GetAtmLocationsListFilterParameter {
     return this;
   }
 
-   /**
+  /**
    * Get address
    * @return address
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Object getAddress() {
     return address;
   }
@@ -234,22 +231,22 @@ public class GetAtmLocationsListFilterParameter {
 
     // add `coordinates` to the URL query string
     if (getCoordinates() != null) {
-      joiner.add(String.format("%scoordinates%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCoordinates()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%scoordinates%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCoordinates()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `searchRadius` to the URL query string
     if (getSearchRadius() != null) {
-      joiner.add(String.format("%ssearchRadius%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSearchRadius()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%ssearchRadius%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getSearchRadius()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `postalCode` to the URL query string
     if (getPostalCode() != null) {
-      joiner.add(String.format("%spostalCode%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPostalCode()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%spostalCode%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getPostalCode()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `address` to the URL query string
     if (getAddress() != null) {
-      joiner.add(String.format("%saddress%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAddress()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%saddress%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getAddress()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

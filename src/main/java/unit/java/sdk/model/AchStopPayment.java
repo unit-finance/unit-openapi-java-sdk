@@ -30,6 +30,7 @@ import unit.java.sdk.model.AchStopPaymentRelationships;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * AchStopPayment
  */
@@ -37,7 +38,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   AchStopPayment.JSON_PROPERTY_ATTRIBUTES,
   AchStopPayment.JSON_PROPERTY_RELATIONSHIPS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class AchStopPayment {
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private AchStopPaymentAttributes attributes;
@@ -53,14 +54,13 @@ public class AchStopPayment {
     return this;
   }
 
-   /**
+  /**
    * Get attributes
    * @return attributes
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public AchStopPaymentAttributes getAttributes() {
     return attributes;
   }
@@ -78,14 +78,13 @@ public class AchStopPayment {
     return this;
   }
 
-   /**
+  /**
    * Get relationships
    * @return relationships
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public AchStopPaymentRelationships getRelationships() {
     return relationships;
   }

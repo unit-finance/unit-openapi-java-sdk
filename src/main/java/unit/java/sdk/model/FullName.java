@@ -28,6 +28,7 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * FullName
  */
@@ -35,7 +36,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   FullName.JSON_PROPERTY_FIRST,
   FullName.JSON_PROPERTY_LAST
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class FullName {
   public static final String JSON_PROPERTY_FIRST = "first";
   private String first;
@@ -51,14 +52,13 @@ public class FullName {
     return this;
   }
 
-   /**
+  /**
    * Get first
    * @return first
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_FIRST)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getFirst() {
     return first;
   }
@@ -76,14 +76,13 @@ public class FullName {
     return this;
   }
 
-   /**
+  /**
    * Get last
    * @return last
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_LAST)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getLast() {
     return last;
   }
@@ -172,12 +171,12 @@ public class FullName {
 
     // add `first` to the URL query string
     if (getFirst() != null) {
-      joiner.add(String.format("%sfirst%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getFirst()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sfirst%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getFirst()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `last` to the URL query string
     if (getLast() != null) {
-      joiner.add(String.format("%slast%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLast()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%slast%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getLast()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

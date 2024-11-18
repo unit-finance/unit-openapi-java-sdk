@@ -31,13 +31,14 @@ import unit.java.sdk.model.CustomersRelationshipDataInner;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * CustomersRelationship
  */
 @JsonPropertyOrder({
   CustomersRelationship.JSON_PROPERTY_DATA
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CustomersRelationship {
   public static final String JSON_PROPERTY_DATA = "data";
   private List<CustomersRelationshipDataInner> data = new ArrayList<>();
@@ -58,14 +59,13 @@ public class CustomersRelationship {
     return this;
   }
 
-   /**
+  /**
    * Get data
    * @return data
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public List<CustomersRelationshipDataInner> getData() {
     return data;
   }

@@ -39,6 +39,7 @@ import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * UpdateIndividualCustomerAttributes
  */
@@ -51,7 +52,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   UpdateIndividualCustomerAttributes.JSON_PROPERTY_AUTHORIZED_USERS,
   UpdateIndividualCustomerAttributes.JSON_PROPERTY_JWT_SUBJECT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class UpdateIndividualCustomerAttributes {
   public static final String JSON_PROPERTY_EMAIL = "email";
   private String email;
@@ -82,14 +83,13 @@ public class UpdateIndividualCustomerAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get email
    * @return email
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getEmail() {
     return email;
   }
@@ -107,14 +107,13 @@ public class UpdateIndividualCustomerAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get phone
    * @return phone
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Phone getPhone() {
     return phone;
   }
@@ -132,14 +131,13 @@ public class UpdateIndividualCustomerAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get address
    * @return address
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Address getAddress() {
     return address;
   }
@@ -157,13 +155,12 @@ public class UpdateIndividualCustomerAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get dba
    * @return dba
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonIgnore
-
   public String getDba() {
         return dba.orElse(null);
   }
@@ -198,14 +195,13 @@ public class UpdateIndividualCustomerAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get tags
    * @return tags
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getTags() {
     return tags;
   }
@@ -235,13 +231,12 @@ public class UpdateIndividualCustomerAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get authorizedUsers
    * @return authorizedUsers
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonIgnore
-
   public List<AuthorizedUser> getAuthorizedUsers() {
         return authorizedUsers.orElse(null);
   }
@@ -268,13 +263,12 @@ public class UpdateIndividualCustomerAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get jwtSubject
    * @return jwtSubject
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonIgnore
-
   public String getJwtSubject() {
         return jwtSubject.orElse(null);
   }
@@ -393,7 +387,7 @@ public class UpdateIndividualCustomerAttributes {
 
     // add `email` to the URL query string
     if (getEmail() != null) {
-      joiner.add(String.format("%semail%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEmail()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%semail%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getEmail()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `phone` to the URL query string
@@ -408,7 +402,7 @@ public class UpdateIndividualCustomerAttributes {
 
     // add `dba` to the URL query string
     if (getDba() != null) {
-      joiner.add(String.format("%sdba%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDba()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sdba%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDba()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `tags` to the URL query string
@@ -416,7 +410,7 @@ public class UpdateIndividualCustomerAttributes {
       for (String _key : getTags().keySet()) {
         joiner.add(String.format("%stags%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
-            getTags().get(_key), URLEncoder.encode(String.valueOf(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+            getTags().get(_key), URLEncoder.encode(ApiClient.valueToString(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
     }
 
@@ -432,7 +426,7 @@ public class UpdateIndividualCustomerAttributes {
 
     // add `jwtSubject` to the URL query string
     if (getJwtSubject() != null) {
-      joiner.add(String.format("%sjwtSubject%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getJwtSubject()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sjwtSubject%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getJwtSubject()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

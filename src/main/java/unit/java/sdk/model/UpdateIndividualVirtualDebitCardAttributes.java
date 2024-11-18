@@ -31,6 +31,7 @@ import unit.java.sdk.model.CardLevelLimits;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * UpdateIndividualVirtualDebitCardAttributes
  */
@@ -39,7 +40,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   UpdateIndividualVirtualDebitCardAttributes.JSON_PROPERTY_LIMITS,
   UpdateIndividualVirtualDebitCardAttributes.JSON_PROPERTY_DEFAULT_FUNDING_ACCOUNT_ID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class UpdateIndividualVirtualDebitCardAttributes {
   public static final String JSON_PROPERTY_TAGS = "tags";
   private Map<String, String> tags = new HashMap<>();
@@ -66,14 +67,13 @@ public class UpdateIndividualVirtualDebitCardAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get tags
    * @return tags
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getTags() {
     return tags;
   }
@@ -91,14 +91,13 @@ public class UpdateIndividualVirtualDebitCardAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get limits
    * @return limits
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LIMITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CardLevelLimits getLimits() {
     return limits;
   }
@@ -116,14 +115,13 @@ public class UpdateIndividualVirtualDebitCardAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get defaultFundingAccountId
    * @return defaultFundingAccountId
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DEFAULT_FUNDING_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDefaultFundingAccountId() {
     return defaultFundingAccountId;
   }
@@ -217,7 +215,7 @@ public class UpdateIndividualVirtualDebitCardAttributes {
       for (String _key : getTags().keySet()) {
         joiner.add(String.format("%stags%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
-            getTags().get(_key), URLEncoder.encode(String.valueOf(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+            getTags().get(_key), URLEncoder.encode(ApiClient.valueToString(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
     }
 
@@ -228,7 +226,7 @@ public class UpdateIndividualVirtualDebitCardAttributes {
 
     // add `defaultFundingAccountId` to the URL query string
     if (getDefaultFundingAccountId() != null) {
-      joiner.add(String.format("%sdefaultFundingAccountId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDefaultFundingAccountId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sdefaultFundingAccountId%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDefaultFundingAccountId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

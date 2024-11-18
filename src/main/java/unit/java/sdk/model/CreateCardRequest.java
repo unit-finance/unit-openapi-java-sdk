@@ -29,13 +29,14 @@ import unit.java.sdk.model.CreateCardRequestData;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * CreateCardRequest
  */
 @JsonPropertyOrder({
   CreateCardRequest.JSON_PROPERTY_DATA
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CreateCardRequest {
   public static final String JSON_PROPERTY_DATA = "data";
   private CreateCardRequestData data;
@@ -48,14 +49,13 @@ public class CreateCardRequest {
     return this;
   }
 
-   /**
+  /**
    * Get data
    * @return data
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CreateCardRequestData getData() {
     return data;
   }

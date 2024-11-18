@@ -28,33 +28,34 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * DeclineAuthorizationRequestAttributes
  */
 @JsonPropertyOrder({
   DeclineAuthorizationRequestAttributes.JSON_PROPERTY_REASON
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class DeclineAuthorizationRequestAttributes {
   /**
    * Gets or Sets reason
    */
   public enum ReasonEnum {
-    ACCOUNTCLOSED("AccountClosed"),
+    ACCOUNT_CLOSED("AccountClosed"),
     
-    CARDEXCEEDSAMOUNTLIMIT("CardExceedsAmountLimit"),
+    CARD_EXCEEDS_AMOUNT_LIMIT("CardExceedsAmountLimit"),
     
-    DONOTHONOR("DoNotHonor"),
+    DO_NOT_HONOR("DoNotHonor"),
     
-    INSUFFICIENTFUNDS("InsufficientFunds"),
+    INSUFFICIENT_FUNDS("InsufficientFunds"),
     
-    INVALIDMERCHANT("InvalidMerchant"),
+    INVALID_MERCHANT("InvalidMerchant"),
     
-    REFERTOCARDISSUER("ReferToCardIssuer"),
+    REFER_TO_CARD_ISSUER("ReferToCardIssuer"),
     
-    RESTRICTEDCARD("RestrictedCard"),
+    RESTRICTED_CARD("RestrictedCard"),
     
-    TRANSACTIONNOTPERMITTEDTOCARDHOLDER("TransactionNotPermittedToCardholder");
+    TRANSACTION_NOT_PERMITTED_TO_CARDHOLDER("TransactionNotPermittedToCardholder");
 
     private String value;
 
@@ -94,14 +95,13 @@ public class DeclineAuthorizationRequestAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get reason
    * @return reason
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ReasonEnum getReason() {
     return reason;
   }
@@ -188,7 +188,7 @@ public class DeclineAuthorizationRequestAttributes {
 
     // add `reason` to the URL query string
     if (getReason() != null) {
-      joiner.add(String.format("%sreason%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getReason()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sreason%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getReason()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

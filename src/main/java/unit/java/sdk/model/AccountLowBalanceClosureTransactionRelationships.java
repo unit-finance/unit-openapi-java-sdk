@@ -32,6 +32,7 @@ import unit.java.sdk.model.ReceiverAccountRelationship;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * AccountLowBalanceClosureTransactionRelationships
  */
@@ -41,7 +42,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   AccountLowBalanceClosureTransactionRelationships.JSON_PROPERTY_CUSTOMERS,
   AccountLowBalanceClosureTransactionRelationships.JSON_PROPERTY_RECEIVER_ACCOUNT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class AccountLowBalanceClosureTransactionRelationships {
   public static final String JSON_PROPERTY_ACCOUNT = "account";
   private AccountRelationship account;
@@ -63,14 +64,13 @@ public class AccountLowBalanceClosureTransactionRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get account
    * @return account
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public AccountRelationship getAccount() {
     return account;
   }
@@ -88,14 +88,13 @@ public class AccountLowBalanceClosureTransactionRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get customer
    * @return customer
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOMER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CustomerRelationship getCustomer() {
     return customer;
   }
@@ -113,14 +112,13 @@ public class AccountLowBalanceClosureTransactionRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get customers
    * @return customers
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOMERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CustomersRelationship getCustomers() {
     return customers;
   }
@@ -138,14 +136,13 @@ public class AccountLowBalanceClosureTransactionRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get receiverAccount
    * @return receiverAccount
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_RECEIVER_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public ReceiverAccountRelationship getReceiverAccount() {
     return receiverAccount;
   }

@@ -19,13 +19,16 @@ import java.util.StringJoiner;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import unit.java.sdk.model.CreatePaymentRelationshipsWithCounterparty;
+import unit.java.sdk.model.CreatePaymentRelationshipsWithCounterpartyAccount;
 import unit.java.sdk.model.CreateRecurringCreditAchPayment;
 import unit.java.sdk.model.CreateRecurringCreditBookPayment;
 import unit.java.sdk.model.CreateRecurringCreditBookPaymentAttributes;
@@ -56,7 +59,7 @@ import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import unit.java.sdk.JSON;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 @JsonDeserialize(using = CreateRecurringPaymentRequestData.CreateRecurringPaymentRequestDataDeserializer.class)
 @JsonSerialize(using = CreateRecurringPaymentRequestData.CreateRecurringPaymentRequestDataSerializer.class)
 public class CreateRecurringPaymentRequestData extends AbstractOpenApiSchema {
@@ -215,6 +218,16 @@ public class CreateRecurringPaymentRequestData extends AbstractOpenApiSchema {
         schemas.put("CreateRecurringCreditBookPayment", CreateRecurringCreditBookPayment.class);
         schemas.put("CreateRecurringDebitAchPayment", CreateRecurringDebitAchPayment.class);
         JSON.registerDescendants(CreateRecurringPaymentRequestData.class, Collections.unmodifiableMap(schemas));
+        // Initialize and register the discriminator mappings.
+        Map<String, Class<?>> mappings = new HashMap<String, Class<?>>();
+        mappings.put("$recurringCreditAchPayment", CreateRecurringCreditAchPayment.class);
+        mappings.put("recurringCreditBookPayment", CreateRecurringCreditBookPayment.class);
+        mappings.put("recurringDebitAchPayment", CreateRecurringDebitAchPayment.class);
+        mappings.put("CreateRecurringCreditAchPayment", CreateRecurringCreditAchPayment.class);
+        mappings.put("CreateRecurringCreditBookPayment", CreateRecurringCreditBookPayment.class);
+        mappings.put("CreateRecurringDebitAchPayment", CreateRecurringDebitAchPayment.class);
+        mappings.put("CreateRecurringPaymentRequest_data", CreateRecurringPaymentRequestData.class);
+        JSON.registerDiscriminator(CreateRecurringPaymentRequestData.class, "type", mappings);
     }
 
     @Override

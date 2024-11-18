@@ -30,13 +30,14 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * RemoveAuthorizedUsersRequestDataAttributes
  */
 @JsonPropertyOrder({
   RemoveAuthorizedUsersRequestDataAttributes.JSON_PROPERTY_AUTHORIZED_USERS_EMAILS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class RemoveAuthorizedUsersRequestDataAttributes {
   public static final String JSON_PROPERTY_AUTHORIZED_USERS_EMAILS = "authorizedUsersEmails";
   private List<String> authorizedUsersEmails = new ArrayList<>();
@@ -57,14 +58,13 @@ public class RemoveAuthorizedUsersRequestDataAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get authorizedUsersEmails
    * @return authorizedUsersEmails
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AUTHORIZED_USERS_EMAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getAuthorizedUsersEmails() {
     return authorizedUsersEmails;
   }
@@ -154,7 +154,7 @@ public class RemoveAuthorizedUsersRequestDataAttributes {
       for (int i = 0; i < getAuthorizedUsersEmails().size(); i++) {
         joiner.add(String.format("%sauthorizedUsersEmails%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
-            URLEncoder.encode(String.valueOf(getAuthorizedUsersEmails().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+            URLEncoder.encode(ApiClient.valueToString(getAuthorizedUsersEmails().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
     }
 

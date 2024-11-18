@@ -31,6 +31,7 @@ import unit.java.sdk.model.OrgRelationship;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * CustomerRelationships
  */
@@ -38,7 +39,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CustomerRelationships.JSON_PROPERTY_ORG,
   CustomerRelationships.JSON_PROPERTY_APPLICATION
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CustomerRelationships {
   public static final String JSON_PROPERTY_ORG = "org";
   private OrgRelationship org;
@@ -54,14 +55,13 @@ public class CustomerRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get org
    * @return org
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ORG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OrgRelationship getOrg() {
     return org;
   }
@@ -79,14 +79,13 @@ public class CustomerRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get application
    * @return application
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_APPLICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ApplicationRelationship getApplication() {
     return application;
   }

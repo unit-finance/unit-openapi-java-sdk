@@ -29,13 +29,14 @@ import unit.java.sdk.model.ReceivingAccountRelationshipData;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * ReceivingAccountRelationship
  */
 @JsonPropertyOrder({
   ReceivingAccountRelationship.JSON_PROPERTY_DATA
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ReceivingAccountRelationship {
   public static final String JSON_PROPERTY_DATA = "data";
   private ReceivingAccountRelationshipData data;
@@ -48,14 +49,13 @@ public class ReceivingAccountRelationship {
     return this;
   }
 
-   /**
+  /**
    * Get data
    * @return data
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public ReceivingAccountRelationshipData getData() {
     return data;
   }

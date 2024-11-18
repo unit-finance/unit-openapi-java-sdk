@@ -30,6 +30,7 @@ import unit.java.sdk.model.CreatePlaidCounterpartyAttributes;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * CreatePlaidCounterparty
  */
@@ -38,10 +39,43 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreatePlaidCounterparty.JSON_PROPERTY_ATTRIBUTES,
   CreatePlaidCounterparty.JSON_PROPERTY_RELATIONSHIPS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CreatePlaidCounterparty {
+  /**
+   * Gets or Sets type
+   */
+  public enum TypeEnum {
+    ACH_COUNTERPARTY("achCounterparty");
+
+    private String value;
+
+    TypeEnum(String value) {
+      this.value = value;
+    }
+
+    @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static TypeEnum fromValue(String value) {
+      for (TypeEnum b : TypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+  }
+
   public static final String JSON_PROPERTY_TYPE = "type";
-  private String type;
+  private TypeEnum type = TypeEnum.ACH_COUNTERPARTY;
 
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private CreatePlaidCounterpartyAttributes attributes;
@@ -52,27 +86,26 @@ public class CreatePlaidCounterparty {
   public CreatePlaidCounterparty() { 
   }
 
-  public CreatePlaidCounterparty type(String type) {
+  public CreatePlaidCounterparty type(TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public String getType() {
+  public TypeEnum getType() {
     return type;
   }
 
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setType(String type) {
+  public void setType(TypeEnum type) {
     this.type = type;
   }
 
@@ -82,14 +115,13 @@ public class CreatePlaidCounterparty {
     return this;
   }
 
-   /**
+  /**
    * Get attributes
    * @return attributes
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public CreatePlaidCounterpartyAttributes getAttributes() {
     return attributes;
   }
@@ -107,14 +139,13 @@ public class CreatePlaidCounterparty {
     return this;
   }
 
-   /**
+  /**
    * Get relationships
    * @return relationships
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public CreateCounterpartyRelationships getRelationships() {
     return relationships;
   }
@@ -205,7 +236,7 @@ public class CreatePlaidCounterparty {
 
     // add `type` to the URL query string
     if (getType() != null) {
-      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `attributes` to the URL query string

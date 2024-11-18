@@ -31,13 +31,14 @@ import unit.java.sdk.model.StopPayment;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * StopPaymentListResponse
  */
 @JsonPropertyOrder({
   StopPaymentListResponse.JSON_PROPERTY_DATA
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class StopPaymentListResponse {
   public static final String JSON_PROPERTY_DATA = "data";
   private List<StopPayment> data = new ArrayList<>();
@@ -58,14 +59,13 @@ public class StopPaymentListResponse {
     return this;
   }
 
-   /**
+  /**
    * Get data
    * @return data
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<StopPayment> getData() {
     return data;
   }

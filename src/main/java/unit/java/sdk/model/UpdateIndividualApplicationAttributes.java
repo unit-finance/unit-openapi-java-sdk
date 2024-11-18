@@ -33,6 +33,7 @@ import unit.java.sdk.model.SourceOfIncome;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * UpdateIndividualApplicationAttributes
  */
@@ -42,7 +43,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   UpdateIndividualApplicationAttributes.JSON_PROPERTY_ANNUAL_INCOME,
   UpdateIndividualApplicationAttributes.JSON_PROPERTY_SOURCE_OF_INCOME
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class UpdateIndividualApplicationAttributes {
   public static final String JSON_PROPERTY_TAGS = "tags";
   private Map<String, String> tags = new HashMap<>();
@@ -72,14 +73,13 @@ public class UpdateIndividualApplicationAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get tags
    * @return tags
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getTags() {
     return tags;
   }
@@ -97,14 +97,13 @@ public class UpdateIndividualApplicationAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get occupation
    * @return occupation
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OCCUPATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Occupation getOccupation() {
     return occupation;
   }
@@ -122,14 +121,13 @@ public class UpdateIndividualApplicationAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get annualIncome
    * @return annualIncome
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ANNUAL_INCOME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public AnnualIncome getAnnualIncome() {
     return annualIncome;
   }
@@ -147,14 +145,13 @@ public class UpdateIndividualApplicationAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get sourceOfIncome
    * @return sourceOfIncome
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SOURCE_OF_INCOME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public SourceOfIncome getSourceOfIncome() {
     return sourceOfIncome;
   }
@@ -250,23 +247,23 @@ public class UpdateIndividualApplicationAttributes {
       for (String _key : getTags().keySet()) {
         joiner.add(String.format("%stags%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
-            getTags().get(_key), URLEncoder.encode(String.valueOf(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+            getTags().get(_key), URLEncoder.encode(ApiClient.valueToString(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
     }
 
     // add `occupation` to the URL query string
     if (getOccupation() != null) {
-      joiner.add(String.format("%soccupation%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getOccupation()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%soccupation%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getOccupation()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `annualIncome` to the URL query string
     if (getAnnualIncome() != null) {
-      joiner.add(String.format("%sannualIncome%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAnnualIncome()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sannualIncome%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getAnnualIncome()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `sourceOfIncome` to the URL query string
     if (getSourceOfIncome() != null) {
-      joiner.add(String.format("%ssourceOfIncome%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSourceOfIncome()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%ssourceOfIncome%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getSourceOfIncome()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

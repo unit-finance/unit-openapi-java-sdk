@@ -234,6 +234,11 @@
             <version>${jakarta-annotation-version}</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpmime</artifactId>
+            <version>${httpmime-version}</version>
+        </dependency>
 
         <!-- test dependencies -->
         <dependency>
@@ -253,5 +258,6 @@
         <jakarta-annotation-version>2.1.1</jakarta-annotation-version>
         <junit-version>4.13.2</junit-version>
         <spotless.version>2.27.2</spotless.version>
+        <httpmime-version>4.5.14</httpmime-version>
     </properties>
 </project>

@@ -30,27 +30,27 @@ import com.fasterxml.jackson.annotation.JsonValue;
  */
 public enum ReturnReason {
   
-  INSUFFICIENTFUNDS("InsufficientFunds"),
+  INSUFFICIENT_FUNDS("InsufficientFunds"),
   
-  ACCOUNTCLOSED("AccountClosed"),
+  ACCOUNT_CLOSED("AccountClosed"),
   
-  ALTEREDCHECK("AlteredCheck"),
+  ALTERED_CHECK("AlteredCheck"),
   
-  FORGEDSIGNATURE("ForgedSignature"),
+  FORGED_SIGNATURE("ForgedSignature"),
   
-  POSTDATEDCHECK("PostdatedCheck"),
+  POSTDATED_CHECK("PostdatedCheck"),
   
-  STOPPAYMENTORDER("StopPaymentOrder"),
+  STOP_PAYMENT_ORDER("StopPaymentOrder"),
   
-  UNAUTHORIZEDDEBIT("UnauthorizedDebit"),
+  UNAUTHORIZED_DEBIT("UnauthorizedDebit"),
   
-  WRONGAMOUNT("WrongAmount"),
+  WRONG_AMOUNT("WrongAmount"),
   
-  DUPLICATEPAYMENT("DuplicatePayment"),
+  DUPLICATE_PAYMENT("DuplicatePayment"),
   
-  MISSINGSIGNATURE("MissingSignature"),
+  MISSING_SIGNATURE("MissingSignature"),
   
-  IRREGULARENDORSEMENT("IrregularEndorsement"),
+  IRREGULAR_ENDORSEMENT("IrregularEndorsement"),
   
   OTHER("Other");
 

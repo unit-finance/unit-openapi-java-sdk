@@ -29,6 +29,7 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * WebhookAttributes
  */
@@ -42,7 +43,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   WebhookAttributes.JSON_PROPERTY_TOKEN,
   WebhookAttributes.JSON_PROPERTY_SUBSCRIPTION_TYPE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WebhookAttributes {
   public static final String JSON_PROPERTY_CREATED_AT = "createdAt";
   private OffsetDateTime createdAt;
@@ -62,7 +63,7 @@ public class WebhookAttributes {
   public enum ContentTypeEnum {
     JSON("Json"),
     
-    JSONAPI("JsonAPI");
+    JSON_API("JsonAPI");
 
     private String value;
 
@@ -98,9 +99,9 @@ public class WebhookAttributes {
    * Gets or Sets deliveryMode
    */
   public enum DeliveryModeEnum {
-    ATMOSTONCE("AtMostOnce"),
+    AT_MOST_ONCE("AtMostOnce"),
     
-    ATLEASTONCE("AtLeastOnce");
+    AT_LEAST_ONCE("AtLeastOnce");
 
     private String value;
 
@@ -146,14 +147,13 @@ public class WebhookAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get createdAt
    * @return createdAt
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
@@ -171,14 +171,13 @@ public class WebhookAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get label
    * @return label
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LABEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getLabel() {
     return label;
   }
@@ -196,14 +195,13 @@ public class WebhookAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get url
    * @return url
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getUrl() {
     return url;
   }
@@ -221,14 +219,13 @@ public class WebhookAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get status
    * @return status
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStatus() {
     return status;
   }
@@ -246,14 +243,13 @@ public class WebhookAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get contentType
    * @return contentType
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CONTENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ContentTypeEnum getContentType() {
     return contentType;
   }
@@ -271,14 +267,13 @@ public class WebhookAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get deliveryMode
    * @return deliveryMode
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DELIVERY_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public DeliveryModeEnum getDeliveryMode() {
     return deliveryMode;
   }
@@ -296,14 +291,13 @@ public class WebhookAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get token
    * @return token
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getToken() {
     return token;
   }
@@ -321,14 +315,13 @@ public class WebhookAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get subscriptionType
    * @return subscriptionType
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SUBSCRIPTION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSubscriptionType() {
     return subscriptionType;
   }
@@ -429,42 +422,42 @@ public class WebhookAttributes {
 
     // add `createdAt` to the URL query string
     if (getCreatedAt() != null) {
-      joiner.add(String.format("%screatedAt%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%screatedAt%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCreatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `label` to the URL query string
     if (getLabel() != null) {
-      joiner.add(String.format("%slabel%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLabel()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%slabel%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getLabel()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `url` to the URL query string
     if (getUrl() != null) {
-      joiner.add(String.format("%surl%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUrl()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%surl%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getUrl()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `status` to the URL query string
     if (getStatus() != null) {
-      joiner.add(String.format("%sstatus%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStatus()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sstatus%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getStatus()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `contentType` to the URL query string
     if (getContentType() != null) {
-      joiner.add(String.format("%scontentType%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getContentType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%scontentType%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getContentType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `deliveryMode` to the URL query string
     if (getDeliveryMode() != null) {
-      joiner.add(String.format("%sdeliveryMode%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDeliveryMode()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sdeliveryMode%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDeliveryMode()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `token` to the URL query string
     if (getToken() != null) {
-      joiner.add(String.format("%stoken%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getToken()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%stoken%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getToken()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `subscriptionType` to the URL query string
     if (getSubscriptionType() != null) {
-      joiner.add(String.format("%ssubscriptionType%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSubscriptionType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%ssubscriptionType%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getSubscriptionType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

@@ -33,6 +33,7 @@ import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * CreateAchStopPaymentAttributes
  */
@@ -46,7 +47,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateAchStopPaymentAttributes.JSON_PROPERTY_TAGS,
   CreateAchStopPaymentAttributes.JSON_PROPERTY_IDEMPOTENCY_KEY
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CreateAchStopPaymentAttributes {
   public static final String JSON_PROPERTY_MIN_AMOUNT = "minAmount";
   private Integer minAmount;
@@ -80,14 +81,13 @@ public class CreateAchStopPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get minAmount
    * @return minAmount
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MIN_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getMinAmount() {
     return minAmount;
   }
@@ -113,14 +113,13 @@ public class CreateAchStopPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get originatorName
    * @return originatorName
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ORIGINATOR_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getOriginatorName() {
     return originatorName;
   }
@@ -138,14 +137,13 @@ public class CreateAchStopPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get direction
    * @return direction
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_DIRECTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getDirection() {
     return direction;
   }
@@ -163,14 +161,13 @@ public class CreateAchStopPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get expiration
    * @return expiration
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EXPIRATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LocalDate getExpiration() {
     return expiration;
   }
@@ -188,14 +185,13 @@ public class CreateAchStopPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get isMultiUse
    * @return isMultiUse
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IS_MULTI_USE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getIsMultiUse() {
     return isMultiUse;
   }
@@ -213,14 +209,13 @@ public class CreateAchStopPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get description
    * @return description
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getDescription() {
     return description;
   }
@@ -246,14 +241,13 @@ public class CreateAchStopPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get tags
    * @return tags
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getTags() {
     return tags;
   }
@@ -271,14 +265,13 @@ public class CreateAchStopPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get idempotencyKey
    * @return idempotencyKey
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IDEMPOTENCY_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getIdempotencyKey() {
     return idempotencyKey;
   }
@@ -379,7 +372,7 @@ public class CreateAchStopPaymentAttributes {
 
     // add `minAmount` to the URL query string
     if (getMinAmount() != null) {
-      joiner.add(String.format("%sminAmount%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMinAmount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sminAmount%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getMinAmount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `originatorName` to the URL query string
@@ -387,28 +380,28 @@ public class CreateAchStopPaymentAttributes {
       for (int i = 0; i < getOriginatorName().size(); i++) {
         joiner.add(String.format("%soriginatorName%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
-            URLEncoder.encode(String.valueOf(getOriginatorName().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+            URLEncoder.encode(ApiClient.valueToString(getOriginatorName().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
     }
 
     // add `direction` to the URL query string
     if (getDirection() != null) {
-      joiner.add(String.format("%sdirection%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDirection()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sdirection%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDirection()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `expiration` to the URL query string
     if (getExpiration() != null) {
-      joiner.add(String.format("%sexpiration%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getExpiration()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sexpiration%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getExpiration()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `isMultiUse` to the URL query string
     if (getIsMultiUse() != null) {
-      joiner.add(String.format("%sisMultiUse%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIsMultiUse()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sisMultiUse%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getIsMultiUse()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `description` to the URL query string
     if (getDescription() != null) {
-      joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDescription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDescription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `tags` to the URL query string
@@ -416,13 +409,13 @@ public class CreateAchStopPaymentAttributes {
       for (String _key : getTags().keySet()) {
         joiner.add(String.format("%stags%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
-            getTags().get(_key), URLEncoder.encode(String.valueOf(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+            getTags().get(_key), URLEncoder.encode(ApiClient.valueToString(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
     }
 
     // add `idempotencyKey` to the URL query string
     if (getIdempotencyKey() != null) {
-      joiner.add(String.format("%sidempotencyKey%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIdempotencyKey()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sidempotencyKey%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getIdempotencyKey()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

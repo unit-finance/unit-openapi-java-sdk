@@ -30,13 +30,13 @@ import com.fasterxml.jackson.annotation.JsonValue;
  */
 public enum BusinessAnnualRevenue {
   
-  UPTO250K("UpTo250k"),
+  UP_TO250K("UpTo250k"),
   
-  BETWEEN250KAND500K("Between250kAnd500k"),
+  BETWEEN250K_AND500K("Between250kAnd500k"),
   
-  BETWEEN500KAND1M("Between500kAnd1m"),
+  BETWEEN500K_AND1M("Between500kAnd1m"),
   
-  BETWEEN1MAND5M("Between1mAnd5m"),
+  BETWEEN1M_AND5M("Between1mAnd5m"),
   
   OVER5M("Over5m");
 

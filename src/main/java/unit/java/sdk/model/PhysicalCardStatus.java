@@ -40,13 +40,13 @@ public enum PhysicalCardStatus {
   
   FROZEN("Frozen"),
   
-  CLOSEDBYCUSTOMER("ClosedByCustomer"),
+  CLOSED_BY_CUSTOMER("ClosedByCustomer"),
   
   UNKNOWN("Unknown"),
   
-  SUSPECTEDFRAUD("SuspectedFraud"),
+  SUSPECTED_FRAUD("SuspectedFraud"),
   
-  ACTIVEFORONLINEUSE("ActiveForOnlineUse");
+  ACTIVE_FOR_ONLINE_USE("ActiveForOnlineUse");
 
   private String value;
 

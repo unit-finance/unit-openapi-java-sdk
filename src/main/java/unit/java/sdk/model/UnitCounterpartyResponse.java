@@ -29,13 +29,14 @@ import unit.java.sdk.model.Counterparty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * UnitCounterpartyResponse
  */
 @JsonPropertyOrder({
   UnitCounterpartyResponse.JSON_PROPERTY_DATA
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class UnitCounterpartyResponse {
   public static final String JSON_PROPERTY_DATA = "data";
   private Counterparty data;
@@ -48,14 +49,13 @@ public class UnitCounterpartyResponse {
     return this;
   }
 
-   /**
+  /**
    * Get data
    * @return data
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Counterparty getData() {
     return data;
   }
@@ -69,7 +69,7 @@ public class UnitCounterpartyResponse {
 
 
   /**
-   * Return true if this Unit_Counterparty_Response object is equal to o.
+   * Return true if this UnitCounterpartyResponse object is equal to o.
    */
   @Override
   public boolean equals(Object o) {

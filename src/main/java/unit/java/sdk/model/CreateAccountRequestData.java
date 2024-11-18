@@ -27,8 +27,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import unit.java.sdk.model.CreateCreditAccount;
 import unit.java.sdk.model.CreateDepositAccount;
-import unit.java.sdk.model.CreateDepositAccountAttributes;
-import unit.java.sdk.model.CreateDepositAccountRelationships;
+import unit.java.sdk.model.CreateWalletAccount;
+import unit.java.sdk.model.CreateWalletAccountAttributes;
+import unit.java.sdk.model.CreateWalletAccountRelationships;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -55,7 +56,7 @@ import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import unit.java.sdk.JSON;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 @JsonDeserialize(using = CreateAccountRequestData.CreateAccountRequestDataDeserializer.class)
 @JsonSerialize(using = CreateAccountRequestData.CreateAccountRequestDataSerializer.class)
 public class CreateAccountRequestData extends AbstractOpenApiSchema {
@@ -144,6 +145,32 @@ public class CreateAccountRequestData extends AbstractOpenApiSchema {
                 log.log(Level.FINER, "Input data does not match schema 'CreateDepositAccount'", e);
             }
 
+            // deserialize CreateWalletAccount
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (CreateWalletAccount.class.equals(Integer.class) || CreateWalletAccount.class.equals(Long.class) || CreateWalletAccount.class.equals(Float.class) || CreateWalletAccount.class.equals(Double.class) || CreateWalletAccount.class.equals(Boolean.class) || CreateWalletAccount.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((CreateWalletAccount.class.equals(Integer.class) || CreateWalletAccount.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((CreateWalletAccount.class.equals(Float.class) || CreateWalletAccount.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (CreateWalletAccount.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (CreateWalletAccount.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(CreateWalletAccount.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'CreateWalletAccount'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'CreateWalletAccount'", e);
+            }
+
             if (match == 1) {
                 CreateAccountRequestData ret = new CreateAccountRequestData();
                 ret.setActualInstance(deserialized);
@@ -178,9 +205,15 @@ public class CreateAccountRequestData extends AbstractOpenApiSchema {
         setActualInstance(o);
     }
 
+    public CreateAccountRequestData(CreateWalletAccount o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
     static {
         schemas.put("CreateCreditAccount", CreateCreditAccount.class);
         schemas.put("CreateDepositAccount", CreateDepositAccount.class);
+        schemas.put("CreateWalletAccount", CreateWalletAccount.class);
         JSON.registerDescendants(CreateAccountRequestData.class, Collections.unmodifiableMap(schemas));
     }
 
@@ -192,7 +225,7 @@ public class CreateAccountRequestData extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * CreateCreditAccount, CreateDepositAccount
+     * CreateCreditAccount, CreateDepositAccount, CreateWalletAccount
      *
      * It could be an instance of the 'oneOf' schemas.
      * The oneOf child schemas may themselves be a composed schema (allOf, anyOf, oneOf).
@@ -209,14 +242,19 @@ public class CreateAccountRequestData extends AbstractOpenApiSchema {
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be CreateCreditAccount, CreateDepositAccount");
+        if (JSON.isInstanceOf(CreateWalletAccount.class, instance, new HashSet<Class<?>>())) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        throw new RuntimeException("Invalid instance type. Must be CreateCreditAccount, CreateDepositAccount, CreateWalletAccount");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * CreateCreditAccount, CreateDepositAccount
+     * CreateCreditAccount, CreateDepositAccount, CreateWalletAccount
      *
-     * @return The actual instance (CreateCreditAccount, CreateDepositAccount)
+     * @return The actual instance (CreateCreditAccount, CreateDepositAccount, CreateWalletAccount)
      */
     @Override
     public Object getActualInstance() {
@@ -243,6 +281,17 @@ public class CreateAccountRequestData extends AbstractOpenApiSchema {
      */
     public CreateDepositAccount getCreateDepositAccount() throws ClassCastException {
         return (CreateDepositAccount)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `CreateWalletAccount`. If the actual instance is not `CreateWalletAccount`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `CreateWalletAccount`
+     * @throws ClassCastException if the instance is not `CreateWalletAccount`
+     */
+    public CreateWalletAccount getCreateWalletAccount() throws ClassCastException {
+        return (CreateWalletAccount)super.getActualInstance();
     }
 
 
@@ -288,6 +337,12 @@ public class CreateAccountRequestData extends AbstractOpenApiSchema {
     if (getActualInstance() instanceof CreateDepositAccount) {
         if (getActualInstance() != null) {
           joiner.add(((CreateDepositAccount)getActualInstance()).toUrlQueryString(prefix + "one_of_1" + suffix));
+        }
+        return joiner.toString();
+    }
+    if (getActualInstance() instanceof CreateWalletAccount) {
+        if (getActualInstance() != null) {
+          joiner.add(((CreateWalletAccount)getActualInstance()).toUrlQueryString(prefix + "one_of_2" + suffix));
         }
         return joiner.toString();
     }

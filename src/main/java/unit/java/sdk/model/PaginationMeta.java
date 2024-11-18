@@ -29,13 +29,14 @@ import unit.java.sdk.model.PaginationMetaPagination;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * PaginationMeta
  */
 @JsonPropertyOrder({
   PaginationMeta.JSON_PROPERTY_PAGINATION
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class PaginationMeta {
   public static final String JSON_PROPERTY_PAGINATION = "pagination";
   private PaginationMetaPagination pagination;
@@ -48,14 +49,13 @@ public class PaginationMeta {
     return this;
   }
 
-   /**
+  /**
    * Get pagination
    * @return pagination
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PAGINATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public PaginationMetaPagination getPagination() {
     return pagination;
   }

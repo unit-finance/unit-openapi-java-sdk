@@ -30,6 +30,7 @@ import unit.java.sdk.model.CreateCapitalPartnerAchRepaymentRelationships;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * CreateCapitalPartnerAchRepayment
  */
@@ -38,13 +39,13 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateCapitalPartnerAchRepayment.JSON_PROPERTY_ATTRIBUTES,
   CreateCapitalPartnerAchRepayment.JSON_PROPERTY_RELATIONSHIPS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CreateCapitalPartnerAchRepayment {
   /**
    * Gets or Sets type
    */
   public enum TypeEnum {
-    CAPITALPARTNERACHREPAYMENT("capitalPartnerAchRepayment");
+    CAPITAL_PARTNER_ACH_REPAYMENT("capitalPartnerAchRepayment");
 
     private String value;
 
@@ -74,7 +75,7 @@ public class CreateCapitalPartnerAchRepayment {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.CAPITALPARTNERACHREPAYMENT;
+  private TypeEnum type = TypeEnum.CAPITAL_PARTNER_ACH_REPAYMENT;
 
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private CreateAchRepaymentAttributes attributes;
@@ -90,14 +91,13 @@ public class CreateCapitalPartnerAchRepayment {
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public TypeEnum getType() {
     return type;
   }
@@ -115,14 +115,13 @@ public class CreateCapitalPartnerAchRepayment {
     return this;
   }
 
-   /**
+  /**
    * Get attributes
    * @return attributes
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public CreateAchRepaymentAttributes getAttributes() {
     return attributes;
   }
@@ -140,14 +139,13 @@ public class CreateCapitalPartnerAchRepayment {
     return this;
   }
 
-   /**
+  /**
    * Get relationships
    * @return relationships
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public CreateCapitalPartnerAchRepaymentRelationships getRelationships() {
     return relationships;
   }
@@ -238,7 +236,7 @@ public class CreateCapitalPartnerAchRepayment {
 
     // add `type` to the URL query string
     if (getType() != null) {
-      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `attributes` to the URL query string

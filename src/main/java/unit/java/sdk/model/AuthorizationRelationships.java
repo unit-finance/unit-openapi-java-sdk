@@ -32,6 +32,7 @@ import unit.java.sdk.model.CustomerRelationship;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * AuthorizationRelationships
  */
@@ -41,7 +42,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   AuthorizationRelationships.JSON_PROPERTY_CUSTOMER,
   AuthorizationRelationships.JSON_PROPERTY_AUTHORIZATION_REQUEST
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class AuthorizationRelationships {
   public static final String JSON_PROPERTY_ACCOUNT = "account";
   private AccountRelationship account;
@@ -63,14 +64,13 @@ public class AuthorizationRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get account
    * @return account
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public AccountRelationship getAccount() {
     return account;
   }
@@ -88,14 +88,13 @@ public class AuthorizationRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get card
    * @return card
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_CARD)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public CardRelationship getCard() {
     return card;
   }
@@ -113,14 +112,13 @@ public class AuthorizationRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get customer
    * @return customer
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOMER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CustomerRelationship getCustomer() {
     return customer;
   }
@@ -138,14 +136,13 @@ public class AuthorizationRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get authorizationRequest
    * @return authorizationRequest
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AUTHORIZATION_REQUEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public AuthorizationRequestRelationship getAuthorizationRequest() {
     return authorizationRequest;
   }

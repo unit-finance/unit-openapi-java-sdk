@@ -30,13 +30,14 @@ import unit.java.sdk.model.CustomerRelationship;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * DepositAccountAllOfRelationships
  */
 @JsonPropertyOrder({
   DepositAccountAllOfRelationships.JSON_PROPERTY_CUSTOMER
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class DepositAccountAllOfRelationships {
   public static final String JSON_PROPERTY_CUSTOMER = "customer";
   private CustomerRelationship customer;
@@ -49,14 +50,13 @@ public class DepositAccountAllOfRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get customer
    * @return customer
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOMER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CustomerRelationship getCustomer() {
     return customer;
   }

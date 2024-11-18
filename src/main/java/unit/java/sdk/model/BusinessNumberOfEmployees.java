@@ -30,13 +30,13 @@ import com.fasterxml.jackson.annotation.JsonValue;
  */
 public enum BusinessNumberOfEmployees {
   
-  UPTO10("UpTo10"),
+  UP_TO10("UpTo10"),
   
-  BETWEEN10AND50("Between10And50"),
+  BETWEEN10_AND50("Between10And50"),
   
-  BETWEEN50AND100("Between50And100"),
+  BETWEEN50_AND100("Between50And100"),
   
-  BETWEEN100AND500("Between100And500"),
+  BETWEEN100_AND500("Between100And500"),
   
   OVER500("Over500");
 

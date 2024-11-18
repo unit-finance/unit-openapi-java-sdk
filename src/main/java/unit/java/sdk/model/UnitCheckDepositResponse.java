@@ -29,13 +29,14 @@ import unit.java.sdk.model.CheckDeposit;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * UnitCheckDepositResponse
  */
 @JsonPropertyOrder({
   UnitCheckDepositResponse.JSON_PROPERTY_DATA
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class UnitCheckDepositResponse {
   public static final String JSON_PROPERTY_DATA = "data";
   private CheckDeposit data;
@@ -48,14 +49,13 @@ public class UnitCheckDepositResponse {
     return this;
   }
 
-   /**
+  /**
    * Get data
    * @return data
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CheckDeposit getData() {
     return data;
   }
@@ -69,7 +69,7 @@ public class UnitCheckDepositResponse {
 
 
   /**
-   * Return true if this Unit_Check_Deposit_Response object is equal to o.
+   * Return true if this UnitCheckDepositResponse object is equal to o.
    */
   @Override
   public boolean equals(Object o) {

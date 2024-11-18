@@ -25,11 +25,12 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
+import unit.java.sdk.model.AccountEndOfDayAttributes;
 import unit.java.sdk.model.AccountEndOfDayRelationships;
-import unit.java.sdk.model.Attributes;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * AccountEndOfDay
  */
@@ -39,13 +40,13 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   AccountEndOfDay.JSON_PROPERTY_ATTRIBUTES,
   AccountEndOfDay.JSON_PROPERTY_RELATIONSHIPS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class AccountEndOfDay {
   /**
    * Gets or Sets type
    */
   public enum TypeEnum {
-    ACCOUNTENDOFDAY("accountEndOfDay");
+    ACCOUNT_END_OF_DAY("accountEndOfDay");
 
     private String value;
 
@@ -81,7 +82,7 @@ public class AccountEndOfDay {
   private String id;
 
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private Attributes attributes;
+  private AccountEndOfDayAttributes attributes;
 
   public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
   private AccountEndOfDayRelationships relationships;
@@ -94,14 +95,13 @@ public class AccountEndOfDay {
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public TypeEnum getType() {
     return type;
   }
@@ -119,14 +119,13 @@ public class AccountEndOfDay {
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getId() {
     return id;
   }
@@ -139,27 +138,26 @@ public class AccountEndOfDay {
   }
 
 
-  public AccountEndOfDay attributes(Attributes attributes) {
+  public AccountEndOfDay attributes(AccountEndOfDayAttributes attributes) {
     this.attributes = attributes;
     return this;
   }
 
-   /**
+  /**
    * Get attributes
    * @return attributes
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public Attributes getAttributes() {
+  public AccountEndOfDayAttributes getAttributes() {
     return attributes;
   }
 
 
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAttributes(Attributes attributes) {
+  public void setAttributes(AccountEndOfDayAttributes attributes) {
     this.attributes = attributes;
   }
 
@@ -169,14 +167,13 @@ public class AccountEndOfDay {
     return this;
   }
 
-   /**
+  /**
    * Get relationships
    * @return relationships
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public AccountEndOfDayRelationships getRelationships() {
     return relationships;
   }
@@ -269,12 +266,12 @@ public class AccountEndOfDay {
 
     // add `type` to the URL query string
     if (getType() != null) {
-      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `id` to the URL query string
     if (getId() != null) {
-      joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `attributes` to the URL query string

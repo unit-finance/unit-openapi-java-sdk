@@ -29,6 +29,7 @@ import unit.java.sdk.model.Phone;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * CreateCustomerTokenVerificationRequestDataAttributes
  */
@@ -38,7 +39,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateCustomerTokenVerificationRequestDataAttributes.JSON_PROPERTY_APP_HASH,
   CreateCustomerTokenVerificationRequestDataAttributes.JSON_PROPERTY_LANGUAGE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CreateCustomerTokenVerificationRequestDataAttributes {
   /**
    * Gets or Sets channel
@@ -208,14 +209,13 @@ public class CreateCustomerTokenVerificationRequestDataAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get channel
    * @return channel
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_CHANNEL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public ChannelEnum getChannel() {
     return channel;
   }
@@ -233,14 +233,13 @@ public class CreateCustomerTokenVerificationRequestDataAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get phone
    * @return phone
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Phone getPhone() {
     return phone;
   }
@@ -258,14 +257,13 @@ public class CreateCustomerTokenVerificationRequestDataAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get appHash
    * @return appHash
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_APP_HASH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAppHash() {
     return appHash;
   }
@@ -283,14 +281,13 @@ public class CreateCustomerTokenVerificationRequestDataAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get language
    * @return language
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LanguageEnum getLanguage() {
     return language;
   }
@@ -383,7 +380,7 @@ public class CreateCustomerTokenVerificationRequestDataAttributes {
 
     // add `channel` to the URL query string
     if (getChannel() != null) {
-      joiner.add(String.format("%schannel%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getChannel()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%schannel%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getChannel()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `phone` to the URL query string
@@ -393,12 +390,12 @@ public class CreateCustomerTokenVerificationRequestDataAttributes {
 
     // add `appHash` to the URL query string
     if (getAppHash() != null) {
-      joiner.add(String.format("%sappHash%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAppHash()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sappHash%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getAppHash()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `language` to the URL query string
     if (getLanguage() != null) {
-      joiner.add(String.format("%slanguage%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLanguage()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%slanguage%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getLanguage()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

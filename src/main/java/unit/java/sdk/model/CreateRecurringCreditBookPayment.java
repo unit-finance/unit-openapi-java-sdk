@@ -25,11 +25,12 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import unit.java.sdk.model.CreatePaymentRelationshipsWithCounterparty;
+import unit.java.sdk.model.CreatePaymentRelationshipsWithCounterpartyAccount;
 import unit.java.sdk.model.CreateRecurringCreditBookPaymentAttributes;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * CreateRecurringCreditBookPayment
  */
@@ -38,13 +39,13 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateRecurringCreditBookPayment.JSON_PROPERTY_ATTRIBUTES,
   CreateRecurringCreditBookPayment.JSON_PROPERTY_RELATIONSHIPS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CreateRecurringCreditBookPayment {
   /**
    * Gets or Sets type
    */
   public enum TypeEnum {
-    RECURRINGCREDITBOOKPAYMENT("recurringCreditBookPayment");
+    RECURRING_CREDIT_BOOK_PAYMENT("recurringCreditBookPayment");
 
     private String value;
 
@@ -74,13 +75,13 @@ public class CreateRecurringCreditBookPayment {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.RECURRINGCREDITBOOKPAYMENT;
+  private TypeEnum type = TypeEnum.RECURRING_CREDIT_BOOK_PAYMENT;
 
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private CreateRecurringCreditBookPaymentAttributes attributes;
 
   public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
-  private CreatePaymentRelationshipsWithCounterparty relationships;
+  private CreatePaymentRelationshipsWithCounterpartyAccount relationships;
 
   public CreateRecurringCreditBookPayment() { 
   }
@@ -90,14 +91,13 @@ public class CreateRecurringCreditBookPayment {
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public TypeEnum getType() {
     return type;
   }
@@ -115,14 +115,13 @@ public class CreateRecurringCreditBookPayment {
     return this;
   }
 
-   /**
+  /**
    * Get attributes
    * @return attributes
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public CreateRecurringCreditBookPaymentAttributes getAttributes() {
     return attributes;
   }
@@ -135,27 +134,26 @@ public class CreateRecurringCreditBookPayment {
   }
 
 
-  public CreateRecurringCreditBookPayment relationships(CreatePaymentRelationshipsWithCounterparty relationships) {
+  public CreateRecurringCreditBookPayment relationships(CreatePaymentRelationshipsWithCounterpartyAccount relationships) {
     this.relationships = relationships;
     return this;
   }
 
-   /**
+  /**
    * Get relationships
    * @return relationships
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public CreatePaymentRelationshipsWithCounterparty getRelationships() {
+  public CreatePaymentRelationshipsWithCounterpartyAccount getRelationships() {
     return relationships;
   }
 
 
   @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setRelationships(CreatePaymentRelationshipsWithCounterparty relationships) {
+  public void setRelationships(CreatePaymentRelationshipsWithCounterpartyAccount relationships) {
     this.relationships = relationships;
   }
 
@@ -238,7 +236,7 @@ public class CreateRecurringCreditBookPayment {
 
     // add `type` to the URL query string
     if (getType() != null) {
-      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `attributes` to the URL query string

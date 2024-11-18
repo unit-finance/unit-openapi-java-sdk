@@ -36,6 +36,7 @@ import unit.java.sdk.model.PhysicalCardStatus;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * BusinessDebitCardAllOfAttributes
  */
@@ -60,7 +61,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   BusinessDebitCardAllOfAttributes.JSON_PROPERTY_TAGS,
   BusinessDebitCardAllOfAttributes.JSON_PROPERTY_FREEZE_REASON
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class BusinessDebitCardAllOfAttributes {
   public static final String JSON_PROPERTY_CREATED_AT = "createdAt";
   private OffsetDateTime createdAt;
@@ -127,14 +128,13 @@ public class BusinessDebitCardAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get createdAt
    * @return createdAt
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
@@ -152,14 +152,13 @@ public class BusinessDebitCardAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get updatedAt
    * @return updatedAt
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_UPDATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
   }
@@ -177,14 +176,13 @@ public class BusinessDebitCardAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get last4Digits
    * @return last4Digits
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_LAST4_DIGITS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getLast4Digits() {
     return last4Digits;
   }
@@ -202,14 +200,13 @@ public class BusinessDebitCardAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get expirationDate
    * @return expirationDate
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_EXPIRATION_DATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getExpirationDate() {
     return expirationDate;
   }
@@ -227,14 +224,13 @@ public class BusinessDebitCardAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get nextExpirationDate
    * @return nextExpirationDate
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NEXT_EXPIRATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getNextExpirationDate() {
     return nextExpirationDate;
   }
@@ -252,14 +248,13 @@ public class BusinessDebitCardAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get shippingAddress
    * @return shippingAddress
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SHIPPING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Address getShippingAddress() {
     return shippingAddress;
   }
@@ -277,14 +272,13 @@ public class BusinessDebitCardAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get address
    * @return address
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Address getAddress() {
     return address;
   }
@@ -302,14 +296,13 @@ public class BusinessDebitCardAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get fullName
    * @return fullName
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_FULL_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public FullName getFullName() {
     return fullName;
   }
@@ -327,14 +320,13 @@ public class BusinessDebitCardAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get phone
    * @return phone
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_PHONE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Phone getPhone() {
     return phone;
   }
@@ -352,14 +344,13 @@ public class BusinessDebitCardAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get email
    * @return email
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getEmail() {
     return email;
   }
@@ -377,14 +368,13 @@ public class BusinessDebitCardAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get dateOfBirth
    * @return dateOfBirth
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_DATE_OF_BIRTH)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public LocalDate getDateOfBirth() {
     return dateOfBirth;
   }
@@ -402,14 +392,13 @@ public class BusinessDebitCardAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get nationality
    * @return nationality
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NATIONALITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getNationality() {
     return nationality;
   }
@@ -427,14 +416,13 @@ public class BusinessDebitCardAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get ssn
    * @return ssn
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SSN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSsn() {
     return ssn;
   }
@@ -452,14 +440,13 @@ public class BusinessDebitCardAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get passport
    * @return passport
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PASSPORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPassport() {
     return passport;
   }
@@ -477,14 +464,13 @@ public class BusinessDebitCardAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get bin
    * @return bin
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBin() {
     return bin;
   }
@@ -502,14 +488,13 @@ public class BusinessDebitCardAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get status
    * @return status
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public PhysicalCardStatus getStatus() {
     return status;
   }
@@ -527,14 +512,13 @@ public class BusinessDebitCardAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get design
    * @return design
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDesign() {
     return design;
   }
@@ -560,14 +544,13 @@ public class BusinessDebitCardAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get tags
    * @return tags
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getTags() {
     return tags;
   }
@@ -585,14 +568,13 @@ public class BusinessDebitCardAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get freezeReason
    * @return freezeReason
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FREEZE_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getFreezeReason() {
     return freezeReason;
   }
@@ -715,27 +697,27 @@ public class BusinessDebitCardAllOfAttributes {
 
     // add `createdAt` to the URL query string
     if (getCreatedAt() != null) {
-      joiner.add(String.format("%screatedAt%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%screatedAt%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCreatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `updatedAt` to the URL query string
     if (getUpdatedAt() != null) {
-      joiner.add(String.format("%supdatedAt%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUpdatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%supdatedAt%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getUpdatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `last4Digits` to the URL query string
     if (getLast4Digits() != null) {
-      joiner.add(String.format("%slast4Digits%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLast4Digits()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%slast4Digits%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getLast4Digits()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `expirationDate` to the URL query string
     if (getExpirationDate() != null) {
-      joiner.add(String.format("%sexpirationDate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getExpirationDate()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sexpirationDate%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getExpirationDate()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `nextExpirationDate` to the URL query string
     if (getNextExpirationDate() != null) {
-      joiner.add(String.format("%snextExpirationDate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getNextExpirationDate()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%snextExpirationDate%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getNextExpirationDate()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `shippingAddress` to the URL query string
@@ -760,42 +742,42 @@ public class BusinessDebitCardAllOfAttributes {
 
     // add `email` to the URL query string
     if (getEmail() != null) {
-      joiner.add(String.format("%semail%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEmail()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%semail%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getEmail()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `dateOfBirth` to the URL query string
     if (getDateOfBirth() != null) {
-      joiner.add(String.format("%sdateOfBirth%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDateOfBirth()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sdateOfBirth%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDateOfBirth()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `nationality` to the URL query string
     if (getNationality() != null) {
-      joiner.add(String.format("%snationality%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getNationality()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%snationality%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getNationality()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `ssn` to the URL query string
     if (getSsn() != null) {
-      joiner.add(String.format("%sssn%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSsn()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sssn%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getSsn()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `passport` to the URL query string
     if (getPassport() != null) {
-      joiner.add(String.format("%spassport%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPassport()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%spassport%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getPassport()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `bin` to the URL query string
     if (getBin() != null) {
-      joiner.add(String.format("%sbin%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getBin()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sbin%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getBin()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `status` to the URL query string
     if (getStatus() != null) {
-      joiner.add(String.format("%sstatus%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStatus()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sstatus%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getStatus()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `design` to the URL query string
     if (getDesign() != null) {
-      joiner.add(String.format("%sdesign%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDesign()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sdesign%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDesign()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `tags` to the URL query string
@@ -803,13 +785,13 @@ public class BusinessDebitCardAllOfAttributes {
       for (String _key : getTags().keySet()) {
         joiner.add(String.format("%stags%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
-            getTags().get(_key), URLEncoder.encode(String.valueOf(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+            getTags().get(_key), URLEncoder.encode(ApiClient.valueToString(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
     }
 
     // add `freezeReason` to the URL query string
     if (getFreezeReason() != null) {
-      joiner.add(String.format("%sfreezeReason%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getFreezeReason()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sfreezeReason%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getFreezeReason()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

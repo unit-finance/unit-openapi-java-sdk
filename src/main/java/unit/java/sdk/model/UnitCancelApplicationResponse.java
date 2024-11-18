@@ -32,6 +32,7 @@ import unit.java.sdk.model.ApplicationDocument;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * UnitCancelApplicationResponse
  */
@@ -39,7 +40,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   UnitCancelApplicationResponse.JSON_PROPERTY_DATA,
   UnitCancelApplicationResponse.JSON_PROPERTY_INCLUDED
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class UnitCancelApplicationResponse {
   public static final String JSON_PROPERTY_DATA = "data";
   private Application data;
@@ -55,14 +56,13 @@ public class UnitCancelApplicationResponse {
     return this;
   }
 
-   /**
+  /**
    * Get data
    * @return data
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Application getData() {
     return data;
   }
@@ -88,14 +88,13 @@ public class UnitCancelApplicationResponse {
     return this;
   }
 
-   /**
+  /**
    * Get included
    * @return included
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INCLUDED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<ApplicationDocument> getIncluded() {
     return included;
   }

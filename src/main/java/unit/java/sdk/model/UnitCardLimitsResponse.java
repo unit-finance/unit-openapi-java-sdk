@@ -25,51 +25,51 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import unit.java.sdk.model.SchemasLimits;
+import unit.java.sdk.model.UnitCardLimitsResponseData;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * UnitCardLimitsResponse
  */
 @JsonPropertyOrder({
   UnitCardLimitsResponse.JSON_PROPERTY_DATA
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class UnitCardLimitsResponse {
   public static final String JSON_PROPERTY_DATA = "data";
-  private SchemasLimits data;
+  private UnitCardLimitsResponseData data;
 
   public UnitCardLimitsResponse() { 
   }
 
-  public UnitCardLimitsResponse data(SchemasLimits data) {
+  public UnitCardLimitsResponse data(UnitCardLimitsResponseData data) {
     this.data = data;
     return this;
   }
 
-   /**
+  /**
    * Get data
    * @return data
-  **/
-  @jakarta.annotation.Nullable
+   */
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public SchemasLimits getData() {
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public UnitCardLimitsResponseData getData() {
     return data;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setData(SchemasLimits data) {
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setData(UnitCardLimitsResponseData data) {
     this.data = data;
   }
 
 
   /**
-   * Return true if this Unit_Card_Limits_Response object is equal to o.
+   * Return true if this UnitCardLimitsResponse object is equal to o.
    */
   @Override
   public boolean equals(Object o) {

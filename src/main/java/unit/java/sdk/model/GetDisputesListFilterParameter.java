@@ -28,13 +28,14 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * GetDisputesListFilterParameter
  */
 @JsonPropertyOrder({
   GetDisputesListFilterParameter.JSON_PROPERTY_QUERY
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class GetDisputesListFilterParameter {
   public static final String JSON_PROPERTY_QUERY = "query";
   private String query;
@@ -47,14 +48,13 @@ public class GetDisputesListFilterParameter {
     return this;
   }
 
-   /**
+  /**
    * Get query
    * @return query
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getQuery() {
     return query;
   }
@@ -141,7 +141,7 @@ public class GetDisputesListFilterParameter {
 
     // add `query` to the URL query string
     if (getQuery() != null) {
-      joiner.add(String.format("%squery%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getQuery()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%squery%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getQuery()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

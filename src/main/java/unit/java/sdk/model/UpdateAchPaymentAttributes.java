@@ -30,16 +30,21 @@ import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * UpdateAchPaymentAttributes
  */
 @JsonPropertyOrder({
-  UpdateAchPaymentAttributes.JSON_PROPERTY_TAGS
+  UpdateAchPaymentAttributes.JSON_PROPERTY_TAGS,
+  UpdateAchPaymentAttributes.JSON_PROPERTY_CLEARING_DAYS_OVERRIDE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class UpdateAchPaymentAttributes {
   public static final String JSON_PROPERTY_TAGS = "tags";
   private Map<String, String> tags = new HashMap<>();
+
+  public static final String JSON_PROPERTY_CLEARING_DAYS_OVERRIDE = "clearingDaysOverride";
+  private Integer clearingDaysOverride;
 
   public UpdateAchPaymentAttributes() { 
   }
@@ -57,14 +62,13 @@ public class UpdateAchPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get tags
    * @return tags
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getTags() {
     return tags;
   }
@@ -77,8 +81,32 @@ public class UpdateAchPaymentAttributes {
   }
 
 
+  public UpdateAchPaymentAttributes clearingDaysOverride(Integer clearingDaysOverride) {
+    this.clearingDaysOverride = clearingDaysOverride;
+    return this;
+  }
+
   /**
-   * Return true if this UpdateAchPayment_attributes object is equal to o.
+   * Get clearingDaysOverride
+   * @return clearingDaysOverride
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CLEARING_DAYS_OVERRIDE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Integer getClearingDaysOverride() {
+    return clearingDaysOverride;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CLEARING_DAYS_OVERRIDE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setClearingDaysOverride(Integer clearingDaysOverride) {
+    this.clearingDaysOverride = clearingDaysOverride;
+  }
+
+
+  /**
+   * Return true if this Update_Ach_Payment_Attributes object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -89,12 +117,13 @@ public class UpdateAchPaymentAttributes {
       return false;
     }
     UpdateAchPaymentAttributes updateAchPaymentAttributes = (UpdateAchPaymentAttributes) o;
-    return Objects.equals(this.tags, updateAchPaymentAttributes.tags);
+    return Objects.equals(this.tags, updateAchPaymentAttributes.tags) &&
+        Objects.equals(this.clearingDaysOverride, updateAchPaymentAttributes.clearingDaysOverride);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(tags);
+    return Objects.hash(tags, clearingDaysOverride);
   }
 
   @Override
@@ -102,6 +131,7 @@ public class UpdateAchPaymentAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateAchPaymentAttributes {\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    clearingDaysOverride: ").append(toIndentedString(clearingDaysOverride)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -154,8 +184,13 @@ public class UpdateAchPaymentAttributes {
       for (String _key : getTags().keySet()) {
         joiner.add(String.format("%stags%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
-            getTags().get(_key), URLEncoder.encode(String.valueOf(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+            getTags().get(_key), URLEncoder.encode(ApiClient.valueToString(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
+    }
+
+    // add `clearingDaysOverride` to the URL query string
+    if (getClearingDaysOverride() != null) {
+      joiner.add(String.format("%sclearingDaysOverride%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getClearingDaysOverride()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

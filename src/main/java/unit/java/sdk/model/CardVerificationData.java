@@ -28,13 +28,14 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * CardVerificationData
  */
 @JsonPropertyOrder({
   CardVerificationData.JSON_PROPERTY_VERIFICATION_METHOD
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CardVerificationData {
   public static final String JSON_PROPERTY_VERIFICATION_METHOD = "verificationMethod";
   private String verificationMethod;
@@ -47,14 +48,13 @@ public class CardVerificationData {
     return this;
   }
 
-   /**
+  /**
    * Get verificationMethod
    * @return verificationMethod
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_VERIFICATION_METHOD)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getVerificationMethod() {
     return verificationMethod;
   }
@@ -141,7 +141,7 @@ public class CardVerificationData {
 
     // add `verificationMethod` to the URL query string
     if (getVerificationMethod() != null) {
-      joiner.add(String.format("%sverificationMethod%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getVerificationMethod()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sverificationMethod%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getVerificationMethod()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

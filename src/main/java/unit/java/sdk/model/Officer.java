@@ -37,6 +37,7 @@ import unit.java.sdk.model.SourceOfIncome;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * Officer
  */
@@ -62,7 +63,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   Officer.JSON_PROPERTY_ANNUAL_INCOME,
   Officer.JSON_PROPERTY_SOURCE_OF_INCOME
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class Officer {
   public static final String JSON_PROPERTY_STATUS = "status";
   private String status;
@@ -109,7 +110,7 @@ public class Officer {
     
     CFO("CFO"),
     
-    BENEFITSADMINISTRATIONOFFICER("BenefitsAdministrationOfficer"),
+    BENEFITS_ADMINISTRATION_OFFICER("BenefitsAdministrationOfficer"),
     
     CIO("CIO"),
     
@@ -191,14 +192,13 @@ public class Officer {
     return this;
   }
 
-   /**
+  /**
    * Get status
    * @return status
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStatus() {
     return status;
   }
@@ -216,14 +216,13 @@ public class Officer {
     return this;
   }
 
-   /**
+  /**
    * Get fullName
    * @return fullName
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FULL_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public FullName getFullName() {
     return fullName;
   }
@@ -241,14 +240,13 @@ public class Officer {
     return this;
   }
 
-   /**
+  /**
    * Get email
    * @return email
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getEmail() {
     return email;
   }
@@ -266,14 +264,13 @@ public class Officer {
     return this;
   }
 
-   /**
+  /**
    * Get phone
    * @return phone
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Phone getPhone() {
     return phone;
   }
@@ -291,14 +288,13 @@ public class Officer {
     return this;
   }
 
-   /**
+  /**
    * Get ssn
    * @return ssn
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SSN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSsn() {
     return ssn;
   }
@@ -316,14 +312,13 @@ public class Officer {
     return this;
   }
 
-   /**
+  /**
    * Get passport
    * @return passport
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PASSPORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPassport() {
     return passport;
   }
@@ -341,14 +336,13 @@ public class Officer {
     return this;
   }
 
-   /**
+  /**
    * Get nationality
    * @return nationality
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NATIONALITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getNationality() {
     return nationality;
   }
@@ -366,14 +360,13 @@ public class Officer {
     return this;
   }
 
-   /**
+  /**
    * Get matriculaConsular
    * @return matriculaConsular
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MATRICULA_CONSULAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMatriculaConsular() {
     return matriculaConsular;
   }
@@ -391,14 +384,13 @@ public class Officer {
     return this;
   }
 
-   /**
+  /**
    * Get address
    * @return address
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Address getAddress() {
     return address;
   }
@@ -416,14 +408,13 @@ public class Officer {
     return this;
   }
 
-   /**
+  /**
    * Get dateOfBirth
    * @return dateOfBirth
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATE_OF_BIRTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LocalDate getDateOfBirth() {
     return dateOfBirth;
   }
@@ -441,14 +432,13 @@ public class Officer {
     return this;
   }
 
-   /**
+  /**
    * Get evaluationId
    * @return evaluationId
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EVALUATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getEvaluationId() {
     return evaluationId;
   }
@@ -466,14 +456,13 @@ public class Officer {
     return this;
   }
 
-   /**
+  /**
    * Get title
    * @return title
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TitleEnum getTitle() {
     return title;
   }
@@ -499,14 +488,13 @@ public class Officer {
     return this;
   }
 
-   /**
+  /**
    * Get evaluationFlags
    * @return evaluationFlags
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EVALUATION_FLAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getEvaluationFlags() {
     return evaluationFlags;
   }
@@ -524,14 +512,13 @@ public class Officer {
     return this;
   }
 
-   /**
+  /**
    * Get maskedSSN
    * @return maskedSSN
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MASKED_S_S_N)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMaskedSSN() {
     return maskedSSN;
   }
@@ -549,14 +536,13 @@ public class Officer {
     return this;
   }
 
-   /**
+  /**
    * Get maskedPassport
    * @return maskedPassport
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MASKED_PASSPORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMaskedPassport() {
     return maskedPassport;
   }
@@ -574,14 +560,13 @@ public class Officer {
     return this;
   }
 
-   /**
+  /**
    * Get maskedMatriculaConsular
    * @return maskedMatriculaConsular
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MASKED_MATRICULA_CONSULAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMaskedMatriculaConsular() {
     return maskedMatriculaConsular;
   }
@@ -599,14 +584,13 @@ public class Officer {
     return this;
   }
 
-   /**
+  /**
    * Get idTheftScore
    * @return idTheftScore
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID_THEFT_SCORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getIdTheftScore() {
     return idTheftScore;
   }
@@ -624,14 +608,13 @@ public class Officer {
     return this;
   }
 
-   /**
+  /**
    * Get occupation
    * @return occupation
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OCCUPATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Occupation getOccupation() {
     return occupation;
   }
@@ -649,14 +632,13 @@ public class Officer {
     return this;
   }
 
-   /**
+  /**
    * Get annualIncome
    * @return annualIncome
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ANNUAL_INCOME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public AnnualIncome getAnnualIncome() {
     return annualIncome;
   }
@@ -674,14 +656,13 @@ public class Officer {
     return this;
   }
 
-   /**
+  /**
    * Get sourceOfIncome
    * @return sourceOfIncome
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SOURCE_OF_INCOME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public SourceOfIncome getSourceOfIncome() {
     return sourceOfIncome;
   }
@@ -806,7 +787,7 @@ public class Officer {
 
     // add `status` to the URL query string
     if (getStatus() != null) {
-      joiner.add(String.format("%sstatus%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStatus()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sstatus%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getStatus()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `fullName` to the URL query string
@@ -816,7 +797,7 @@ public class Officer {
 
     // add `email` to the URL query string
     if (getEmail() != null) {
-      joiner.add(String.format("%semail%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEmail()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%semail%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getEmail()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `phone` to the URL query string
@@ -826,22 +807,22 @@ public class Officer {
 
     // add `ssn` to the URL query string
     if (getSsn() != null) {
-      joiner.add(String.format("%sssn%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSsn()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sssn%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getSsn()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `passport` to the URL query string
     if (getPassport() != null) {
-      joiner.add(String.format("%spassport%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPassport()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%spassport%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getPassport()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `nationality` to the URL query string
     if (getNationality() != null) {
-      joiner.add(String.format("%snationality%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getNationality()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%snationality%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getNationality()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `matriculaConsular` to the URL query string
     if (getMatriculaConsular() != null) {
-      joiner.add(String.format("%smatriculaConsular%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMatriculaConsular()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%smatriculaConsular%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getMatriculaConsular()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `address` to the URL query string
@@ -851,17 +832,17 @@ public class Officer {
 
     // add `dateOfBirth` to the URL query string
     if (getDateOfBirth() != null) {
-      joiner.add(String.format("%sdateOfBirth%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDateOfBirth()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sdateOfBirth%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDateOfBirth()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `evaluationId` to the URL query string
     if (getEvaluationId() != null) {
-      joiner.add(String.format("%sevaluationId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEvaluationId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sevaluationId%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getEvaluationId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `title` to the URL query string
     if (getTitle() != null) {
-      joiner.add(String.format("%stitle%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTitle()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%stitle%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getTitle()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `evaluationFlags` to the URL query string
@@ -869,43 +850,43 @@ public class Officer {
       for (int i = 0; i < getEvaluationFlags().size(); i++) {
         joiner.add(String.format("%sevaluationFlags%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
-            URLEncoder.encode(String.valueOf(getEvaluationFlags().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+            URLEncoder.encode(ApiClient.valueToString(getEvaluationFlags().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
     }
 
     // add `maskedSSN` to the URL query string
     if (getMaskedSSN() != null) {
-      joiner.add(String.format("%smaskedSSN%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMaskedSSN()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%smaskedSSN%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getMaskedSSN()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `maskedPassport` to the URL query string
     if (getMaskedPassport() != null) {
-      joiner.add(String.format("%smaskedPassport%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMaskedPassport()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%smaskedPassport%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getMaskedPassport()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `maskedMatriculaConsular` to the URL query string
     if (getMaskedMatriculaConsular() != null) {
-      joiner.add(String.format("%smaskedMatriculaConsular%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMaskedMatriculaConsular()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%smaskedMatriculaConsular%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getMaskedMatriculaConsular()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `idTheftScore` to the URL query string
     if (getIdTheftScore() != null) {
-      joiner.add(String.format("%sidTheftScore%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIdTheftScore()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sidTheftScore%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getIdTheftScore()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `occupation` to the URL query string
     if (getOccupation() != null) {
-      joiner.add(String.format("%soccupation%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getOccupation()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%soccupation%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getOccupation()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `annualIncome` to the URL query string
     if (getAnnualIncome() != null) {
-      joiner.add(String.format("%sannualIncome%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAnnualIncome()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sannualIncome%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getAnnualIncome()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `sourceOfIncome` to the URL query string
     if (getSourceOfIncome() != null) {
-      joiner.add(String.format("%ssourceOfIncome%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSourceOfIncome()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%ssourceOfIncome%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getSourceOfIncome()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

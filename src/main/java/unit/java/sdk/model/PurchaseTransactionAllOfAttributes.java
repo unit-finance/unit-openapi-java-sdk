@@ -38,6 +38,7 @@ import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * PurchaseTransactionAllOfAttributes
  */
@@ -62,7 +63,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   PurchaseTransactionAllOfAttributes.JSON_PROPERTY_CARD_VERIFICATION_DATA,
   PurchaseTransactionAllOfAttributes.JSON_PROPERTY_CARD_NETWORK
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class PurchaseTransactionAllOfAttributes {
   public static final String JSON_PROPERTY_CREATED_AT = "createdAt";
   private OffsetDateTime createdAt;
@@ -164,14 +165,13 @@ public class PurchaseTransactionAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get createdAt
    * @return createdAt
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
@@ -189,14 +189,13 @@ public class PurchaseTransactionAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get direction
    * @return direction
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_DIRECTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public DirectionEnum getDirection() {
     return direction;
   }
@@ -214,14 +213,13 @@ public class PurchaseTransactionAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get amount
    * @return amount
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Integer getAmount() {
     return amount;
   }
@@ -239,14 +237,13 @@ public class PurchaseTransactionAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get balance
    * @return balance
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_BALANCE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Integer getBalance() {
     return balance;
   }
@@ -264,14 +261,13 @@ public class PurchaseTransactionAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get summary
    * @return summary
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_SUMMARY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getSummary() {
     return summary;
   }
@@ -289,14 +285,13 @@ public class PurchaseTransactionAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get cardLast4Digits
    * @return cardLast4Digits
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_CARD_LAST4_DIGITS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getCardLast4Digits() {
     return cardLast4Digits;
   }
@@ -314,14 +309,13 @@ public class PurchaseTransactionAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get merchant
    * @return merchant
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_MERCHANT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Merchant getMerchant() {
     return merchant;
   }
@@ -339,14 +333,13 @@ public class PurchaseTransactionAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get coordinates
    * @return coordinates
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COORDINATES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Coordinates getCoordinates() {
     return coordinates;
   }
@@ -364,14 +357,13 @@ public class PurchaseTransactionAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get recurring
    * @return recurring
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_RECURRING)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Boolean getRecurring() {
     return recurring;
   }
@@ -397,14 +389,13 @@ public class PurchaseTransactionAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get tags
    * @return tags
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getTags() {
     return tags;
   }
@@ -422,14 +413,13 @@ public class PurchaseTransactionAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get networkTransactionId
    * @return networkTransactionId
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NETWORK_TRANSACTION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getNetworkTransactionId() {
     return networkTransactionId;
   }
@@ -447,13 +437,12 @@ public class PurchaseTransactionAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get interchange
    * @return interchange
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonIgnore
-
   public String getInterchange() {
         return interchange.orElse(null);
   }
@@ -480,14 +469,13 @@ public class PurchaseTransactionAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get ecommerce
    * @return ecommerce
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ECOMMERCE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Boolean getEcommerce() {
     return ecommerce;
   }
@@ -505,14 +493,13 @@ public class PurchaseTransactionAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get cardPresent
    * @return cardPresent
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_CARD_PRESENT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Boolean getCardPresent() {
     return cardPresent;
   }
@@ -530,13 +517,12 @@ public class PurchaseTransactionAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get internationalServiceFee
    * @return internationalServiceFee
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonIgnore
-
   public Integer getInternationalServiceFee() {
         return internationalServiceFee.orElse(null);
   }
@@ -563,14 +549,13 @@ public class PurchaseTransactionAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get paymentMethod
    * @return paymentMethod
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPaymentMethod() {
     return paymentMethod;
   }
@@ -588,14 +573,13 @@ public class PurchaseTransactionAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get digitalWallet
    * @return digitalWallet
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DIGITAL_WALLET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDigitalWallet() {
     return digitalWallet;
   }
@@ -613,14 +597,13 @@ public class PurchaseTransactionAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get cardVerificationData
    * @return cardVerificationData
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CARD_VERIFICATION_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CardVerificationData getCardVerificationData() {
     return cardVerificationData;
   }
@@ -638,14 +621,13 @@ public class PurchaseTransactionAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get cardNetwork
    * @return cardNetwork
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CARD_NETWORK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCardNetwork() {
     return cardNetwork;
   }
@@ -779,32 +761,32 @@ public class PurchaseTransactionAllOfAttributes {
 
     // add `createdAt` to the URL query string
     if (getCreatedAt() != null) {
-      joiner.add(String.format("%screatedAt%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%screatedAt%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCreatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `direction` to the URL query string
     if (getDirection() != null) {
-      joiner.add(String.format("%sdirection%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDirection()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sdirection%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDirection()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `amount` to the URL query string
     if (getAmount() != null) {
-      joiner.add(String.format("%samount%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAmount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%samount%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getAmount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `balance` to the URL query string
     if (getBalance() != null) {
-      joiner.add(String.format("%sbalance%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getBalance()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sbalance%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getBalance()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `summary` to the URL query string
     if (getSummary() != null) {
-      joiner.add(String.format("%ssummary%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSummary()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%ssummary%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getSummary()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `cardLast4Digits` to the URL query string
     if (getCardLast4Digits() != null) {
-      joiner.add(String.format("%scardLast4Digits%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCardLast4Digits()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%scardLast4Digits%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCardLast4Digits()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `merchant` to the URL query string
@@ -819,7 +801,7 @@ public class PurchaseTransactionAllOfAttributes {
 
     // add `recurring` to the URL query string
     if (getRecurring() != null) {
-      joiner.add(String.format("%srecurring%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getRecurring()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%srecurring%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getRecurring()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `tags` to the URL query string
@@ -827,43 +809,43 @@ public class PurchaseTransactionAllOfAttributes {
       for (String _key : getTags().keySet()) {
         joiner.add(String.format("%stags%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
-            getTags().get(_key), URLEncoder.encode(String.valueOf(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+            getTags().get(_key), URLEncoder.encode(ApiClient.valueToString(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
     }
 
     // add `networkTransactionId` to the URL query string
     if (getNetworkTransactionId() != null) {
-      joiner.add(String.format("%snetworkTransactionId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getNetworkTransactionId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%snetworkTransactionId%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getNetworkTransactionId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `interchange` to the URL query string
     if (getInterchange() != null) {
-      joiner.add(String.format("%sinterchange%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getInterchange()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sinterchange%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getInterchange()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `ecommerce` to the URL query string
     if (getEcommerce() != null) {
-      joiner.add(String.format("%secommerce%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEcommerce()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%secommerce%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getEcommerce()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `cardPresent` to the URL query string
     if (getCardPresent() != null) {
-      joiner.add(String.format("%scardPresent%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCardPresent()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%scardPresent%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCardPresent()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `internationalServiceFee` to the URL query string
     if (getInternationalServiceFee() != null) {
-      joiner.add(String.format("%sinternationalServiceFee%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getInternationalServiceFee()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sinternationalServiceFee%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getInternationalServiceFee()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `paymentMethod` to the URL query string
     if (getPaymentMethod() != null) {
-      joiner.add(String.format("%spaymentMethod%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPaymentMethod()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%spaymentMethod%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getPaymentMethod()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `digitalWallet` to the URL query string
     if (getDigitalWallet() != null) {
-      joiner.add(String.format("%sdigitalWallet%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDigitalWallet()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sdigitalWallet%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDigitalWallet()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `cardVerificationData` to the URL query string
@@ -873,7 +855,7 @@ public class PurchaseTransactionAllOfAttributes {
 
     // add `cardNetwork` to the URL query string
     if (getCardNetwork() != null) {
-      joiner.add(String.format("%scardNetwork%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCardNetwork()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%scardNetwork%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCardNetwork()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

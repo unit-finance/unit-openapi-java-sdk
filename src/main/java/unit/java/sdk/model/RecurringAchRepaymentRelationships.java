@@ -33,6 +33,7 @@ import unit.java.sdk.model.RecurringRepaymentRelationshipsBaseOrg;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * RecurringAchRepaymentRelationships
  */
@@ -43,7 +44,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   RecurringAchRepaymentRelationships.JSON_PROPERTY_ORG,
   RecurringAchRepaymentRelationships.JSON_PROPERTY_ACCOUNT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class RecurringAchRepaymentRelationships {
   public static final String JSON_PROPERTY_CREDIT_ACCOUNT = "creditAccount";
   private RecurringRepaymentRelationshipsBaseCreditAccount creditAccount;
@@ -68,14 +69,13 @@ public class RecurringAchRepaymentRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get creditAccount
    * @return creditAccount
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_CREDIT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public RecurringRepaymentRelationshipsBaseCreditAccount getCreditAccount() {
     return creditAccount;
   }
@@ -93,14 +93,13 @@ public class RecurringAchRepaymentRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get counterparty
    * @return counterparty
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public RecurringRepaymentRelationshipsBaseCounterparty getCounterparty() {
     return counterparty;
   }
@@ -118,14 +117,13 @@ public class RecurringAchRepaymentRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get customer
    * @return customer
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOMER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public RecurringRepaymentRelationshipsBaseCustomer getCustomer() {
     return customer;
   }
@@ -143,14 +141,13 @@ public class RecurringAchRepaymentRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get org
    * @return org
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ORG)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public RecurringRepaymentRelationshipsBaseOrg getOrg() {
     return org;
   }
@@ -168,14 +165,13 @@ public class RecurringAchRepaymentRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get account
    * @return account
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public RecurringAchRepaymentRelationshipsAllOfAccount getAccount() {
     return account;
   }

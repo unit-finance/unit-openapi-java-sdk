@@ -29,13 +29,14 @@ import unit.java.sdk.model.CreateCheckDepositRequestData;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * CreateCheckDepositRequest
  */
 @JsonPropertyOrder({
   CreateCheckDepositRequest.JSON_PROPERTY_DATA
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CreateCheckDepositRequest {
   public static final String JSON_PROPERTY_DATA = "data";
   private CreateCheckDepositRequestData data;
@@ -48,14 +49,13 @@ public class CreateCheckDepositRequest {
     return this;
   }
 
-   /**
+  /**
    * Get data
    * @return data
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CreateCheckDepositRequestData getData() {
     return data;
   }

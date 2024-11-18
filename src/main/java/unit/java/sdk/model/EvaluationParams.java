@@ -28,6 +28,7 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * EvaluationParams
  */
@@ -35,7 +36,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   EvaluationParams.JSON_PROPERTY_USE_SELFIE_VERIFICATION,
   EvaluationParams.JSON_PROPERTY_REQUIRE_ID_VERIFICATION
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class EvaluationParams {
   /**
    * Gets or Sets useSelfieVerification
@@ -43,7 +44,7 @@ public class EvaluationParams {
   public enum UseSelfieVerificationEnum {
     NEVER("Never"),
     
-    REPLACEIDENTIFICATION("ReplaceIdentification"),
+    REPLACE_IDENTIFICATION("ReplaceIdentification"),
     
     ALWAYS("Always");
 
@@ -88,14 +89,13 @@ public class EvaluationParams {
     return this;
   }
 
-   /**
+  /**
    * Get useSelfieVerification
    * @return useSelfieVerification
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_USE_SELFIE_VERIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public UseSelfieVerificationEnum getUseSelfieVerification() {
     return useSelfieVerification;
   }
@@ -113,14 +113,13 @@ public class EvaluationParams {
     return this;
   }
 
-   /**
+  /**
    * Get requireIdVerification
    * @return requireIdVerification
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REQUIRE_ID_VERIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getRequireIdVerification() {
     return requireIdVerification;
   }
@@ -209,12 +208,12 @@ public class EvaluationParams {
 
     // add `useSelfieVerification` to the URL query string
     if (getUseSelfieVerification() != null) {
-      joiner.add(String.format("%suseSelfieVerification%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUseSelfieVerification()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%suseSelfieVerification%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getUseSelfieVerification()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `requireIdVerification` to the URL query string
     if (getRequireIdVerification() != null) {
-      joiner.add(String.format("%srequireIdVerification%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getRequireIdVerification()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%srequireIdVerification%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getRequireIdVerification()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

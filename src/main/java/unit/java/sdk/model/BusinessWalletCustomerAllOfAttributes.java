@@ -34,6 +34,7 @@ import unit.java.sdk.model.BusinessVertical;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * BusinessWalletCustomerAllOfAttributes
  */
@@ -48,7 +49,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   BusinessWalletCustomerAllOfAttributes.JSON_PROPERTY_NUMBER_OF_EMPLOYEES,
   BusinessWalletCustomerAllOfAttributes.JSON_PROPERTY_TAGS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class BusinessWalletCustomerAllOfAttributes {
   public static final String JSON_PROPERTY_CREATED_AT = "createdAt";
   private OffsetDateTime createdAt;
@@ -85,14 +86,13 @@ public class BusinessWalletCustomerAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get createdAt
    * @return createdAt
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
@@ -110,14 +110,13 @@ public class BusinessWalletCustomerAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get bankName
    * @return bankName
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_BANK_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getBankName() {
     return bankName;
   }
@@ -135,14 +134,13 @@ public class BusinessWalletCustomerAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get businessName
    * @return businessName
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_BUSINESS_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getBusinessName() {
     return businessName;
   }
@@ -160,14 +158,13 @@ public class BusinessWalletCustomerAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get name
    * @return name
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getName() {
     return name;
   }
@@ -185,14 +182,13 @@ public class BusinessWalletCustomerAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get address
    * @return address
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Address getAddress() {
     return address;
   }
@@ -210,14 +206,13 @@ public class BusinessWalletCustomerAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get ein
    * @return ein
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_EIN)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getEin() {
     return ein;
   }
@@ -235,14 +230,13 @@ public class BusinessWalletCustomerAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get businessVertical
    * @return businessVertical
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_BUSINESS_VERTICAL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public BusinessVertical getBusinessVertical() {
     return businessVertical;
   }
@@ -260,14 +254,13 @@ public class BusinessWalletCustomerAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get numberOfEmployees
    * @return numberOfEmployees
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_NUMBER_OF_EMPLOYEES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public BusinessNumberOfEmployees getNumberOfEmployees() {
     return numberOfEmployees;
   }
@@ -293,14 +286,13 @@ public class BusinessWalletCustomerAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get tags
    * @return tags
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getTags() {
     return tags;
   }
@@ -403,22 +395,22 @@ public class BusinessWalletCustomerAllOfAttributes {
 
     // add `createdAt` to the URL query string
     if (getCreatedAt() != null) {
-      joiner.add(String.format("%screatedAt%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%screatedAt%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCreatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `bankName` to the URL query string
     if (getBankName() != null) {
-      joiner.add(String.format("%sbankName%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getBankName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sbankName%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getBankName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `businessName` to the URL query string
     if (getBusinessName() != null) {
-      joiner.add(String.format("%sbusinessName%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getBusinessName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sbusinessName%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getBusinessName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `name` to the URL query string
     if (getName() != null) {
-      joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `address` to the URL query string
@@ -428,17 +420,17 @@ public class BusinessWalletCustomerAllOfAttributes {
 
     // add `ein` to the URL query string
     if (getEin() != null) {
-      joiner.add(String.format("%sein%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEin()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sein%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getEin()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `businessVertical` to the URL query string
     if (getBusinessVertical() != null) {
-      joiner.add(String.format("%sbusinessVertical%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getBusinessVertical()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sbusinessVertical%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getBusinessVertical()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `numberOfEmployees` to the URL query string
     if (getNumberOfEmployees() != null) {
-      joiner.add(String.format("%snumberOfEmployees%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getNumberOfEmployees()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%snumberOfEmployees%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getNumberOfEmployees()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `tags` to the URL query string
@@ -446,7 +438,7 @@ public class BusinessWalletCustomerAllOfAttributes {
       for (String _key : getTags().keySet()) {
         joiner.add(String.format("%stags%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
-            getTags().get(_key), URLEncoder.encode(String.valueOf(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+            getTags().get(_key), URLEncoder.encode(ApiClient.valueToString(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
     }
 

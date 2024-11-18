@@ -31,6 +31,7 @@ import unit.java.sdk.model.CreditAccountRelationship;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * CreateRecurringBookRepaymentRelationships
  */
@@ -39,7 +40,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateRecurringBookRepaymentRelationships.JSON_PROPERTY_CREDIT_ACCOUNT,
   CreateRecurringBookRepaymentRelationships.JSON_PROPERTY_COUNTERPARTY_ACCOUNT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CreateRecurringBookRepaymentRelationships {
   public static final String JSON_PROPERTY_ACCOUNT = "account";
   private AccountRelationship account;
@@ -58,14 +59,13 @@ public class CreateRecurringBookRepaymentRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get account
    * @return account
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public AccountRelationship getAccount() {
     return account;
   }
@@ -83,14 +83,13 @@ public class CreateRecurringBookRepaymentRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get creditAccount
    * @return creditAccount
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_CREDIT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public CreditAccountRelationship getCreditAccount() {
     return creditAccount;
   }
@@ -108,14 +107,13 @@ public class CreateRecurringBookRepaymentRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get counterpartyAccount
    * @return counterpartyAccount
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public CounterpartyAccountRelationship getCounterpartyAccount() {
     return counterpartyAccount;
   }

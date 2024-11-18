@@ -28,6 +28,7 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * CustomerTokenAttributes
  */
@@ -35,7 +36,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CustomerTokenAttributes.JSON_PROPERTY_TOKEN,
   CustomerTokenAttributes.JSON_PROPERTY_EXPIRES_IN
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CustomerTokenAttributes {
   public static final String JSON_PROPERTY_TOKEN = "token";
   private String token;
@@ -51,14 +52,13 @@ public class CustomerTokenAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get token
    * @return token
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getToken() {
     return token;
   }
@@ -76,14 +76,13 @@ public class CustomerTokenAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get expiresIn
    * @return expiresIn
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EXPIRES_IN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getExpiresIn() {
     return expiresIn;
   }
@@ -172,12 +171,12 @@ public class CustomerTokenAttributes {
 
     // add `token` to the URL query string
     if (getToken() != null) {
-      joiner.add(String.format("%stoken%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getToken()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%stoken%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getToken()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `expiresIn` to the URL query string
     if (getExpiresIn() != null) {
-      joiner.add(String.format("%sexpiresIn%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getExpiresIn()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sexpiresIn%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getExpiresIn()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

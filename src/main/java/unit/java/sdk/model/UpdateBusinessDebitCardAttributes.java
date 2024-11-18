@@ -33,6 +33,7 @@ import unit.java.sdk.model.Phone;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * UpdateBusinessDebitCardAttributes
  */
@@ -46,7 +47,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   UpdateBusinessDebitCardAttributes.JSON_PROPERTY_LIMITS,
   UpdateBusinessDebitCardAttributes.JSON_PROPERTY_DEFAULT_FUNDING_ACCOUNT_ID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class UpdateBusinessDebitCardAttributes {
   public static final String JSON_PROPERTY_SHIPPING_ADDRESS = "shippingAddress";
   private Address shippingAddress;
@@ -80,14 +81,13 @@ public class UpdateBusinessDebitCardAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get shippingAddress
    * @return shippingAddress
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SHIPPING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Address getShippingAddress() {
     return shippingAddress;
   }
@@ -105,14 +105,13 @@ public class UpdateBusinessDebitCardAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get address
    * @return address
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Address getAddress() {
     return address;
   }
@@ -130,14 +129,13 @@ public class UpdateBusinessDebitCardAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get phone
    * @return phone
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Phone getPhone() {
     return phone;
   }
@@ -155,14 +153,13 @@ public class UpdateBusinessDebitCardAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get email
    * @return email
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getEmail() {
     return email;
   }
@@ -180,14 +177,13 @@ public class UpdateBusinessDebitCardAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get design
    * @return design
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDesign() {
     return design;
   }
@@ -213,14 +209,13 @@ public class UpdateBusinessDebitCardAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get tags
    * @return tags
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getTags() {
     return tags;
   }
@@ -238,14 +233,13 @@ public class UpdateBusinessDebitCardAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get limits
    * @return limits
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LIMITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CardLevelLimits getLimits() {
     return limits;
   }
@@ -263,14 +257,13 @@ public class UpdateBusinessDebitCardAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get defaultFundingAccountId
    * @return defaultFundingAccountId
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DEFAULT_FUNDING_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDefaultFundingAccountId() {
     return defaultFundingAccountId;
   }
@@ -386,12 +379,12 @@ public class UpdateBusinessDebitCardAttributes {
 
     // add `email` to the URL query string
     if (getEmail() != null) {
-      joiner.add(String.format("%semail%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEmail()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%semail%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getEmail()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `design` to the URL query string
     if (getDesign() != null) {
-      joiner.add(String.format("%sdesign%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDesign()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sdesign%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDesign()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `tags` to the URL query string
@@ -399,7 +392,7 @@ public class UpdateBusinessDebitCardAttributes {
       for (String _key : getTags().keySet()) {
         joiner.add(String.format("%stags%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
-            getTags().get(_key), URLEncoder.encode(String.valueOf(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+            getTags().get(_key), URLEncoder.encode(ApiClient.valueToString(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
     }
 
@@ -410,7 +403,7 @@ public class UpdateBusinessDebitCardAttributes {
 
     // add `defaultFundingAccountId` to the URL query string
     if (getDefaultFundingAccountId() != null) {
-      joiner.add(String.format("%sdefaultFundingAccountId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDefaultFundingAccountId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sdefaultFundingAccountId%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDefaultFundingAccountId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

@@ -33,6 +33,7 @@ import unit.java.sdk.model.ResponseSchedule;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * RecurringBookRepaymentAllOfAttributes
  */
@@ -46,7 +47,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   RecurringBookRepaymentAllOfAttributes.JSON_PROPERTY_NUMBER_OF_REPAYMENTS,
   RecurringBookRepaymentAllOfAttributes.JSON_PROPERTY_STATUS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class RecurringBookRepaymentAllOfAttributes {
   public static final String JSON_PROPERTY_CREATED_AT = "createdAt";
   private LocalDate createdAt;
@@ -80,14 +81,13 @@ public class RecurringBookRepaymentAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get createdAt
    * @return createdAt
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public LocalDate getCreatedAt() {
     return createdAt;
   }
@@ -105,14 +105,13 @@ public class RecurringBookRepaymentAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get updatedAt
    * @return updatedAt
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_UPDATED_AT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public LocalDate getUpdatedAt() {
     return updatedAt;
   }
@@ -130,14 +129,13 @@ public class RecurringBookRepaymentAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get schedule
    * @return schedule
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_SCHEDULE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public ResponseSchedule getSchedule() {
     return schedule;
   }
@@ -155,14 +153,13 @@ public class RecurringBookRepaymentAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get description
    * @return description
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getDescription() {
     return description;
   }
@@ -180,14 +177,13 @@ public class RecurringBookRepaymentAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get transactionSummaryOverride
    * @return transactionSummaryOverride
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TRANSACTION_SUMMARY_OVERRIDE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTransactionSummaryOverride() {
     return transactionSummaryOverride;
   }
@@ -213,14 +209,13 @@ public class RecurringBookRepaymentAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get tags
    * @return tags
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getTags() {
     return tags;
   }
@@ -238,14 +233,13 @@ public class RecurringBookRepaymentAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get numberOfRepayments
    * @return numberOfRepayments
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_NUMBER_OF_REPAYMENTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Integer getNumberOfRepayments() {
     return numberOfRepayments;
   }
@@ -263,14 +257,13 @@ public class RecurringBookRepaymentAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get status
    * @return status
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public RecurringRepaymentStatus getStatus() {
     return status;
   }
@@ -371,12 +364,12 @@ public class RecurringBookRepaymentAllOfAttributes {
 
     // add `createdAt` to the URL query string
     if (getCreatedAt() != null) {
-      joiner.add(String.format("%screatedAt%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%screatedAt%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCreatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `updatedAt` to the URL query string
     if (getUpdatedAt() != null) {
-      joiner.add(String.format("%supdatedAt%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUpdatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%supdatedAt%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getUpdatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `schedule` to the URL query string
@@ -386,12 +379,12 @@ public class RecurringBookRepaymentAllOfAttributes {
 
     // add `description` to the URL query string
     if (getDescription() != null) {
-      joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDescription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDescription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `transactionSummaryOverride` to the URL query string
     if (getTransactionSummaryOverride() != null) {
-      joiner.add(String.format("%stransactionSummaryOverride%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTransactionSummaryOverride()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%stransactionSummaryOverride%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getTransactionSummaryOverride()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `tags` to the URL query string
@@ -399,18 +392,18 @@ public class RecurringBookRepaymentAllOfAttributes {
       for (String _key : getTags().keySet()) {
         joiner.add(String.format("%stags%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
-            getTags().get(_key), URLEncoder.encode(String.valueOf(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+            getTags().get(_key), URLEncoder.encode(ApiClient.valueToString(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
     }
 
     // add `numberOfRepayments` to the URL query string
     if (getNumberOfRepayments() != null) {
-      joiner.add(String.format("%snumberOfRepayments%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getNumberOfRepayments()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%snumberOfRepayments%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getNumberOfRepayments()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `status` to the URL query string
     if (getStatus() != null) {
-      joiner.add(String.format("%sstatus%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStatus()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sstatus%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getStatus()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

@@ -30,15 +30,15 @@ import com.fasterxml.jackson.annotation.JsonValue;
  */
 public enum AnnualIncome {
   
-  UPTO10K("UpTo10k"),
+  UP_TO10K("UpTo10k"),
   
-  BETWEEN10KAND25K("Between10kAnd25k"),
+  BETWEEN10K_AND25K("Between10kAnd25k"),
   
-  BETWEEN25KAND50K("Between25kAnd50k"),
+  BETWEEN25K_AND50K("Between25kAnd50k"),
   
-  BETWEEN50KAND100K("Between50kAnd100k"),
+  BETWEEN50K_AND100K("Between50kAnd100k"),
   
-  BETWEEN100KAND250K("Between100kAnd250k"),
+  BETWEEN100K_AND250K("Between100kAnd250k"),
   
   OVER250K("Over250k");
 

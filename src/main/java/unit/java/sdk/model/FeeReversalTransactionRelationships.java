@@ -28,10 +28,11 @@ import java.util.Arrays;
 import unit.java.sdk.model.AccountRelationship;
 import unit.java.sdk.model.CustomerRelationship;
 import unit.java.sdk.model.CustomersRelationship;
-import unit.java.sdk.model.TransactionRelationshipData;
+import unit.java.sdk.model.ReceivePaymentTransactionRelationshipData;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * FeeReversalTransactionRelationships
  */
@@ -41,7 +42,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   FeeReversalTransactionRelationships.JSON_PROPERTY_CUSTOMERS,
   FeeReversalTransactionRelationships.JSON_PROPERTY_DATA
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class FeeReversalTransactionRelationships {
   public static final String JSON_PROPERTY_ACCOUNT = "account";
   private AccountRelationship account;
@@ -53,7 +54,7 @@ public class FeeReversalTransactionRelationships {
   private CustomersRelationship customers;
 
   public static final String JSON_PROPERTY_DATA = "data";
-  private TransactionRelationshipData data;
+  private ReceivePaymentTransactionRelationshipData data;
 
   public FeeReversalTransactionRelationships() { 
   }
@@ -63,14 +64,13 @@ public class FeeReversalTransactionRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get account
    * @return account
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public AccountRelationship getAccount() {
     return account;
   }
@@ -88,14 +88,13 @@ public class FeeReversalTransactionRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get customer
    * @return customer
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOMER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CustomerRelationship getCustomer() {
     return customer;
   }
@@ -113,14 +112,13 @@ public class FeeReversalTransactionRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get customers
    * @return customers
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOMERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CustomersRelationship getCustomers() {
     return customers;
   }
@@ -133,27 +131,26 @@ public class FeeReversalTransactionRelationships {
   }
 
 
-  public FeeReversalTransactionRelationships data(TransactionRelationshipData data) {
+  public FeeReversalTransactionRelationships data(ReceivePaymentTransactionRelationshipData data) {
     this.data = data;
     return this;
   }
 
-   /**
+  /**
    * Get data
    * @return data
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public TransactionRelationshipData getData() {
+  public ReceivePaymentTransactionRelationshipData getData() {
     return data;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setData(TransactionRelationshipData data) {
+  public void setData(ReceivePaymentTransactionRelationshipData data) {
     this.data = data;
   }
 

@@ -28,6 +28,7 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * Bin
  */
@@ -35,7 +36,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   Bin.JSON_PROPERTY_BIN,
   Bin.JSON_PROPERTY_INSTITUTION_ID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class Bin {
   public static final String JSON_PROPERTY_BIN = "bin";
   private String bin;
@@ -51,14 +52,13 @@ public class Bin {
     return this;
   }
 
-   /**
+  /**
    * Get bin
    * @return bin
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_BIN)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getBin() {
     return bin;
   }
@@ -76,14 +76,13 @@ public class Bin {
     return this;
   }
 
-   /**
+  /**
    * Get institutionId
    * @return institutionId
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_INSTITUTION_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getInstitutionId() {
     return institutionId;
   }
@@ -172,12 +171,12 @@ public class Bin {
 
     // add `bin` to the URL query string
     if (getBin() != null) {
-      joiner.add(String.format("%sbin%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getBin()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sbin%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getBin()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `institutionId` to the URL query string
     if (getInstitutionId() != null) {
-      joiner.add(String.format("%sinstitutionId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getInstitutionId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sinstitutionId%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getInstitutionId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

@@ -25,45 +25,45 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import unit.java.sdk.model.TransactionRelationshipData;
+import unit.java.sdk.model.ReceivePaymentTransactionRelationshipData;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * ReceivePaymentTransactionRelationship
  */
 @JsonPropertyOrder({
   ReceivePaymentTransactionRelationship.JSON_PROPERTY_DATA
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ReceivePaymentTransactionRelationship {
   public static final String JSON_PROPERTY_DATA = "data";
-  private TransactionRelationshipData data;
+  private ReceivePaymentTransactionRelationshipData data;
 
   public ReceivePaymentTransactionRelationship() { 
   }
 
-  public ReceivePaymentTransactionRelationship data(TransactionRelationshipData data) {
+  public ReceivePaymentTransactionRelationship data(ReceivePaymentTransactionRelationshipData data) {
     this.data = data;
     return this;
   }
 
-   /**
+  /**
    * Get data
    * @return data
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public TransactionRelationshipData getData() {
+  public ReceivePaymentTransactionRelationshipData getData() {
     return data;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setData(TransactionRelationshipData data) {
+  public void setData(ReceivePaymentTransactionRelationshipData data) {
     this.data = data;
   }
 

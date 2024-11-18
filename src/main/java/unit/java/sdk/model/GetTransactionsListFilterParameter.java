@@ -32,6 +32,7 @@ import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * GetTransactionsListFilterParameter
  */
@@ -50,7 +51,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   GetTransactionsListFilterParameter.JSON_PROPERTY_TO_AMOUNT,
   GetTransactionsListFilterParameter.JSON_PROPERTY_ACCOUNT_TYPE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class GetTransactionsListFilterParameter {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "accountId";
   private String accountId;
@@ -134,14 +135,13 @@ public class GetTransactionsListFilterParameter {
     return this;
   }
 
-   /**
+  /**
    * Get accountId
    * @return accountId
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAccountId() {
     return accountId;
   }
@@ -159,14 +159,13 @@ public class GetTransactionsListFilterParameter {
     return this;
   }
 
-   /**
+  /**
    * Get customerId
    * @return customerId
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOMER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCustomerId() {
     return customerId;
   }
@@ -184,14 +183,13 @@ public class GetTransactionsListFilterParameter {
     return this;
   }
 
-   /**
+  /**
    * Get query
    * @return query
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getQuery() {
     return query;
   }
@@ -217,14 +215,13 @@ public class GetTransactionsListFilterParameter {
     return this;
   }
 
-   /**
+  /**
    * Get tags
    * @return tags
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getTags() {
     return tags;
   }
@@ -242,14 +239,13 @@ public class GetTransactionsListFilterParameter {
     return this;
   }
 
-   /**
+  /**
    * Get since
    * @return since
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSince() {
     return since;
   }
@@ -267,14 +263,13 @@ public class GetTransactionsListFilterParameter {
     return this;
   }
 
-   /**
+  /**
    * Get until
    * @return until
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_UNTIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getUntil() {
     return until;
   }
@@ -292,14 +287,13 @@ public class GetTransactionsListFilterParameter {
     return this;
   }
 
-   /**
+  /**
    * Get cardId
    * @return cardId
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CARD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCardId() {
     return cardId;
   }
@@ -317,14 +311,13 @@ public class GetTransactionsListFilterParameter {
     return this;
   }
 
-   /**
+  /**
    * Get excludeFees
    * @return excludeFees
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EXCLUDE_FEES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getExcludeFees() {
     return excludeFees;
   }
@@ -350,14 +343,13 @@ public class GetTransactionsListFilterParameter {
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getType() {
     return type;
   }
@@ -383,14 +375,13 @@ public class GetTransactionsListFilterParameter {
     return this;
   }
 
-   /**
+  /**
    * Get direction
    * @return direction
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DIRECTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<DirectionEnum> getDirection() {
     return direction;
   }
@@ -408,14 +399,13 @@ public class GetTransactionsListFilterParameter {
     return this;
   }
 
-   /**
+  /**
    * Get fromAmount
    * @return fromAmount
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FROM_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getFromAmount() {
     return fromAmount;
   }
@@ -433,14 +423,13 @@ public class GetTransactionsListFilterParameter {
     return this;
   }
 
-   /**
+  /**
    * Get toAmount
    * @return toAmount
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TO_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getToAmount() {
     return toAmount;
   }
@@ -458,14 +447,13 @@ public class GetTransactionsListFilterParameter {
     return this;
   }
 
-   /**
+  /**
    * Get accountType
    * @return accountType
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ACCOUNT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAccountType() {
     return accountType;
   }
@@ -576,17 +564,17 @@ public class GetTransactionsListFilterParameter {
 
     // add `accountId` to the URL query string
     if (getAccountId() != null) {
-      joiner.add(String.format("%saccountId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAccountId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%saccountId%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getAccountId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `customerId` to the URL query string
     if (getCustomerId() != null) {
-      joiner.add(String.format("%scustomerId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCustomerId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%scustomerId%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCustomerId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `query` to the URL query string
     if (getQuery() != null) {
-      joiner.add(String.format("%squery%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getQuery()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%squery%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getQuery()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `tags` to the URL query string
@@ -594,28 +582,28 @@ public class GetTransactionsListFilterParameter {
       for (String _key : getTags().keySet()) {
         joiner.add(String.format("%stags%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
-            getTags().get(_key), URLEncoder.encode(String.valueOf(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+            getTags().get(_key), URLEncoder.encode(ApiClient.valueToString(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
     }
 
     // add `since` to the URL query string
     if (getSince() != null) {
-      joiner.add(String.format("%ssince%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSince()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%ssince%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getSince()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `until` to the URL query string
     if (getUntil() != null) {
-      joiner.add(String.format("%suntil%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUntil()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%suntil%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getUntil()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `cardId` to the URL query string
     if (getCardId() != null) {
-      joiner.add(String.format("%scardId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCardId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%scardId%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCardId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `excludeFees` to the URL query string
     if (getExcludeFees() != null) {
-      joiner.add(String.format("%sexcludeFees%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getExcludeFees()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sexcludeFees%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getExcludeFees()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `type` to the URL query string
@@ -623,7 +611,7 @@ public class GetTransactionsListFilterParameter {
       for (int i = 0; i < getType().size(); i++) {
         joiner.add(String.format("%stype%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
-            URLEncoder.encode(String.valueOf(getType().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+            URLEncoder.encode(ApiClient.valueToString(getType().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
     }
 
@@ -632,23 +620,23 @@ public class GetTransactionsListFilterParameter {
       for (int i = 0; i < getDirection().size(); i++) {
         joiner.add(String.format("%sdirection%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
-            URLEncoder.encode(String.valueOf(getDirection().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+            URLEncoder.encode(ApiClient.valueToString(getDirection().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
     }
 
     // add `fromAmount` to the URL query string
     if (getFromAmount() != null) {
-      joiner.add(String.format("%sfromAmount%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getFromAmount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sfromAmount%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getFromAmount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `toAmount` to the URL query string
     if (getToAmount() != null) {
-      joiner.add(String.format("%stoAmount%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getToAmount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%stoAmount%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getToAmount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `accountType` to the URL query string
     if (getAccountType() != null) {
-      joiner.add(String.format("%saccountType%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAccountType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%saccountType%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getAccountType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

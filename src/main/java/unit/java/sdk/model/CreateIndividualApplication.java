@@ -29,6 +29,7 @@ import unit.java.sdk.model.CreateIndividualApplicationAttributes;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * CreateIndividualApplication
  */
@@ -36,13 +37,13 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateIndividualApplication.JSON_PROPERTY_TYPE,
   CreateIndividualApplication.JSON_PROPERTY_ATTRIBUTES
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CreateIndividualApplication {
   /**
    * Gets or Sets type
    */
   public enum TypeEnum {
-    INDIVIDUALAPPLICATION("individualApplication");
+    INDIVIDUAL_APPLICATION("individualApplication");
 
     private String value;
 
@@ -72,7 +73,7 @@ public class CreateIndividualApplication {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.INDIVIDUALAPPLICATION;
+  private TypeEnum type = TypeEnum.INDIVIDUAL_APPLICATION;
 
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private CreateIndividualApplicationAttributes attributes;
@@ -85,14 +86,13 @@ public class CreateIndividualApplication {
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public TypeEnum getType() {
     return type;
   }
@@ -110,14 +110,13 @@ public class CreateIndividualApplication {
     return this;
   }
 
-   /**
+  /**
    * Get attributes
    * @return attributes
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public CreateIndividualApplicationAttributes getAttributes() {
     return attributes;
   }
@@ -206,7 +205,7 @@ public class CreateIndividualApplication {
 
     // add `type` to the URL query string
     if (getType() != null) {
-      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `attributes` to the URL query string

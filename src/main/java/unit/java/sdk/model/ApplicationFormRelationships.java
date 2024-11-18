@@ -29,13 +29,14 @@ import unit.java.sdk.model.ApplicationRelationship;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * ApplicationFormRelationships
  */
 @JsonPropertyOrder({
   ApplicationFormRelationships.JSON_PROPERTY_APPLICATION
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ApplicationFormRelationships {
   public static final String JSON_PROPERTY_APPLICATION = "application";
   private ApplicationRelationship application;
@@ -48,14 +49,13 @@ public class ApplicationFormRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get application
    * @return application
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_APPLICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ApplicationRelationship getApplication() {
     return application;
   }

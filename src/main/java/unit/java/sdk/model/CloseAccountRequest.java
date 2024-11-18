@@ -25,50 +25,51 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
+import unit.java.sdk.model.CloseAccountRequestData;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * CloseAccountRequest
  */
 @JsonPropertyOrder({
   CloseAccountRequest.JSON_PROPERTY_DATA
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CloseAccountRequest {
   public static final String JSON_PROPERTY_DATA = "data";
-  private CloseAccountRequest data;
+  private CloseAccountRequestData data;
 
   public CloseAccountRequest() { 
   }
 
-  public CloseAccountRequest data(CloseAccountRequest data) {
+  public CloseAccountRequest data(CloseAccountRequestData data) {
     this.data = data;
     return this;
   }
 
-   /**
+  /**
    * Get data
    * @return data
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public CloseAccountRequest getData() {
+  public CloseAccountRequestData getData() {
     return data;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setData(CloseAccountRequest data) {
+  public void setData(CloseAccountRequestData data) {
     this.data = data;
   }
 
 
   /**
-   * Return true if this Close_Account_Request object is equal to o.
+   * Return true if this CloseAccountRequest object is equal to o.
    */
   @Override
   public boolean equals(Object o) {

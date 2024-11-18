@@ -30,6 +30,7 @@ import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * CreatePlaidCounterpartyAttributes
  */
@@ -42,7 +43,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreatePlaidCounterpartyAttributes.JSON_PROPERTY_TAGS,
   CreatePlaidCounterpartyAttributes.JSON_PROPERTY_IDEMPOTENCY_KEY
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CreatePlaidCounterpartyAttributes {
   /**
    * Gets or Sets type
@@ -97,11 +98,11 @@ public class CreatePlaidCounterpartyAttributes {
    * Gets or Sets permissions
    */
   public enum PermissionsEnum {
-    CREDITONLY("CreditOnly"),
+    CREDIT_ONLY("CreditOnly"),
     
-    DEBITONLY("DebitOnly"),
+    DEBIT_ONLY("DebitOnly"),
     
-    CREDITANDDEBIT("CreditAndDebit");
+    CREDIT_AND_DEBIT("CreditAndDebit");
 
     private String value;
 
@@ -147,14 +148,13 @@ public class CreatePlaidCounterpartyAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public TypeEnum getType() {
     return type;
   }
@@ -172,14 +172,13 @@ public class CreatePlaidCounterpartyAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get name
    * @return name
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getName() {
     return name;
   }
@@ -197,14 +196,13 @@ public class CreatePlaidCounterpartyAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get verifyName
    * @return verifyName
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERIFY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getVerifyName() {
     return verifyName;
   }
@@ -222,14 +220,13 @@ public class CreatePlaidCounterpartyAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get plaidProcessorToken
    * @return plaidProcessorToken
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_PLAID_PROCESSOR_TOKEN)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getPlaidProcessorToken() {
     return plaidProcessorToken;
   }
@@ -247,14 +244,13 @@ public class CreatePlaidCounterpartyAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get permissions
    * @return permissions
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PERMISSIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public PermissionsEnum getPermissions() {
     return permissions;
   }
@@ -280,14 +276,13 @@ public class CreatePlaidCounterpartyAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get tags
    * @return tags
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getTags() {
     return tags;
   }
@@ -305,14 +300,13 @@ public class CreatePlaidCounterpartyAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get idempotencyKey
    * @return idempotencyKey
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IDEMPOTENCY_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getIdempotencyKey() {
     return idempotencyKey;
   }
@@ -411,27 +405,27 @@ public class CreatePlaidCounterpartyAttributes {
 
     // add `type` to the URL query string
     if (getType() != null) {
-      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `name` to the URL query string
     if (getName() != null) {
-      joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `verifyName` to the URL query string
     if (getVerifyName() != null) {
-      joiner.add(String.format("%sverifyName%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getVerifyName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sverifyName%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getVerifyName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `plaidProcessorToken` to the URL query string
     if (getPlaidProcessorToken() != null) {
-      joiner.add(String.format("%splaidProcessorToken%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPlaidProcessorToken()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%splaidProcessorToken%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getPlaidProcessorToken()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `permissions` to the URL query string
     if (getPermissions() != null) {
-      joiner.add(String.format("%spermissions%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPermissions()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%spermissions%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getPermissions()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `tags` to the URL query string
@@ -439,13 +433,13 @@ public class CreatePlaidCounterpartyAttributes {
       for (String _key : getTags().keySet()) {
         joiner.add(String.format("%stags%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
-            getTags().get(_key), URLEncoder.encode(String.valueOf(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+            getTags().get(_key), URLEncoder.encode(ApiClient.valueToString(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
     }
 
     // add `idempotencyKey` to the URL query string
     if (getIdempotencyKey() != null) {
-      joiner.add(String.format("%sidempotencyKey%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIdempotencyKey()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sidempotencyKey%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getIdempotencyKey()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

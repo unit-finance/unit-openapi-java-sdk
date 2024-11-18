@@ -30,13 +30,13 @@ import com.fasterxml.jackson.annotation.JsonValue;
  */
 public enum SoleProprietorshipAnnualRevenue {
   
-  UPTO50K("UpTo50k"),
+  UP_TO50K("UpTo50k"),
   
-  BETWEEN50KAND100K("Between50kAnd100k"),
+  BETWEEN50K_AND100K("Between50kAnd100k"),
   
-  BETWEEN100KAND200K("Between100kAnd200k"),
+  BETWEEN100K_AND200K("Between100kAnd200k"),
   
-  BETWEEN200KAND500K("Between200kAnd500k"),
+  BETWEEN200K_AND500K("Between200kAnd500k"),
   
   OVER500K("Over500k");
 

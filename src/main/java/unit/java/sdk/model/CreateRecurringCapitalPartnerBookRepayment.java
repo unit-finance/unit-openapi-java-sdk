@@ -30,6 +30,7 @@ import unit.java.sdk.model.CreateRecurringCapitalPartnerBookRepaymentRelationshi
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * CreateRecurringCapitalPartnerBookRepayment
  */
@@ -38,13 +39,13 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateRecurringCapitalPartnerBookRepayment.JSON_PROPERTY_ATTRIBUTES,
   CreateRecurringCapitalPartnerBookRepayment.JSON_PROPERTY_RELATIONSHIPS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CreateRecurringCapitalPartnerBookRepayment {
   /**
    * Gets or Sets type
    */
   public enum TypeEnum {
-    RECURRINGCAPITALPARTNERBOOKREPAYMENT("recurringCapitalPartnerBookRepayment");
+    RECURRING_CAPITAL_PARTNER_BOOK_REPAYMENT("recurringCapitalPartnerBookRepayment");
 
     private String value;
 
@@ -74,7 +75,7 @@ public class CreateRecurringCapitalPartnerBookRepayment {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.RECURRINGCAPITALPARTNERBOOKREPAYMENT;
+  private TypeEnum type = TypeEnum.RECURRING_CAPITAL_PARTNER_BOOK_REPAYMENT;
 
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private CreateRecurringBookRepaymentAttributes attributes;
@@ -90,14 +91,13 @@ public class CreateRecurringCapitalPartnerBookRepayment {
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public TypeEnum getType() {
     return type;
   }
@@ -115,14 +115,13 @@ public class CreateRecurringCapitalPartnerBookRepayment {
     return this;
   }
 
-   /**
+  /**
    * Get attributes
    * @return attributes
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public CreateRecurringBookRepaymentAttributes getAttributes() {
     return attributes;
   }
@@ -140,14 +139,13 @@ public class CreateRecurringCapitalPartnerBookRepayment {
     return this;
   }
 
-   /**
+  /**
    * Get relationships
    * @return relationships
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public CreateRecurringCapitalPartnerBookRepaymentRelationships getRelationships() {
     return relationships;
   }
@@ -238,7 +236,7 @@ public class CreateRecurringCapitalPartnerBookRepayment {
 
     // add `type` to the URL query string
     if (getType() != null) {
-      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `attributes` to the URL query string

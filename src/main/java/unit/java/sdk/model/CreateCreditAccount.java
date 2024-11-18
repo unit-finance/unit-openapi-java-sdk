@@ -30,6 +30,7 @@ import unit.java.sdk.model.CreateCreditAccountRelationships;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * CreateCreditAccount
  */
@@ -38,13 +39,13 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateCreditAccount.JSON_PROPERTY_ATTRIBUTES,
   CreateCreditAccount.JSON_PROPERTY_RELATIONSHIPS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CreateCreditAccount {
   /**
    * Gets or Sets type
    */
   public enum TypeEnum {
-    CREDITACCOUNT("creditAccount");
+    CREDIT_ACCOUNT("creditAccount");
 
     private String value;
 
@@ -74,7 +75,7 @@ public class CreateCreditAccount {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.CREDITACCOUNT;
+  private TypeEnum type = TypeEnum.CREDIT_ACCOUNT;
 
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private CreateCreditAccountAttributes attributes;
@@ -90,14 +91,13 @@ public class CreateCreditAccount {
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
@@ -115,14 +115,13 @@ public class CreateCreditAccount {
     return this;
   }
 
-   /**
+  /**
    * Get attributes
    * @return attributes
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CreateCreditAccountAttributes getAttributes() {
     return attributes;
   }
@@ -140,14 +139,13 @@ public class CreateCreditAccount {
     return this;
   }
 
-   /**
+  /**
    * Get relationships
    * @return relationships
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CreateCreditAccountRelationships getRelationships() {
     return relationships;
   }
@@ -238,7 +236,7 @@ public class CreateCreditAccount {
 
     // add `type` to the URL query string
     if (getType() != null) {
-      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `attributes` to the URL query string

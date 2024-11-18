@@ -24,28 +24,22 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import unit.java.sdk.model.Card;
-import unit.java.sdk.model.IncludedResourceInner;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * UnitCardResponse
  */
 @JsonPropertyOrder({
-  UnitCardResponse.JSON_PROPERTY_DATA,
-  UnitCardResponse.JSON_PROPERTY_INCLUDED
+  UnitCardResponse.JSON_PROPERTY_DATA
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class UnitCardResponse {
   public static final String JSON_PROPERTY_DATA = "data";
   private Card data;
-
-  public static final String JSON_PROPERTY_INCLUDED = "included";
-  private List<List<IncludedResourceInner>> included = new ArrayList<>();
 
   public UnitCardResponse() { 
   }
@@ -55,14 +49,13 @@ public class UnitCardResponse {
     return this;
   }
 
-   /**
+  /**
    * Get data
    * @return data
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Card getData() {
     return data;
   }
@@ -75,41 +68,8 @@ public class UnitCardResponse {
   }
 
 
-  public UnitCardResponse included(List<List<IncludedResourceInner>> included) {
-    this.included = included;
-    return this;
-  }
-
-  public UnitCardResponse addIncludedItem(List<IncludedResourceInner> includedItem) {
-    if (this.included == null) {
-      this.included = new ArrayList<>();
-    }
-    this.included.add(includedItem);
-    return this;
-  }
-
-   /**
-   * Get included
-   * @return included
-  **/
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INCLUDED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public List<List<IncludedResourceInner>> getIncluded() {
-    return included;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_INCLUDED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIncluded(List<List<IncludedResourceInner>> included) {
-    this.included = included;
-  }
-
-
   /**
-   * Return true if this Unit_Card_Response object is equal to o.
+   * Return true if this UnitCardResponse object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -120,13 +80,12 @@ public class UnitCardResponse {
       return false;
     }
     UnitCardResponse unitCardResponse = (UnitCardResponse) o;
-    return Objects.equals(this.data, unitCardResponse.data) &&
-        Objects.equals(this.included, unitCardResponse.included);
+    return Objects.equals(this.data, unitCardResponse.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, included);
+    return Objects.hash(data);
   }
 
   @Override
@@ -134,7 +93,6 @@ public class UnitCardResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class UnitCardResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    included: ").append(toIndentedString(included)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -185,17 +143,6 @@ public class UnitCardResponse {
     // add `data` to the URL query string
     if (getData() != null) {
       joiner.add(getData().toUrlQueryString(prefix + "data" + suffix));
-    }
-
-    // add `included` to the URL query string
-    if (getIncluded() != null) {
-      for (int i = 0; i < getIncluded().size(); i++) {
-        if (getIncluded().get(i) != null) {
-          joiner.add(String.format("%sincluded%s%s=%s", prefix, suffix,
-              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
-              URLEncoder.encode(String.valueOf(getIncluded().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-        }
-      }
     }
 
     return joiner.toString();

@@ -33,6 +33,7 @@ import unit.java.sdk.model.CardLevelLimits;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * CreateIndividualDebitCardRequestAttributes
  */
@@ -50,7 +51,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateIndividualDebitCardRequestAttributes.JSON_PROPERTY_PRINT_ONLY_BUSINESS_NAME,
   CreateIndividualDebitCardRequestAttributes.JSON_PROPERTY_EXPIRY_DATE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CreateIndividualDebitCardRequestAttributes {
   public static final String JSON_PROPERTY_SHIPPING_ADDRESS = "shippingAddress";
   private Address shippingAddress;
@@ -96,14 +97,13 @@ public class CreateIndividualDebitCardRequestAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get shippingAddress
    * @return shippingAddress
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SHIPPING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Address getShippingAddress() {
     return shippingAddress;
   }
@@ -121,14 +121,13 @@ public class CreateIndividualDebitCardRequestAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get design
    * @return design
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDesign() {
     return design;
   }
@@ -154,14 +153,13 @@ public class CreateIndividualDebitCardRequestAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get tags
    * @return tags
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getTags() {
     return tags;
   }
@@ -179,14 +177,13 @@ public class CreateIndividualDebitCardRequestAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get limits
    * @return limits
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LIMITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CardLevelLimits getLimits() {
     return limits;
   }
@@ -204,14 +201,13 @@ public class CreateIndividualDebitCardRequestAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get idempotencyKey
    * @return idempotencyKey
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IDEMPOTENCY_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getIdempotencyKey() {
     return idempotencyKey;
   }
@@ -229,14 +225,13 @@ public class CreateIndividualDebitCardRequestAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get bin
    * @return bin
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Bin getBin() {
     return bin;
   }
@@ -254,14 +249,13 @@ public class CreateIndividualDebitCardRequestAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get cardQualifier
    * @return cardQualifier
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CARD_QUALIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCardQualifier() {
     return cardQualifier;
   }
@@ -279,14 +273,13 @@ public class CreateIndividualDebitCardRequestAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get cardDesignId
    * @return cardDesignId
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CARD_DESIGN_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCardDesignId() {
     return cardDesignId;
   }
@@ -304,14 +297,13 @@ public class CreateIndividualDebitCardRequestAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get additionalEmbossedText
    * @return additionalEmbossedText
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_EMBOSSED_TEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAdditionalEmbossedText() {
     return additionalEmbossedText;
   }
@@ -329,14 +321,13 @@ public class CreateIndividualDebitCardRequestAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get activeForOnlineUse
    * @return activeForOnlineUse
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ACTIVE_FOR_ONLINE_USE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getActiveForOnlineUse() {
     return activeForOnlineUse;
   }
@@ -354,14 +345,13 @@ public class CreateIndividualDebitCardRequestAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get printOnlyBusinessName
    * @return printOnlyBusinessName
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRINT_ONLY_BUSINESS_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getPrintOnlyBusinessName() {
     return printOnlyBusinessName;
   }
@@ -379,14 +369,13 @@ public class CreateIndividualDebitCardRequestAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get expiryDate
    * @return expiryDate
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EXPIRY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getExpiryDate() {
     return expiryDate;
   }
@@ -500,7 +489,7 @@ public class CreateIndividualDebitCardRequestAttributes {
 
     // add `design` to the URL query string
     if (getDesign() != null) {
-      joiner.add(String.format("%sdesign%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDesign()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sdesign%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDesign()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `tags` to the URL query string
@@ -508,7 +497,7 @@ public class CreateIndividualDebitCardRequestAttributes {
       for (String _key : getTags().keySet()) {
         joiner.add(String.format("%stags%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
-            getTags().get(_key), URLEncoder.encode(String.valueOf(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+            getTags().get(_key), URLEncoder.encode(ApiClient.valueToString(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
     }
 
@@ -519,7 +508,7 @@ public class CreateIndividualDebitCardRequestAttributes {
 
     // add `idempotencyKey` to the URL query string
     if (getIdempotencyKey() != null) {
-      joiner.add(String.format("%sidempotencyKey%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIdempotencyKey()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sidempotencyKey%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getIdempotencyKey()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `bin` to the URL query string
@@ -529,32 +518,32 @@ public class CreateIndividualDebitCardRequestAttributes {
 
     // add `cardQualifier` to the URL query string
     if (getCardQualifier() != null) {
-      joiner.add(String.format("%scardQualifier%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCardQualifier()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%scardQualifier%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCardQualifier()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `cardDesignId` to the URL query string
     if (getCardDesignId() != null) {
-      joiner.add(String.format("%scardDesignId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCardDesignId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%scardDesignId%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCardDesignId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `additionalEmbossedText` to the URL query string
     if (getAdditionalEmbossedText() != null) {
-      joiner.add(String.format("%sadditionalEmbossedText%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAdditionalEmbossedText()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sadditionalEmbossedText%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getAdditionalEmbossedText()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `activeForOnlineUse` to the URL query string
     if (getActiveForOnlineUse() != null) {
-      joiner.add(String.format("%sactiveForOnlineUse%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getActiveForOnlineUse()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sactiveForOnlineUse%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getActiveForOnlineUse()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `printOnlyBusinessName` to the URL query string
     if (getPrintOnlyBusinessName() != null) {
-      joiner.add(String.format("%sprintOnlyBusinessName%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPrintOnlyBusinessName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sprintOnlyBusinessName%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getPrintOnlyBusinessName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `expiryDate` to the URL query string
     if (getExpiryDate() != null) {
-      joiner.add(String.format("%sexpiryDate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getExpiryDate()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sexpiryDate%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getExpiryDate()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

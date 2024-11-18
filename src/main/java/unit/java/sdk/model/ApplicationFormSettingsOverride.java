@@ -31,6 +31,7 @@ import unit.java.sdk.model.ApplicationFormAdditionalDisclosuresInner;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * ApplicationFormSettingsOverride
  */
@@ -45,7 +46,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   ApplicationFormSettingsOverride.JSON_PROPERTY_DEBIT_CARD_DISCLOSURE_URL,
   ApplicationFormSettingsOverride.JSON_PROPERTY_ADDITIONAL_DISCLOSURES
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ApplicationFormSettingsOverride {
   public static final String JSON_PROPERTY_REDIRECT_URL = "redirectUrl";
   private String redirectUrl;
@@ -82,14 +83,13 @@ public class ApplicationFormSettingsOverride {
     return this;
   }
 
-   /**
+  /**
    * Get redirectUrl
    * @return redirectUrl
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REDIRECT_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRedirectUrl() {
     return redirectUrl;
   }
@@ -107,14 +107,13 @@ public class ApplicationFormSettingsOverride {
     return this;
   }
 
-   /**
+  /**
    * Get privacyPolicyUrl
    * @return privacyPolicyUrl
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRIVACY_POLICY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPrivacyPolicyUrl() {
     return privacyPolicyUrl;
   }
@@ -132,14 +131,13 @@ public class ApplicationFormSettingsOverride {
     return this;
   }
 
-   /**
+  /**
    * Get electronicDisclosuresUrl
    * @return electronicDisclosuresUrl
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ELECTRONIC_DISCLOSURES_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getElectronicDisclosuresUrl() {
     return electronicDisclosuresUrl;
   }
@@ -157,14 +155,13 @@ public class ApplicationFormSettingsOverride {
     return this;
   }
 
-   /**
+  /**
    * Get depositTermsUrl
    * @return depositTermsUrl
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DEPOSIT_TERMS_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDepositTermsUrl() {
     return depositTermsUrl;
   }
@@ -182,14 +179,13 @@ public class ApplicationFormSettingsOverride {
     return this;
   }
 
-   /**
+  /**
    * Get clientTermsUrl
    * @return clientTermsUrl
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CLIENT_TERMS_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getClientTermsUrl() {
     return clientTermsUrl;
   }
@@ -207,14 +203,13 @@ public class ApplicationFormSettingsOverride {
     return this;
   }
 
-   /**
+  /**
    * Get cardholderTermsUrl
    * @return cardholderTermsUrl
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CARDHOLDER_TERMS_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCardholderTermsUrl() {
     return cardholderTermsUrl;
   }
@@ -232,14 +227,13 @@ public class ApplicationFormSettingsOverride {
     return this;
   }
 
-   /**
+  /**
    * Get cashAdvancedTermsUrl
    * @return cashAdvancedTermsUrl
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CASH_ADVANCED_TERMS_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCashAdvancedTermsUrl() {
     return cashAdvancedTermsUrl;
   }
@@ -257,14 +251,13 @@ public class ApplicationFormSettingsOverride {
     return this;
   }
 
-   /**
+  /**
    * Get debitCardDisclosureUrl
    * @return debitCardDisclosureUrl
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DEBIT_CARD_DISCLOSURE_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDebitCardDisclosureUrl() {
     return debitCardDisclosureUrl;
   }
@@ -290,14 +283,13 @@ public class ApplicationFormSettingsOverride {
     return this;
   }
 
-   /**
+  /**
    * Get additionalDisclosures
    * @return additionalDisclosures
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_DISCLOSURES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<ApplicationFormAdditionalDisclosuresInner> getAdditionalDisclosures() {
     return additionalDisclosures;
   }
@@ -400,42 +392,42 @@ public class ApplicationFormSettingsOverride {
 
     // add `redirectUrl` to the URL query string
     if (getRedirectUrl() != null) {
-      joiner.add(String.format("%sredirectUrl%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getRedirectUrl()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sredirectUrl%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getRedirectUrl()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `privacyPolicyUrl` to the URL query string
     if (getPrivacyPolicyUrl() != null) {
-      joiner.add(String.format("%sprivacyPolicyUrl%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPrivacyPolicyUrl()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sprivacyPolicyUrl%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getPrivacyPolicyUrl()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `electronicDisclosuresUrl` to the URL query string
     if (getElectronicDisclosuresUrl() != null) {
-      joiner.add(String.format("%selectronicDisclosuresUrl%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getElectronicDisclosuresUrl()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%selectronicDisclosuresUrl%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getElectronicDisclosuresUrl()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `depositTermsUrl` to the URL query string
     if (getDepositTermsUrl() != null) {
-      joiner.add(String.format("%sdepositTermsUrl%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDepositTermsUrl()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sdepositTermsUrl%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDepositTermsUrl()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `clientTermsUrl` to the URL query string
     if (getClientTermsUrl() != null) {
-      joiner.add(String.format("%sclientTermsUrl%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getClientTermsUrl()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sclientTermsUrl%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getClientTermsUrl()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `cardholderTermsUrl` to the URL query string
     if (getCardholderTermsUrl() != null) {
-      joiner.add(String.format("%scardholderTermsUrl%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCardholderTermsUrl()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%scardholderTermsUrl%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCardholderTermsUrl()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `cashAdvancedTermsUrl` to the URL query string
     if (getCashAdvancedTermsUrl() != null) {
-      joiner.add(String.format("%scashAdvancedTermsUrl%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCashAdvancedTermsUrl()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%scashAdvancedTermsUrl%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCashAdvancedTermsUrl()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `debitCardDisclosureUrl` to the URL query string
     if (getDebitCardDisclosureUrl() != null) {
-      joiner.add(String.format("%sdebitCardDisclosureUrl%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDebitCardDisclosureUrl()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sdebitCardDisclosureUrl%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDebitCardDisclosureUrl()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `additionalDisclosures` to the URL query string

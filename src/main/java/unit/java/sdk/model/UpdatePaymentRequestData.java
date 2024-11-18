@@ -26,7 +26,8 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import unit.java.sdk.model.UpdateAchPayment;
-import unit.java.sdk.model.UpdateAchPaymentAttributes;
+import unit.java.sdk.model.UpdateAchReceivedPayment;
+import unit.java.sdk.model.UpdateAchReceivedPaymentAttributes;
 import unit.java.sdk.model.UpdateBookPayment;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
@@ -54,7 +55,7 @@ import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import unit.java.sdk.JSON;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 @JsonDeserialize(using = UpdatePaymentRequestData.UpdatePaymentRequestDataDeserializer.class)
 @JsonSerialize(using = UpdatePaymentRequestData.UpdatePaymentRequestDataSerializer.class)
 public class UpdatePaymentRequestData extends AbstractOpenApiSchema {
@@ -117,6 +118,32 @@ public class UpdatePaymentRequestData extends AbstractOpenApiSchema {
                 log.log(Level.FINER, "Input data does not match schema 'UpdateAchPayment'", e);
             }
 
+            // deserialize UpdateAchReceivedPayment
+            try {
+                boolean attemptParsing = true;
+                // ensure that we respect type coercion as set on the client ObjectMapper
+                if (UpdateAchReceivedPayment.class.equals(Integer.class) || UpdateAchReceivedPayment.class.equals(Long.class) || UpdateAchReceivedPayment.class.equals(Float.class) || UpdateAchReceivedPayment.class.equals(Double.class) || UpdateAchReceivedPayment.class.equals(Boolean.class) || UpdateAchReceivedPayment.class.equals(String.class)) {
+                    attemptParsing = typeCoercion;
+                    if (!attemptParsing) {
+                        attemptParsing |= ((UpdateAchReceivedPayment.class.equals(Integer.class) || UpdateAchReceivedPayment.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= ((UpdateAchReceivedPayment.class.equals(Float.class) || UpdateAchReceivedPayment.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (UpdateAchReceivedPayment.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= (UpdateAchReceivedPayment.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                    }
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(UpdateAchReceivedPayment.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'UpdateAchReceivedPayment'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'UpdateAchReceivedPayment'", e);
+            }
+
             // deserialize UpdateBookPayment
             try {
                 boolean attemptParsing = true;
@@ -172,6 +199,11 @@ public class UpdatePaymentRequestData extends AbstractOpenApiSchema {
         setActualInstance(o);
     }
 
+    public UpdatePaymentRequestData(UpdateAchReceivedPayment o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
     public UpdatePaymentRequestData(UpdateBookPayment o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
@@ -179,6 +211,7 @@ public class UpdatePaymentRequestData extends AbstractOpenApiSchema {
 
     static {
         schemas.put("UpdateAchPayment", UpdateAchPayment.class);
+        schemas.put("UpdateAchReceivedPayment", UpdateAchReceivedPayment.class);
         schemas.put("UpdateBookPayment", UpdateBookPayment.class);
         JSON.registerDescendants(UpdatePaymentRequestData.class, Collections.unmodifiableMap(schemas));
     }
@@ -191,7 +224,7 @@ public class UpdatePaymentRequestData extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * UpdateAchPayment, UpdateBookPayment
+     * UpdateAchPayment, UpdateAchReceivedPayment, UpdateBookPayment
      *
      * It could be an instance of the 'oneOf' schemas.
      * The oneOf child schemas may themselves be a composed schema (allOf, anyOf, oneOf).
@@ -203,19 +236,24 @@ public class UpdatePaymentRequestData extends AbstractOpenApiSchema {
             return;
         }
 
+        if (JSON.isInstanceOf(UpdateAchReceivedPayment.class, instance, new HashSet<Class<?>>())) {
+            super.setActualInstance(instance);
+            return;
+        }
+
         if (JSON.isInstanceOf(UpdateBookPayment.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be UpdateAchPayment, UpdateBookPayment");
+        throw new RuntimeException("Invalid instance type. Must be UpdateAchPayment, UpdateAchReceivedPayment, UpdateBookPayment");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * UpdateAchPayment, UpdateBookPayment
+     * UpdateAchPayment, UpdateAchReceivedPayment, UpdateBookPayment
      *
-     * @return The actual instance (UpdateAchPayment, UpdateBookPayment)
+     * @return The actual instance (UpdateAchPayment, UpdateAchReceivedPayment, UpdateBookPayment)
      */
     @Override
     public Object getActualInstance() {
@@ -231,6 +269,17 @@ public class UpdatePaymentRequestData extends AbstractOpenApiSchema {
      */
     public UpdateAchPayment getUpdateAchPayment() throws ClassCastException {
         return (UpdateAchPayment)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `UpdateAchReceivedPayment`. If the actual instance is not `UpdateAchReceivedPayment`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `UpdateAchReceivedPayment`
+     * @throws ClassCastException if the instance is not `UpdateAchReceivedPayment`
+     */
+    public UpdateAchReceivedPayment getUpdateAchReceivedPayment() throws ClassCastException {
+        return (UpdateAchReceivedPayment)super.getActualInstance();
     }
 
     /**
@@ -287,6 +336,12 @@ public class UpdatePaymentRequestData extends AbstractOpenApiSchema {
     if (getActualInstance() instanceof UpdateBookPayment) {
         if (getActualInstance() != null) {
           joiner.add(((UpdateBookPayment)getActualInstance()).toUrlQueryString(prefix + "one_of_1" + suffix));
+        }
+        return joiner.toString();
+    }
+    if (getActualInstance() instanceof UpdateAchReceivedPayment) {
+        if (getActualInstance() != null) {
+          joiner.add(((UpdateAchReceivedPayment)getActualInstance()).toUrlQueryString(prefix + "one_of_2" + suffix));
         }
         return joiner.toString();
     }

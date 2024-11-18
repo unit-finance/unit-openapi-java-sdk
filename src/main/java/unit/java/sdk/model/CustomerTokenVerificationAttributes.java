@@ -28,13 +28,14 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * CustomerTokenVerificationAttributes
  */
 @JsonPropertyOrder({
   CustomerTokenVerificationAttributes.JSON_PROPERTY_VERIFICATION_TOKEN
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CustomerTokenVerificationAttributes {
   public static final String JSON_PROPERTY_VERIFICATION_TOKEN = "verificationToken";
   private String verificationToken;
@@ -47,14 +48,13 @@ public class CustomerTokenVerificationAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get verificationToken
    * @return verificationToken
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERIFICATION_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getVerificationToken() {
     return verificationToken;
   }
@@ -141,7 +141,7 @@ public class CustomerTokenVerificationAttributes {
 
     // add `verificationToken` to the URL query string
     if (getVerificationToken() != null) {
-      joiner.add(String.format("%sverificationToken%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getVerificationToken()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sverificationToken%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getVerificationToken()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

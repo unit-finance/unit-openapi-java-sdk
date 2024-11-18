@@ -28,6 +28,7 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * RequireIdVerification
  */
@@ -36,7 +37,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   RequireIdVerification.JSON_PROPERTY_OFFICER,
   RequireIdVerification.JSON_PROPERTY_BENEFICIAL_OWNERS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class RequireIdVerification {
   public static final String JSON_PROPERTY_INDIVIDUAL = "individual";
   private Boolean individual = false;
@@ -55,14 +56,13 @@ public class RequireIdVerification {
     return this;
   }
 
-   /**
+  /**
    * Get individual
    * @return individual
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INDIVIDUAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getIndividual() {
     return individual;
   }
@@ -80,14 +80,13 @@ public class RequireIdVerification {
     return this;
   }
 
-   /**
+  /**
    * Get officer
    * @return officer
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OFFICER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getOfficer() {
     return officer;
   }
@@ -105,14 +104,13 @@ public class RequireIdVerification {
     return this;
   }
 
-   /**
+  /**
    * Get beneficialOwners
    * @return beneficialOwners
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BENEFICIAL_OWNERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getBeneficialOwners() {
     return beneficialOwners;
   }
@@ -203,17 +201,17 @@ public class RequireIdVerification {
 
     // add `individual` to the URL query string
     if (getIndividual() != null) {
-      joiner.add(String.format("%sindividual%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIndividual()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sindividual%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getIndividual()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `officer` to the URL query string
     if (getOfficer() != null) {
-      joiner.add(String.format("%sofficer%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getOfficer()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sofficer%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getOfficer()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `beneficialOwners` to the URL query string
     if (getBeneficialOwners() != null) {
-      joiner.add(String.format("%sbeneficialOwners%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getBeneficialOwners()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sbeneficialOwners%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getBeneficialOwners()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

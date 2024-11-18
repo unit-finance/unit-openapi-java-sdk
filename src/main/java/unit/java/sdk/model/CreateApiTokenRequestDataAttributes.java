@@ -28,10 +28,15 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
 import unit.java.sdk.model.CreateApiTokenRequestDataAttributesResourcesInner;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * CreateApiTokenRequestDataAttributes
  */
@@ -42,7 +47,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateApiTokenRequestDataAttributes.JSON_PROPERTY_SOURCE_IP,
   CreateApiTokenRequestDataAttributes.JSON_PROPERTY_RESOURCES
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CreateApiTokenRequestDataAttributes {
   public static final String JSON_PROPERTY_SCOPE = "scope";
   private String scope;
@@ -57,7 +62,7 @@ public class CreateApiTokenRequestDataAttributes {
   private String sourceIp;
 
   public static final String JSON_PROPERTY_RESOURCES = "resources";
-  private List<CreateApiTokenRequestDataAttributesResourcesInner> resources = new ArrayList<>();
+  private JsonNullable<List<CreateApiTokenRequestDataAttributesResourcesInner>> resources = JsonNullable.<List<CreateApiTokenRequestDataAttributesResourcesInner>>undefined();
 
   public CreateApiTokenRequestDataAttributes() { 
   }
@@ -67,14 +72,13 @@ public class CreateApiTokenRequestDataAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get scope
    * @return scope
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SCOPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getScope() {
     return scope;
   }
@@ -92,14 +96,13 @@ public class CreateApiTokenRequestDataAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get description
    * @return description
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getDescription() {
     return description;
   }
@@ -117,14 +120,13 @@ public class CreateApiTokenRequestDataAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get expiration
    * @return expiration
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_EXPIRATION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public OffsetDateTime getExpiration() {
     return expiration;
   }
@@ -142,14 +144,13 @@ public class CreateApiTokenRequestDataAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get sourceIp
    * @return sourceIp
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SOURCE_IP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSourceIp() {
     return sourceIp;
   }
@@ -163,35 +164,46 @@ public class CreateApiTokenRequestDataAttributes {
 
 
   public CreateApiTokenRequestDataAttributes resources(List<CreateApiTokenRequestDataAttributesResourcesInner> resources) {
-    this.resources = resources;
+    this.resources = JsonNullable.<List<CreateApiTokenRequestDataAttributesResourcesInner>>of(resources);
     return this;
   }
 
   public CreateApiTokenRequestDataAttributes addResourcesItem(CreateApiTokenRequestDataAttributesResourcesInner resourcesItem) {
-    if (this.resources == null) {
-      this.resources = new ArrayList<>();
+    if (this.resources == null || !this.resources.isPresent()) {
+      this.resources = JsonNullable.<List<CreateApiTokenRequestDataAttributesResourcesInner>>of(new ArrayList<>());
     }
-    this.resources.add(resourcesItem);
+    try {
+      this.resources.get().add(resourcesItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
-   /**
+  /**
    * Get resources
    * @return resources
-  **/
+   */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RESOURCES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
+  @JsonIgnore
   public List<CreateApiTokenRequestDataAttributesResourcesInner> getResources() {
-    return resources;
+        return resources.orElse(null);
   }
 
-
   @JsonProperty(JSON_PROPERTY_RESOURCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setResources(List<CreateApiTokenRequestDataAttributesResourcesInner> resources) {
+
+  public JsonNullable<List<CreateApiTokenRequestDataAttributesResourcesInner>> getResources_JsonNullable() {
+    return resources;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_RESOURCES)
+  public void setResources_JsonNullable(JsonNullable<List<CreateApiTokenRequestDataAttributesResourcesInner>> resources) {
     this.resources = resources;
+  }
+
+  public void setResources(List<CreateApiTokenRequestDataAttributesResourcesInner> resources) {
+    this.resources = JsonNullable.<List<CreateApiTokenRequestDataAttributesResourcesInner>>of(resources);
   }
 
 
@@ -211,12 +223,23 @@ public class CreateApiTokenRequestDataAttributes {
         Objects.equals(this.description, createApiTokenRequestDataAttributes.description) &&
         Objects.equals(this.expiration, createApiTokenRequestDataAttributes.expiration) &&
         Objects.equals(this.sourceIp, createApiTokenRequestDataAttributes.sourceIp) &&
-        Objects.equals(this.resources, createApiTokenRequestDataAttributes.resources);
+        equalsNullable(this.resources, createApiTokenRequestDataAttributes.resources);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(scope, description, expiration, sourceIp, resources);
+    return Objects.hash(scope, description, expiration, sourceIp, hashCodeNullable(resources));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -277,22 +300,22 @@ public class CreateApiTokenRequestDataAttributes {
 
     // add `scope` to the URL query string
     if (getScope() != null) {
-      joiner.add(String.format("%sscope%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getScope()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sscope%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getScope()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `description` to the URL query string
     if (getDescription() != null) {
-      joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDescription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDescription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `expiration` to the URL query string
     if (getExpiration() != null) {
-      joiner.add(String.format("%sexpiration%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getExpiration()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sexpiration%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getExpiration()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `sourceIp` to the URL query string
     if (getSourceIp() != null) {
-      joiner.add(String.format("%ssourceIp%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSourceIp()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%ssourceIp%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getSourceIp()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `resources` to the URL query string

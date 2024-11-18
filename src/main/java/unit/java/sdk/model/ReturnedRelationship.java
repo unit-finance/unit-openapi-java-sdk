@@ -29,13 +29,14 @@ import unit.java.sdk.model.ReturnedTransactionRelationship;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * ReturnedRelationship
  */
 @JsonPropertyOrder({
   ReturnedRelationship.JSON_PROPERTY_RETURNED
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ReturnedRelationship {
   public static final String JSON_PROPERTY_RETURNED = "returned";
   private ReturnedTransactionRelationship returned;
@@ -48,14 +49,13 @@ public class ReturnedRelationship {
     return this;
   }
 
-   /**
+  /**
    * Get returned
    * @return returned
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RETURNED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ReturnedTransactionRelationship getReturned() {
     return returned;
   }

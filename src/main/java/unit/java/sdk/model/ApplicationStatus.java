@@ -30,9 +30,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
  */
 public enum ApplicationStatus {
   
-  AWAITINGDOCUMENTS("AwaitingDocuments"),
+  AWAITING_DOCUMENTS("AwaitingDocuments"),
   
-  PENDINGREVIEW("PendingReview"),
+  PENDING_REVIEW("PendingReview"),
   
   APPROVED("Approved"),
   

@@ -4,6 +4,9 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+
 import unit.java.sdk.api.UnitApi;
 import unit.java.sdk.model.Address;
 import unit.java.sdk.model.AnnualIncome;
@@ -38,6 +41,9 @@ public class TestHelpers {
         if(unitApi == null){
             String access_token = System.getenv("access_token");
         ApiClient cl = new ApiClient();
+        ObjectMapper mapper = cl.getObjectMapper();
+        mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
+        cl.setObjectMapper(mapper);
         cl.setRequestInterceptor(r -> r.header("Authorization", "Bearer " + access_token));
         unitApi = new UnitApi(cl);
         }
@@ -70,7 +76,7 @@ public class TestHelpers {
         p.setNumber("5555555555");
         p.setCountryCode("1");
         attr.setPhone(p);
-        attr.setOccupation(Occupation.ARCHITECTORENGINEER);
+        attr.setOccupation(Occupation.ARCHITECT_OR_ENGINEER);
 
         createIndividualApplication.setAttributes(attr);
 
@@ -105,9 +111,9 @@ public class TestHelpers {
         p.setCountryCode("1");
         attr.setPhone(p);
         attr.setSoleProprietorship(true);
-        attr.setBusinessVertical(BusinessVertical.BUSINESSSUPPORTORBUILDINGSERVICES);
-        attr.setAnnualRevenue(SoleProprietorshipAnnualRevenue.BETWEEN100KAND200K);
-        attr.setNumberOfEmployees(SoleProprietorshipNumberOfEmployees.BETWEEN5AND10);
+        attr.setBusinessVertical(BusinessVertical.BUSINESS_SUPPORT_OR_BUILDING_SERVICES);
+        attr.setAnnualRevenue(SoleProprietorshipAnnualRevenue.BETWEEN100K_AND200K);
+        attr.setNumberOfEmployees(SoleProprietorshipNumberOfEmployees.BETWEEN5_AND10);
 
         createSoleProprietorApplication.setAttributes(attr);
 
@@ -141,8 +147,8 @@ public class TestHelpers {
         attr.setEin("123456789");
         attr.setEntityType(EntityType.CORPORATION);
         attr.setIp("127.0.0.1");
-        attr.setAnnualRevenue(BusinessAnnualRevenue.BETWEEN250KAND500K);
-        attr.setNumberOfEmployees(BusinessNumberOfEmployees.BETWEEN100AND500);
+        attr.setAnnualRevenue(BusinessAnnualRevenue.BETWEEN250K_AND500K);
+        attr.setNumberOfEmployees(BusinessNumberOfEmployees.BETWEEN100_AND500);
         attr.setCashFlow(CashFlow.PREDICTABLE);
         attr.setYearOfIncorporation("1999");
         List<String> countriesOfOperation = new ArrayList<String>();
@@ -165,7 +171,7 @@ public class TestHelpers {
 
 
         CreateOfficer officer = new CreateOfficer();
-        officer.setAnnualIncome(AnnualIncome.BETWEEN50KAND100K);
+        officer.setAnnualIncome(AnnualIncome.BETWEEN50K_AND100K);
         officer.setFullName(fn);
         officer.setAddress(address);
         officer.setEmail(email);
@@ -173,12 +179,12 @@ public class TestHelpers {
         LocalDate dateOfBirh = LocalDate.of(1997, 11, 1);
         officer.setDateOfBirth(dateOfBirh);
         officer.setTitle(CreateOfficer.TitleEnum.CEO);
-        officer.setOccupation(Occupation.ARCHITECTORENGINEER);
-        officer.setSourceOfIncome(SourceOfIncome.BUSINESSOWNERSHIPINTERESTS);
-        officer.setSsn("721074426");
+        officer.setOccupation(Occupation.ARCHITECT_OR_ENGINEER);
+        officer.setSourceOfIncome(SourceOfIncome.BUSINESS_OWNERSHIP_INTERESTS);
+        officer.setSsn("123456789");
 
         attr.setOfficer(officer);
-        attr.setBusinessVertical(BusinessVertical.ARTSENTERTAINMENTANDRECREATION);
+        attr.setBusinessVertical(BusinessVertical.ARTS_ENTERTAINMENT_AND_RECREATION);
 
         List<CreateBeneficialOwner> beneficialOwners = new ArrayList<CreateBeneficialOwner>();
         CreateBeneficialOwner beneficialOwner = new CreateBeneficialOwner();
@@ -188,9 +194,9 @@ public class TestHelpers {
         beneficialOwner.setSsn("721074426");
         beneficialOwner.setEmail(email);
         beneficialOwner.setPhone(p);
-        beneficialOwner.setOccupation(Occupation.ARCHITECTORENGINEER);
-        beneficialOwner.setAnnualIncome(AnnualIncome.BETWEEN100KAND250K);
-        beneficialOwner.setSourceOfIncome(SourceOfIncome.BUSINESSOWNERSHIPINTERESTS);
+        beneficialOwner.setOccupation(Occupation.ARCHITECT_OR_ENGINEER);
+        beneficialOwner.setAnnualIncome(AnnualIncome.BETWEEN100K_AND250K);
+        beneficialOwner.setSourceOfIncome(SourceOfIncome.BUSINESS_OWNERSHIP_INTERESTS);
         beneficialOwners.add(beneficialOwner);
         attr.setBeneficialOwners(beneficialOwners);
 

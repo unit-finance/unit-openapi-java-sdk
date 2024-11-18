@@ -29,6 +29,7 @@ import unit.java.sdk.model.CreateBusinessApplicationAttributes;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * CreateBusinessApplication
  */
@@ -36,13 +37,13 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateBusinessApplication.JSON_PROPERTY_TYPE,
   CreateBusinessApplication.JSON_PROPERTY_ATTRIBUTES
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CreateBusinessApplication {
   /**
    * Gets or Sets type
    */
   public enum TypeEnum {
-    BUSINESSAPPLICATION("businessApplication");
+    BUSINESS_APPLICATION("businessApplication");
 
     private String value;
 
@@ -72,7 +73,7 @@ public class CreateBusinessApplication {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.BUSINESSAPPLICATION;
+  private TypeEnum type = TypeEnum.BUSINESS_APPLICATION;
 
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private CreateBusinessApplicationAttributes attributes;
@@ -85,14 +86,13 @@ public class CreateBusinessApplication {
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public TypeEnum getType() {
     return type;
   }
@@ -110,14 +110,13 @@ public class CreateBusinessApplication {
     return this;
   }
 
-   /**
+  /**
    * Get attributes
    * @return attributes
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public CreateBusinessApplicationAttributes getAttributes() {
     return attributes;
   }
@@ -206,7 +205,7 @@ public class CreateBusinessApplication {
 
     // add `type` to the URL query string
     if (getType() != null) {
-      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `attributes` to the URL query string

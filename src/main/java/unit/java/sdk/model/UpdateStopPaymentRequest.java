@@ -29,13 +29,14 @@ import unit.java.sdk.model.UpdateAchStopPayment;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * UpdateStopPaymentRequest
  */
 @JsonPropertyOrder({
   UpdateStopPaymentRequest.JSON_PROPERTY_DATA
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class UpdateStopPaymentRequest {
   public static final String JSON_PROPERTY_DATA = "data";
   private UpdateAchStopPayment data;
@@ -48,14 +49,13 @@ public class UpdateStopPaymentRequest {
     return this;
   }
 
-   /**
+  /**
    * Get data
    * @return data
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public UpdateAchStopPayment getData() {
     return data;
   }

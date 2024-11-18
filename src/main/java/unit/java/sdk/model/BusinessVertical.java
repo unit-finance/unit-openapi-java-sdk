@@ -30,39 +30,39 @@ import com.fasterxml.jackson.annotation.JsonValue;
  */
 public enum BusinessVertical {
   
-  ADULTENTERTAINMENTDATINGORESCORTSERVICES("AdultEntertainmentDatingOrEscortServices"),
+  ADULT_ENTERTAINMENT_DATING_OR_ESCORT_SERVICES("AdultEntertainmentDatingOrEscortServices"),
   
-  AGRICULTUREFORESTRYFISHINGORHUNTING("AgricultureForestryFishingOrHunting"),
+  AGRICULTURE_FORESTRY_FISHING_OR_HUNTING("AgricultureForestryFishingOrHunting"),
   
-  ARTSENTERTAINMENTANDRECREATION("ArtsEntertainmentAndRecreation"),
+  ARTS_ENTERTAINMENT_AND_RECREATION("ArtsEntertainmentAndRecreation"),
   
-  BUSINESSSUPPORTORBUILDINGSERVICES("BusinessSupportOrBuildingServices"),
+  BUSINESS_SUPPORT_OR_BUILDING_SERVICES("BusinessSupportOrBuildingServices"),
   
   CANNABIS("Cannabis"),
   
   CONSTRUCTION("Construction"),
   
-  DIRECTMARKETINGORTELEMARKETING("DirectMarketingOrTelemarketing"),
+  DIRECT_MARKETING_OR_TELEMARKETING("DirectMarketingOrTelemarketing"),
   
-  EDUCATIONALSERVICES("EducationalServices"),
+  EDUCATIONAL_SERVICES("EducationalServices"),
   
-  FINANCIALSERVICESCRYPTOCURRENCY("FinancialServicesCryptocurrency"),
+  FINANCIAL_SERVICES_CRYPTOCURRENCY("FinancialServicesCryptocurrency"),
   
-  FINANCIALSERVICESDEBITCOLLECTIONORCONSOLIDATION("FinancialServicesDebitCollectionOrConsolidation"),
+  FINANCIAL_SERVICES_DEBIT_COLLECTION_OR_CONSOLIDATION("FinancialServicesDebitCollectionOrConsolidation"),
   
-  FINANCIALSERVICESMONEYSERVICESBUSINESSORCURRENCYEXCHANGE("FinancialServicesMoneyServicesBusinessOrCurrencyExchange"),
+  FINANCIAL_SERVICES_MONEY_SERVICES_BUSINESS_OR_CURRENCY_EXCHANGE("FinancialServicesMoneyServicesBusinessOrCurrencyExchange"),
   
-  FINANCIALSERVICESOTHER("FinancialServicesOther"),
+  FINANCIAL_SERVICES_OTHER("FinancialServicesOther"),
   
-  FINANCIALSERVICESPAYDAYLENDING("FinancialServicesPaydayLending"),
+  FINANCIAL_SERVICES_PAYDAY_LENDING("FinancialServicesPaydayLending"),
   
-  GAMINGORGAMBLING("GamingOrGambling"),
+  GAMING_OR_GAMBLING("GamingOrGambling"),
   
-  HEALTHCAREANDSOCIALASSISTANCE("HealthCareAndSocialAssistance"),
+  HEALTH_CARE_AND_SOCIAL_ASSISTANCE("HealthCareAndSocialAssistance"),
   
-  HOSPITALITYACCOMMODATIONORFOODSERVICES("HospitalityAccommodationOrFoodServices"),
+  HOSPITALITY_ACCOMMODATION_OR_FOOD_SERVICES("HospitalityAccommodationOrFoodServices"),
   
-  LEGALACCOUNTINGCONSULTINGORCOMPUTERPROGRAMMING("LegalAccountingConsultingOrComputerProgramming"),
+  LEGAL_ACCOUNTING_CONSULTING_OR_COMPUTER_PROGRAMMING("LegalAccountingConsultingOrComputerProgramming"),
   
   MANUFACTURING("Manufacturing"),
   
@@ -70,25 +70,25 @@ public enum BusinessVertical {
   
   NUTRACEUTICALS("Nutraceuticals"),
   
-  PERSONALCARESERVICES("PersonalCareServices"),
+  PERSONAL_CARE_SERVICES("PersonalCareServices"),
   
-  PUBLICADMINISTRATION("PublicAdministration"),
+  PUBLIC_ADMINISTRATION("PublicAdministration"),
   
-  REALESTATE("RealEstate"),
+  REAL_ESTATE("RealEstate"),
   
-  RELIGIOUSCIVICANDSOCIALORGANIZATIONS("ReligiousCivicAndSocialOrganizations"),
+  RELIGIOUS_CIVIC_AND_SOCIAL_ORGANIZATIONS("ReligiousCivicAndSocialOrganizations"),
   
-  REPAIRANDMAINTENANCE("RepairAndMaintenance"),
+  REPAIR_AND_MAINTENANCE("RepairAndMaintenance"),
   
-  RETAILTRADE("RetailTrade"),
+  RETAIL_TRADE("RetailTrade"),
   
-  TECHNOLOGYMEDIAORTELECOM("TechnologyMediaOrTelecom"),
+  TECHNOLOGY_MEDIA_OR_TELECOM("TechnologyMediaOrTelecom"),
   
-  TRANSPORTATIONORWAREHOUSING("TransportationOrWarehousing"),
+  TRANSPORTATION_OR_WAREHOUSING("TransportationOrWarehousing"),
   
   UTILITIES("Utilities"),
   
-  WHOLESALETRADE("WholesaleTrade");
+  WHOLESALE_TRADE("WholesaleTrade");
 
   private String value;
 

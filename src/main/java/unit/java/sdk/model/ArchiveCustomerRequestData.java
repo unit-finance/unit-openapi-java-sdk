@@ -29,6 +29,7 @@ import unit.java.sdk.model.ArchiveCustomerRequestDataAttributes;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * ArchiveCustomerRequestData
  */
@@ -36,13 +37,13 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   ArchiveCustomerRequestData.JSON_PROPERTY_TYPE,
   ArchiveCustomerRequestData.JSON_PROPERTY_ATTRIBUTES
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ArchiveCustomerRequestData {
   /**
    * Gets or Sets type
    */
   public enum TypeEnum {
-    ARCHIVECUSTOMER("archiveCustomer");
+    ARCHIVE_CUSTOMER("archiveCustomer");
 
     private String value;
 
@@ -72,7 +73,7 @@ public class ArchiveCustomerRequestData {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.ARCHIVECUSTOMER;
+  private TypeEnum type = TypeEnum.ARCHIVE_CUSTOMER;
 
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private ArchiveCustomerRequestDataAttributes attributes;
@@ -85,14 +86,13 @@ public class ArchiveCustomerRequestData {
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
@@ -110,14 +110,13 @@ public class ArchiveCustomerRequestData {
     return this;
   }
 
-   /**
+  /**
    * Get attributes
    * @return attributes
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ArchiveCustomerRequestDataAttributes getAttributes() {
     return attributes;
   }
@@ -206,7 +205,7 @@ public class ArchiveCustomerRequestData {
 
     // add `type` to the URL query string
     if (getType() != null) {
-      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `attributes` to the URL query string

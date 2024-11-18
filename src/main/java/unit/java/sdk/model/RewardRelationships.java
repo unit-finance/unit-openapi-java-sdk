@@ -34,6 +34,7 @@ import unit.java.sdk.model.TransactionRelationship;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * RewardRelationships
  */
@@ -45,7 +46,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   RewardRelationships.JSON_PROPERTY_TRANSACTION,
   RewardRelationships.JSON_PROPERTY_CARD
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class RewardRelationships {
   public static final String JSON_PROPERTY_RECEIVING_ACCOUNT = "receivingAccount";
   private ReceivingAccountRelationship receivingAccount;
@@ -73,14 +74,13 @@ public class RewardRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get receivingAccount
    * @return receivingAccount
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_RECEIVING_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public ReceivingAccountRelationship getReceivingAccount() {
     return receivingAccount;
   }
@@ -98,14 +98,13 @@ public class RewardRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get fundingAccount
    * @return fundingAccount
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_FUNDING_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public FundingAccountRelationship getFundingAccount() {
     return fundingAccount;
   }
@@ -123,14 +122,13 @@ public class RewardRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get customer
    * @return customer
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_CUSTOMER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public CustomerRelationship getCustomer() {
     return customer;
   }
@@ -148,14 +146,13 @@ public class RewardRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get rewardedTransaction
    * @return rewardedTransaction
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REWARDED_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public RewardedTransactionRelationship getRewardedTransaction() {
     return rewardedTransaction;
   }
@@ -173,14 +170,13 @@ public class RewardRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get transaction
    * @return transaction
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TransactionRelationship getTransaction() {
     return transaction;
   }
@@ -198,14 +194,13 @@ public class RewardRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get card
    * @return card
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CARD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CardRelationship getCard() {
     return card;
   }

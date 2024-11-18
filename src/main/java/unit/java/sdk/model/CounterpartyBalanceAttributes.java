@@ -29,6 +29,7 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * CounterpartyBalanceAttributes
  */
@@ -36,7 +37,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CounterpartyBalanceAttributes.JSON_PROPERTY_BALANCE,
   CounterpartyBalanceAttributes.JSON_PROPERTY_AVAILABLE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CounterpartyBalanceAttributes {
   public static final String JSON_PROPERTY_BALANCE = "balance";
   private BigDecimal balance;
@@ -52,14 +53,13 @@ public class CounterpartyBalanceAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get balance
    * @return balance
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_BALANCE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public BigDecimal getBalance() {
     return balance;
   }
@@ -77,14 +77,13 @@ public class CounterpartyBalanceAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get available
    * @return available
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AVAILABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public BigDecimal getAvailable() {
     return available;
   }
@@ -173,12 +172,12 @@ public class CounterpartyBalanceAttributes {
 
     // add `balance` to the URL query string
     if (getBalance() != null) {
-      joiner.add(String.format("%sbalance%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getBalance()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sbalance%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getBalance()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `available` to the URL query string
     if (getAvailable() != null) {
-      joiner.add(String.format("%savailable%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAvailable()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%savailable%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getAvailable()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

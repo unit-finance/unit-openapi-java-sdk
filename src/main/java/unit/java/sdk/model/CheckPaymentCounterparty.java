@@ -29,6 +29,7 @@ import unit.java.sdk.model.Address;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * CheckPaymentCounterparty
  */
@@ -37,7 +38,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CheckPaymentCounterparty.JSON_PROPERTY_ADDRESS,
   CheckPaymentCounterparty.JSON_PROPERTY_COUNTERPARTY_MOVED
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CheckPaymentCounterparty {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -56,14 +57,13 @@ public class CheckPaymentCounterparty {
     return this;
   }
 
-   /**
+  /**
    * Get name
    * @return name
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getName() {
     return name;
   }
@@ -81,14 +81,13 @@ public class CheckPaymentCounterparty {
     return this;
   }
 
-   /**
+  /**
    * Get address
    * @return address
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Address getAddress() {
     return address;
   }
@@ -106,14 +105,13 @@ public class CheckPaymentCounterparty {
     return this;
   }
 
-   /**
+  /**
    * Get counterpartyMoved
    * @return counterpartyMoved
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY_MOVED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getCounterpartyMoved() {
     return counterpartyMoved;
   }
@@ -204,7 +202,7 @@ public class CheckPaymentCounterparty {
 
     // add `name` to the URL query string
     if (getName() != null) {
-      joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `address` to the URL query string
@@ -214,7 +212,7 @@ public class CheckPaymentCounterparty {
 
     // add `counterpartyMoved` to the URL query string
     if (getCounterpartyMoved() != null) {
-      joiner.add(String.format("%scounterpartyMoved%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCounterpartyMoved()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%scounterpartyMoved%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCounterpartyMoved()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

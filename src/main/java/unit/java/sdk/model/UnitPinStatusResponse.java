@@ -25,108 +25,46 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import unit.java.sdk.model.UnitPinStatusResponseAttributes;
+import unit.java.sdk.model.UnitPinStatusResponseData;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * UnitPinStatusResponse
  */
 @JsonPropertyOrder({
-  UnitPinStatusResponse.JSON_PROPERTY_TYPE,
-  UnitPinStatusResponse.JSON_PROPERTY_ATTRIBUTES
+  UnitPinStatusResponse.JSON_PROPERTY_DATA
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class UnitPinStatusResponse {
-  /**
-   * Gets or Sets type
-   */
-  public enum TypeEnum {
-    PINSTATUS("pinStatus");
-
-    private String value;
-
-    TypeEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static TypeEnum fromValue(String value) {
-      for (TypeEnum b : TypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.PINSTATUS;
-
-  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private UnitPinStatusResponseAttributes attributes;
+  public static final String JSON_PROPERTY_DATA = "data";
+  private UnitPinStatusResponseData data;
 
   public UnitPinStatusResponse() { 
   }
 
-  public UnitPinStatusResponse type(TypeEnum type) {
-    this.type = type;
+  public UnitPinStatusResponse data(UnitPinStatusResponseData data) {
+    this.data = data;
     return this;
   }
 
-   /**
-   * Get type
-   * @return type
-  **/
+  /**
+   * Get data
+   * @return data
+   */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public TypeEnum getType() {
-    return type;
+  public UnitPinStatusResponseData getData() {
+    return data;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setType(TypeEnum type) {
-    this.type = type;
-  }
-
-
-  public UnitPinStatusResponse attributes(UnitPinStatusResponseAttributes attributes) {
-    this.attributes = attributes;
-    return this;
-  }
-
-   /**
-   * Get attributes
-   * @return attributes
-  **/
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public UnitPinStatusResponseAttributes getAttributes() {
-    return attributes;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAttributes(UnitPinStatusResponseAttributes attributes) {
-    this.attributes = attributes;
+  public void setData(UnitPinStatusResponseData data) {
+    this.data = data;
   }
 
 
@@ -142,21 +80,19 @@ public class UnitPinStatusResponse {
       return false;
     }
     UnitPinStatusResponse unitPinStatusResponse = (UnitPinStatusResponse) o;
-    return Objects.equals(this.type, unitPinStatusResponse.type) &&
-        Objects.equals(this.attributes, unitPinStatusResponse.attributes);
+    return Objects.equals(this.data, unitPinStatusResponse.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, attributes);
+    return Objects.hash(data);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UnitPinStatusResponse {\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -204,14 +140,9 @@ public class UnitPinStatusResponse {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `type` to the URL query string
-    if (getType() != null) {
-      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `attributes` to the URL query string
-    if (getAttributes() != null) {
-      joiner.add(getAttributes().toUrlQueryString(prefix + "attributes" + suffix));
+    // add `data` to the URL query string
+    if (getData() != null) {
+      joiner.add(getData().toUrlQueryString(prefix + "data" + suffix));
     }
 
     return joiner.toString();

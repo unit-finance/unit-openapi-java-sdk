@@ -25,45 +25,45 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import unit.java.sdk.model.UnitRepaymentInformationResponseData;
+import unit.java.sdk.model.RepaymentInformation;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * UnitRepaymentInformationResponse
  */
 @JsonPropertyOrder({
   UnitRepaymentInformationResponse.JSON_PROPERTY_DATA
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class UnitRepaymentInformationResponse {
   public static final String JSON_PROPERTY_DATA = "data";
-  private UnitRepaymentInformationResponseData data;
+  private RepaymentInformation data;
 
   public UnitRepaymentInformationResponse() { 
   }
 
-  public UnitRepaymentInformationResponse data(UnitRepaymentInformationResponseData data) {
+  public UnitRepaymentInformationResponse data(RepaymentInformation data) {
     this.data = data;
     return this;
   }
 
-   /**
+  /**
    * Get data
    * @return data
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public UnitRepaymentInformationResponseData getData() {
+  public RepaymentInformation getData() {
     return data;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setData(UnitRepaymentInformationResponseData data) {
+  public void setData(RepaymentInformation data) {
     this.data = data;
   }
 

@@ -30,6 +30,7 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * CreateApiTokenRequestDataAttributesResourcesInner
  */
@@ -37,7 +38,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateApiTokenRequestDataAttributesResourcesInner.JSON_PROPERTY_TYPE,
   CreateApiTokenRequestDataAttributesResourcesInner.JSON_PROPERTY_IDS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CreateApiTokenRequestDataAttributesResourcesInner {
   /**
    * Gets or Sets type
@@ -88,14 +89,13 @@ public class CreateApiTokenRequestDataAttributesResourcesInner {
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
@@ -121,14 +121,13 @@ public class CreateApiTokenRequestDataAttributesResourcesInner {
     return this;
   }
 
-   /**
+  /**
    * Get ids
    * @return ids
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getIds() {
     return ids;
   }
@@ -217,7 +216,7 @@ public class CreateApiTokenRequestDataAttributesResourcesInner {
 
     // add `type` to the URL query string
     if (getType() != null) {
-      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `ids` to the URL query string
@@ -225,7 +224,7 @@ public class CreateApiTokenRequestDataAttributesResourcesInner {
       for (int i = 0; i < getIds().size(); i++) {
         joiner.add(String.format("%sids%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
-            URLEncoder.encode(String.valueOf(getIds().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+            URLEncoder.encode(ApiClient.valueToString(getIds().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
     }
 

@@ -30,6 +30,7 @@ import unit.java.sdk.model.CreateCardRelationships;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * CreateBusinessVirtualCreditCardRequest
  */
@@ -38,13 +39,13 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateBusinessVirtualCreditCardRequest.JSON_PROPERTY_ATTRIBUTES,
   CreateBusinessVirtualCreditCardRequest.JSON_PROPERTY_RELATIONSHIPS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CreateBusinessVirtualCreditCardRequest {
   /**
    * Gets or Sets type
    */
   public enum TypeEnum {
-    BUSINESSVIRTUALCREDITCARD("businessVirtualCreditCard");
+    BUSINESS_VIRTUAL_CREDIT_CARD("businessVirtualCreditCard");
 
     private String value;
 
@@ -74,7 +75,7 @@ public class CreateBusinessVirtualCreditCardRequest {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.BUSINESSVIRTUALCREDITCARD;
+  private TypeEnum type = TypeEnum.BUSINESS_VIRTUAL_CREDIT_CARD;
 
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private CreateBusinessVirtualDebitCardRequestAttributes attributes;
@@ -90,14 +91,13 @@ public class CreateBusinessVirtualCreditCardRequest {
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public TypeEnum getType() {
     return type;
   }
@@ -115,14 +115,13 @@ public class CreateBusinessVirtualCreditCardRequest {
     return this;
   }
 
-   /**
+  /**
    * Get attributes
    * @return attributes
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public CreateBusinessVirtualDebitCardRequestAttributes getAttributes() {
     return attributes;
   }
@@ -140,14 +139,13 @@ public class CreateBusinessVirtualCreditCardRequest {
     return this;
   }
 
-   /**
+  /**
    * Get relationships
    * @return relationships
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public CreateCardRelationships getRelationships() {
     return relationships;
   }
@@ -238,7 +236,7 @@ public class CreateBusinessVirtualCreditCardRequest {
 
     // add `type` to the URL query string
     if (getType() != null) {
-      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `attributes` to the URL query string

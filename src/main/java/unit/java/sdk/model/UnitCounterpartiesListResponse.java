@@ -24,46 +24,56 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import unit.java.sdk.model.Counterparty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * UnitCounterpartiesListResponse
  */
 @JsonPropertyOrder({
   UnitCounterpartiesListResponse.JSON_PROPERTY_DATA
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class UnitCounterpartiesListResponse {
   public static final String JSON_PROPERTY_DATA = "data";
-  private Counterparty data;
+  private List<Counterparty> data = new ArrayList<>();
 
   public UnitCounterpartiesListResponse() { 
   }
 
-  public UnitCounterpartiesListResponse data(Counterparty data) {
+  public UnitCounterpartiesListResponse data(List<Counterparty> data) {
     this.data = data;
     return this;
   }
 
-   /**
+  public UnitCounterpartiesListResponse addDataItem(Counterparty dataItem) {
+    if (this.data == null) {
+      this.data = new ArrayList<>();
+    }
+    this.data.add(dataItem);
+    return this;
+  }
+
+  /**
    * Get data
    * @return data
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Counterparty getData() {
+  public List<Counterparty> getData() {
     return data;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setData(Counterparty data) {
+  public void setData(List<Counterparty> data) {
     this.data = data;
   }
 
@@ -142,7 +152,12 @@ public class UnitCounterpartiesListResponse {
 
     // add `data` to the URL query string
     if (getData() != null) {
-      joiner.add(getData().toUrlQueryString(prefix + "data" + suffix));
+      for (int i = 0; i < getData().size(); i++) {
+        if (getData().get(i) != null) {
+          joiner.add(getData().get(i).toUrlQueryString(String.format("%sdata%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
     }
 
     return joiner.toString();

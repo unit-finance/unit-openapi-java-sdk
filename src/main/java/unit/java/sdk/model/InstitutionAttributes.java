@@ -28,6 +28,7 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * InstitutionAttributes
  */
@@ -38,7 +39,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   InstitutionAttributes.JSON_PROPERTY_IS_WIRE_SUPPORTED,
   InstitutionAttributes.JSON_PROPERTY_IS_A_C_H_SUPPORTED
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class InstitutionAttributes {
   public static final String JSON_PROPERTY_ROUTING_NUMBER = "routingNumber";
   private String routingNumber;
@@ -63,14 +64,13 @@ public class InstitutionAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get routingNumber
    * @return routingNumber
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ROUTING_NUMBER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getRoutingNumber() {
     return routingNumber;
   }
@@ -88,14 +88,13 @@ public class InstitutionAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get name
    * @return name
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getName() {
     return name;
   }
@@ -113,14 +112,13 @@ public class InstitutionAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get address
    * @return address
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAddress() {
     return address;
   }
@@ -138,14 +136,13 @@ public class InstitutionAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get isWireSupported
    * @return isWireSupported
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_IS_WIRE_SUPPORTED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Boolean getIsWireSupported() {
     return isWireSupported;
   }
@@ -163,14 +160,13 @@ public class InstitutionAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get isACHSupported
    * @return isACHSupported
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_IS_A_C_H_SUPPORTED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Boolean getIsACHSupported() {
     return isACHSupported;
   }
@@ -265,27 +261,27 @@ public class InstitutionAttributes {
 
     // add `routingNumber` to the URL query string
     if (getRoutingNumber() != null) {
-      joiner.add(String.format("%sroutingNumber%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getRoutingNumber()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sroutingNumber%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getRoutingNumber()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `name` to the URL query string
     if (getName() != null) {
-      joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `address` to the URL query string
     if (getAddress() != null) {
-      joiner.add(String.format("%saddress%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAddress()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%saddress%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getAddress()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `isWireSupported` to the URL query string
     if (getIsWireSupported() != null) {
-      joiner.add(String.format("%sisWireSupported%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIsWireSupported()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sisWireSupported%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getIsWireSupported()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `isACHSupported` to the URL query string
     if (getIsACHSupported() != null) {
-      joiner.add(String.format("%sisACHSupported%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIsACHSupported()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sisACHSupported%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getIsACHSupported()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

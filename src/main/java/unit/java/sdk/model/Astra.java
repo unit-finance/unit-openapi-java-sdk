@@ -29,6 +29,7 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * Astra
  */
@@ -42,7 +43,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   Astra.JSON_PROPERTY_ACCOUNT_NAME,
   Astra.JSON_PROPERTY_REFERENCE_ID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class Astra {
   public static final String JSON_PROPERTY_AUTH_TOKEN = "authToken";
   private String authToken;
@@ -76,14 +77,13 @@ public class Astra {
     return this;
   }
 
-   /**
+  /**
    * Get authToken
    * @return authToken
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AUTH_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAuthToken() {
     return authToken;
   }
@@ -101,14 +101,13 @@ public class Astra {
     return this;
   }
 
-   /**
+  /**
    * Get debitFeePercent
    * @return debitFeePercent
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_DEBIT_FEE_PERCENT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public BigDecimal getDebitFeePercent() {
     return debitFeePercent;
   }
@@ -126,14 +125,13 @@ public class Astra {
     return this;
   }
 
-   /**
+  /**
    * Get institutionId
    * @return institutionId
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_INSTITUTION_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getInstitutionId() {
     return institutionId;
   }
@@ -151,14 +149,13 @@ public class Astra {
     return this;
   }
 
-   /**
+  /**
    * Get destinationCardId
    * @return destinationCardId
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_DESTINATION_CARD_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getDestinationCardId() {
     return destinationCardId;
   }
@@ -176,14 +173,13 @@ public class Astra {
     return this;
   }
 
-   /**
+  /**
    * Get routingNumber
    * @return routingNumber
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ROUTING_NUMBER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getRoutingNumber() {
     return routingNumber;
   }
@@ -201,14 +197,13 @@ public class Astra {
     return this;
   }
 
-   /**
+  /**
    * Get accountNumber
    * @return accountNumber
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getAccountNumber() {
     return accountNumber;
   }
@@ -226,14 +221,13 @@ public class Astra {
     return this;
   }
 
-   /**
+  /**
    * Get accountName
    * @return accountName
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ACCOUNT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAccountName() {
     return accountName;
   }
@@ -251,14 +245,13 @@ public class Astra {
     return this;
   }
 
-   /**
+  /**
    * Get referenceId
    * @return referenceId
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_REFERENCE_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getReferenceId() {
     return referenceId;
   }
@@ -359,42 +352,42 @@ public class Astra {
 
     // add `authToken` to the URL query string
     if (getAuthToken() != null) {
-      joiner.add(String.format("%sauthToken%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAuthToken()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sauthToken%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getAuthToken()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `debitFeePercent` to the URL query string
     if (getDebitFeePercent() != null) {
-      joiner.add(String.format("%sdebitFeePercent%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDebitFeePercent()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sdebitFeePercent%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDebitFeePercent()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `institutionId` to the URL query string
     if (getInstitutionId() != null) {
-      joiner.add(String.format("%sinstitutionId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getInstitutionId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sinstitutionId%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getInstitutionId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `destinationCardId` to the URL query string
     if (getDestinationCardId() != null) {
-      joiner.add(String.format("%sdestinationCardId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDestinationCardId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sdestinationCardId%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDestinationCardId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `routingNumber` to the URL query string
     if (getRoutingNumber() != null) {
-      joiner.add(String.format("%sroutingNumber%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getRoutingNumber()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sroutingNumber%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getRoutingNumber()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `accountNumber` to the URL query string
     if (getAccountNumber() != null) {
-      joiner.add(String.format("%saccountNumber%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAccountNumber()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%saccountNumber%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getAccountNumber()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `accountName` to the URL query string
     if (getAccountName() != null) {
-      joiner.add(String.format("%saccountName%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAccountName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%saccountName%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getAccountName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `referenceId` to the URL query string
     if (getReferenceId() != null) {
-      joiner.add(String.format("%sreferenceId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getReferenceId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sreferenceId%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getReferenceId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

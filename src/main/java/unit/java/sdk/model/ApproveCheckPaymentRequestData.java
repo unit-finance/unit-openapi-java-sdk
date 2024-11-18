@@ -28,19 +28,20 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * ApproveCheckPaymentRequestData
  */
 @JsonPropertyOrder({
   ApproveCheckPaymentRequestData.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ApproveCheckPaymentRequestData {
   /**
    * Gets or Sets type
    */
   public enum TypeEnum {
-    ADDITIONALVERIFICATION("additionalVerification");
+    ADDITIONAL_VERIFICATION("additionalVerification");
 
     private String value;
 
@@ -70,7 +71,7 @@ public class ApproveCheckPaymentRequestData {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.ADDITIONALVERIFICATION;
+  private TypeEnum type = TypeEnum.ADDITIONAL_VERIFICATION;
 
   public ApproveCheckPaymentRequestData() { 
   }
@@ -80,14 +81,13 @@ public class ApproveCheckPaymentRequestData {
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
@@ -174,7 +174,7 @@ public class ApproveCheckPaymentRequestData {
 
     // add `type` to the URL query string
     if (getType() != null) {
-      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

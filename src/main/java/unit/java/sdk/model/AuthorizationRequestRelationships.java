@@ -32,6 +32,7 @@ import unit.java.sdk.model.FundingAccountRelationship;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * AuthorizationRequestRelationships
  */
@@ -41,7 +42,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   AuthorizationRequestRelationships.JSON_PROPERTY_FUNDING_ACCOUNT,
   AuthorizationRequestRelationships.JSON_PROPERTY_CARD
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class AuthorizationRequestRelationships {
   public static final String JSON_PROPERTY_CUSTOMER = "customer";
   private CustomerRelationship customer;
@@ -63,14 +64,13 @@ public class AuthorizationRequestRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get customer
    * @return customer
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_CUSTOMER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public CustomerRelationship getCustomer() {
     return customer;
   }
@@ -88,14 +88,13 @@ public class AuthorizationRequestRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get account
    * @return account
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public AccountRelationship getAccount() {
     return account;
   }
@@ -113,14 +112,13 @@ public class AuthorizationRequestRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get fundingAccount
    * @return fundingAccount
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FUNDING_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public FundingAccountRelationship getFundingAccount() {
     return fundingAccount;
   }
@@ -138,14 +136,13 @@ public class AuthorizationRequestRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get card
    * @return card
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_CARD)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public CardRelationship getCard() {
     return card;
   }

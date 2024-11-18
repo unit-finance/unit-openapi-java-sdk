@@ -36,6 +36,7 @@ import unit.java.sdk.model.ReturnReason;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * CheckPaymentAttributes
  */
@@ -65,7 +66,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CheckPaymentAttributes.JSON_PROPERTY_COUNTERPARTY_ROUTING_NUMBER,
   CheckPaymentAttributes.JSON_PROPERTY_ADDITIONAL_VERIFICATION_STATUS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CheckPaymentAttributes {
   public static final String JSON_PROPERTY_CREATED_AT = "createdAt";
   private OffsetDateTime createdAt;
@@ -83,13 +84,13 @@ public class CheckPaymentAttributes {
    * Gets or Sets status
    */
   public enum StatusEnum {
-    MARKEDFORRETURN("MarkedForReturn"),
+    MARKED_FOR_RETURN("MarkedForReturn"),
     
     RETURNED("Returned"),
     
     PROCESSED("Processed"),
     
-    PENDINGREVIEW("PendingReview");
+    PENDING_REVIEW("PendingReview");
 
     private String value;
 
@@ -130,13 +131,13 @@ public class CheckPaymentAttributes {
   public enum DeliveryStatusEnum {
     MAILED("Mailed"),
     
-    INLOCALAREA("InLocalArea"),
+    IN_LOCAL_AREA("InLocalArea"),
     
     DELIVERED("Delivered"),
     
     REROUTED("Rerouted"),
     
-    RETURNEDTOSENDER("ReturnedToSender");
+    RETURNED_TO_SENDER("ReturnedToSender");
 
     private String value;
 
@@ -205,9 +206,9 @@ public class CheckPaymentAttributes {
    * Gets or Sets pendingReviewReasons
    */
   public enum PendingReviewReasonsEnum {
-    NAMEMISSMATCH("NameMissMatch"),
+    NAME_MISS_MATCH("NameMissMatch"),
     
-    SOFTLIMIT("SoftLimit");
+    SOFT_LIMIT("SoftLimit");
 
     private String value;
 
@@ -257,7 +258,7 @@ public class CheckPaymentAttributes {
   public enum AdditionalVerificationStatusEnum {
     REQUIRED("Required"),
     
-    NOTREQUIRED("NotRequired"),
+    NOT_REQUIRED("NotRequired"),
     
     APPROVED("Approved");
 
@@ -299,14 +300,13 @@ public class CheckPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get createdAt
    * @return createdAt
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
@@ -324,14 +324,13 @@ public class CheckPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get updatedAt
    * @return updatedAt
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_UPDATED_AT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
   }
@@ -349,15 +348,14 @@ public class CheckPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get amount
    * minimum: 1
    * @return amount
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Integer getAmount() {
     return amount;
   }
@@ -375,14 +373,13 @@ public class CheckPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get returnCutoffTime
    * @return returnCutoffTime
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RETURN_CUTOFF_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getReturnCutoffTime() {
     return returnCutoffTime;
   }
@@ -400,14 +397,13 @@ public class CheckPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get status
    * @return status
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public StatusEnum getStatus() {
     return status;
   }
@@ -425,14 +421,13 @@ public class CheckPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get memo
    * @return memo
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MEMO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMemo() {
     return memo;
   }
@@ -450,14 +445,13 @@ public class CheckPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get deliveryStatus
    * @return deliveryStatus
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DELIVERY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public DeliveryStatusEnum getDeliveryStatus() {
     return deliveryStatus;
   }
@@ -475,14 +469,13 @@ public class CheckPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get sendAt
    * @return sendAt
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SEND_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getSendAt() {
     return sendAt;
   }
@@ -500,14 +493,13 @@ public class CheckPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get counterparty
    * @return counterparty
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CheckPaymentCounterparty getCounterparty() {
     return counterparty;
   }
@@ -525,14 +517,13 @@ public class CheckPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get trackedAt
    * @return trackedAt
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TRACKED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getTrackedAt() {
     return trackedAt;
   }
@@ -550,14 +541,13 @@ public class CheckPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get postalCode
    * @return postalCode
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPostalCode() {
     return postalCode;
   }
@@ -575,14 +565,13 @@ public class CheckPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get expectedDelivery
    * @return expectedDelivery
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EXPECTED_DELIVERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LocalDate getExpectedDelivery() {
     return expectedDelivery;
   }
@@ -600,14 +589,13 @@ public class CheckPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get originated
    * @return originated
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ORIGINATED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Boolean getOriginated() {
     return originated;
   }
@@ -625,14 +613,13 @@ public class CheckPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get expirationDate
    * @return expirationDate
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EXPIRATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LocalDate getExpirationDate() {
     return expirationDate;
   }
@@ -650,14 +637,13 @@ public class CheckPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get rejectReason
    * @return rejectReason
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REJECT_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRejectReason() {
     return rejectReason;
   }
@@ -683,14 +669,13 @@ public class CheckPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get tags
    * @return tags
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getTags() {
     return tags;
   }
@@ -708,14 +693,13 @@ public class CheckPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get description
    * @return description
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDescription() {
     return description;
   }
@@ -733,14 +717,13 @@ public class CheckPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get returnReason
    * @return returnReason
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RETURN_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ReturnReason getReturnReason() {
     return returnReason;
   }
@@ -766,14 +749,13 @@ public class CheckPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get pendingReviewReasons
    * @return pendingReviewReasons
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PENDING_REVIEW_REASONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<PendingReviewReasonsEnum> getPendingReviewReasons() {
     return pendingReviewReasons;
   }
@@ -791,14 +773,13 @@ public class CheckPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get checkNumber
    * @return checkNumber
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CHECK_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCheckNumber() {
     return checkNumber;
   }
@@ -816,14 +797,13 @@ public class CheckPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get onUsAuxiliary
    * @return onUsAuxiliary
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ON_US_AUXILIARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getOnUsAuxiliary() {
     return onUsAuxiliary;
   }
@@ -841,14 +821,13 @@ public class CheckPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get onUs
    * @return onUs
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ON_US)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getOnUs() {
     return onUs;
   }
@@ -866,14 +845,13 @@ public class CheckPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get counterpartyRoutingNumber
    * @return counterpartyRoutingNumber
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY_ROUTING_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCounterpartyRoutingNumber() {
     return counterpartyRoutingNumber;
   }
@@ -891,14 +869,13 @@ public class CheckPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get additionalVerificationStatus
    * @return additionalVerificationStatus
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_VERIFICATION_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public AdditionalVerificationStatusEnum getAdditionalVerificationStatus() {
     return additionalVerificationStatus;
   }
@@ -1031,42 +1008,42 @@ public class CheckPaymentAttributes {
 
     // add `createdAt` to the URL query string
     if (getCreatedAt() != null) {
-      joiner.add(String.format("%screatedAt%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%screatedAt%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCreatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `updatedAt` to the URL query string
     if (getUpdatedAt() != null) {
-      joiner.add(String.format("%supdatedAt%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUpdatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%supdatedAt%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getUpdatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `amount` to the URL query string
     if (getAmount() != null) {
-      joiner.add(String.format("%samount%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAmount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%samount%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getAmount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `returnCutoffTime` to the URL query string
     if (getReturnCutoffTime() != null) {
-      joiner.add(String.format("%sreturnCutoffTime%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getReturnCutoffTime()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sreturnCutoffTime%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getReturnCutoffTime()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `status` to the URL query string
     if (getStatus() != null) {
-      joiner.add(String.format("%sstatus%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStatus()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sstatus%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getStatus()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `memo` to the URL query string
     if (getMemo() != null) {
-      joiner.add(String.format("%smemo%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMemo()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%smemo%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getMemo()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `deliveryStatus` to the URL query string
     if (getDeliveryStatus() != null) {
-      joiner.add(String.format("%sdeliveryStatus%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDeliveryStatus()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sdeliveryStatus%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDeliveryStatus()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `sendAt` to the URL query string
     if (getSendAt() != null) {
-      joiner.add(String.format("%ssendAt%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSendAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%ssendAt%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getSendAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `counterparty` to the URL query string
@@ -1076,32 +1053,32 @@ public class CheckPaymentAttributes {
 
     // add `trackedAt` to the URL query string
     if (getTrackedAt() != null) {
-      joiner.add(String.format("%strackedAt%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTrackedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%strackedAt%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getTrackedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `postalCode` to the URL query string
     if (getPostalCode() != null) {
-      joiner.add(String.format("%spostalCode%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPostalCode()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%spostalCode%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getPostalCode()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `expectedDelivery` to the URL query string
     if (getExpectedDelivery() != null) {
-      joiner.add(String.format("%sexpectedDelivery%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getExpectedDelivery()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sexpectedDelivery%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getExpectedDelivery()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `originated` to the URL query string
     if (getOriginated() != null) {
-      joiner.add(String.format("%soriginated%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getOriginated()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%soriginated%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getOriginated()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `expirationDate` to the URL query string
     if (getExpirationDate() != null) {
-      joiner.add(String.format("%sexpirationDate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getExpirationDate()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sexpirationDate%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getExpirationDate()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `rejectReason` to the URL query string
     if (getRejectReason() != null) {
-      joiner.add(String.format("%srejectReason%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getRejectReason()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%srejectReason%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getRejectReason()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `tags` to the URL query string
@@ -1109,18 +1086,18 @@ public class CheckPaymentAttributes {
       for (String _key : getTags().keySet()) {
         joiner.add(String.format("%stags%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
-            getTags().get(_key), URLEncoder.encode(String.valueOf(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+            getTags().get(_key), URLEncoder.encode(ApiClient.valueToString(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
     }
 
     // add `description` to the URL query string
     if (getDescription() != null) {
-      joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDescription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDescription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `returnReason` to the URL query string
     if (getReturnReason() != null) {
-      joiner.add(String.format("%sreturnReason%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getReturnReason()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sreturnReason%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getReturnReason()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `pendingReviewReasons` to the URL query string
@@ -1128,33 +1105,33 @@ public class CheckPaymentAttributes {
       for (int i = 0; i < getPendingReviewReasons().size(); i++) {
         joiner.add(String.format("%spendingReviewReasons%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
-            URLEncoder.encode(String.valueOf(getPendingReviewReasons().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+            URLEncoder.encode(ApiClient.valueToString(getPendingReviewReasons().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
     }
 
     // add `checkNumber` to the URL query string
     if (getCheckNumber() != null) {
-      joiner.add(String.format("%scheckNumber%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCheckNumber()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%scheckNumber%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCheckNumber()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `onUsAuxiliary` to the URL query string
     if (getOnUsAuxiliary() != null) {
-      joiner.add(String.format("%sonUsAuxiliary%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getOnUsAuxiliary()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sonUsAuxiliary%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getOnUsAuxiliary()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `onUs` to the URL query string
     if (getOnUs() != null) {
-      joiner.add(String.format("%sonUs%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getOnUs()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sonUs%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getOnUs()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `counterpartyRoutingNumber` to the URL query string
     if (getCounterpartyRoutingNumber() != null) {
-      joiner.add(String.format("%scounterpartyRoutingNumber%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCounterpartyRoutingNumber()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%scounterpartyRoutingNumber%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCounterpartyRoutingNumber()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `additionalVerificationStatus` to the URL query string
     if (getAdditionalVerificationStatus() != null) {
-      joiner.add(String.format("%sadditionalVerificationStatus%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAdditionalVerificationStatus()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sadditionalVerificationStatus%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getAdditionalVerificationStatus()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

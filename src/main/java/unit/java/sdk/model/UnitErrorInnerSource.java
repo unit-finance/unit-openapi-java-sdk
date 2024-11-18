@@ -28,13 +28,14 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * UnitErrorInnerSource
  */
 @JsonPropertyOrder({
   UnitErrorInnerSource.JSON_PROPERTY_POINTER
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class UnitErrorInnerSource {
   public static final String JSON_PROPERTY_POINTER = "pointer";
   private String pointer;
@@ -47,14 +48,13 @@ public class UnitErrorInnerSource {
     return this;
   }
 
-   /**
+  /**
    * Get pointer
    * @return pointer
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_POINTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPointer() {
     return pointer;
   }
@@ -141,7 +141,7 @@ public class UnitErrorInnerSource {
 
     // add `pointer` to the URL query string
     if (getPointer() != null) {
-      joiner.add(String.format("%spointer%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPointer()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%spointer%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getPointer()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

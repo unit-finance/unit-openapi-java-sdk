@@ -32,9 +32,9 @@ public enum SoleProprietorshipNumberOfEmployees {
   
   ONE("One"),
   
-  BETWEEN2AND5("Between2And5"),
+  BETWEEN2_AND5("Between2And5"),
   
-  BETWEEN5AND10("Between5And10"),
+  BETWEEN5_AND10("Between5And10"),
   
   OVER10("Over10");
 

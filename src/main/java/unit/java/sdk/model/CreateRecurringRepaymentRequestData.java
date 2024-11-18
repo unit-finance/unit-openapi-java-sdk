@@ -60,7 +60,7 @@ import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import unit.java.sdk.JSON;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 @JsonDeserialize(using = CreateRecurringRepaymentRequestData.CreateRecurringRepaymentRequestDataDeserializer.class)
 @JsonSerialize(using = CreateRecurringRepaymentRequestData.CreateRecurringRepaymentRequestDataSerializer.class)
 public class CreateRecurringRepaymentRequestData extends AbstractOpenApiSchema {

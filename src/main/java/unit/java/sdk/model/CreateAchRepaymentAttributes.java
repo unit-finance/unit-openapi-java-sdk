@@ -29,6 +29,7 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * CreateAchRepaymentAttributes
  */
@@ -39,7 +40,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateAchRepaymentAttributes.JSON_PROPERTY_SAME_DAY,
   CreateAchRepaymentAttributes.JSON_PROPERTY_SEC_CODE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CreateAchRepaymentAttributes {
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
@@ -64,14 +65,13 @@ public class CreateAchRepaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get description
    * @return description
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getDescription() {
     return description;
   }
@@ -89,14 +89,13 @@ public class CreateAchRepaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get amount
    * @return amount
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public BigDecimal getAmount() {
     return amount;
   }
@@ -114,14 +113,13 @@ public class CreateAchRepaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get addenda
    * @return addenda
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ADDENDA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAddenda() {
     return addenda;
   }
@@ -139,14 +137,13 @@ public class CreateAchRepaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get sameDay
    * @return sameDay
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SAME_DAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getSameDay() {
     return sameDay;
   }
@@ -164,14 +161,13 @@ public class CreateAchRepaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get secCode
    * @return secCode
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SEC_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSecCode() {
     return secCode;
   }
@@ -266,27 +262,27 @@ public class CreateAchRepaymentAttributes {
 
     // add `description` to the URL query string
     if (getDescription() != null) {
-      joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDescription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDescription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `amount` to the URL query string
     if (getAmount() != null) {
-      joiner.add(String.format("%samount%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAmount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%samount%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getAmount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `addenda` to the URL query string
     if (getAddenda() != null) {
-      joiner.add(String.format("%saddenda%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAddenda()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%saddenda%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getAddenda()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `sameDay` to the URL query string
     if (getSameDay() != null) {
-      joiner.add(String.format("%ssameDay%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSameDay()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%ssameDay%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getSameDay()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `secCode` to the URL query string
     if (getSecCode() != null) {
-      joiner.add(String.format("%ssecCode%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSecCode()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%ssecCode%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getSecCode()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

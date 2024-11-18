@@ -32,6 +32,7 @@ import unit.java.sdk.model.CardLevelLimits;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * CreateIndividualVirtualDebitCardRequestAttributes
  */
@@ -43,7 +44,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateIndividualVirtualDebitCardRequestAttributes.JSON_PROPERTY_CARD_QUALIFIER,
   CreateIndividualVirtualDebitCardRequestAttributes.JSON_PROPERTY_EXPIRY_DATE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CreateIndividualVirtualDebitCardRequestAttributes {
   public static final String JSON_PROPERTY_TAGS = "tags";
   private Map<String, String> tags = new HashMap<>();
@@ -79,14 +80,13 @@ public class CreateIndividualVirtualDebitCardRequestAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get tags
    * @return tags
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getTags() {
     return tags;
   }
@@ -104,14 +104,13 @@ public class CreateIndividualVirtualDebitCardRequestAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get limits
    * @return limits
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LIMITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CardLevelLimits getLimits() {
     return limits;
   }
@@ -129,14 +128,13 @@ public class CreateIndividualVirtualDebitCardRequestAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get idempotencyKey
    * @return idempotencyKey
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IDEMPOTENCY_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getIdempotencyKey() {
     return idempotencyKey;
   }
@@ -154,14 +152,13 @@ public class CreateIndividualVirtualDebitCardRequestAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get bin
    * @return bin
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Bin getBin() {
     return bin;
   }
@@ -179,14 +176,13 @@ public class CreateIndividualVirtualDebitCardRequestAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get cardQualifier
    * @return cardQualifier
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CARD_QUALIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCardQualifier() {
     return cardQualifier;
   }
@@ -204,14 +200,13 @@ public class CreateIndividualVirtualDebitCardRequestAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get expiryDate
    * @return expiryDate
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EXPIRY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getExpiryDate() {
     return expiryDate;
   }
@@ -311,7 +306,7 @@ public class CreateIndividualVirtualDebitCardRequestAttributes {
       for (String _key : getTags().keySet()) {
         joiner.add(String.format("%stags%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
-            getTags().get(_key), URLEncoder.encode(String.valueOf(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+            getTags().get(_key), URLEncoder.encode(ApiClient.valueToString(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
     }
 
@@ -322,7 +317,7 @@ public class CreateIndividualVirtualDebitCardRequestAttributes {
 
     // add `idempotencyKey` to the URL query string
     if (getIdempotencyKey() != null) {
-      joiner.add(String.format("%sidempotencyKey%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIdempotencyKey()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sidempotencyKey%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getIdempotencyKey()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `bin` to the URL query string
@@ -332,12 +327,12 @@ public class CreateIndividualVirtualDebitCardRequestAttributes {
 
     // add `cardQualifier` to the URL query string
     if (getCardQualifier() != null) {
-      joiner.add(String.format("%scardQualifier%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCardQualifier()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%scardQualifier%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCardQualifier()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `expiryDate` to the URL query string
     if (getExpiryDate() != null) {
-      joiner.add(String.format("%sexpiryDate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getExpiryDate()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sexpiryDate%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getExpiryDate()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

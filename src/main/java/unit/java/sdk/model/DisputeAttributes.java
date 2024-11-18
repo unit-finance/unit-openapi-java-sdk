@@ -32,6 +32,7 @@ import unit.java.sdk.model.DisputeAttributesStatusHistoryInner;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * DisputeAttributes
  */
@@ -46,13 +47,13 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   DisputeAttributes.JSON_PROPERTY_CREATED_AT,
   DisputeAttributes.JSON_PROPERTY_DECISION_REASON
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class DisputeAttributes {
   /**
    * Gets or Sets source
    */
   public enum SourceEnum {
-    DEBITCARD("DebitCard"),
+    DEBIT_CARD("DebitCard"),
     
     ACH("ACH");
 
@@ -118,14 +119,13 @@ public class DisputeAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get source
    * @return source
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_SOURCE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public SourceEnum getSource() {
     return source;
   }
@@ -143,14 +143,13 @@ public class DisputeAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get externalId
    * @return externalId
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getExternalId() {
     return externalId;
   }
@@ -168,14 +167,13 @@ public class DisputeAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get link
    * @return link
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getLink() {
     return link;
   }
@@ -193,14 +191,13 @@ public class DisputeAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get description
    * @return description
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getDescription() {
     return description;
   }
@@ -218,14 +215,13 @@ public class DisputeAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get amount
    * @return amount
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Integer getAmount() {
     return amount;
   }
@@ -243,14 +239,13 @@ public class DisputeAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get status
    * @return status
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getStatus() {
     return status;
   }
@@ -276,14 +271,13 @@ public class DisputeAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get statusHistory
    * @return statusHistory
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATUS_HISTORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<DisputeAttributesStatusHistoryInner> getStatusHistory() {
     return statusHistory;
   }
@@ -301,14 +295,13 @@ public class DisputeAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get createdAt
    * @return createdAt
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
@@ -326,14 +319,13 @@ public class DisputeAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get decisionReason
    * @return decisionReason
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DECISION_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDecisionReason() {
     return decisionReason;
   }
@@ -436,32 +428,32 @@ public class DisputeAttributes {
 
     // add `source` to the URL query string
     if (getSource() != null) {
-      joiner.add(String.format("%ssource%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSource()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%ssource%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getSource()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `externalId` to the URL query string
     if (getExternalId() != null) {
-      joiner.add(String.format("%sexternalId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getExternalId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sexternalId%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getExternalId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `link` to the URL query string
     if (getLink() != null) {
-      joiner.add(String.format("%slink%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLink()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%slink%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getLink()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `description` to the URL query string
     if (getDescription() != null) {
-      joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDescription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDescription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `amount` to the URL query string
     if (getAmount() != null) {
-      joiner.add(String.format("%samount%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAmount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%samount%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getAmount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `status` to the URL query string
     if (getStatus() != null) {
-      joiner.add(String.format("%sstatus%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStatus()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sstatus%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getStatus()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `statusHistory` to the URL query string
@@ -476,12 +468,12 @@ public class DisputeAttributes {
 
     // add `createdAt` to the URL query string
     if (getCreatedAt() != null) {
-      joiner.add(String.format("%screatedAt%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%screatedAt%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCreatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `decisionReason` to the URL query string
     if (getDecisionReason() != null) {
-      joiner.add(String.format("%sdecisionReason%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDecisionReason()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sdecisionReason%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDecisionReason()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

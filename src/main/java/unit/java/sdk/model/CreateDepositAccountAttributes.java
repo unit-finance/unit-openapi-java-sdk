@@ -25,13 +25,12 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
+import java.util.HashMap;
+import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * CreateDepositAccountAttributes
  */
@@ -40,13 +39,13 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateDepositAccountAttributes.JSON_PROPERTY_TAGS,
   CreateDepositAccountAttributes.JSON_PROPERTY_IDEMPOTENCY_KEY
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CreateDepositAccountAttributes {
   public static final String JSON_PROPERTY_DEPOSIT_PRODUCT = "depositProduct";
   private String depositProduct;
 
   public static final String JSON_PROPERTY_TAGS = "tags";
-  private JsonNullable<Object> tags = JsonNullable.<Object>undefined();
+  private Map<String, String> tags = new HashMap<>();
 
   public static final String JSON_PROPERTY_IDEMPOTENCY_KEY = "idempotencyKey";
   private String idempotencyKey;
@@ -59,14 +58,13 @@ public class CreateDepositAccountAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get depositProduct
    * @return depositProduct
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_DEPOSIT_PRODUCT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getDepositProduct() {
     return depositProduct;
   }
@@ -79,36 +77,35 @@ public class CreateDepositAccountAttributes {
   }
 
 
-  public CreateDepositAccountAttributes tags(Object tags) {
-    this.tags = JsonNullable.<Object>of(tags);
+  public CreateDepositAccountAttributes tags(Map<String, String> tags) {
+    this.tags = tags;
     return this;
   }
 
-   /**
+  public CreateDepositAccountAttributes putTagsItem(String key, String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new HashMap<>();
+    }
+    this.tags.put(key, tagsItem);
+    return this;
+  }
+
+  /**
    * Get tags
    * @return tags
-  **/
+   */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-
-  public Object getTags() {
-        return tags.orElse(null);
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, String> getTags() {
+    return tags;
   }
+
 
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public JsonNullable<Object> getTags_JsonNullable() {
-    return tags;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_TAGS)
-  public void setTags_JsonNullable(JsonNullable<Object> tags) {
+  public void setTags(Map<String, String> tags) {
     this.tags = tags;
-  }
-
-  public void setTags(Object tags) {
-    this.tags = JsonNullable.<Object>of(tags);
   }
 
 
@@ -117,14 +114,13 @@ public class CreateDepositAccountAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get idempotencyKey
    * @return idempotencyKey
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IDEMPOTENCY_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getIdempotencyKey() {
     return idempotencyKey;
   }
@@ -150,24 +146,13 @@ public class CreateDepositAccountAttributes {
     }
     CreateDepositAccountAttributes createDepositAccountAttributes = (CreateDepositAccountAttributes) o;
     return Objects.equals(this.depositProduct, createDepositAccountAttributes.depositProduct) &&
-        equalsNullable(this.tags, createDepositAccountAttributes.tags) &&
+        Objects.equals(this.tags, createDepositAccountAttributes.tags) &&
         Objects.equals(this.idempotencyKey, createDepositAccountAttributes.idempotencyKey);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(depositProduct, hashCodeNullable(tags), idempotencyKey);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(depositProduct, tags, idempotencyKey);
   }
 
   @Override
@@ -226,17 +211,21 @@ public class CreateDepositAccountAttributes {
 
     // add `depositProduct` to the URL query string
     if (getDepositProduct() != null) {
-      joiner.add(String.format("%sdepositProduct%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDepositProduct()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sdepositProduct%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDepositProduct()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `tags` to the URL query string
     if (getTags() != null) {
-      joiner.add(String.format("%stags%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTags()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      for (String _key : getTags().keySet()) {
+        joiner.add(String.format("%stags%s%s=%s", prefix, suffix,
+            "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
+            getTags().get(_key), URLEncoder.encode(ApiClient.valueToString(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      }
     }
 
     // add `idempotencyKey` to the URL query string
     if (getIdempotencyKey() != null) {
-      joiner.add(String.format("%sidempotencyKey%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIdempotencyKey()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sidempotencyKey%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getIdempotencyKey()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

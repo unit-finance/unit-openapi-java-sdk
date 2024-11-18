@@ -33,6 +33,7 @@ import unit.java.sdk.model.TransactionRelationship;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * WirePaymentRelationships
  */
@@ -42,7 +43,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   WirePaymentRelationships.JSON_PROPERTY_CUSTOMERS,
   WirePaymentRelationships.JSON_PROPERTY_TRANSACTION
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WirePaymentRelationships {
   public static final String JSON_PROPERTY_ACCOUNT = "account";
   private AccountRelationship account;
@@ -64,14 +65,13 @@ public class WirePaymentRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get account
    * @return account
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public AccountRelationship getAccount() {
     return account;
   }
@@ -89,14 +89,13 @@ public class WirePaymentRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get customer
    * @return customer
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOMER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CustomerRelationship getCustomer() {
     return customer;
   }
@@ -114,14 +113,13 @@ public class WirePaymentRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get customers
    * @return customers
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOMERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CustomersRelationship getCustomers() {
     return customers;
   }
@@ -139,14 +137,13 @@ public class WirePaymentRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get transaction
    * @return transaction
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public TransactionRelationship getTransaction() {
     return transaction;
   }

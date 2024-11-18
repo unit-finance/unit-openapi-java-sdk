@@ -123,6 +123,7 @@ ext {
     jackson_version = "2.14.1"
     jakarta_annotation_version = "2.1.1"
     junit_version = "4.13.2"
+    httpmime_version = "4.5.13"
 }
 
 dependencies {
@@ -134,6 +135,8 @@ dependencies {
     implementation "org.openapitools:jackson-databind-nullable:0.2.1"
     implementation "jakarta.annotation:jakarta.annotation-api:$jakarta_annotation_version"
     implementation 'jakarta.annotation:jakarta.annotation-api:2.1.1'
+    implementation "org.apache.httpcomponents:httpmime:$httpmime_version"
+    implementation "commons-io:commons-io:2.5"
     testImplementation "junit:junit:$junit_version"
 } 
 
@@ -169,6 +172,10 @@ spotless {
 }
 
 test {
+    testLogging {
+        showStandardStreams = true
+    }
+    
     useJUnit()
 }
 //    // Enable JUnit 5 (Gradle 4.6+).

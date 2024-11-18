@@ -28,13 +28,14 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * ArchiveCustomerRequestDataAttributes
  */
 @JsonPropertyOrder({
   ArchiveCustomerRequestDataAttributes.JSON_PROPERTY_REASON
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ArchiveCustomerRequestDataAttributes {
   /**
    * Gets or Sets reason
@@ -42,19 +43,19 @@ public class ArchiveCustomerRequestDataAttributes {
   public enum ReasonEnum {
     INACTIVE("Inactive"),
     
-    FRAUDACHACTIVITY("FraudACHActivity"),
+    FRAUD_ACH_ACTIVITY("FraudACHActivity"),
     
-    FRAUDCARDACTIVITY("FraudCardActivity"),
+    FRAUD_CARD_ACTIVITY("FraudCardActivity"),
     
-    FRAUDCHECKACTIVITY("FraudCheckActivity"),
+    FRAUD_CHECK_ACTIVITY("FraudCheckActivity"),
     
-    FRAUDAPPLICATIONHISTORY("FraudApplicationHistory"),
+    FRAUD_APPLICATION_HISTORY("FraudApplicationHistory"),
     
-    FRAUDACCOUNTACTIVITY("FraudAccountActivity"),
+    FRAUD_ACCOUNT_ACTIVITY("FraudAccountActivity"),
     
-    FRAUDCLIENTIDENTIFIED("FraudClientIdentified"),
+    FRAUD_CLIENT_IDENTIFIED("FraudClientIdentified"),
     
-    FRAUDLINKEDTOFRAUDULENTCUSTOMER("FraudLinkedToFraudulentCustomer");
+    FRAUD_LINKED_TO_FRAUDULENT_CUSTOMER("FraudLinkedToFraudulentCustomer");
 
     private String value;
 
@@ -94,14 +95,13 @@ public class ArchiveCustomerRequestDataAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get reason
    * @return reason
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ReasonEnum getReason() {
     return reason;
   }
@@ -188,7 +188,7 @@ public class ArchiveCustomerRequestDataAttributes {
 
     // add `reason` to the URL query string
     if (getReason() != null) {
-      joiner.add(String.format("%sreason%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getReason()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sreason%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getReason()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

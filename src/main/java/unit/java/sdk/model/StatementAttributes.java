@@ -28,13 +28,14 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * StatementAttributes
  */
 @JsonPropertyOrder({
   StatementAttributes.JSON_PROPERTY_PERIOD
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class StatementAttributes {
   public static final String JSON_PROPERTY_PERIOD = "period";
   private String period;
@@ -47,14 +48,13 @@ public class StatementAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get period
    * @return period
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PERIOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPeriod() {
     return period;
   }
@@ -141,7 +141,7 @@ public class StatementAttributes {
 
     // add `period` to the URL query string
     if (getPeriod() != null) {
-      joiner.add(String.format("%speriod%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPeriod()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%speriod%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getPeriod()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

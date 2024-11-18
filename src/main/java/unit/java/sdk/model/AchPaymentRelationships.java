@@ -35,6 +35,7 @@ import unit.java.sdk.model.TransactionRelationship;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * AchPaymentRelationships
  */
@@ -46,7 +47,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   AchPaymentRelationships.JSON_PROPERTY_TRANSACTION,
   AchPaymentRelationships.JSON_PROPERTY_RECURRING_PAYMENT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class AchPaymentRelationships {
   public static final String JSON_PROPERTY_ACCOUNT = "account";
   private AccountRelationship account;
@@ -74,14 +75,13 @@ public class AchPaymentRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get account
    * @return account
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public AccountRelationship getAccount() {
     return account;
   }
@@ -99,14 +99,13 @@ public class AchPaymentRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get customer
    * @return customer
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOMER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CustomerRelationship getCustomer() {
     return customer;
   }
@@ -124,14 +123,13 @@ public class AchPaymentRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get customers
    * @return customers
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOMERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CustomersRelationship getCustomers() {
     return customers;
   }
@@ -149,14 +147,13 @@ public class AchPaymentRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get counterparty
    * @return counterparty
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public CounterpartyRelationship getCounterparty() {
     return counterparty;
   }
@@ -174,14 +171,13 @@ public class AchPaymentRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get transaction
    * @return transaction
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public TransactionRelationship getTransaction() {
     return transaction;
   }
@@ -199,14 +195,13 @@ public class AchPaymentRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get recurringPayment
    * @return recurringPayment
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RECURRING_PAYMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public RecurringPaymentRelationship getRecurringPayment() {
     return recurringPayment;
   }

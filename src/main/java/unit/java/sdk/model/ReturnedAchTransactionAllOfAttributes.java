@@ -31,6 +31,7 @@ import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * ReturnedAchTransactionAllOfAttributes
  */
@@ -47,7 +48,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   ReturnedAchTransactionAllOfAttributes.JSON_PROPERTY_ACH_REASON,
   ReturnedAchTransactionAllOfAttributes.JSON_PROPERTY_TAGS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ReturnedAchTransactionAllOfAttributes {
   public static final String JSON_PROPERTY_CREATED_AT = "createdAt";
   private OffsetDateTime createdAt;
@@ -125,14 +126,13 @@ public class ReturnedAchTransactionAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get createdAt
    * @return createdAt
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
@@ -150,14 +150,13 @@ public class ReturnedAchTransactionAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get direction
    * @return direction
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_DIRECTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public DirectionEnum getDirection() {
     return direction;
   }
@@ -175,14 +174,13 @@ public class ReturnedAchTransactionAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get amount
    * @return amount
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Integer getAmount() {
     return amount;
   }
@@ -200,14 +198,13 @@ public class ReturnedAchTransactionAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get balance
    * @return balance
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_BALANCE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Integer getBalance() {
     return balance;
   }
@@ -225,14 +222,13 @@ public class ReturnedAchTransactionAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get summary
    * @return summary
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_SUMMARY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getSummary() {
     return summary;
   }
@@ -250,14 +246,13 @@ public class ReturnedAchTransactionAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get companyName
    * @return companyName
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_COMPANY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getCompanyName() {
     return companyName;
   }
@@ -275,14 +270,13 @@ public class ReturnedAchTransactionAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get counterpartyName
    * @return counterpartyName
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getCounterpartyName() {
     return counterpartyName;
   }
@@ -300,14 +294,13 @@ public class ReturnedAchTransactionAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get counterpartyRoutingNumber
    * @return counterpartyRoutingNumber
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY_ROUTING_NUMBER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getCounterpartyRoutingNumber() {
     return counterpartyRoutingNumber;
   }
@@ -325,14 +318,13 @@ public class ReturnedAchTransactionAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get reason
    * @return reason
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_REASON)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getReason() {
     return reason;
   }
@@ -350,14 +342,13 @@ public class ReturnedAchTransactionAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get achReason
    * @return achReason
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ACH_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAchReason() {
     return achReason;
   }
@@ -383,14 +374,13 @@ public class ReturnedAchTransactionAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get tags
    * @return tags
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getTags() {
     return tags;
   }
@@ -497,52 +487,52 @@ public class ReturnedAchTransactionAllOfAttributes {
 
     // add `createdAt` to the URL query string
     if (getCreatedAt() != null) {
-      joiner.add(String.format("%screatedAt%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%screatedAt%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCreatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `direction` to the URL query string
     if (getDirection() != null) {
-      joiner.add(String.format("%sdirection%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDirection()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sdirection%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDirection()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `amount` to the URL query string
     if (getAmount() != null) {
-      joiner.add(String.format("%samount%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAmount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%samount%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getAmount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `balance` to the URL query string
     if (getBalance() != null) {
-      joiner.add(String.format("%sbalance%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getBalance()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sbalance%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getBalance()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `summary` to the URL query string
     if (getSummary() != null) {
-      joiner.add(String.format("%ssummary%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSummary()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%ssummary%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getSummary()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `companyName` to the URL query string
     if (getCompanyName() != null) {
-      joiner.add(String.format("%scompanyName%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCompanyName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%scompanyName%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCompanyName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `counterpartyName` to the URL query string
     if (getCounterpartyName() != null) {
-      joiner.add(String.format("%scounterpartyName%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCounterpartyName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%scounterpartyName%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCounterpartyName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `counterpartyRoutingNumber` to the URL query string
     if (getCounterpartyRoutingNumber() != null) {
-      joiner.add(String.format("%scounterpartyRoutingNumber%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCounterpartyRoutingNumber()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%scounterpartyRoutingNumber%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCounterpartyRoutingNumber()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `reason` to the URL query string
     if (getReason() != null) {
-      joiner.add(String.format("%sreason%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getReason()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sreason%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getReason()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `achReason` to the URL query string
     if (getAchReason() != null) {
-      joiner.add(String.format("%sachReason%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAchReason()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sachReason%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getAchReason()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `tags` to the URL query string
@@ -550,7 +540,7 @@ public class ReturnedAchTransactionAllOfAttributes {
       for (String _key : getTags().keySet()) {
         joiner.add(String.format("%stags%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
-            getTags().get(_key), URLEncoder.encode(String.valueOf(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+            getTags().get(_key), URLEncoder.encode(ApiClient.valueToString(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
     }
 

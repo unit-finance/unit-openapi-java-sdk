@@ -33,6 +33,7 @@ import unit.java.sdk.model.WirePaymentAllOfAttributesImadOmad;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * WireTransactionAllOfAttributes
  */
@@ -52,7 +53,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   WireTransactionAllOfAttributes.JSON_PROPERTY_IMAD_OMAD,
   WireTransactionAllOfAttributes.JSON_PROPERTY_TAGS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WireTransactionAllOfAttributes {
   public static final String JSON_PROPERTY_CREATED_AT = "createdAt";
   private OffsetDateTime createdAt;
@@ -139,14 +140,13 @@ public class WireTransactionAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get createdAt
    * @return createdAt
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
@@ -164,14 +164,13 @@ public class WireTransactionAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get direction
    * @return direction
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_DIRECTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public DirectionEnum getDirection() {
     return direction;
   }
@@ -189,14 +188,13 @@ public class WireTransactionAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get amount
    * @return amount
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Integer getAmount() {
     return amount;
   }
@@ -214,14 +212,13 @@ public class WireTransactionAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get balance
    * @return balance
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_BALANCE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Integer getBalance() {
     return balance;
   }
@@ -239,14 +236,13 @@ public class WireTransactionAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get summary
    * @return summary
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_SUMMARY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getSummary() {
     return summary;
   }
@@ -264,14 +260,13 @@ public class WireTransactionAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get counterparty
    * @return counterparty
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public PaymentCounterparty getCounterparty() {
     return counterparty;
   }
@@ -289,14 +284,13 @@ public class WireTransactionAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get description
    * @return description
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDescription() {
     return description;
   }
@@ -314,14 +308,13 @@ public class WireTransactionAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get senderReference
    * @return senderReference
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SENDER_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSenderReference() {
     return senderReference;
   }
@@ -339,14 +332,13 @@ public class WireTransactionAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get referenceForBeneficiary
    * @return referenceForBeneficiary
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REFERENCE_FOR_BENEFICIARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getReferenceForBeneficiary() {
     return referenceForBeneficiary;
   }
@@ -364,14 +356,13 @@ public class WireTransactionAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get originatorToBeneficiaryInformation
    * @return originatorToBeneficiaryInformation
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ORIGINATOR_TO_BENEFICIARY_INFORMATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getOriginatorToBeneficiaryInformation() {
     return originatorToBeneficiaryInformation;
   }
@@ -389,14 +380,13 @@ public class WireTransactionAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get beneficiaryInformation
    * @return beneficiaryInformation
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BENEFICIARY_INFORMATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBeneficiaryInformation() {
     return beneficiaryInformation;
   }
@@ -414,14 +404,13 @@ public class WireTransactionAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get beneficiaryAdviceInformation
    * @return beneficiaryAdviceInformation
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BENEFICIARY_ADVICE_INFORMATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBeneficiaryAdviceInformation() {
     return beneficiaryAdviceInformation;
   }
@@ -439,14 +428,13 @@ public class WireTransactionAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get imadOmad
    * @return imadOmad
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IMAD_OMAD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public WirePaymentAllOfAttributesImadOmad getImadOmad() {
     return imadOmad;
   }
@@ -472,14 +460,13 @@ public class WireTransactionAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get tags
    * @return tags
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getTags() {
     return tags;
   }
@@ -592,27 +579,27 @@ public class WireTransactionAllOfAttributes {
 
     // add `createdAt` to the URL query string
     if (getCreatedAt() != null) {
-      joiner.add(String.format("%screatedAt%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%screatedAt%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCreatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `direction` to the URL query string
     if (getDirection() != null) {
-      joiner.add(String.format("%sdirection%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDirection()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sdirection%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDirection()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `amount` to the URL query string
     if (getAmount() != null) {
-      joiner.add(String.format("%samount%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAmount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%samount%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getAmount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `balance` to the URL query string
     if (getBalance() != null) {
-      joiner.add(String.format("%sbalance%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getBalance()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sbalance%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getBalance()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `summary` to the URL query string
     if (getSummary() != null) {
-      joiner.add(String.format("%ssummary%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSummary()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%ssummary%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getSummary()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `counterparty` to the URL query string
@@ -622,32 +609,32 @@ public class WireTransactionAllOfAttributes {
 
     // add `description` to the URL query string
     if (getDescription() != null) {
-      joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDescription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDescription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `senderReference` to the URL query string
     if (getSenderReference() != null) {
-      joiner.add(String.format("%ssenderReference%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSenderReference()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%ssenderReference%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getSenderReference()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `referenceForBeneficiary` to the URL query string
     if (getReferenceForBeneficiary() != null) {
-      joiner.add(String.format("%sreferenceForBeneficiary%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getReferenceForBeneficiary()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sreferenceForBeneficiary%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getReferenceForBeneficiary()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `originatorToBeneficiaryInformation` to the URL query string
     if (getOriginatorToBeneficiaryInformation() != null) {
-      joiner.add(String.format("%soriginatorToBeneficiaryInformation%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getOriginatorToBeneficiaryInformation()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%soriginatorToBeneficiaryInformation%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getOriginatorToBeneficiaryInformation()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `beneficiaryInformation` to the URL query string
     if (getBeneficiaryInformation() != null) {
-      joiner.add(String.format("%sbeneficiaryInformation%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getBeneficiaryInformation()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sbeneficiaryInformation%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getBeneficiaryInformation()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `beneficiaryAdviceInformation` to the URL query string
     if (getBeneficiaryAdviceInformation() != null) {
-      joiner.add(String.format("%sbeneficiaryAdviceInformation%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getBeneficiaryAdviceInformation()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sbeneficiaryAdviceInformation%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getBeneficiaryAdviceInformation()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `imadOmad` to the URL query string
@@ -660,7 +647,7 @@ public class WireTransactionAllOfAttributes {
       for (String _key : getTags().keySet()) {
         joiner.add(String.format("%stags%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
-            getTags().get(_key), URLEncoder.encode(String.valueOf(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+            getTags().get(_key), URLEncoder.encode(ApiClient.valueToString(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
     }
 

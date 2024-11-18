@@ -34,6 +34,7 @@ import unit.java.sdk.model.Phone;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * PowerOfAttorneyAgent
  */
@@ -55,7 +56,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   PowerOfAttorneyAgent.JSON_PROPERTY_MASKED_MATRICULA_CONSULAR,
   PowerOfAttorneyAgent.JSON_PROPERTY_ID_THEFT_SCORE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class PowerOfAttorneyAgent {
   public static final String JSON_PROPERTY_STATUS = "status";
   private String status;
@@ -113,14 +114,13 @@ public class PowerOfAttorneyAgent {
     return this;
   }
 
-   /**
+  /**
    * Get status
    * @return status
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getStatus() {
     return status;
   }
@@ -138,14 +138,13 @@ public class PowerOfAttorneyAgent {
     return this;
   }
 
-   /**
+  /**
    * Get fullName
    * @return fullName
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_FULL_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public FullName getFullName() {
     return fullName;
   }
@@ -163,14 +162,13 @@ public class PowerOfAttorneyAgent {
     return this;
   }
 
-   /**
+  /**
    * Get email
    * @return email
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getEmail() {
     return email;
   }
@@ -188,14 +186,13 @@ public class PowerOfAttorneyAgent {
     return this;
   }
 
-   /**
+  /**
    * Get phone
    * @return phone
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Phone getPhone() {
     return phone;
   }
@@ -213,14 +210,13 @@ public class PowerOfAttorneyAgent {
     return this;
   }
 
-   /**
+  /**
    * Get ssn
    * @return ssn
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SSN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSsn() {
     return ssn;
   }
@@ -238,14 +234,13 @@ public class PowerOfAttorneyAgent {
     return this;
   }
 
-   /**
+  /**
    * Get passport
    * @return passport
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PASSPORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPassport() {
     return passport;
   }
@@ -263,14 +258,13 @@ public class PowerOfAttorneyAgent {
     return this;
   }
 
-   /**
+  /**
    * Get nationality
    * @return nationality
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NATIONALITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getNationality() {
     return nationality;
   }
@@ -288,14 +282,13 @@ public class PowerOfAttorneyAgent {
     return this;
   }
 
-   /**
+  /**
    * Get matriculaConsular
    * @return matriculaConsular
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MATRICULA_CONSULAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMatriculaConsular() {
     return matriculaConsular;
   }
@@ -313,14 +306,13 @@ public class PowerOfAttorneyAgent {
     return this;
   }
 
-   /**
+  /**
    * Get address
    * @return address
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Address getAddress() {
     return address;
   }
@@ -338,14 +330,13 @@ public class PowerOfAttorneyAgent {
     return this;
   }
 
-   /**
+  /**
    * Get dateOfBirth
    * @return dateOfBirth
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATE_OF_BIRTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LocalDate getDateOfBirth() {
     return dateOfBirth;
   }
@@ -363,14 +354,13 @@ public class PowerOfAttorneyAgent {
     return this;
   }
 
-   /**
+  /**
    * Get evaluationId
    * @return evaluationId
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EVALUATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getEvaluationId() {
     return evaluationId;
   }
@@ -396,14 +386,13 @@ public class PowerOfAttorneyAgent {
     return this;
   }
 
-   /**
+  /**
    * Get evaluationFlags
    * @return evaluationFlags
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EVALUATION_FLAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getEvaluationFlags() {
     return evaluationFlags;
   }
@@ -421,14 +410,13 @@ public class PowerOfAttorneyAgent {
     return this;
   }
 
-   /**
+  /**
    * Get maskedSSN
    * @return maskedSSN
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MASKED_S_S_N)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMaskedSSN() {
     return maskedSSN;
   }
@@ -446,14 +434,13 @@ public class PowerOfAttorneyAgent {
     return this;
   }
 
-   /**
+  /**
    * Get maskedPassport
    * @return maskedPassport
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MASKED_PASSPORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMaskedPassport() {
     return maskedPassport;
   }
@@ -471,14 +458,13 @@ public class PowerOfAttorneyAgent {
     return this;
   }
 
-   /**
+  /**
    * Get maskedMatriculaConsular
    * @return maskedMatriculaConsular
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MASKED_MATRICULA_CONSULAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMaskedMatriculaConsular() {
     return maskedMatriculaConsular;
   }
@@ -496,14 +482,13 @@ public class PowerOfAttorneyAgent {
     return this;
   }
 
-   /**
+  /**
    * Get idTheftScore
    * @return idTheftScore
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID_THEFT_SCORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getIdTheftScore() {
     return idTheftScore;
   }
@@ -620,7 +605,7 @@ public class PowerOfAttorneyAgent {
 
     // add `status` to the URL query string
     if (getStatus() != null) {
-      joiner.add(String.format("%sstatus%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStatus()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sstatus%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getStatus()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `fullName` to the URL query string
@@ -630,7 +615,7 @@ public class PowerOfAttorneyAgent {
 
     // add `email` to the URL query string
     if (getEmail() != null) {
-      joiner.add(String.format("%semail%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEmail()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%semail%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getEmail()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `phone` to the URL query string
@@ -640,22 +625,22 @@ public class PowerOfAttorneyAgent {
 
     // add `ssn` to the URL query string
     if (getSsn() != null) {
-      joiner.add(String.format("%sssn%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSsn()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sssn%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getSsn()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `passport` to the URL query string
     if (getPassport() != null) {
-      joiner.add(String.format("%spassport%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPassport()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%spassport%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getPassport()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `nationality` to the URL query string
     if (getNationality() != null) {
-      joiner.add(String.format("%snationality%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getNationality()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%snationality%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getNationality()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `matriculaConsular` to the URL query string
     if (getMatriculaConsular() != null) {
-      joiner.add(String.format("%smatriculaConsular%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMatriculaConsular()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%smatriculaConsular%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getMatriculaConsular()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `address` to the URL query string
@@ -665,12 +650,12 @@ public class PowerOfAttorneyAgent {
 
     // add `dateOfBirth` to the URL query string
     if (getDateOfBirth() != null) {
-      joiner.add(String.format("%sdateOfBirth%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDateOfBirth()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sdateOfBirth%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDateOfBirth()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `evaluationId` to the URL query string
     if (getEvaluationId() != null) {
-      joiner.add(String.format("%sevaluationId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEvaluationId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sevaluationId%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getEvaluationId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `evaluationFlags` to the URL query string
@@ -678,28 +663,28 @@ public class PowerOfAttorneyAgent {
       for (int i = 0; i < getEvaluationFlags().size(); i++) {
         joiner.add(String.format("%sevaluationFlags%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
-            URLEncoder.encode(String.valueOf(getEvaluationFlags().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+            URLEncoder.encode(ApiClient.valueToString(getEvaluationFlags().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
     }
 
     // add `maskedSSN` to the URL query string
     if (getMaskedSSN() != null) {
-      joiner.add(String.format("%smaskedSSN%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMaskedSSN()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%smaskedSSN%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getMaskedSSN()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `maskedPassport` to the URL query string
     if (getMaskedPassport() != null) {
-      joiner.add(String.format("%smaskedPassport%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMaskedPassport()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%smaskedPassport%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getMaskedPassport()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `maskedMatriculaConsular` to the URL query string
     if (getMaskedMatriculaConsular() != null) {
-      joiner.add(String.format("%smaskedMatriculaConsular%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMaskedMatriculaConsular()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%smaskedMatriculaConsular%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getMaskedMatriculaConsular()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `idTheftScore` to the URL query string
     if (getIdTheftScore() != null) {
-      joiner.add(String.format("%sidTheftScore%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIdTheftScore()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sidTheftScore%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getIdTheftScore()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

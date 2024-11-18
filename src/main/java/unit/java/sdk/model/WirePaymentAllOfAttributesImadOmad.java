@@ -28,6 +28,7 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * WirePaymentAllOfAttributesImadOmad
  */
@@ -35,7 +36,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   WirePaymentAllOfAttributesImadOmad.JSON_PROPERTY_IMAD,
   WirePaymentAllOfAttributesImadOmad.JSON_PROPERTY_OMAD
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class WirePaymentAllOfAttributesImadOmad {
   public static final String JSON_PROPERTY_IMAD = "imad";
   private String imad;
@@ -51,14 +52,13 @@ public class WirePaymentAllOfAttributesImadOmad {
     return this;
   }
 
-   /**
+  /**
    * Get imad
    * @return imad
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IMAD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getImad() {
     return imad;
   }
@@ -76,14 +76,13 @@ public class WirePaymentAllOfAttributesImadOmad {
     return this;
   }
 
-   /**
+  /**
    * Get omad
    * @return omad
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OMAD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getOmad() {
     return omad;
   }
@@ -172,12 +171,12 @@ public class WirePaymentAllOfAttributesImadOmad {
 
     // add `imad` to the URL query string
     if (getImad() != null) {
-      joiner.add(String.format("%simad%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getImad()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%simad%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getImad()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `omad` to the URL query string
     if (getOmad() != null) {
-      joiner.add(String.format("%somad%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getOmad()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%somad%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getOmad()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

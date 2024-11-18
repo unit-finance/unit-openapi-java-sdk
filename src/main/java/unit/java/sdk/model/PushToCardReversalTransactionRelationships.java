@@ -34,6 +34,7 @@ import unit.java.sdk.model.PaymentRelationship;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * PushToCardReversalTransactionRelationships
  */
@@ -45,7 +46,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   PushToCardReversalTransactionRelationships.JSON_PROPERTY_ORG,
   PushToCardReversalTransactionRelationships.JSON_PROPERTY_ORIGINAL_TRANSACTION
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class PushToCardReversalTransactionRelationships {
   public static final String JSON_PROPERTY_ACCOUNT = "account";
   private AccountRelationship account;
@@ -73,14 +74,13 @@ public class PushToCardReversalTransactionRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get account
    * @return account
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public AccountRelationship getAccount() {
     return account;
   }
@@ -98,14 +98,13 @@ public class PushToCardReversalTransactionRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get customer
    * @return customer
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOMER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CustomerRelationship getCustomer() {
     return customer;
   }
@@ -123,14 +122,13 @@ public class PushToCardReversalTransactionRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get customers
    * @return customers
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOMERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CustomersRelationship getCustomers() {
     return customers;
   }
@@ -148,14 +146,13 @@ public class PushToCardReversalTransactionRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get payment
    * @return payment
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PAYMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public PaymentRelationship getPayment() {
     return payment;
   }
@@ -173,14 +170,13 @@ public class PushToCardReversalTransactionRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get org
    * @return org
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ORG)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public OrgRelationship getOrg() {
     return org;
   }
@@ -198,14 +194,13 @@ public class PushToCardReversalTransactionRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get originalTransaction
    * @return originalTransaction
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ORIGINAL_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public OriginalTransactionRelationship getOriginalTransaction() {
     return originalTransaction;
   }

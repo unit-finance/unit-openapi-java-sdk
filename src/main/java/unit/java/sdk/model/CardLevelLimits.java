@@ -28,6 +28,7 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * CardLevelLimits
  */
@@ -37,7 +38,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CardLevelLimits.JSON_PROPERTY_MONTHLY_WITHDRAWAL,
   CardLevelLimits.JSON_PROPERTY_MONTHLY_PURCHASE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CardLevelLimits {
   public static final String JSON_PROPERTY_DAILY_WITHDRAWAL = "dailyWithdrawal";
   private Integer dailyWithdrawal;
@@ -59,14 +60,13 @@ public class CardLevelLimits {
     return this;
   }
 
-   /**
+  /**
    * Get dailyWithdrawal
    * @return dailyWithdrawal
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DAILY_WITHDRAWAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getDailyWithdrawal() {
     return dailyWithdrawal;
   }
@@ -84,14 +84,13 @@ public class CardLevelLimits {
     return this;
   }
 
-   /**
+  /**
    * Get dailyPurchase
    * @return dailyPurchase
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DAILY_PURCHASE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getDailyPurchase() {
     return dailyPurchase;
   }
@@ -109,14 +108,13 @@ public class CardLevelLimits {
     return this;
   }
 
-   /**
+  /**
    * Get monthlyWithdrawal
    * @return monthlyWithdrawal
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MONTHLY_WITHDRAWAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getMonthlyWithdrawal() {
     return monthlyWithdrawal;
   }
@@ -134,14 +132,13 @@ public class CardLevelLimits {
     return this;
   }
 
-   /**
+  /**
    * Get monthlyPurchase
    * @return monthlyPurchase
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MONTHLY_PURCHASE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getMonthlyPurchase() {
     return monthlyPurchase;
   }
@@ -234,22 +231,22 @@ public class CardLevelLimits {
 
     // add `dailyWithdrawal` to the URL query string
     if (getDailyWithdrawal() != null) {
-      joiner.add(String.format("%sdailyWithdrawal%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDailyWithdrawal()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sdailyWithdrawal%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDailyWithdrawal()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `dailyPurchase` to the URL query string
     if (getDailyPurchase() != null) {
-      joiner.add(String.format("%sdailyPurchase%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDailyPurchase()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sdailyPurchase%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDailyPurchase()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `monthlyWithdrawal` to the URL query string
     if (getMonthlyWithdrawal() != null) {
-      joiner.add(String.format("%smonthlyWithdrawal%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMonthlyWithdrawal()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%smonthlyWithdrawal%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getMonthlyWithdrawal()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `monthlyPurchase` to the URL query string
     if (getMonthlyPurchase() != null) {
-      joiner.add(String.format("%smonthlyPurchase%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMonthlyPurchase()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%smonthlyPurchase%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getMonthlyPurchase()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

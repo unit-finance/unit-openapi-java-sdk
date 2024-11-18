@@ -33,6 +33,7 @@ import unit.java.sdk.model.PhysicalCardStatus;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * IndividualDebitCardAllOfAttributes
  */
@@ -49,7 +50,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   IndividualDebitCardAllOfAttributes.JSON_PROPERTY_TAGS,
   IndividualDebitCardAllOfAttributes.JSON_PROPERTY_FREEZE_REASON
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class IndividualDebitCardAllOfAttributes {
   public static final String JSON_PROPERTY_CREATED_AT = "createdAt";
   private OffsetDateTime createdAt;
@@ -92,14 +93,13 @@ public class IndividualDebitCardAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get createdAt
    * @return createdAt
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
@@ -117,14 +117,13 @@ public class IndividualDebitCardAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get updatedAt
    * @return updatedAt
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_UPDATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
   }
@@ -142,14 +141,13 @@ public class IndividualDebitCardAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get last4Digits
    * @return last4Digits
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_LAST4_DIGITS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getLast4Digits() {
     return last4Digits;
   }
@@ -167,14 +165,13 @@ public class IndividualDebitCardAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get expirationDate
    * @return expirationDate
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_EXPIRATION_DATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getExpirationDate() {
     return expirationDate;
   }
@@ -192,14 +189,13 @@ public class IndividualDebitCardAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get nextExpirationDate
    * @return nextExpirationDate
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NEXT_EXPIRATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getNextExpirationDate() {
     return nextExpirationDate;
   }
@@ -217,14 +213,13 @@ public class IndividualDebitCardAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get shippingAddress
    * @return shippingAddress
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SHIPPING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Address getShippingAddress() {
     return shippingAddress;
   }
@@ -242,14 +237,13 @@ public class IndividualDebitCardAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get bin
    * @return bin
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBin() {
     return bin;
   }
@@ -267,14 +261,13 @@ public class IndividualDebitCardAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get status
    * @return status
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public PhysicalCardStatus getStatus() {
     return status;
   }
@@ -292,14 +285,13 @@ public class IndividualDebitCardAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get design
    * @return design
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDesign() {
     return design;
   }
@@ -325,14 +317,13 @@ public class IndividualDebitCardAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get tags
    * @return tags
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getTags() {
     return tags;
   }
@@ -350,14 +341,13 @@ public class IndividualDebitCardAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get freezeReason
    * @return freezeReason
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FREEZE_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getFreezeReason() {
     return freezeReason;
   }
@@ -464,27 +454,27 @@ public class IndividualDebitCardAllOfAttributes {
 
     // add `createdAt` to the URL query string
     if (getCreatedAt() != null) {
-      joiner.add(String.format("%screatedAt%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%screatedAt%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCreatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `updatedAt` to the URL query string
     if (getUpdatedAt() != null) {
-      joiner.add(String.format("%supdatedAt%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUpdatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%supdatedAt%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getUpdatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `last4Digits` to the URL query string
     if (getLast4Digits() != null) {
-      joiner.add(String.format("%slast4Digits%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLast4Digits()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%slast4Digits%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getLast4Digits()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `expirationDate` to the URL query string
     if (getExpirationDate() != null) {
-      joiner.add(String.format("%sexpirationDate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getExpirationDate()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sexpirationDate%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getExpirationDate()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `nextExpirationDate` to the URL query string
     if (getNextExpirationDate() != null) {
-      joiner.add(String.format("%snextExpirationDate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getNextExpirationDate()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%snextExpirationDate%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getNextExpirationDate()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `shippingAddress` to the URL query string
@@ -494,17 +484,17 @@ public class IndividualDebitCardAllOfAttributes {
 
     // add `bin` to the URL query string
     if (getBin() != null) {
-      joiner.add(String.format("%sbin%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getBin()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sbin%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getBin()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `status` to the URL query string
     if (getStatus() != null) {
-      joiner.add(String.format("%sstatus%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStatus()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sstatus%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getStatus()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `design` to the URL query string
     if (getDesign() != null) {
-      joiner.add(String.format("%sdesign%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDesign()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sdesign%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDesign()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `tags` to the URL query string
@@ -512,13 +502,13 @@ public class IndividualDebitCardAllOfAttributes {
       for (String _key : getTags().keySet()) {
         joiner.add(String.format("%stags%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
-            getTags().get(_key), URLEncoder.encode(String.valueOf(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+            getTags().get(_key), URLEncoder.encode(ApiClient.valueToString(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
     }
 
     // add `freezeReason` to the URL query string
     if (getFreezeReason() != null) {
-      joiner.add(String.format("%sfreezeReason%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getFreezeReason()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sfreezeReason%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getFreezeReason()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

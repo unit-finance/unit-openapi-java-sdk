@@ -33,6 +33,7 @@ import unit.java.sdk.model.CustomersRelationship;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * ChargebackTransactionRelationships
  */
@@ -43,7 +44,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   ChargebackTransactionRelationships.JSON_PROPERTY_COUNTERPARTY_ACCOUNT,
   ChargebackTransactionRelationships.JSON_PROPERTY_CHARGEBACK
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ChargebackTransactionRelationships {
   public static final String JSON_PROPERTY_ACCOUNT = "account";
   private AccountRelationship account;
@@ -68,14 +69,13 @@ public class ChargebackTransactionRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get account
    * @return account
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public AccountRelationship getAccount() {
     return account;
   }
@@ -93,14 +93,13 @@ public class ChargebackTransactionRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get customer
    * @return customer
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOMER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CustomerRelationship getCustomer() {
     return customer;
   }
@@ -118,14 +117,13 @@ public class ChargebackTransactionRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get customers
    * @return customers
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOMERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CustomersRelationship getCustomers() {
     return customers;
   }
@@ -143,14 +141,13 @@ public class ChargebackTransactionRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get counterpartyAccount
    * @return counterpartyAccount
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public CounterpartyAccountRelationship getCounterpartyAccount() {
     return counterpartyAccount;
   }
@@ -168,14 +165,13 @@ public class ChargebackTransactionRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get chargeback
    * @return chargeback
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_CHARGEBACK)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public ChargebackRelationship getChargeback() {
     return chargeback;
   }

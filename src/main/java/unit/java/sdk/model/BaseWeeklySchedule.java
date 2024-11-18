@@ -29,6 +29,7 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * BaseWeeklySchedule
  */
@@ -39,7 +40,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   BaseWeeklySchedule.JSON_PROPERTY_NEXT_SCHEDULED_ACTION,
   BaseWeeklySchedule.JSON_PROPERTY_TOTAL_NUMBER_OF_PAYMENTS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class BaseWeeklySchedule {
   public static final String JSON_PROPERTY_START_TIME = "startTime";
   private LocalDate startTime;
@@ -64,14 +65,13 @@ public class BaseWeeklySchedule {
     return this;
   }
 
-   /**
+  /**
    * Get startTime
    * @return startTime
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_START_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LocalDate getStartTime() {
     return startTime;
   }
@@ -89,14 +89,13 @@ public class BaseWeeklySchedule {
     return this;
   }
 
-   /**
+  /**
    * Get endTime
    * @return endTime
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_END_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LocalDate getEndTime() {
     return endTime;
   }
@@ -114,16 +113,15 @@ public class BaseWeeklySchedule {
     return this;
   }
 
-   /**
+  /**
    * Get dayOfMonth
    * minimum: -5
    * maximum: 28
    * @return dayOfMonth
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DAY_OF_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getDayOfMonth() {
     return dayOfMonth;
   }
@@ -141,14 +139,13 @@ public class BaseWeeklySchedule {
     return this;
   }
 
-   /**
+  /**
    * Get nextScheduledAction
    * @return nextScheduledAction
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_NEXT_SCHEDULED_ACTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public LocalDate getNextScheduledAction() {
     return nextScheduledAction;
   }
@@ -166,15 +163,14 @@ public class BaseWeeklySchedule {
     return this;
   }
 
-   /**
+  /**
    * Get totalNumberOfPayments
    * minimum: 1
    * @return totalNumberOfPayments
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TOTAL_NUMBER_OF_PAYMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getTotalNumberOfPayments() {
     return totalNumberOfPayments;
   }
@@ -269,27 +265,27 @@ public class BaseWeeklySchedule {
 
     // add `startTime` to the URL query string
     if (getStartTime() != null) {
-      joiner.add(String.format("%sstartTime%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStartTime()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sstartTime%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getStartTime()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `endTime` to the URL query string
     if (getEndTime() != null) {
-      joiner.add(String.format("%sendTime%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEndTime()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sendTime%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getEndTime()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `dayOfMonth` to the URL query string
     if (getDayOfMonth() != null) {
-      joiner.add(String.format("%sdayOfMonth%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDayOfMonth()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sdayOfMonth%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDayOfMonth()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `nextScheduledAction` to the URL query string
     if (getNextScheduledAction() != null) {
-      joiner.add(String.format("%snextScheduledAction%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getNextScheduledAction()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%snextScheduledAction%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getNextScheduledAction()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `totalNumberOfPayments` to the URL query string
     if (getTotalNumberOfPayments() != null) {
-      joiner.add(String.format("%stotalNumberOfPayments%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTotalNumberOfPayments()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%stotalNumberOfPayments%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getTotalNumberOfPayments()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

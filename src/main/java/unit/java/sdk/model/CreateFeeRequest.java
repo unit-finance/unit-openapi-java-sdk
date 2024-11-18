@@ -25,138 +25,46 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import unit.java.sdk.model.CreateFeeRelationships;
-import unit.java.sdk.model.CreateFeeRequestAttributes;
+import unit.java.sdk.model.CreateFeeRequestData;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * CreateFeeRequest
  */
 @JsonPropertyOrder({
-  CreateFeeRequest.JSON_PROPERTY_TYPE,
-  CreateFeeRequest.JSON_PROPERTY_ATTRIBUTES,
-  CreateFeeRequest.JSON_PROPERTY_RELATIONSHIPS
+  CreateFeeRequest.JSON_PROPERTY_DATA
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CreateFeeRequest {
-  /**
-   * Gets or Sets type
-   */
-  public enum TypeEnum {
-    FEE("fee");
-
-    private String value;
-
-    TypeEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static TypeEnum fromValue(String value) {
-      for (TypeEnum b : TypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.FEE;
-
-  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private CreateFeeRequestAttributes attributes;
-
-  public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
-  private CreateFeeRelationships relationships;
+  public static final String JSON_PROPERTY_DATA = "data";
+  private CreateFeeRequestData data;
 
   public CreateFeeRequest() { 
   }
 
-  public CreateFeeRequest type(TypeEnum type) {
-    this.type = type;
+  public CreateFeeRequest data(CreateFeeRequestData data) {
+    this.data = data;
     return this;
   }
 
-   /**
-   * Get type
-   * @return type
-  **/
+  /**
+   * Get data
+   * @return data
+   */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public TypeEnum getType() {
-    return type;
+  public CreateFeeRequestData getData() {
+    return data;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setType(TypeEnum type) {
-    this.type = type;
-  }
-
-
-  public CreateFeeRequest attributes(CreateFeeRequestAttributes attributes) {
-    this.attributes = attributes;
-    return this;
-  }
-
-   /**
-   * Get attributes
-   * @return attributes
-  **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public CreateFeeRequestAttributes getAttributes() {
-    return attributes;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAttributes(CreateFeeRequestAttributes attributes) {
-    this.attributes = attributes;
-  }
-
-
-  public CreateFeeRequest relationships(CreateFeeRelationships relationships) {
-    this.relationships = relationships;
-    return this;
-  }
-
-   /**
-   * Get relationships
-   * @return relationships
-  **/
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public CreateFeeRelationships getRelationships() {
-    return relationships;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setRelationships(CreateFeeRelationships relationships) {
-    this.relationships = relationships;
+  public void setData(CreateFeeRequestData data) {
+    this.data = data;
   }
 
 
@@ -172,23 +80,19 @@ public class CreateFeeRequest {
       return false;
     }
     CreateFeeRequest createFeeRequest = (CreateFeeRequest) o;
-    return Objects.equals(this.type, createFeeRequest.type) &&
-        Objects.equals(this.attributes, createFeeRequest.attributes) &&
-        Objects.equals(this.relationships, createFeeRequest.relationships);
+    return Objects.equals(this.data, createFeeRequest.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, attributes, relationships);
+    return Objects.hash(data);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateFeeRequest {\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
-    sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -236,19 +140,9 @@ public class CreateFeeRequest {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `type` to the URL query string
-    if (getType() != null) {
-      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
-    }
-
-    // add `attributes` to the URL query string
-    if (getAttributes() != null) {
-      joiner.add(getAttributes().toUrlQueryString(prefix + "attributes" + suffix));
-    }
-
-    // add `relationships` to the URL query string
-    if (getRelationships() != null) {
-      joiner.add(getRelationships().toUrlQueryString(prefix + "relationships" + suffix));
+    // add `data` to the URL query string
+    if (getData() != null) {
+      joiner.add(getData().toUrlQueryString(prefix + "data" + suffix));
     }
 
     return joiner.toString();

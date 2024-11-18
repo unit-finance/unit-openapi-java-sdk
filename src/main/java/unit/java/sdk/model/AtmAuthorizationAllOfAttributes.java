@@ -36,6 +36,7 @@ import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * AtmAuthorizationAllOfAttributes
  */
@@ -54,7 +55,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   AtmAuthorizationAllOfAttributes.JSON_PROPERTY_TAGS,
   AtmAuthorizationAllOfAttributes.JSON_PROPERTY_CARD_NETWORK
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class AtmAuthorizationAllOfAttributes {
   public static final String JSON_PROPERTY_CREATED_AT = "createdAt";
   private OffsetDateTime createdAt;
@@ -103,14 +104,13 @@ public class AtmAuthorizationAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get createdAt
    * @return createdAt
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
@@ -128,14 +128,13 @@ public class AtmAuthorizationAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get amount
    * @return amount
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Integer getAmount() {
     return amount;
   }
@@ -153,14 +152,13 @@ public class AtmAuthorizationAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get status
    * @return status
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getStatus() {
     return status;
   }
@@ -178,14 +176,13 @@ public class AtmAuthorizationAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get partialApprovalAllowed
    * @return partialApprovalAllowed
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_PARTIAL_APPROVAL_ALLOWED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Boolean getPartialApprovalAllowed() {
     return partialApprovalAllowed;
   }
@@ -203,14 +200,13 @@ public class AtmAuthorizationAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get approvedAmount
    * @return approvedAmount
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_APPROVED_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getApprovedAmount() {
     return approvedAmount;
   }
@@ -228,14 +224,13 @@ public class AtmAuthorizationAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get declineReason
    * @return declineReason
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DECLINE_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDeclineReason() {
     return declineReason;
   }
@@ -253,14 +248,13 @@ public class AtmAuthorizationAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get direction
    * @return direction
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_DIRECTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getDirection() {
     return direction;
   }
@@ -278,14 +272,13 @@ public class AtmAuthorizationAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get atmName
    * @return atmName
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ATM_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getAtmName() {
     return atmName;
   }
@@ -303,14 +296,13 @@ public class AtmAuthorizationAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get atmLocation
    * @return atmLocation
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATM_LOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAtmLocation() {
     return atmLocation;
   }
@@ -328,14 +320,13 @@ public class AtmAuthorizationAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get surcharge
    * @return surcharge
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_SURCHARGE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Integer getSurcharge() {
     return surcharge;
   }
@@ -353,13 +344,12 @@ public class AtmAuthorizationAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get internationalServiceFee
    * @return internationalServiceFee
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonIgnore
-
   public BigDecimal getInternationalServiceFee() {
         return internationalServiceFee.orElse(null);
   }
@@ -394,14 +384,13 @@ public class AtmAuthorizationAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get tags
    * @return tags
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getTags() {
     return tags;
   }
@@ -419,14 +408,13 @@ public class AtmAuthorizationAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get cardNetwork
    * @return cardNetwork
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CARD_NETWORK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCardNetwork() {
     return cardNetwork;
   }
@@ -548,57 +536,57 @@ public class AtmAuthorizationAllOfAttributes {
 
     // add `createdAt` to the URL query string
     if (getCreatedAt() != null) {
-      joiner.add(String.format("%screatedAt%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%screatedAt%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCreatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `amount` to the URL query string
     if (getAmount() != null) {
-      joiner.add(String.format("%samount%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAmount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%samount%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getAmount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `status` to the URL query string
     if (getStatus() != null) {
-      joiner.add(String.format("%sstatus%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStatus()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sstatus%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getStatus()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `partialApprovalAllowed` to the URL query string
     if (getPartialApprovalAllowed() != null) {
-      joiner.add(String.format("%spartialApprovalAllowed%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPartialApprovalAllowed()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%spartialApprovalAllowed%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getPartialApprovalAllowed()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `approvedAmount` to the URL query string
     if (getApprovedAmount() != null) {
-      joiner.add(String.format("%sapprovedAmount%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getApprovedAmount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sapprovedAmount%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getApprovedAmount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `declineReason` to the URL query string
     if (getDeclineReason() != null) {
-      joiner.add(String.format("%sdeclineReason%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDeclineReason()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sdeclineReason%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDeclineReason()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `direction` to the URL query string
     if (getDirection() != null) {
-      joiner.add(String.format("%sdirection%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDirection()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sdirection%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDirection()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `atmName` to the URL query string
     if (getAtmName() != null) {
-      joiner.add(String.format("%satmName%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAtmName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%satmName%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getAtmName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `atmLocation` to the URL query string
     if (getAtmLocation() != null) {
-      joiner.add(String.format("%satmLocation%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAtmLocation()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%satmLocation%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getAtmLocation()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `surcharge` to the URL query string
     if (getSurcharge() != null) {
-      joiner.add(String.format("%ssurcharge%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSurcharge()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%ssurcharge%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getSurcharge()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `internationalServiceFee` to the URL query string
     if (getInternationalServiceFee() != null) {
-      joiner.add(String.format("%sinternationalServiceFee%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getInternationalServiceFee()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sinternationalServiceFee%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getInternationalServiceFee()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `tags` to the URL query string
@@ -606,13 +594,13 @@ public class AtmAuthorizationAllOfAttributes {
       for (String _key : getTags().keySet()) {
         joiner.add(String.format("%stags%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
-            getTags().get(_key), URLEncoder.encode(String.valueOf(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+            getTags().get(_key), URLEncoder.encode(ApiClient.valueToString(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
     }
 
     // add `cardNetwork` to the URL query string
     if (getCardNetwork() != null) {
-      joiner.add(String.format("%scardNetwork%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCardNetwork()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%scardNetwork%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCardNetwork()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

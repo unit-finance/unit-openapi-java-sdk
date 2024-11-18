@@ -32,6 +32,7 @@ import unit.java.sdk.model.Repayment;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * UnitRepaymentsListResponse
  */
@@ -39,7 +40,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   UnitRepaymentsListResponse.JSON_PROPERTY_DATA,
   UnitRepaymentsListResponse.JSON_PROPERTY_META
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class UnitRepaymentsListResponse {
   public static final String JSON_PROPERTY_DATA = "data";
   private List<Repayment> data = new ArrayList<>();
@@ -63,14 +64,13 @@ public class UnitRepaymentsListResponse {
     return this;
   }
 
-   /**
+  /**
    * Get data
    * @return data
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<Repayment> getData() {
     return data;
   }
@@ -88,14 +88,13 @@ public class UnitRepaymentsListResponse {
     return this;
   }
 
-   /**
+  /**
    * Get meta
    * @return meta
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public PaginationMeta getMeta() {
     return meta;
   }

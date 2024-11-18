@@ -31,6 +31,7 @@ import unit.java.sdk.model.TransactionRelationship;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * DisputeRelationships
  */
@@ -39,7 +40,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   DisputeRelationships.JSON_PROPERTY_ACCOUNT,
   DisputeRelationships.JSON_PROPERTY_TRANSACTION
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class DisputeRelationships {
   public static final String JSON_PROPERTY_CUSTOMER = "customer";
   private CustomerRelationship customer;
@@ -58,14 +59,13 @@ public class DisputeRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get customer
    * @return customer
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_CUSTOMER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public CustomerRelationship getCustomer() {
     return customer;
   }
@@ -83,14 +83,13 @@ public class DisputeRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get account
    * @return account
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public AccountRelationship getAccount() {
     return account;
   }
@@ -108,14 +107,13 @@ public class DisputeRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get transaction
    * @return transaction
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public TransactionRelationship getTransaction() {
     return transaction;
   }

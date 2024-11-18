@@ -32,7 +32,7 @@ public enum AchRepaymentStatus {
   
   PENDING("Pending"),
   
-  PENDINGREVIEW("PendingReview"),
+  PENDING_REVIEW("PendingReview"),
   
   CLEARING("Clearing"),
   

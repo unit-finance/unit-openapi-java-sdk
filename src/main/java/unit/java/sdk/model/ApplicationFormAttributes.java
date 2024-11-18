@@ -34,6 +34,7 @@ import unit.java.sdk.model.ApplicationFormSettingsOverride;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * ApplicationFormAttributes
  */
@@ -46,7 +47,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   ApplicationFormAttributes.JSON_PROPERTY_TAGS,
   ApplicationFormAttributes.JSON_PROPERTY_ALLOWED_APPLICATION_TYPES
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ApplicationFormAttributes {
   public static final String JSON_PROPERTY_EMAIL = "email";
   private String email;
@@ -58,33 +59,33 @@ public class ApplicationFormAttributes {
    * Gets or Sets stage
    */
   public enum StageEnum {
-    CHOOSEBUSINESSORINDIVIDUAL("ChooseBusinessOrIndividual"),
+    CHOOSE_BUSINESS_OR_INDIVIDUAL("ChooseBusinessOrIndividual"),
     
-    ENTERINDIVIDUALINFORMATION("EnterIndividualInformation"),
+    ENTER_INDIVIDUAL_INFORMATION("EnterIndividualInformation"),
     
-    INDIVIDUALPHONEVERIFICATION("IndividualPhoneVerification"),
+    INDIVIDUAL_PHONE_VERIFICATION("IndividualPhoneVerification"),
     
-    INDIVIDUALAPPLICATIONCREATED("IndividualApplicationCreated"),
+    INDIVIDUAL_APPLICATION_CREATED("IndividualApplicationCreated"),
     
-    ENTERBUSINESSINFORMATION("EnterBusinessInformation"),
+    ENTER_BUSINESS_INFORMATION("EnterBusinessInformation"),
     
-    ENTERBUSINESSADDITIONALINFORMATION("EnterBusinessAdditionalInformation"),
+    ENTER_BUSINESS_ADDITIONAL_INFORMATION("EnterBusinessAdditionalInformation"),
     
-    ENTEROFFICERINFORMATION("EnterOfficerInformation"),
+    ENTER_OFFICER_INFORMATION("EnterOfficerInformation"),
     
-    BUSINESSPHONEVERIFICATION("BusinessPhoneVerification"),
+    BUSINESS_PHONE_VERIFICATION("BusinessPhoneVerification"),
     
-    ENTERBENEFICIALOWNERSINFORMATION("EnterBeneficialOwnersInformation"),
+    ENTER_BENEFICIAL_OWNERS_INFORMATION("EnterBeneficialOwnersInformation"),
     
-    BUSINESSAPPLICATIONCREATED("businessApplicationCreated"),
+    BUSINESS_APPLICATION_CREATED("businessApplicationCreated"),
     
-    ENTERSOLEPROPRIETORSHIPINFORMATION("EnterSoleProprietorshipInformation"),
+    ENTER_SOLE_PROPRIETORSHIP_INFORMATION("EnterSoleProprietorshipInformation"),
     
-    ENTERSOLEPROPRIETORSHIPBUSINESSINFORMATION("EnterSoleProprietorshipBusinessInformation"),
+    ENTER_SOLE_PROPRIETORSHIP_BUSINESS_INFORMATION("EnterSoleProprietorshipBusinessInformation"),
     
-    SOLEPROPRIETORSHIPPHONEVERIFICATION("SoleProprietorshipPhoneVerification"),
+    SOLE_PROPRIETORSHIP_PHONE_VERIFICATION("SoleProprietorshipPhoneVerification"),
     
-    SOLEPROPRIETORSHIPAPPLICATIONCREATED("SoleProprietorshipApplicationCreated");
+    SOLE_PROPRIETORSHIP_APPLICATION_CREATED("SoleProprietorshipApplicationCreated");
 
     private String value;
 
@@ -133,7 +134,7 @@ public class ApplicationFormAttributes {
     
     BUSINESS("Business"),
     
-    SOLEPROPRIETORSHIP("SoleProprietorship");
+    SOLE_PROPRIETORSHIP("SoleProprietorship");
 
     private String value;
 
@@ -173,14 +174,13 @@ public class ApplicationFormAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get email
    * @return email
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getEmail() {
     return email;
   }
@@ -198,14 +198,13 @@ public class ApplicationFormAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get url
    * @return url
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getUrl() {
     return url;
   }
@@ -223,14 +222,13 @@ public class ApplicationFormAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get stage
    * @return stage
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public StageEnum getStage() {
     return stage;
   }
@@ -248,14 +246,13 @@ public class ApplicationFormAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get applicantDetails
    * @return applicantDetails
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_APPLICANT_DETAILS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ApplicationFormPrefill getApplicantDetails() {
     return applicantDetails;
   }
@@ -273,14 +270,13 @@ public class ApplicationFormAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get settingsOverride
    * @return settingsOverride
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SETTINGS_OVERRIDE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ApplicationFormSettingsOverride getSettingsOverride() {
     return settingsOverride;
   }
@@ -306,14 +302,13 @@ public class ApplicationFormAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get tags
    * @return tags
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getTags() {
     return tags;
   }
@@ -339,14 +334,13 @@ public class ApplicationFormAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get allowedApplicationTypes
    * @return allowedApplicationTypes
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ALLOWED_APPLICATION_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<AllowedApplicationTypesEnum> getAllowedApplicationTypes() {
     return allowedApplicationTypes;
   }
@@ -445,17 +439,17 @@ public class ApplicationFormAttributes {
 
     // add `email` to the URL query string
     if (getEmail() != null) {
-      joiner.add(String.format("%semail%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEmail()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%semail%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getEmail()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `url` to the URL query string
     if (getUrl() != null) {
-      joiner.add(String.format("%surl%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUrl()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%surl%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getUrl()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `stage` to the URL query string
     if (getStage() != null) {
-      joiner.add(String.format("%sstage%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStage()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sstage%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getStage()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `applicantDetails` to the URL query string
@@ -473,7 +467,7 @@ public class ApplicationFormAttributes {
       for (String _key : getTags().keySet()) {
         joiner.add(String.format("%stags%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
-            getTags().get(_key), URLEncoder.encode(String.valueOf(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+            getTags().get(_key), URLEncoder.encode(ApiClient.valueToString(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
     }
 
@@ -482,7 +476,7 @@ public class ApplicationFormAttributes {
       for (int i = 0; i < getAllowedApplicationTypes().size(); i++) {
         joiner.add(String.format("%sallowedApplicationTypes%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
-            URLEncoder.encode(String.valueOf(getAllowedApplicationTypes().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+            URLEncoder.encode(ApiClient.valueToString(getAllowedApplicationTypes().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
     }
 

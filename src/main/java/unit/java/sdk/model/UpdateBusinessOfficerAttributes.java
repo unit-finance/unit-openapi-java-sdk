@@ -29,13 +29,14 @@ import unit.java.sdk.model.BusinessOfficer;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * UpdateBusinessOfficerAttributes
  */
 @JsonPropertyOrder({
   UpdateBusinessOfficerAttributes.JSON_PROPERTY_OFFICER
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class UpdateBusinessOfficerAttributes {
   public static final String JSON_PROPERTY_OFFICER = "officer";
   private BusinessOfficer officer;
@@ -48,14 +49,13 @@ public class UpdateBusinessOfficerAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get officer
    * @return officer
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OFFICER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public BusinessOfficer getOfficer() {
     return officer;
   }

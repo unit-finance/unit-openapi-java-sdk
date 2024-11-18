@@ -29,6 +29,7 @@ import unit.java.sdk.model.StatusEventStatus;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * StatusEvent
  */
@@ -37,7 +38,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   StatusEvent.JSON_PROPERTY_UPDATED_BY,
   StatusEvent.JSON_PROPERTY_STATUS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class StatusEvent {
   public static final String JSON_PROPERTY_UPDATED_AT = "updatedAt";
   private String updatedAt;
@@ -56,14 +57,13 @@ public class StatusEvent {
     return this;
   }
 
-   /**
+  /**
    * Get updatedAt
    * @return updatedAt
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_UPDATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getUpdatedAt() {
     return updatedAt;
   }
@@ -81,14 +81,13 @@ public class StatusEvent {
     return this;
   }
 
-   /**
+  /**
    * Get updatedBy
    * @return updatedBy
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_UPDATED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getUpdatedBy() {
     return updatedBy;
   }
@@ -106,14 +105,13 @@ public class StatusEvent {
     return this;
   }
 
-   /**
+  /**
    * Get status
    * @return status
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public StatusEventStatus getStatus() {
     return status;
   }
@@ -204,12 +202,12 @@ public class StatusEvent {
 
     // add `updatedAt` to the URL query string
     if (getUpdatedAt() != null) {
-      joiner.add(String.format("%supdatedAt%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUpdatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%supdatedAt%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getUpdatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `updatedBy` to the URL query string
     if (getUpdatedBy() != null) {
-      joiner.add(String.format("%supdatedBy%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUpdatedBy()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%supdatedBy%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getUpdatedBy()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `status` to the URL query string

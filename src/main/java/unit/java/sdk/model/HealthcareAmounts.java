@@ -28,6 +28,7 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * HealthcareAmounts
  */
@@ -39,7 +40,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   HealthcareAmounts.JSON_PROPERTY_DENTAL_AMOUNT,
   HealthcareAmounts.JSON_PROPERTY_TOTAL_HEALTHCARE_AMOUNT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class HealthcareAmounts {
   public static final String JSON_PROPERTY_TRANSIT_AMOUNT = "transitAmount";
   private Integer transitAmount;
@@ -67,14 +68,13 @@ public class HealthcareAmounts {
     return this;
   }
 
-   /**
+  /**
    * Get transitAmount
    * @return transitAmount
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_TRANSIT_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Integer getTransitAmount() {
     return transitAmount;
   }
@@ -92,14 +92,13 @@ public class HealthcareAmounts {
     return this;
   }
 
-   /**
+  /**
    * Get prescriptionRXAmount
    * @return prescriptionRXAmount
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_PRESCRIPTION_R_X_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Integer getPrescriptionRXAmount() {
     return prescriptionRXAmount;
   }
@@ -117,14 +116,13 @@ public class HealthcareAmounts {
     return this;
   }
 
-   /**
+  /**
    * Get visionOpticalAmount
    * @return visionOpticalAmount
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_VISION_OPTICAL_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Integer getVisionOpticalAmount() {
     return visionOpticalAmount;
   }
@@ -142,14 +140,13 @@ public class HealthcareAmounts {
     return this;
   }
 
-   /**
+  /**
    * Get clinicOtherQualifiedMedicalAmount
    * @return clinicOtherQualifiedMedicalAmount
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_CLINIC_OTHER_QUALIFIED_MEDICAL_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Integer getClinicOtherQualifiedMedicalAmount() {
     return clinicOtherQualifiedMedicalAmount;
   }
@@ -167,14 +164,13 @@ public class HealthcareAmounts {
     return this;
   }
 
-   /**
+  /**
    * Get dentalAmount
    * @return dentalAmount
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_DENTAL_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Integer getDentalAmount() {
     return dentalAmount;
   }
@@ -192,14 +188,13 @@ public class HealthcareAmounts {
     return this;
   }
 
-   /**
+  /**
    * Get totalHealthcareAmount
    * @return totalHealthcareAmount
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_TOTAL_HEALTHCARE_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Integer getTotalHealthcareAmount() {
     return totalHealthcareAmount;
   }
@@ -296,32 +291,32 @@ public class HealthcareAmounts {
 
     // add `transitAmount` to the URL query string
     if (getTransitAmount() != null) {
-      joiner.add(String.format("%stransitAmount%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTransitAmount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%stransitAmount%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getTransitAmount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `prescriptionRXAmount` to the URL query string
     if (getPrescriptionRXAmount() != null) {
-      joiner.add(String.format("%sprescriptionRXAmount%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPrescriptionRXAmount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sprescriptionRXAmount%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getPrescriptionRXAmount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `visionOpticalAmount` to the URL query string
     if (getVisionOpticalAmount() != null) {
-      joiner.add(String.format("%svisionOpticalAmount%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getVisionOpticalAmount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%svisionOpticalAmount%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getVisionOpticalAmount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `clinicOtherQualifiedMedicalAmount` to the URL query string
     if (getClinicOtherQualifiedMedicalAmount() != null) {
-      joiner.add(String.format("%sclinicOtherQualifiedMedicalAmount%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getClinicOtherQualifiedMedicalAmount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sclinicOtherQualifiedMedicalAmount%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getClinicOtherQualifiedMedicalAmount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `dentalAmount` to the URL query string
     if (getDentalAmount() != null) {
-      joiner.add(String.format("%sdentalAmount%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDentalAmount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sdentalAmount%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDentalAmount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `totalHealthcareAmount` to the URL query string
     if (getTotalHealthcareAmount() != null) {
-      joiner.add(String.format("%stotalHealthcareAmount%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTotalHealthcareAmount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%stotalHealthcareAmount%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getTotalHealthcareAmount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

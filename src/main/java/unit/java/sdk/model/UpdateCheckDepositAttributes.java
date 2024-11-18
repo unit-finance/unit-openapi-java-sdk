@@ -30,17 +30,18 @@ import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * UpdateCheckDepositAttributes
  */
 @JsonPropertyOrder({
-  UpdateCheckDepositAttributes.JSON_PROPERTY_AMOUNT,
+  UpdateCheckDepositAttributes.JSON_PROPERTY_CLEARING_DAYS_OVERRIDE,
   UpdateCheckDepositAttributes.JSON_PROPERTY_TAGS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class UpdateCheckDepositAttributes {
-  public static final String JSON_PROPERTY_AMOUNT = "amount";
-  private Integer amount;
+  public static final String JSON_PROPERTY_CLEARING_DAYS_OVERRIDE = "clearingDaysOverride";
+  private Integer clearingDaysOverride;
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private Map<String, String> tags = new HashMap<>();
@@ -48,29 +49,28 @@ public class UpdateCheckDepositAttributes {
   public UpdateCheckDepositAttributes() { 
   }
 
-  public UpdateCheckDepositAttributes amount(Integer amount) {
-    this.amount = amount;
+  public UpdateCheckDepositAttributes clearingDaysOverride(Integer clearingDaysOverride) {
+    this.clearingDaysOverride = clearingDaysOverride;
     return this;
   }
 
-   /**
-   * Get amount
+  /**
+   * Get clearingDaysOverride
    * minimum: 1
-   * @return amount
-  **/
+   * @return clearingDaysOverride
+   */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AMOUNT)
+  @JsonProperty(JSON_PROPERTY_CLEARING_DAYS_OVERRIDE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Integer getAmount() {
-    return amount;
+  public Integer getClearingDaysOverride() {
+    return clearingDaysOverride;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_AMOUNT)
+  @JsonProperty(JSON_PROPERTY_CLEARING_DAYS_OVERRIDE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAmount(Integer amount) {
-    this.amount = amount;
+  public void setClearingDaysOverride(Integer clearingDaysOverride) {
+    this.clearingDaysOverride = clearingDaysOverride;
   }
 
 
@@ -87,14 +87,13 @@ public class UpdateCheckDepositAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get tags
    * @return tags
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getTags() {
     return tags;
   }
@@ -119,20 +118,20 @@ public class UpdateCheckDepositAttributes {
       return false;
     }
     UpdateCheckDepositAttributes updateCheckDepositAttributes = (UpdateCheckDepositAttributes) o;
-    return Objects.equals(this.amount, updateCheckDepositAttributes.amount) &&
+    return Objects.equals(this.clearingDaysOverride, updateCheckDepositAttributes.clearingDaysOverride) &&
         Objects.equals(this.tags, updateCheckDepositAttributes.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, tags);
+    return Objects.hash(clearingDaysOverride, tags);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateCheckDepositAttributes {\n");
-    sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+    sb.append("    clearingDaysOverride: ").append(toIndentedString(clearingDaysOverride)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -181,9 +180,9 @@ public class UpdateCheckDepositAttributes {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `amount` to the URL query string
-    if (getAmount() != null) {
-      joiner.add(String.format("%samount%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAmount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `clearingDaysOverride` to the URL query string
+    if (getClearingDaysOverride() != null) {
+      joiner.add(String.format("%sclearingDaysOverride%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getClearingDaysOverride()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `tags` to the URL query string
@@ -191,7 +190,7 @@ public class UpdateCheckDepositAttributes {
       for (String _key : getTags().keySet()) {
         joiner.add(String.format("%stags%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
-            getTags().get(_key), URLEncoder.encode(String.valueOf(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+            getTags().get(_key), URLEncoder.encode(ApiClient.valueToString(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
     }
 

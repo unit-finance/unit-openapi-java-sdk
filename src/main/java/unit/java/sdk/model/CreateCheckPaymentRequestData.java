@@ -30,6 +30,7 @@ import unit.java.sdk.model.CreateCheckPaymentRequestDataAttributes;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * CreateCheckPaymentRequestData
  */
@@ -38,13 +39,13 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateCheckPaymentRequestData.JSON_PROPERTY_ATTRIBUTES,
   CreateCheckPaymentRequestData.JSON_PROPERTY_RELATIONSHIPS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CreateCheckPaymentRequestData {
   /**
    * Gets or Sets type
    */
   public enum TypeEnum {
-    CHECKPAYMENT("checkPayment");
+    CHECK_PAYMENT("checkPayment");
 
     private String value;
 
@@ -74,7 +75,7 @@ public class CreateCheckPaymentRequestData {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.CHECKPAYMENT;
+  private TypeEnum type = TypeEnum.CHECK_PAYMENT;
 
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private CreateCheckPaymentRequestDataAttributes attributes;
@@ -90,14 +91,13 @@ public class CreateCheckPaymentRequestData {
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public TypeEnum getType() {
     return type;
   }
@@ -115,14 +115,13 @@ public class CreateCheckPaymentRequestData {
     return this;
   }
 
-   /**
+  /**
    * Get attributes
    * @return attributes
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public CreateCheckPaymentRequestDataAttributes getAttributes() {
     return attributes;
   }
@@ -140,14 +139,13 @@ public class CreateCheckPaymentRequestData {
     return this;
   }
 
-   /**
+  /**
    * Get relationships
    * @return relationships
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public CreateCheckPaymentRelationships getRelationships() {
     return relationships;
   }
@@ -238,7 +236,7 @@ public class CreateCheckPaymentRequestData {
 
     // add `type` to the URL query string
     if (getType() != null) {
-      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `attributes` to the URL query string

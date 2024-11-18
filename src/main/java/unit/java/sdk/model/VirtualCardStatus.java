@@ -40,11 +40,11 @@ public enum VirtualCardStatus {
   
   FROZEN("Frozen"),
   
-  CLOSEDBYCUSTOMER("ClosedByCustomer"),
+  CLOSED_BY_CUSTOMER("ClosedByCustomer"),
   
   UNKNOWN("Unknown"),
   
-  SUSPECTEDFRAUD("SuspectedFraud");
+  SUSPECTED_FRAUD("SuspectedFraud");
 
   private String value;
 

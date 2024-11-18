@@ -34,6 +34,7 @@ import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * Contact
  */
@@ -43,7 +44,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   Contact.JSON_PROPERTY_PHONE,
   Contact.JSON_PROPERTY_JWT_SUBJECT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class Contact {
   public static final String JSON_PROPERTY_FULL_NAME = "fullName";
   private FullName fullName;
@@ -65,14 +66,13 @@ public class Contact {
     return this;
   }
 
-   /**
+  /**
    * Get fullName
    * @return fullName
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_FULL_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public FullName getFullName() {
     return fullName;
   }
@@ -90,14 +90,13 @@ public class Contact {
     return this;
   }
 
-   /**
+  /**
    * Get email
    * @return email
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getEmail() {
     return email;
   }
@@ -115,14 +114,13 @@ public class Contact {
     return this;
   }
 
-   /**
+  /**
    * Get phone
    * @return phone
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_PHONE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Phone getPhone() {
     return phone;
   }
@@ -140,13 +138,12 @@ public class Contact {
     return this;
   }
 
-   /**
+  /**
    * Get jwtSubject
    * @return jwtSubject
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonIgnore
-
   public String getJwtSubject() {
         return jwtSubject.orElse(null);
   }
@@ -264,7 +261,7 @@ public class Contact {
 
     // add `email` to the URL query string
     if (getEmail() != null) {
-      joiner.add(String.format("%semail%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEmail()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%semail%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getEmail()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `phone` to the URL query string
@@ -274,7 +271,7 @@ public class Contact {
 
     // add `jwtSubject` to the URL query string
     if (getJwtSubject() != null) {
-      joiner.add(String.format("%sjwtSubject%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getJwtSubject()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sjwtSubject%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getJwtSubject()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

@@ -30,17 +30,17 @@ import com.fasterxml.jackson.annotation.JsonValue;
  */
 public enum CheckDepositStatus {
   
-  AWAITINGIMAGES("AwaitingImages"),
+  AWAITING_IMAGES("AwaitingImages"),
   
-  AWAITINGFRONTIMAGE("AwaitingFrontImage"),
+  AWAITING_FRONT_IMAGE("AwaitingFrontImage"),
   
-  AWAITINGBACKIMAGE("AwaitingBackImage"),
+  AWAITING_BACK_IMAGE("AwaitingBackImage"),
   
-  AWAITINGCUSTOMERCONFIRMATION("AwaitingCustomerConfirmation"),
+  AWAITING_CUSTOMER_CONFIRMATION("AwaitingCustomerConfirmation"),
   
   PENDING("Pending"),
   
-  PENDINGREVIEW("PendingReview"),
+  PENDING_REVIEW("PendingReview"),
   
   REJECTED("Rejected"),
   

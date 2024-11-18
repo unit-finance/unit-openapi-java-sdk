@@ -30,6 +30,7 @@ import unit.java.sdk.model.CreditAccountRelationship;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * CreateCapitalPartnerAchRepaymentRelationships
  */
@@ -37,7 +38,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateCapitalPartnerAchRepaymentRelationships.JSON_PROPERTY_CREDIT_ACCOUNT,
   CreateCapitalPartnerAchRepaymentRelationships.JSON_PROPERTY_COUNTERPARTY
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CreateCapitalPartnerAchRepaymentRelationships {
   public static final String JSON_PROPERTY_CREDIT_ACCOUNT = "creditAccount";
   private CreditAccountRelationship creditAccount;
@@ -53,14 +54,13 @@ public class CreateCapitalPartnerAchRepaymentRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get creditAccount
    * @return creditAccount
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_CREDIT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public CreditAccountRelationship getCreditAccount() {
     return creditAccount;
   }
@@ -78,14 +78,13 @@ public class CreateCapitalPartnerAchRepaymentRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get counterparty
    * @return counterparty
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public CounterpartyRelationship getCounterparty() {
     return counterparty;
   }

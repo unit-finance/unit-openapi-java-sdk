@@ -31,6 +31,7 @@ import unit.java.sdk.model.CreateApiTokenRequestDataAttributesResourcesInner;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * CreateCustomerTokenRequestDataAttributes
  */
@@ -43,7 +44,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateCustomerTokenRequestDataAttributes.JSON_PROPERTY_RESOURCES,
   CreateCustomerTokenRequestDataAttributes.JSON_PROPERTY_UPGRADABLE_SCOPE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CreateCustomerTokenRequestDataAttributes {
   public static final String JSON_PROPERTY_SCOPE = "scope";
   private String scope;
@@ -74,14 +75,13 @@ public class CreateCustomerTokenRequestDataAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get scope
    * @return scope
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SCOPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getScope() {
     return scope;
   }
@@ -99,14 +99,13 @@ public class CreateCustomerTokenRequestDataAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get verificationToken
    * @return verificationToken
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERIFICATION_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getVerificationToken() {
     return verificationToken;
   }
@@ -124,14 +123,13 @@ public class CreateCustomerTokenRequestDataAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get jwtToken
    * @return jwtToken
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_JWT_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getJwtToken() {
     return jwtToken;
   }
@@ -149,14 +147,13 @@ public class CreateCustomerTokenRequestDataAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get expiresIn
    * @return expiresIn
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EXPIRES_IN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getExpiresIn() {
     return expiresIn;
   }
@@ -174,14 +171,13 @@ public class CreateCustomerTokenRequestDataAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get verificationCode
    * @return verificationCode
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERIFICATION_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getVerificationCode() {
     return verificationCode;
   }
@@ -207,14 +203,13 @@ public class CreateCustomerTokenRequestDataAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get resources
    * @return resources
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RESOURCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<CreateApiTokenRequestDataAttributesResourcesInner> getResources() {
     return resources;
   }
@@ -232,14 +227,13 @@ public class CreateCustomerTokenRequestDataAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get upgradableScope
    * @return upgradableScope
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_UPGRADABLE_SCOPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getUpgradableScope() {
     return upgradableScope;
   }
@@ -338,27 +332,27 @@ public class CreateCustomerTokenRequestDataAttributes {
 
     // add `scope` to the URL query string
     if (getScope() != null) {
-      joiner.add(String.format("%sscope%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getScope()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sscope%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getScope()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `verificationToken` to the URL query string
     if (getVerificationToken() != null) {
-      joiner.add(String.format("%sverificationToken%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getVerificationToken()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sverificationToken%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getVerificationToken()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `jwtToken` to the URL query string
     if (getJwtToken() != null) {
-      joiner.add(String.format("%sjwtToken%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getJwtToken()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sjwtToken%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getJwtToken()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `expiresIn` to the URL query string
     if (getExpiresIn() != null) {
-      joiner.add(String.format("%sexpiresIn%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getExpiresIn()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sexpiresIn%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getExpiresIn()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `verificationCode` to the URL query string
     if (getVerificationCode() != null) {
-      joiner.add(String.format("%sverificationCode%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getVerificationCode()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sverificationCode%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getVerificationCode()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `resources` to the URL query string
@@ -373,7 +367,7 @@ public class CreateCustomerTokenRequestDataAttributes {
 
     // add `upgradableScope` to the URL query string
     if (getUpgradableScope() != null) {
-      joiner.add(String.format("%supgradableScope%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUpgradableScope()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%supgradableScope%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getUpgradableScope()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

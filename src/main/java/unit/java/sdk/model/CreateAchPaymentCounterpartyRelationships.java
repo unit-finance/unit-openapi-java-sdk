@@ -30,6 +30,7 @@ import unit.java.sdk.model.CounterpartyRelationship;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * CreateAchPaymentCounterpartyRelationships
  */
@@ -37,7 +38,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateAchPaymentCounterpartyRelationships.JSON_PROPERTY_ACCOUNT,
   CreateAchPaymentCounterpartyRelationships.JSON_PROPERTY_COUNTERPARTY
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CreateAchPaymentCounterpartyRelationships {
   public static final String JSON_PROPERTY_ACCOUNT = "account";
   private AccountRelationship account;
@@ -53,14 +54,13 @@ public class CreateAchPaymentCounterpartyRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get account
    * @return account
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public AccountRelationship getAccount() {
     return account;
   }
@@ -78,14 +78,13 @@ public class CreateAchPaymentCounterpartyRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get counterparty
    * @return counterparty
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public CounterpartyRelationship getCounterparty() {
     return counterparty;
   }

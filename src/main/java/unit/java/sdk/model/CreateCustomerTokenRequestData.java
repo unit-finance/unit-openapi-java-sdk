@@ -29,6 +29,7 @@ import unit.java.sdk.model.CreateCustomerTokenRequestDataAttributes;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * CreateCustomerTokenRequestData
  */
@@ -36,13 +37,13 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateCustomerTokenRequestData.JSON_PROPERTY_TYPE,
   CreateCustomerTokenRequestData.JSON_PROPERTY_ATTRIBUTES
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CreateCustomerTokenRequestData {
   /**
    * Gets or Sets type
    */
   public enum TypeEnum {
-    CUSTOMERTOKEN("customerToken");
+    CUSTOMER_TOKEN("customerToken");
 
     private String value;
 
@@ -72,7 +73,7 @@ public class CreateCustomerTokenRequestData {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.CUSTOMERTOKEN;
+  private TypeEnum type = TypeEnum.CUSTOMER_TOKEN;
 
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private CreateCustomerTokenRequestDataAttributes attributes;
@@ -85,14 +86,13 @@ public class CreateCustomerTokenRequestData {
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public TypeEnum getType() {
     return type;
   }
@@ -110,14 +110,13 @@ public class CreateCustomerTokenRequestData {
     return this;
   }
 
-   /**
+  /**
    * Get attributes
    * @return attributes
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CreateCustomerTokenRequestDataAttributes getAttributes() {
     return attributes;
   }
@@ -206,7 +205,7 @@ public class CreateCustomerTokenRequestData {
 
     // add `type` to the URL query string
     if (getType() != null) {
-      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `attributes` to the URL query string

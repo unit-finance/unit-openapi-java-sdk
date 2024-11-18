@@ -17,6 +17,7 @@ import unit.java.sdk.ApiException;
 import unit.java.sdk.ApiResponse;
 import unit.java.sdk.Pair;
 
+import unit.java.sdk.model.AddAccountOwnersRequest;
 import unit.java.sdk.model.AddAuthorizedUsersRequest;
 import unit.java.sdk.model.ApproveAuthorizationRequest;
 import unit.java.sdk.model.ApproveCheckPaymentRequest;
@@ -24,10 +25,13 @@ import unit.java.sdk.model.ArchiveCustomerRequest;
 import unit.java.sdk.model.AtmLocation;
 import unit.java.sdk.model.CancelApplicationRequest;
 import unit.java.sdk.model.CloseAccountRequest;
+import unit.java.sdk.model.ConfirmCheckDepositRequest;
+import unit.java.sdk.model.CreateACHReceivedPaymentTransactionRequest;
 import unit.java.sdk.model.CreateAccountRequest;
 import unit.java.sdk.model.CreateApiTokenRequest;
 import unit.java.sdk.model.CreateApplicationFormRequest;
 import unit.java.sdk.model.CreateApplicationRequest;
+import unit.java.sdk.model.CreateAtmDepositSimulationRequest;
 import unit.java.sdk.model.CreateCardRequest;
 import unit.java.sdk.model.CreateCheckDepositRequest;
 import unit.java.sdk.model.CreateCheckPaymentRequest;
@@ -35,18 +39,21 @@ import unit.java.sdk.model.CreateCounterpartyRequest;
 import unit.java.sdk.model.CreateCustomerTokenRequest;
 import unit.java.sdk.model.CreateCustomerTokenVerificationRequest;
 import unit.java.sdk.model.CreateFeeRequest;
+import unit.java.sdk.model.CreateIncomingAchPaymentRequest;
 import unit.java.sdk.model.CreatePaymentRequest;
 import unit.java.sdk.model.CreateRecurringPaymentRequest;
 import unit.java.sdk.model.CreateRecurringRepaymentRequest;
 import unit.java.sdk.model.CreateRepaymentRequest;
 import unit.java.sdk.model.CreateRewardRequest;
 import unit.java.sdk.model.CreateStopPaymentRequest;
-import unit.java.sdk.model.CreateWebhook;
+import unit.java.sdk.model.CreateWebhookRequest;
 import unit.java.sdk.model.DeclineAuthorizationRequest;
 import unit.java.sdk.model.DefaultContentType;
 import unit.java.sdk.model.Dispute;
 import java.io.File;
 import unit.java.sdk.model.FreezeAccountRequest;
+import unit.java.sdk.model.GenerateBarcodeRequest;
+import unit.java.sdk.model.GetAccountBalanceHistoryFilterParameter;
 import unit.java.sdk.model.GetAccountsListFilterParameter;
 import unit.java.sdk.model.GetApplicationFormsListFilterParameter;
 import unit.java.sdk.model.GetApplicationsListFilterParameter;
@@ -54,26 +61,34 @@ import unit.java.sdk.model.GetAtmLocationsListFilterParameter;
 import unit.java.sdk.model.GetAuthorizationRequestsListFilterParameter;
 import unit.java.sdk.model.GetAuthorizationsListFilterParameter;
 import unit.java.sdk.model.GetCardsListFilterParameter;
+import unit.java.sdk.model.GetCashDepositStoreLocationsListFilterParameter;
 import unit.java.sdk.model.GetCheckDepositsListFilterParameter;
 import unit.java.sdk.model.GetCheckPaymentsListFilterParameter;
 import unit.java.sdk.model.GetCounterpartiesListFilterParameter;
 import unit.java.sdk.model.GetCustomersListFilterParameter;
 import unit.java.sdk.model.GetDisputesListFilterParameter;
 import unit.java.sdk.model.GetEventsListFilterParameter;
-import unit.java.sdk.model.GetListRewardsFilterParameter;
 import unit.java.sdk.model.GetPaymentsListFilterParameter;
+import unit.java.sdk.model.GetReceivedPaymentsListFilterParameter;
 import unit.java.sdk.model.GetRecurringPaymentsListFilterParameter;
 import unit.java.sdk.model.GetRecurringRepaymentsListFilterParameter;
 import unit.java.sdk.model.GetRepaymentsListFilterParameter;
+import unit.java.sdk.model.GetRewardsListFilterParameter;
 import unit.java.sdk.model.GetStatementsListFilterParameter;
 import unit.java.sdk.model.GetStopPaymentsListFilterParameter;
+import unit.java.sdk.model.GetTaxFormsListFilterParameter;
 import unit.java.sdk.model.GetTransactionsListFilterParameter;
 import unit.java.sdk.model.GetWebhooksListFilterParameter;
 import unit.java.sdk.model.ListPageParameters;
+import unit.java.sdk.model.RemoveAccountOwnersRequest;
 import unit.java.sdk.model.RemoveAuthorizedUsersRequest;
+import unit.java.sdk.model.ReplaceCardRequest;
 import unit.java.sdk.model.ReturnCheckPaymentRequest;
+import unit.java.sdk.model.ReturnReceivedACHTransactionRequest;
+import unit.java.sdk.model.ReverseFeeRequest;
 import unit.java.sdk.model.StopPaymentListResponse;
 import unit.java.sdk.model.StopPaymentResponse;
+import unit.java.sdk.model.UnitAccountBalanceHistoryResponse;
 import unit.java.sdk.model.UnitAccountResponse;
 import unit.java.sdk.model.UnitAccountResponseWithIncluded;
 import unit.java.sdk.model.UnitAccountsListResponse;
@@ -90,36 +105,35 @@ import unit.java.sdk.model.UnitBeneficialOwnerResponse;
 import unit.java.sdk.model.UnitCancelApplicationResponse;
 import unit.java.sdk.model.UnitCardLimitsResponse;
 import unit.java.sdk.model.UnitCardResponse;
-import unit.java.sdk.model.UnitCardResponseCardsList;
-import unit.java.sdk.model.UnitCardsListResponse;
+import unit.java.sdk.model.UnitCardResponseWithIncluded;
+import unit.java.sdk.model.UnitCardsListReponse;
+import unit.java.sdk.model.UnitCashDepositBarcodeResponse;
 import unit.java.sdk.model.UnitCheckDepositResponse;
 import unit.java.sdk.model.UnitCheckPaymentResponse;
-import unit.java.sdk.model.UnitCloseCardResponse;
-import unit.java.sdk.model.UnitConfirmCheckDepositResponse;
 import unit.java.sdk.model.UnitCounterpartiesListResponse;
+import unit.java.sdk.model.UnitCounterpartyBalanceResponse;
 import unit.java.sdk.model.UnitCounterpartyResponse;
-import unit.java.sdk.model.UnitCounterpartyResponse1;
 import unit.java.sdk.model.UnitCreateApplicationResponse;
 import unit.java.sdk.model.UnitCustomerResponse;
 import unit.java.sdk.model.UnitCustomerTokenResponse;
 import unit.java.sdk.model.UnitCustomerTokenVerificationResponse;
 import unit.java.sdk.model.UnitCustomersListResponse;
+import unit.java.sdk.model.UnitDepositAccountResponse;
+import unit.java.sdk.model.UnitDepositProductsResponse;
 import unit.java.sdk.model.UnitDisputeResponse;
 import unit.java.sdk.model.UnitDocumentResponse;
 import unit.java.sdk.model.UnitErrorInner;
 import unit.java.sdk.model.UnitEventListResponse;
 import unit.java.sdk.model.UnitEventResponse;
 import unit.java.sdk.model.UnitFeeResponse;
-import unit.java.sdk.model.UnitFreezeCardResponse;
+import unit.java.sdk.model.UnitFeeReversalResponse;
 import unit.java.sdk.model.UnitFrontCheckDepositResponse;
-import unit.java.sdk.model.UnitGetAccountEndOfDayListResponse;
 import unit.java.sdk.model.UnitGetAccountLimitsResponse;
 import unit.java.sdk.model.UnitInstitutionResponse;
 import unit.java.sdk.model.UnitListApplicationsResponse;
 import unit.java.sdk.model.UnitListAuthorizationRequestsResponse;
 import unit.java.sdk.model.UnitListAuthorizationsResponse;
-import unit.java.sdk.model.UnitListCheckDepositsResponse;
-import unit.java.sdk.model.UnitListCheckDepositsResponse1;
+import unit.java.sdk.model.UnitListCheckDepositResponse;
 import unit.java.sdk.model.UnitListCheckPaymentsResponse;
 import unit.java.sdk.model.UnitListDocumentsResponse;
 import unit.java.sdk.model.UnitOrgApiTokensListResponse;
@@ -134,19 +148,20 @@ import unit.java.sdk.model.UnitRecurringPaymentListResponse;
 import unit.java.sdk.model.UnitRecurringPaymentResponse;
 import unit.java.sdk.model.UnitRecurringRepaymentResponse;
 import unit.java.sdk.model.UnitRecurringRepaymentsListResponse;
+import unit.java.sdk.model.UnitRepaymentInformationResponse;
 import unit.java.sdk.model.UnitRepaymentResponse;
 import unit.java.sdk.model.UnitRepaymentsListResponse;
-import unit.java.sdk.model.UnitReportLostCardResponse;
-import unit.java.sdk.model.UnitReportStolenCardResponse;
+import unit.java.sdk.model.UnitReturnedReceivedAchTransactionResponse;
 import unit.java.sdk.model.UnitRewardResponse;
 import unit.java.sdk.model.UnitRewardsListResponse;
 import unit.java.sdk.model.UnitStatementsResponse;
+import unit.java.sdk.model.UnitStoreLocationsListResponse;
+import unit.java.sdk.model.UnitTaxFormResponse;
+import unit.java.sdk.model.UnitTaxFormsListResponse;
 import unit.java.sdk.model.UnitTransactionResponse;
 import unit.java.sdk.model.UnitTransactionResponseWithIncludedResource;
 import unit.java.sdk.model.UnitTransactionsListResponse;
-import unit.java.sdk.model.UnitUnfreezeCardResponse;
-import unit.java.sdk.model.UnitUpdateCardResponse;
-import unit.java.sdk.model.UnitUpdateCheckDepositResponse;
+import unit.java.sdk.model.UnitWebhookResponse;
 import unit.java.sdk.model.UnitWebhooksListResponse;
 import unit.java.sdk.model.UpdateAccountRequest;
 import unit.java.sdk.model.UpdateApplicationRequest;
@@ -160,11 +175,18 @@ import unit.java.sdk.model.UpdateReceivedPaymentRequest;
 import unit.java.sdk.model.UpdateStopPaymentRequest;
 import unit.java.sdk.model.UpdateTransactionRequest;
 import unit.java.sdk.model.UpdateWebhookRequest;
+import unit.java.sdk.model.UploadApplicationDocumentContentType;
 import unit.java.sdk.model.VerifyDocument;
-import unit.java.sdk.model.WebhookResponse;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import org.apache.commons.io.IOUtils;
+import org.apache.http.HttpEntity;
+import org.apache.http.NameValuePair;
+import org.apache.http.entity.mime.MultipartEntityBuilder;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
 
 import java.io.InputStream;
 import java.io.ByteArrayInputStream;
@@ -175,6 +197,7 @@ import java.io.OutputStream;
 import java.net.http.HttpRequest;
 import java.nio.channels.Channels;
 import java.nio.channels.Pipe;
+import java.nio.charset.StandardCharsets;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -188,7 +211,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class UnitApi {
   private final HttpClient memberVarHttpClient;
   private final ObjectMapper memberVarObjectMapper;
@@ -223,6 +246,82 @@ public class UnitApi {
       body = "[no body]";
     }
     return operationId + " call failed with: " + statusCode + " - " + body;
+  }
+
+  /**
+   * Create Atm Deposit Simulation
+   * Activate Card Simulation via API
+   * @param cardId ID of the card to activate (required)
+   * @throws ApiException if fails to make API call
+   */
+  public void activateCardSimulation(String cardId) throws ApiException {
+    activateCardSimulationWithHttpInfo(cardId);
+  }
+
+  /**
+   * Create Atm Deposit Simulation
+   * Activate Card Simulation via API
+   * @param cardId ID of the card to activate (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<Void> activateCardSimulationWithHttpInfo(String cardId) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = activateCardSimulationRequestBuilder(cardId);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("activateCardSimulation", localVarResponse);
+        }
+        return new ApiResponse<Void>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          null
+        );
+      } finally {
+        // Drain the InputStream
+        while (localVarResponse.body().read() != -1) {
+            // Ignore
+        }
+        localVarResponse.body().close();
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder activateCardSimulationRequestBuilder(String cardId) throws ApiException {
+    // verify the required parameter 'cardId' is set
+    if (cardId == null) {
+      throw new ApiException(400, "Missing the required parameter 'cardId' when calling activateCardSimulation");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/sandbox/cards/{cardId}/activate"
+        .replace("{cardId}", ApiClient.urlEncode(cardId.toString()));
+
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
   }
 
   /**
@@ -289,6 +388,91 @@ public class UnitApi {
     localVarRequestBuilder.header("Accept", "application/vnd.api+json; charset=utf-8");
 
     localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
+   * Add Owners to Account by Id
+   * Add Owners to Account via API 
+   * @param accountId ID of the account to add owners to (required)
+   * @param addAccountOwnersRequest Add Account Owners Request (required)
+   * @return UnitDepositAccountResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UnitDepositAccountResponse addAccountOwners(String accountId, AddAccountOwnersRequest addAccountOwnersRequest) throws ApiException {
+    ApiResponse<UnitDepositAccountResponse> localVarResponse = addAccountOwnersWithHttpInfo(accountId, addAccountOwnersRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Add Owners to Account by Id
+   * Add Owners to Account via API 
+   * @param accountId ID of the account to add owners to (required)
+   * @param addAccountOwnersRequest Add Account Owners Request (required)
+   * @return ApiResponse&lt;UnitDepositAccountResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<UnitDepositAccountResponse> addAccountOwnersWithHttpInfo(String accountId, AddAccountOwnersRequest addAccountOwnersRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = addAccountOwnersRequestBuilder(accountId, addAccountOwnersRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("addAccountOwners", localVarResponse);
+        }
+        return new ApiResponse<UnitDepositAccountResponse>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitDepositAccountResponse>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder addAccountOwnersRequestBuilder(String accountId, AddAccountOwnersRequest addAccountOwnersRequest) throws ApiException {
+    // verify the required parameter 'accountId' is set
+    if (accountId == null) {
+      throw new ApiException(400, "Missing the required parameter 'accountId' when calling addAccountOwners");
+    }
+    // verify the required parameter 'addAccountOwnersRequest' is set
+    if (addAccountOwnersRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'addAccountOwnersRequest' when calling addAccountOwners");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/accounts/{accountId}/relationships/customers"
+        .replace("{accountId}", ApiClient.urlEncode(accountId.toString()));
+
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/vnd.api+json");
+    localVarRequestBuilder.header("Accept", "application/vnd.api+json; charset=utf-8");
+
+    try {
+      byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(addAccountOwnersRequest);
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }
@@ -873,11 +1057,12 @@ public class UnitApi {
    * Cancel a Payment by Id
    * Cancel a Payment via API 
    * @param paymentId ID of the payment to cancel (required)
+   * @param body Pass empty object in order for content-type to be aquired correctly (required)
    * @return UnitPaymentResponse
    * @throws ApiException if fails to make API call
    */
-  public UnitPaymentResponse cancelPayment(String paymentId) throws ApiException {
-    ApiResponse<UnitPaymentResponse> localVarResponse = cancelPaymentWithHttpInfo(paymentId);
+  public UnitPaymentResponse cancelPayment(String paymentId, Object body) throws ApiException {
+    ApiResponse<UnitPaymentResponse> localVarResponse = cancelPaymentWithHttpInfo(paymentId, body);
     return localVarResponse.getData();
   }
 
@@ -885,11 +1070,12 @@ public class UnitApi {
    * Cancel a Payment by Id
    * Cancel a Payment via API 
    * @param paymentId ID of the payment to cancel (required)
+   * @param body Pass empty object in order for content-type to be aquired correctly (required)
    * @return ApiResponse&lt;UnitPaymentResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<UnitPaymentResponse> cancelPaymentWithHttpInfo(String paymentId) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = cancelPaymentRequestBuilder(paymentId);
+  public ApiResponse<UnitPaymentResponse> cancelPaymentWithHttpInfo(String paymentId, Object body) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = cancelPaymentRequestBuilder(paymentId, body);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -917,10 +1103,14 @@ public class UnitApi {
     }
   }
 
-  private HttpRequest.Builder cancelPaymentRequestBuilder(String paymentId) throws ApiException {
+  private HttpRequest.Builder cancelPaymentRequestBuilder(String paymentId, Object body) throws ApiException {
     // verify the required parameter 'paymentId' is set
     if (paymentId == null) {
       throw new ApiException(400, "Missing the required parameter 'paymentId' when calling cancelPayment");
+    }
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling cancelPayment");
     }
 
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
@@ -930,9 +1120,15 @@ public class UnitApi {
 
     localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
 
+    localVarRequestBuilder.header("Content-Type", "application/vnd.api+json");
     localVarRequestBuilder.header("Accept", "application/vnd.api+json; charset=utf-8");
 
-    localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.noBody());
+    try {
+      byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(body);
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }
@@ -1031,11 +1227,11 @@ public class UnitApi {
    * Close a Card
    * Close a Card via API 
    * @param cardId ID of the card to close (required)
-   * @return UnitCloseCardResponse
+   * @return UnitCardResponse
    * @throws ApiException if fails to make API call
    */
-  public UnitCloseCardResponse closeCard(String cardId) throws ApiException {
-    ApiResponse<UnitCloseCardResponse> localVarResponse = closeCardWithHttpInfo(cardId);
+  public UnitCardResponse closeCard(String cardId) throws ApiException {
+    ApiResponse<UnitCardResponse> localVarResponse = closeCardWithHttpInfo(cardId);
     return localVarResponse.getData();
   }
 
@@ -1043,10 +1239,10 @@ public class UnitApi {
    * Close a Card
    * Close a Card via API 
    * @param cardId ID of the card to close (required)
-   * @return ApiResponse&lt;UnitCloseCardResponse&gt;
+   * @return ApiResponse&lt;UnitCardResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<UnitCloseCardResponse> closeCardWithHttpInfo(String cardId) throws ApiException {
+  public ApiResponse<UnitCardResponse> closeCardWithHttpInfo(String cardId) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = closeCardRequestBuilder(cardId);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -1059,10 +1255,10 @@ public class UnitApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("closeCard", localVarResponse);
         }
-        return new ApiResponse<UnitCloseCardResponse>(
+        return new ApiResponse<UnitCardResponse>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitCloseCardResponse>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitCardResponse>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -1104,11 +1300,12 @@ public class UnitApi {
    * Confirm by Id
    * Confirm a Check Deposit from API 
    * @param checkDepositId ID of the check deposit to confirm (required)
-   * @return UnitConfirmCheckDepositResponse
+   * @param confirmCheckDepositRequest  (required)
+   * @return UnitCheckDepositResponse
    * @throws ApiException if fails to make API call
    */
-  public UnitConfirmCheckDepositResponse confirmCheckDeposit(String checkDepositId) throws ApiException {
-    ApiResponse<UnitConfirmCheckDepositResponse> localVarResponse = confirmCheckDepositWithHttpInfo(checkDepositId);
+  public UnitCheckDepositResponse confirmCheckDeposit(String checkDepositId, ConfirmCheckDepositRequest confirmCheckDepositRequest) throws ApiException {
+    ApiResponse<UnitCheckDepositResponse> localVarResponse = confirmCheckDepositWithHttpInfo(checkDepositId, confirmCheckDepositRequest);
     return localVarResponse.getData();
   }
 
@@ -1116,11 +1313,12 @@ public class UnitApi {
    * Confirm by Id
    * Confirm a Check Deposit from API 
    * @param checkDepositId ID of the check deposit to confirm (required)
-   * @return ApiResponse&lt;UnitConfirmCheckDepositResponse&gt;
+   * @param confirmCheckDepositRequest  (required)
+   * @return ApiResponse&lt;UnitCheckDepositResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<UnitConfirmCheckDepositResponse> confirmCheckDepositWithHttpInfo(String checkDepositId) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = confirmCheckDepositRequestBuilder(checkDepositId);
+  public ApiResponse<UnitCheckDepositResponse> confirmCheckDepositWithHttpInfo(String checkDepositId, ConfirmCheckDepositRequest confirmCheckDepositRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = confirmCheckDepositRequestBuilder(checkDepositId, confirmCheckDepositRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -1132,10 +1330,10 @@ public class UnitApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("confirmCheckDeposit", localVarResponse);
         }
-        return new ApiResponse<UnitConfirmCheckDepositResponse>(
+        return new ApiResponse<UnitCheckDepositResponse>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitConfirmCheckDepositResponse>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitCheckDepositResponse>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -1148,10 +1346,14 @@ public class UnitApi {
     }
   }
 
-  private HttpRequest.Builder confirmCheckDepositRequestBuilder(String checkDepositId) throws ApiException {
+  private HttpRequest.Builder confirmCheckDepositRequestBuilder(String checkDepositId, ConfirmCheckDepositRequest confirmCheckDepositRequest) throws ApiException {
     // verify the required parameter 'checkDepositId' is set
     if (checkDepositId == null) {
       throw new ApiException(400, "Missing the required parameter 'checkDepositId' when calling confirmCheckDeposit");
+    }
+    // verify the required parameter 'confirmCheckDepositRequest' is set
+    if (confirmCheckDepositRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'confirmCheckDepositRequest' when calling confirmCheckDeposit");
     }
 
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
@@ -1161,9 +1363,93 @@ public class UnitApi {
 
     localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
 
+    localVarRequestBuilder.header("Content-Type", "application/vnd.api+json");
     localVarRequestBuilder.header("Accept", "application/vnd.api+json; charset=utf-8");
 
-    localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.noBody());
+    try {
+      byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(confirmCheckDepositRequest);
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
+   * Create ACH Received Payment Transaction Simulation
+   * Create ACH Received Payment Transaction Simulation via API 
+   * @param createACHReceivedPaymentTransactionRequest Create ACH Received Payment Transaction Simulation Request (required)
+   * @return UnitReceivedPaymentResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UnitReceivedPaymentResponse createACHReceivedPaymentTransactionSimulation(CreateACHReceivedPaymentTransactionRequest createACHReceivedPaymentTransactionRequest) throws ApiException {
+    ApiResponse<UnitReceivedPaymentResponse> localVarResponse = createACHReceivedPaymentTransactionSimulationWithHttpInfo(createACHReceivedPaymentTransactionRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Create ACH Received Payment Transaction Simulation
+   * Create ACH Received Payment Transaction Simulation via API 
+   * @param createACHReceivedPaymentTransactionRequest Create ACH Received Payment Transaction Simulation Request (required)
+   * @return ApiResponse&lt;UnitReceivedPaymentResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<UnitReceivedPaymentResponse> createACHReceivedPaymentTransactionSimulationWithHttpInfo(CreateACHReceivedPaymentTransactionRequest createACHReceivedPaymentTransactionRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = createACHReceivedPaymentTransactionSimulationRequestBuilder(createACHReceivedPaymentTransactionRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("createACHReceivedPaymentTransactionSimulation", localVarResponse);
+        }
+        return new ApiResponse<UnitReceivedPaymentResponse>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitReceivedPaymentResponse>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder createACHReceivedPaymentTransactionSimulationRequestBuilder(CreateACHReceivedPaymentTransactionRequest createACHReceivedPaymentTransactionRequest) throws ApiException {
+    // verify the required parameter 'createACHReceivedPaymentTransactionRequest' is set
+    if (createACHReceivedPaymentTransactionRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'createACHReceivedPaymentTransactionRequest' when calling createACHReceivedPaymentTransactionSimulation");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/sandbox/received-payments";
+
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/vnd.api+json");
+    localVarRequestBuilder.header("Accept", "application/vnd.api+json");
+
+    try {
+      byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(createACHReceivedPaymentTransactionRequest);
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }
@@ -1575,14 +1861,92 @@ public class UnitApi {
   }
 
   /**
+   * Create Atm Deposit Simulation
+   * Create Atm Deposit Simulation via API 
+   * @param createAtmDepositSimulationRequest Create Atm Deposit Simulation Request (required)
+   * @return UnitDepositAccountResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UnitDepositAccountResponse createAtmDepositSimulation(CreateAtmDepositSimulationRequest createAtmDepositSimulationRequest) throws ApiException {
+    ApiResponse<UnitDepositAccountResponse> localVarResponse = createAtmDepositSimulationWithHttpInfo(createAtmDepositSimulationRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Create Atm Deposit Simulation
+   * Create Atm Deposit Simulation via API 
+   * @param createAtmDepositSimulationRequest Create Atm Deposit Simulation Request (required)
+   * @return ApiResponse&lt;UnitDepositAccountResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<UnitDepositAccountResponse> createAtmDepositSimulationWithHttpInfo(CreateAtmDepositSimulationRequest createAtmDepositSimulationRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = createAtmDepositSimulationRequestBuilder(createAtmDepositSimulationRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("createAtmDepositSimulation", localVarResponse);
+        }
+        return new ApiResponse<UnitDepositAccountResponse>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitDepositAccountResponse>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder createAtmDepositSimulationRequestBuilder(CreateAtmDepositSimulationRequest createAtmDepositSimulationRequest) throws ApiException {
+    // verify the required parameter 'createAtmDepositSimulationRequest' is set
+    if (createAtmDepositSimulationRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'createAtmDepositSimulationRequest' when calling createAtmDepositSimulation");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/sandbox/atm-deposits";
+
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/vnd.api+json");
+    localVarRequestBuilder.header("Accept", "application/vnd.api+json");
+
+    try {
+      byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(createAtmDepositSimulationRequest);
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
    * Create a Card
    * Create a Card via API 
    * @param createCardRequest Create Card Request (required)
-   * @return UnitCardsListResponse
+   * @return UnitCardResponse
    * @throws ApiException if fails to make API call
    */
-  public UnitCardsListResponse createCard(CreateCardRequest createCardRequest) throws ApiException {
-    ApiResponse<UnitCardsListResponse> localVarResponse = createCardWithHttpInfo(createCardRequest);
+  public UnitCardResponse createCard(CreateCardRequest createCardRequest) throws ApiException {
+    ApiResponse<UnitCardResponse> localVarResponse = createCardWithHttpInfo(createCardRequest);
     return localVarResponse.getData();
   }
 
@@ -1590,10 +1954,10 @@ public class UnitApi {
    * Create a Card
    * Create a Card via API 
    * @param createCardRequest Create Card Request (required)
-   * @return ApiResponse&lt;UnitCardsListResponse&gt;
+   * @return ApiResponse&lt;UnitCardResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<UnitCardsListResponse> createCardWithHttpInfo(CreateCardRequest createCardRequest) throws ApiException {
+  public ApiResponse<UnitCardResponse> createCardWithHttpInfo(CreateCardRequest createCardRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = createCardRequestBuilder(createCardRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -1606,10 +1970,10 @@ public class UnitApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("createCard", localVarResponse);
         }
-        return new ApiResponse<UnitCardsListResponse>(
+        return new ApiResponse<UnitCardResponse>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitCardsListResponse>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitCardResponse>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -1656,11 +2020,11 @@ public class UnitApi {
    * Create Check Deposit
    * Create a Check Deposit via API 
    * @param createCheckDepositRequest Create Check Deposit Request (required)
-   * @return UnitListCheckDepositsResponse1
+   * @return UnitCheckDepositResponse
    * @throws ApiException if fails to make API call
    */
-  public UnitListCheckDepositsResponse1 createCheckDeposit(CreateCheckDepositRequest createCheckDepositRequest) throws ApiException {
-    ApiResponse<UnitListCheckDepositsResponse1> localVarResponse = createCheckDepositWithHttpInfo(createCheckDepositRequest);
+  public UnitCheckDepositResponse createCheckDeposit(CreateCheckDepositRequest createCheckDepositRequest) throws ApiException {
+    ApiResponse<UnitCheckDepositResponse> localVarResponse = createCheckDepositWithHttpInfo(createCheckDepositRequest);
     return localVarResponse.getData();
   }
 
@@ -1668,10 +2032,10 @@ public class UnitApi {
    * Create Check Deposit
    * Create a Check Deposit via API 
    * @param createCheckDepositRequest Create Check Deposit Request (required)
-   * @return ApiResponse&lt;UnitListCheckDepositsResponse1&gt;
+   * @return ApiResponse&lt;UnitCheckDepositResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<UnitListCheckDepositsResponse1> createCheckDepositWithHttpInfo(CreateCheckDepositRequest createCheckDepositRequest) throws ApiException {
+  public ApiResponse<UnitCheckDepositResponse> createCheckDepositWithHttpInfo(CreateCheckDepositRequest createCheckDepositRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = createCheckDepositRequestBuilder(createCheckDepositRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -1684,10 +2048,10 @@ public class UnitApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("createCheckDeposit", localVarResponse);
         }
-        return new ApiResponse<UnitListCheckDepositsResponse1>(
+        return new ApiResponse<UnitCheckDepositResponse>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitListCheckDepositsResponse1>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitCheckDepositResponse>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -2121,6 +2485,84 @@ public class UnitApi {
 
     try {
       byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(createFeeRequest);
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
+   * Create Incoming ACH Payment Simulation
+   * Create Incoming ACH Payment Simulation via API 
+   * @param createIncomingAchPaymentRequest Create Incoming ACH Payment Simulation Request (required)
+   * @return UnitReceivedPaymentResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UnitReceivedPaymentResponse createIncomingAchPaymentSimulation(CreateIncomingAchPaymentRequest createIncomingAchPaymentRequest) throws ApiException {
+    ApiResponse<UnitReceivedPaymentResponse> localVarResponse = createIncomingAchPaymentSimulationWithHttpInfo(createIncomingAchPaymentRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Create Incoming ACH Payment Simulation
+   * Create Incoming ACH Payment Simulation via API 
+   * @param createIncomingAchPaymentRequest Create Incoming ACH Payment Simulation Request (required)
+   * @return ApiResponse&lt;UnitReceivedPaymentResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<UnitReceivedPaymentResponse> createIncomingAchPaymentSimulationWithHttpInfo(CreateIncomingAchPaymentRequest createIncomingAchPaymentRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = createIncomingAchPaymentSimulationRequestBuilder(createIncomingAchPaymentRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("createIncomingAchPaymentSimulation", localVarResponse);
+        }
+        return new ApiResponse<UnitReceivedPaymentResponse>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitReceivedPaymentResponse>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder createIncomingAchPaymentSimulationRequestBuilder(CreateIncomingAchPaymentRequest createIncomingAchPaymentRequest) throws ApiException {
+    // verify the required parameter 'createIncomingAchPaymentRequest' is set
+    if (createIncomingAchPaymentRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'createIncomingAchPaymentRequest' when calling createIncomingAchPaymentSimulation");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/sandbox/received-ach-payment";
+
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/vnd.api+json");
+    localVarRequestBuilder.header("Accept", "application/vnd.api+json");
+
+    try {
+      byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(createIncomingAchPaymentRequest);
       localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
     } catch (IOException e) {
       throw new ApiException(e);
@@ -2605,24 +3047,24 @@ public class UnitApi {
   /**
    * Create Webhook
    * Create a Webhook via API 
-   * @param createWebhook Create Webhook Request (required)
-   * @return WebhookResponse
+   * @param createWebhookRequest Create Webhook Request Body (required)
+   * @return UnitWebhookResponse
    * @throws ApiException if fails to make API call
    */
-  public WebhookResponse createWebhook(CreateWebhook createWebhook) throws ApiException {
-    ApiResponse<WebhookResponse> localVarResponse = createWebhookWithHttpInfo(createWebhook);
+  public UnitWebhookResponse createWebhook(CreateWebhookRequest createWebhookRequest) throws ApiException {
+    ApiResponse<UnitWebhookResponse> localVarResponse = createWebhookWithHttpInfo(createWebhookRequest);
     return localVarResponse.getData();
   }
 
   /**
    * Create Webhook
    * Create a Webhook via API 
-   * @param createWebhook Create Webhook Request (required)
-   * @return ApiResponse&lt;WebhookResponse&gt;
+   * @param createWebhookRequest Create Webhook Request Body (required)
+   * @return ApiResponse&lt;UnitWebhookResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<WebhookResponse> createWebhookWithHttpInfo(CreateWebhook createWebhook) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = createWebhookRequestBuilder(createWebhook);
+  public ApiResponse<UnitWebhookResponse> createWebhookWithHttpInfo(CreateWebhookRequest createWebhookRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = createWebhookRequestBuilder(createWebhookRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -2634,10 +3076,10 @@ public class UnitApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("createWebhook", localVarResponse);
         }
-        return new ApiResponse<WebhookResponse>(
+        return new ApiResponse<UnitWebhookResponse>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<WebhookResponse>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitWebhookResponse>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -2650,10 +3092,10 @@ public class UnitApi {
     }
   }
 
-  private HttpRequest.Builder createWebhookRequestBuilder(CreateWebhook createWebhook) throws ApiException {
-    // verify the required parameter 'createWebhook' is set
-    if (createWebhook == null) {
-      throw new ApiException(400, "Missing the required parameter 'createWebhook' when calling createWebhook");
+  private HttpRequest.Builder createWebhookRequestBuilder(CreateWebhookRequest createWebhookRequest) throws ApiException {
+    // verify the required parameter 'createWebhookRequest' is set
+    if (createWebhookRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'createWebhookRequest' when calling createWebhook");
     }
 
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
@@ -2666,7 +3108,7 @@ public class UnitApi {
     localVarRequestBuilder.header("Accept", "application/vnd.api+json");
 
     try {
-      byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(createWebhook);
+      byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(createWebhookRequest);
       localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
     } catch (IOException e) {
       throw new ApiException(e);
@@ -2998,11 +3440,12 @@ public class UnitApi {
    * Disable Recurring Payment
    * Disable Recurring Payment via API 
    * @param paymentId ID of the payment to disable (required)
+   * @param body Pass empty object in order for content-type to be aquired correctly (required)
    * @return UnitRecurringPaymentResponse
    * @throws ApiException if fails to make API call
    */
-  public UnitRecurringPaymentResponse disableRecurringPayment(String paymentId) throws ApiException {
-    ApiResponse<UnitRecurringPaymentResponse> localVarResponse = disableRecurringPaymentWithHttpInfo(paymentId);
+  public UnitRecurringPaymentResponse disableRecurringPayment(String paymentId, Object body) throws ApiException {
+    ApiResponse<UnitRecurringPaymentResponse> localVarResponse = disableRecurringPaymentWithHttpInfo(paymentId, body);
     return localVarResponse.getData();
   }
 
@@ -3010,11 +3453,12 @@ public class UnitApi {
    * Disable Recurring Payment
    * Disable Recurring Payment via API 
    * @param paymentId ID of the payment to disable (required)
+   * @param body Pass empty object in order for content-type to be aquired correctly (required)
    * @return ApiResponse&lt;UnitRecurringPaymentResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<UnitRecurringPaymentResponse> disableRecurringPaymentWithHttpInfo(String paymentId) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = disableRecurringPaymentRequestBuilder(paymentId);
+  public ApiResponse<UnitRecurringPaymentResponse> disableRecurringPaymentWithHttpInfo(String paymentId, Object body) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = disableRecurringPaymentRequestBuilder(paymentId, body);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -3042,10 +3486,14 @@ public class UnitApi {
     }
   }
 
-  private HttpRequest.Builder disableRecurringPaymentRequestBuilder(String paymentId) throws ApiException {
+  private HttpRequest.Builder disableRecurringPaymentRequestBuilder(String paymentId, Object body) throws ApiException {
     // verify the required parameter 'paymentId' is set
     if (paymentId == null) {
       throw new ApiException(400, "Missing the required parameter 'paymentId' when calling disableRecurringPayment");
+    }
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling disableRecurringPayment");
     }
 
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
@@ -3055,9 +3503,15 @@ public class UnitApi {
 
     localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
 
+    localVarRequestBuilder.header("Content-Type", "application/vnd.api+json");
     localVarRequestBuilder.header("Accept", "application/vnd.api+json; charset=utf-8");
 
-    localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.noBody());
+    try {
+      byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(body);
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }
@@ -3071,12 +3525,13 @@ public class UnitApi {
    * Disable Recurring Repayment by Id
    * Disable a Recurring Repayment
    * @param recurringRepaymentId ID of the recurring repayment to disable (required)
+   * @param body Pass empty object in order for content-type to be aquired correctly (required)
    * @param include  (optional)
    * @return UnitRecurringRepaymentResponse
    * @throws ApiException if fails to make API call
    */
-  public UnitRecurringRepaymentResponse disableRecurringRepayment(String recurringRepaymentId, String include) throws ApiException {
-    ApiResponse<UnitRecurringRepaymentResponse> localVarResponse = disableRecurringRepaymentWithHttpInfo(recurringRepaymentId, include);
+  public UnitRecurringRepaymentResponse disableRecurringRepayment(String recurringRepaymentId, Object body, String include) throws ApiException {
+    ApiResponse<UnitRecurringRepaymentResponse> localVarResponse = disableRecurringRepaymentWithHttpInfo(recurringRepaymentId, body, include);
     return localVarResponse.getData();
   }
 
@@ -3084,12 +3539,13 @@ public class UnitApi {
    * Disable Recurring Repayment by Id
    * Disable a Recurring Repayment
    * @param recurringRepaymentId ID of the recurring repayment to disable (required)
+   * @param body Pass empty object in order for content-type to be aquired correctly (required)
    * @param include  (optional)
    * @return ApiResponse&lt;UnitRecurringRepaymentResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<UnitRecurringRepaymentResponse> disableRecurringRepaymentWithHttpInfo(String recurringRepaymentId, String include) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = disableRecurringRepaymentRequestBuilder(recurringRepaymentId, include);
+  public ApiResponse<UnitRecurringRepaymentResponse> disableRecurringRepaymentWithHttpInfo(String recurringRepaymentId, Object body, String include) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = disableRecurringRepaymentRequestBuilder(recurringRepaymentId, body, include);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -3117,10 +3573,14 @@ public class UnitApi {
     }
   }
 
-  private HttpRequest.Builder disableRecurringRepaymentRequestBuilder(String recurringRepaymentId, String include) throws ApiException {
+  private HttpRequest.Builder disableRecurringRepaymentRequestBuilder(String recurringRepaymentId, Object body, String include) throws ApiException {
     // verify the required parameter 'recurringRepaymentId' is set
     if (recurringRepaymentId == null) {
       throw new ApiException(400, "Missing the required parameter 'recurringRepaymentId' when calling disableRecurringRepayment");
+    }
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling disableRecurringRepayment");
     }
 
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
@@ -3145,9 +3605,15 @@ public class UnitApi {
       localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
     }
 
+    localVarRequestBuilder.header("Content-Type", "application/vnd.api+json");
     localVarRequestBuilder.header("Accept", "application/vnd.api+json; charset=utf-8");
 
-    localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.noBody());
+    try {
+      byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(body);
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }
@@ -3234,11 +3700,11 @@ public class UnitApi {
    * Disable a Webhook
    * Disable a Webhook via API 
    * @param webhookId ID of the webhook to disable (required)
-   * @return WebhookResponse
+   * @return UnitWebhookResponse
    * @throws ApiException if fails to make API call
    */
-  public WebhookResponse disableWebhook(String webhookId) throws ApiException {
-    ApiResponse<WebhookResponse> localVarResponse = disableWebhookWithHttpInfo(webhookId);
+  public UnitWebhookResponse disableWebhook(String webhookId) throws ApiException {
+    ApiResponse<UnitWebhookResponse> localVarResponse = disableWebhookWithHttpInfo(webhookId);
     return localVarResponse.getData();
   }
 
@@ -3246,10 +3712,10 @@ public class UnitApi {
    * Disable a Webhook
    * Disable a Webhook via API 
    * @param webhookId ID of the webhook to disable (required)
-   * @return ApiResponse&lt;WebhookResponse&gt;
+   * @return ApiResponse&lt;UnitWebhookResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<WebhookResponse> disableWebhookWithHttpInfo(String webhookId) throws ApiException {
+  public ApiResponse<UnitWebhookResponse> disableWebhookWithHttpInfo(String webhookId) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = disableWebhookRequestBuilder(webhookId);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -3262,10 +3728,10 @@ public class UnitApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("disableWebhook", localVarResponse);
         }
-        return new ApiResponse<WebhookResponse>(
+        return new ApiResponse<UnitWebhookResponse>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<WebhookResponse>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitWebhookResponse>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -3311,8 +3777,8 @@ public class UnitApi {
    * @return File
    * @throws ApiException if fails to make API call
    */
-  public File downloadApplicationBackSideDocument(String applicationId, String documentId) throws ApiException {
-    ApiResponse<File> localVarResponse = downloadApplicationBackSideDocumentWithHttpInfo(applicationId, documentId);
+  public InputStream downloadApplicationBackSideDocument(String applicationId, String documentId) throws ApiException {
+    ApiResponse<InputStream> localVarResponse = downloadApplicationBackSideDocumentWithHttpInfo(applicationId, documentId);
     return localVarResponse.getData();
   }
 
@@ -3324,7 +3790,7 @@ public class UnitApi {
    * @return ApiResponse&lt;File&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<File> downloadApplicationBackSideDocumentWithHttpInfo(String applicationId, String documentId) throws ApiException {
+  public ApiResponse<InputStream> downloadApplicationBackSideDocumentWithHttpInfo(String applicationId, String documentId) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = downloadApplicationBackSideDocumentRequestBuilder(applicationId, documentId);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -3337,10 +3803,10 @@ public class UnitApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("downloadApplicationBackSideDocument", localVarResponse);
         }
-        return new ApiResponse<File>(
+        return new ApiResponse<InputStream>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<File>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : localVarResponse.body()
         );
       } finally {
       }
@@ -3391,8 +3857,8 @@ public class UnitApi {
    * @return File
    * @throws ApiException if fails to make API call
    */
-  public File downloadApplicationDocument(String applicationId, String documentId) throws ApiException {
-    ApiResponse<File> localVarResponse = downloadApplicationDocumentWithHttpInfo(applicationId, documentId);
+  public InputStream downloadApplicationDocument(String applicationId, String documentId) throws ApiException {
+    ApiResponse<InputStream> localVarResponse = downloadApplicationDocumentWithHttpInfo(applicationId, documentId);
     return localVarResponse.getData();
   }
 
@@ -3404,7 +3870,7 @@ public class UnitApi {
    * @return ApiResponse&lt;File&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<File> downloadApplicationDocumentWithHttpInfo(String applicationId, String documentId) throws ApiException {
+  public ApiResponse<InputStream> downloadApplicationDocumentWithHttpInfo(String applicationId, String documentId) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = downloadApplicationDocumentRequestBuilder(applicationId, documentId);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -3417,10 +3883,10 @@ public class UnitApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("downloadApplicationDocument", localVarResponse);
         }
-        return new ApiResponse<File>(
+        return new ApiResponse<InputStream>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<File>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : localVarResponse.body()
         );
       } finally {
       }
@@ -3467,11 +3933,12 @@ public class UnitApi {
    * Enable Recurring Payment
    * Enable Recurring Payment via API 
    * @param paymentId ID of the payment to enable (required)
+   * @param body Pass empty object in order for content-type to be aquired correctly (required)
    * @return UnitRecurringPaymentResponse
    * @throws ApiException if fails to make API call
    */
-  public UnitRecurringPaymentResponse enableRecurringPayment(String paymentId) throws ApiException {
-    ApiResponse<UnitRecurringPaymentResponse> localVarResponse = enableRecurringPaymentWithHttpInfo(paymentId);
+  public UnitRecurringPaymentResponse enableRecurringPayment(String paymentId, Object body) throws ApiException {
+    ApiResponse<UnitRecurringPaymentResponse> localVarResponse = enableRecurringPaymentWithHttpInfo(paymentId, body);
     return localVarResponse.getData();
   }
 
@@ -3479,11 +3946,12 @@ public class UnitApi {
    * Enable Recurring Payment
    * Enable Recurring Payment via API 
    * @param paymentId ID of the payment to enable (required)
+   * @param body Pass empty object in order for content-type to be aquired correctly (required)
    * @return ApiResponse&lt;UnitRecurringPaymentResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<UnitRecurringPaymentResponse> enableRecurringPaymentWithHttpInfo(String paymentId) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = enableRecurringPaymentRequestBuilder(paymentId);
+  public ApiResponse<UnitRecurringPaymentResponse> enableRecurringPaymentWithHttpInfo(String paymentId, Object body) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = enableRecurringPaymentRequestBuilder(paymentId, body);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -3511,10 +3979,14 @@ public class UnitApi {
     }
   }
 
-  private HttpRequest.Builder enableRecurringPaymentRequestBuilder(String paymentId) throws ApiException {
+  private HttpRequest.Builder enableRecurringPaymentRequestBuilder(String paymentId, Object body) throws ApiException {
     // verify the required parameter 'paymentId' is set
     if (paymentId == null) {
       throw new ApiException(400, "Missing the required parameter 'paymentId' when calling enableRecurringPayment");
+    }
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling enableRecurringPayment");
     }
 
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
@@ -3524,9 +3996,15 @@ public class UnitApi {
 
     localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
 
+    localVarRequestBuilder.header("Content-Type", "application/vnd.api+json");
     localVarRequestBuilder.header("Accept", "application/vnd.api+json; charset=utf-8");
 
-    localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.noBody());
+    try {
+      byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(body);
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }
@@ -3540,12 +4018,13 @@ public class UnitApi {
    * Enable Recurring Repayment by Id
    * Enable a Recurring Repayment
    * @param recurringRepaymentId ID of the recurring repayment to enable (required)
+   * @param body Pass empty object in order for content-type to be aquired correctly (required)
    * @param include  (optional)
    * @return UnitRecurringRepaymentResponse
    * @throws ApiException if fails to make API call
    */
-  public UnitRecurringRepaymentResponse enableRecurringRepayment(String recurringRepaymentId, String include) throws ApiException {
-    ApiResponse<UnitRecurringRepaymentResponse> localVarResponse = enableRecurringRepaymentWithHttpInfo(recurringRepaymentId, include);
+  public UnitRecurringRepaymentResponse enableRecurringRepayment(String recurringRepaymentId, Object body, String include) throws ApiException {
+    ApiResponse<UnitRecurringRepaymentResponse> localVarResponse = enableRecurringRepaymentWithHttpInfo(recurringRepaymentId, body, include);
     return localVarResponse.getData();
   }
 
@@ -3553,12 +4032,13 @@ public class UnitApi {
    * Enable Recurring Repayment by Id
    * Enable a Recurring Repayment
    * @param recurringRepaymentId ID of the recurring repayment to enable (required)
+   * @param body Pass empty object in order for content-type to be aquired correctly (required)
    * @param include  (optional)
    * @return ApiResponse&lt;UnitRecurringRepaymentResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<UnitRecurringRepaymentResponse> enableRecurringRepaymentWithHttpInfo(String recurringRepaymentId, String include) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = enableRecurringRepaymentRequestBuilder(recurringRepaymentId, include);
+  public ApiResponse<UnitRecurringRepaymentResponse> enableRecurringRepaymentWithHttpInfo(String recurringRepaymentId, Object body, String include) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = enableRecurringRepaymentRequestBuilder(recurringRepaymentId, body, include);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -3586,10 +4066,14 @@ public class UnitApi {
     }
   }
 
-  private HttpRequest.Builder enableRecurringRepaymentRequestBuilder(String recurringRepaymentId, String include) throws ApiException {
+  private HttpRequest.Builder enableRecurringRepaymentRequestBuilder(String recurringRepaymentId, Object body, String include) throws ApiException {
     // verify the required parameter 'recurringRepaymentId' is set
     if (recurringRepaymentId == null) {
       throw new ApiException(400, "Missing the required parameter 'recurringRepaymentId' when calling enableRecurringRepayment");
+    }
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling enableRecurringRepayment");
     }
 
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
@@ -3614,9 +4098,15 @@ public class UnitApi {
       localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
     }
 
+    localVarRequestBuilder.header("Content-Type", "application/vnd.api+json");
     localVarRequestBuilder.header("Accept", "application/vnd.api+json; charset=utf-8");
 
-    localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.noBody());
+    try {
+      byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(body);
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }
@@ -3630,11 +4120,11 @@ public class UnitApi {
    * Enable Webhook
    * Enable a Webhook via API 
    * @param webhookId ID of the webhook to enable (required)
-   * @return WebhookResponse
+   * @return UnitWebhookResponse
    * @throws ApiException if fails to make API call
    */
-  public WebhookResponse enableWebhook(String webhookId) throws ApiException {
-    ApiResponse<WebhookResponse> localVarResponse = enableWebhookWithHttpInfo(webhookId);
+  public UnitWebhookResponse enableWebhook(String webhookId) throws ApiException {
+    ApiResponse<UnitWebhookResponse> localVarResponse = enableWebhookWithHttpInfo(webhookId);
     return localVarResponse.getData();
   }
 
@@ -3642,10 +4132,10 @@ public class UnitApi {
    * Enable Webhook
    * Enable a Webhook via API 
    * @param webhookId ID of the webhook to enable (required)
-   * @return ApiResponse&lt;WebhookResponse&gt;
+   * @return ApiResponse&lt;UnitWebhookResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<WebhookResponse> enableWebhookWithHttpInfo(String webhookId) throws ApiException {
+  public ApiResponse<UnitWebhookResponse> enableWebhookWithHttpInfo(String webhookId) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = enableWebhookRequestBuilder(webhookId);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -3658,10 +4148,10 @@ public class UnitApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("enableWebhook", localVarResponse);
         }
-        return new ApiResponse<WebhookResponse>(
+        return new ApiResponse<UnitWebhookResponse>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<WebhookResponse>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitWebhookResponse>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -3934,11 +4424,11 @@ public class UnitApi {
    * Freeze a Card
    * Freeze a Card via API 
    * @param cardId ID of the card to freeze (required)
-   * @return UnitFreezeCardResponse
+   * @return UnitCardResponse
    * @throws ApiException if fails to make API call
    */
-  public UnitFreezeCardResponse freezeCard(String cardId) throws ApiException {
-    ApiResponse<UnitFreezeCardResponse> localVarResponse = freezeCardWithHttpInfo(cardId);
+  public UnitCardResponse freezeCard(String cardId) throws ApiException {
+    ApiResponse<UnitCardResponse> localVarResponse = freezeCardWithHttpInfo(cardId);
     return localVarResponse.getData();
   }
 
@@ -3946,10 +4436,10 @@ public class UnitApi {
    * Freeze a Card
    * Freeze a Card via API 
    * @param cardId ID of the card to freeze (required)
-   * @return ApiResponse&lt;UnitFreezeCardResponse&gt;
+   * @return ApiResponse&lt;UnitCardResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<UnitFreezeCardResponse> freezeCardWithHttpInfo(String cardId) throws ApiException {
+  public ApiResponse<UnitCardResponse> freezeCardWithHttpInfo(String cardId) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = freezeCardRequestBuilder(cardId);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -3962,10 +4452,10 @@ public class UnitApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("freezeCard", localVarResponse);
         }
-        return new ApiResponse<UnitFreezeCardResponse>(
+        return new ApiResponse<UnitCardResponse>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitFreezeCardResponse>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitCardResponse>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -3994,6 +4484,84 @@ public class UnitApi {
     localVarRequestBuilder.header("Accept", "application/vnd.api+json; charset=utf-8");
 
     localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
+   * Generate Cash Deposit Barcode
+   * Generate Cash Deposit Barcode via API 
+   * @param generateBarcodeRequest Generate Cash Deposit Barcode Request (required)
+   * @return UnitCashDepositBarcodeResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UnitCashDepositBarcodeResponse generateBarcode(GenerateBarcodeRequest generateBarcodeRequest) throws ApiException {
+    ApiResponse<UnitCashDepositBarcodeResponse> localVarResponse = generateBarcodeWithHttpInfo(generateBarcodeRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Generate Cash Deposit Barcode
+   * Generate Cash Deposit Barcode via API 
+   * @param generateBarcodeRequest Generate Cash Deposit Barcode Request (required)
+   * @return ApiResponse&lt;UnitCashDepositBarcodeResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<UnitCashDepositBarcodeResponse> generateBarcodeWithHttpInfo(GenerateBarcodeRequest generateBarcodeRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = generateBarcodeRequestBuilder(generateBarcodeRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("generateBarcode", localVarResponse);
+        }
+        return new ApiResponse<UnitCashDepositBarcodeResponse>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitCashDepositBarcodeResponse>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder generateBarcodeRequestBuilder(GenerateBarcodeRequest generateBarcodeRequest) throws ApiException {
+    // verify the required parameter 'generateBarcodeRequest' is set
+    if (generateBarcodeRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'generateBarcodeRequest' when calling generateBarcode");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/cash-deposits/barcodes";
+
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/vnd.api+json");
+    localVarRequestBuilder.header("Accept", "application/vnd.api+json");
+
+    try {
+      byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(generateBarcodeRequest);
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }
@@ -4094,24 +4662,28 @@ public class UnitApi {
   }
 
   /**
-   * Get AccountEndOfDay List
-   * Get AccountEndOfDay List from API 
-   * @return UnitGetAccountEndOfDayListResponse
+   * Get Account Balance History
+   * Get Account Balance History List from API 
+   * @param page  (optional)
+   * @param filter  (optional)
+   * @return UnitAccountBalanceHistoryResponse
    * @throws ApiException if fails to make API call
    */
-  public UnitGetAccountEndOfDayListResponse getAccountEndOfDay() throws ApiException {
-    ApiResponse<UnitGetAccountEndOfDayListResponse> localVarResponse = getAccountEndOfDayWithHttpInfo();
+  public UnitAccountBalanceHistoryResponse getAccountBalanceHistory(ListPageParameters page, GetAccountBalanceHistoryFilterParameter filter) throws ApiException {
+    ApiResponse<UnitAccountBalanceHistoryResponse> localVarResponse = getAccountBalanceHistoryWithHttpInfo(page, filter);
     return localVarResponse.getData();
   }
 
   /**
-   * Get AccountEndOfDay List
-   * Get AccountEndOfDay List from API 
-   * @return ApiResponse&lt;UnitGetAccountEndOfDayListResponse&gt;
+   * Get Account Balance History
+   * Get Account Balance History List from API 
+   * @param page  (optional)
+   * @param filter  (optional)
+   * @return ApiResponse&lt;UnitAccountBalanceHistoryResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<UnitGetAccountEndOfDayListResponse> getAccountEndOfDayWithHttpInfo() throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = getAccountEndOfDayRequestBuilder();
+  public ApiResponse<UnitAccountBalanceHistoryResponse> getAccountBalanceHistoryWithHttpInfo(ListPageParameters page, GetAccountBalanceHistoryFilterParameter filter) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getAccountBalanceHistoryRequestBuilder(page, filter);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -4121,12 +4693,12 @@ public class UnitApi {
       }
       try {
         if (localVarResponse.statusCode()/ 100 != 2) {
-          throw getApiException("getAccountEndOfDay", localVarResponse);
+          throw getApiException("getAccountBalanceHistory", localVarResponse);
         }
-        return new ApiResponse<UnitGetAccountEndOfDayListResponse>(
+        return new ApiResponse<UnitAccountBalanceHistoryResponse>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitGetAccountEndOfDayListResponse>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitAccountBalanceHistoryResponse>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -4139,13 +4711,40 @@ public class UnitApi {
     }
   }
 
-  private HttpRequest.Builder getAccountEndOfDayRequestBuilder() throws ApiException {
+  private HttpRequest.Builder getAccountBalanceHistoryRequestBuilder(ListPageParameters page, GetAccountBalanceHistoryFilterParameter filter) throws ApiException {
 
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
     String localVarPath = "/account-end-of-day";
 
-    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+    List<Pair> localVarQueryParams = new ArrayList<>();
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    localVarQueryParameterBaseName = "page";
+    if (page != null) {
+      String queryString = page.toUrlQueryString("page");
+      if (!queryString.isBlank()) {
+        localVarQueryStringJoiner.add(queryString);
+      }
+    }
+    localVarQueryParameterBaseName = "filter";
+    if (filter != null) {
+      String queryString = filter.toUrlQueryString("filter");
+      if (!queryString.isBlank()) {
+        localVarQueryStringJoiner.add(queryString);
+      }
+    }
+
+    if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
+      StringJoiner queryJoiner = new StringJoiner("&");
+      localVarQueryParams.forEach(p -> queryJoiner.add(p.getName() + '=' + p.getValue()));
+      if (localVarQueryStringJoiner.length() != 0) {
+        queryJoiner.add(localVarQueryStringJoiner.toString());
+      }
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath + '?' + queryJoiner.toString()));
+    } else {
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+    }
 
     localVarRequestBuilder.header("Accept", "application/vnd.api+json; charset=utf-8");
 
@@ -4295,11 +4894,17 @@ public class UnitApi {
     String localVarQueryParameterBaseName;
     localVarQueryParameterBaseName = "page";
     if (page != null) {
-      localVarQueryStringJoiner.add(page.toUrlQueryString("page"));
+      String queryString = page.toUrlQueryString("page");
+      if (!queryString.isBlank()) {
+        localVarQueryStringJoiner.add(queryString);
+      }
     }
     localVarQueryParameterBaseName = "filter";
     if (filter != null) {
-      localVarQueryStringJoiner.add(filter.toUrlQueryString("filter"));
+      String queryString = filter.toUrlQueryString("filter");
+      if (!queryString.isBlank()) {
+        localVarQueryStringJoiner.add(queryString);
+      }
     }
     localVarQueryParameterBaseName = "include";
     localVarQueryParams.addAll(ApiClient.parameterToPairs("include", include));
@@ -4716,11 +5321,17 @@ public class UnitApi {
     String localVarQueryParameterBaseName;
     localVarQueryParameterBaseName = "page";
     if (page != null) {
-      localVarQueryStringJoiner.add(page.toUrlQueryString("page"));
+      String queryString = page.toUrlQueryString("page");
+      if (!queryString.isBlank()) {
+        localVarQueryStringJoiner.add(queryString);
+      }
     }
     localVarQueryParameterBaseName = "filter";
     if (filter != null) {
-      localVarQueryStringJoiner.add(filter.toUrlQueryString("filter"));
+      String queryString = filter.toUrlQueryString("filter");
+      if (!queryString.isBlank()) {
+        localVarQueryStringJoiner.add(queryString);
+      }
     }
     localVarQueryParameterBaseName = "sort";
     localVarQueryParams.addAll(ApiClient.parameterToPairs("sort", sort));
@@ -4811,11 +5422,17 @@ public class UnitApi {
     String localVarQueryParameterBaseName;
     localVarQueryParameterBaseName = "page";
     if (page != null) {
-      localVarQueryStringJoiner.add(page.toUrlQueryString("page"));
+      String queryString = page.toUrlQueryString("page");
+      if (!queryString.isBlank()) {
+        localVarQueryStringJoiner.add(queryString);
+      }
     }
     localVarQueryParameterBaseName = "filter";
     if (filter != null) {
-      localVarQueryStringJoiner.add(filter.toUrlQueryString("filter"));
+      String queryString = filter.toUrlQueryString("filter");
+      if (!queryString.isBlank()) {
+        localVarQueryStringJoiner.add(queryString);
+      }
     }
     localVarQueryParameterBaseName = "sort";
     localVarQueryParams.addAll(ApiClient.parameterToPairs("sort", sort));
@@ -4902,7 +5519,10 @@ public class UnitApi {
     String localVarQueryParameterBaseName;
     localVarQueryParameterBaseName = "filter";
     if (filter != null) {
-      localVarQueryStringJoiner.add(filter.toUrlQueryString("filter"));
+      String queryString = filter.toUrlQueryString("filter");
+      if (!queryString.isBlank()) {
+        localVarQueryStringJoiner.add(queryString);
+      }
     }
 
     if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
@@ -5152,11 +5772,17 @@ public class UnitApi {
     String localVarQueryParameterBaseName;
     localVarQueryParameterBaseName = "page";
     if (page != null) {
-      localVarQueryStringJoiner.add(page.toUrlQueryString("page"));
+      String queryString = page.toUrlQueryString("page");
+      if (!queryString.isBlank()) {
+        localVarQueryStringJoiner.add(queryString);
+      }
     }
     localVarQueryParameterBaseName = "filter";
     if (filter != null) {
-      localVarQueryStringJoiner.add(filter.toUrlQueryString("filter"));
+      String queryString = filter.toUrlQueryString("filter");
+      if (!queryString.isBlank()) {
+        localVarQueryStringJoiner.add(queryString);
+      }
     }
 
     if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
@@ -5245,11 +5871,17 @@ public class UnitApi {
     String localVarQueryParameterBaseName;
     localVarQueryParameterBaseName = "page";
     if (page != null) {
-      localVarQueryStringJoiner.add(page.toUrlQueryString("page"));
+      String queryString = page.toUrlQueryString("page");
+      if (!queryString.isBlank()) {
+        localVarQueryStringJoiner.add(queryString);
+      }
     }
     localVarQueryParameterBaseName = "filter";
     if (filter != null) {
-      localVarQueryStringJoiner.add(filter.toUrlQueryString("filter"));
+      String queryString = filter.toUrlQueryString("filter");
+      if (!queryString.isBlank()) {
+        localVarQueryStringJoiner.add(queryString);
+      }
     }
     localVarQueryParameterBaseName = "sort";
     localVarQueryParams.addAll(ApiClient.parameterToPairs("sort", sort));
@@ -5351,15 +5983,88 @@ public class UnitApi {
   }
 
   /**
+   * Get Barcode Image By Barcode Number
+   * Get Barcode Image By Barcode Number from API 
+   * @param barcodeNumber  (required)
+   * @return File
+   * @throws ApiException if fails to make API call
+   */
+  public InputStream getBarcodeImage(String barcodeNumber) throws ApiException {
+    ApiResponse<InputStream> localVarResponse = getBarcodeImageWithHttpInfo(barcodeNumber);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Get Barcode Image By Barcode Number
+   * Get Barcode Image By Barcode Number from API 
+   * @param barcodeNumber  (required)
+   * @return ApiResponse&lt;File&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<InputStream> getBarcodeImageWithHttpInfo(String barcodeNumber) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getBarcodeImageRequestBuilder(barcodeNumber);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("getBarcodeImage", localVarResponse);
+        }
+        return new ApiResponse<InputStream>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : localVarResponse.body()
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder getBarcodeImageRequestBuilder(String barcodeNumber) throws ApiException {
+    // verify the required parameter 'barcodeNumber' is set
+    if (barcodeNumber == null) {
+      throw new ApiException(400, "Missing the required parameter 'barcodeNumber' when calling getBarcodeImage");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/cash-deposits/barcodes/{barcodeNumber}/image"
+        .replace("{barcodeNumber}", ApiClient.urlEncode(barcodeNumber.toString()));
+
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "image/png");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
    * Get Card by Id
    * Get a Card from API 
    * @param cardId ID of the card to get (required)
    * @param included  (optional)
-   * @return UnitCardResponse
+   * @return UnitCardResponseWithIncluded
    * @throws ApiException if fails to make API call
    */
-  public UnitCardResponse getCard(String cardId, String included) throws ApiException {
-    ApiResponse<UnitCardResponse> localVarResponse = getCardWithHttpInfo(cardId, included);
+  public UnitCardResponseWithIncluded getCard(String cardId, String included) throws ApiException {
+    ApiResponse<UnitCardResponseWithIncluded> localVarResponse = getCardWithHttpInfo(cardId, included);
     return localVarResponse.getData();
   }
 
@@ -5368,10 +6073,10 @@ public class UnitApi {
    * Get a Card from API 
    * @param cardId ID of the card to get (required)
    * @param included  (optional)
-   * @return ApiResponse&lt;UnitCardResponse&gt;
+   * @return ApiResponse&lt;UnitCardResponseWithIncluded&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<UnitCardResponse> getCardWithHttpInfo(String cardId, String included) throws ApiException {
+  public ApiResponse<UnitCardResponseWithIncluded> getCardWithHttpInfo(String cardId, String included) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getCardRequestBuilder(cardId, included);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -5384,10 +6089,10 @@ public class UnitApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("getCard", localVarResponse);
         }
-        return new ApiResponse<UnitCardResponse>(
+        return new ApiResponse<UnitCardResponseWithIncluded>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitCardResponse>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitCardResponseWithIncluded>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -5593,11 +6298,11 @@ public class UnitApi {
    * @param filter  (optional)
    * @param include  (optional)
    * @param sort  (optional)
-   * @return UnitCardResponseCardsList
+   * @return UnitCardsListReponse
    * @throws ApiException if fails to make API call
    */
-  public UnitCardResponseCardsList getCardsList(ListPageParameters page, GetCardsListFilterParameter filter, String include, String sort) throws ApiException {
-    ApiResponse<UnitCardResponseCardsList> localVarResponse = getCardsListWithHttpInfo(page, filter, include, sort);
+  public UnitCardsListReponse getCardsList(ListPageParameters page, GetCardsListFilterParameter filter, String include, String sort) throws ApiException {
+    ApiResponse<UnitCardsListReponse> localVarResponse = getCardsListWithHttpInfo(page, filter, include, sort);
     return localVarResponse.getData();
   }
 
@@ -5608,10 +6313,10 @@ public class UnitApi {
    * @param filter  (optional)
    * @param include  (optional)
    * @param sort  (optional)
-   * @return ApiResponse&lt;UnitCardResponseCardsList&gt;
+   * @return ApiResponse&lt;UnitCardsListReponse&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<UnitCardResponseCardsList> getCardsListWithHttpInfo(ListPageParameters page, GetCardsListFilterParameter filter, String include, String sort) throws ApiException {
+  public ApiResponse<UnitCardsListReponse> getCardsListWithHttpInfo(ListPageParameters page, GetCardsListFilterParameter filter, String include, String sort) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getCardsListRequestBuilder(page, filter, include, sort);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -5624,10 +6329,10 @@ public class UnitApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("getCardsList", localVarResponse);
         }
-        return new ApiResponse<UnitCardResponseCardsList>(
+        return new ApiResponse<UnitCardsListReponse>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitCardResponseCardsList>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitCardsListReponse>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -5651,16 +6356,119 @@ public class UnitApi {
     String localVarQueryParameterBaseName;
     localVarQueryParameterBaseName = "page";
     if (page != null) {
-      localVarQueryStringJoiner.add(page.toUrlQueryString("page"));
+      String queryString = page.toUrlQueryString("page");
+      if (!queryString.isBlank()) {
+        localVarQueryStringJoiner.add(queryString);
+      }
     }
     localVarQueryParameterBaseName = "filter";
     if (filter != null) {
-      localVarQueryStringJoiner.add(filter.toUrlQueryString("filter"));
+      String queryString = filter.toUrlQueryString("filter");
+      if (!queryString.isBlank()) {
+        localVarQueryStringJoiner.add(queryString);
+      }
     }
     localVarQueryParameterBaseName = "include";
     localVarQueryParams.addAll(ApiClient.parameterToPairs("include", include));
     localVarQueryParameterBaseName = "sort";
     localVarQueryParams.addAll(ApiClient.parameterToPairs("sort", sort));
+
+    if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
+      StringJoiner queryJoiner = new StringJoiner("&");
+      localVarQueryParams.forEach(p -> queryJoiner.add(p.getName() + '=' + p.getValue()));
+      if (localVarQueryStringJoiner.length() != 0) {
+        queryJoiner.add(localVarQueryStringJoiner.toString());
+      }
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath + '?' + queryJoiner.toString()));
+    } else {
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+    }
+
+    localVarRequestBuilder.header("Accept", "application/vnd.api+json; charset=utf-8");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
+   * Get Cash Deposit Store Locations List By Coordinates
+   * Get Cash Deposit Store Locations List By Coordinates from API 
+   * @param page  (optional)
+   * @param filter  (optional)
+   * @return UnitStoreLocationsListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UnitStoreLocationsListResponse getCashDepositStoreLocationsList(ListPageParameters page, GetCashDepositStoreLocationsListFilterParameter filter) throws ApiException {
+    ApiResponse<UnitStoreLocationsListResponse> localVarResponse = getCashDepositStoreLocationsListWithHttpInfo(page, filter);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Get Cash Deposit Store Locations List By Coordinates
+   * Get Cash Deposit Store Locations List By Coordinates from API 
+   * @param page  (optional)
+   * @param filter  (optional)
+   * @return ApiResponse&lt;UnitStoreLocationsListResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<UnitStoreLocationsListResponse> getCashDepositStoreLocationsListWithHttpInfo(ListPageParameters page, GetCashDepositStoreLocationsListFilterParameter filter) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getCashDepositStoreLocationsListRequestBuilder(page, filter);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("getCashDepositStoreLocationsList", localVarResponse);
+        }
+        return new ApiResponse<UnitStoreLocationsListResponse>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitStoreLocationsListResponse>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder getCashDepositStoreLocationsListRequestBuilder(ListPageParameters page, GetCashDepositStoreLocationsListFilterParameter filter) throws ApiException {
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/store-locations";
+
+    List<Pair> localVarQueryParams = new ArrayList<>();
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    localVarQueryParameterBaseName = "page";
+    if (page != null) {
+      String queryString = page.toUrlQueryString("page");
+      if (!queryString.isBlank()) {
+        localVarQueryStringJoiner.add(queryString);
+      }
+    }
+    localVarQueryParameterBaseName = "filter";
+    if (filter != null) {
+      String queryString = filter.toUrlQueryString("filter");
+      if (!queryString.isBlank()) {
+        localVarQueryStringJoiner.add(queryString);
+      }
+    }
 
     if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
       StringJoiner queryJoiner = new StringJoiner("&");
@@ -5765,11 +6573,11 @@ public class UnitApi {
    * @param filter  (optional)
    * @param sort  (optional)
    * @param include  (optional)
-   * @return UnitListCheckDepositsResponse
+   * @return UnitListCheckDepositResponse
    * @throws ApiException if fails to make API call
    */
-  public UnitListCheckDepositsResponse getCheckDepositsList(ListPageParameters page, GetCheckDepositsListFilterParameter filter, String sort, String include) throws ApiException {
-    ApiResponse<UnitListCheckDepositsResponse> localVarResponse = getCheckDepositsListWithHttpInfo(page, filter, sort, include);
+  public UnitListCheckDepositResponse getCheckDepositsList(ListPageParameters page, GetCheckDepositsListFilterParameter filter, String sort, String include) throws ApiException {
+    ApiResponse<UnitListCheckDepositResponse> localVarResponse = getCheckDepositsListWithHttpInfo(page, filter, sort, include);
     return localVarResponse.getData();
   }
 
@@ -5780,10 +6588,10 @@ public class UnitApi {
    * @param filter  (optional)
    * @param sort  (optional)
    * @param include  (optional)
-   * @return ApiResponse&lt;UnitListCheckDepositsResponse&gt;
+   * @return ApiResponse&lt;UnitListCheckDepositResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<UnitListCheckDepositsResponse> getCheckDepositsListWithHttpInfo(ListPageParameters page, GetCheckDepositsListFilterParameter filter, String sort, String include) throws ApiException {
+  public ApiResponse<UnitListCheckDepositResponse> getCheckDepositsListWithHttpInfo(ListPageParameters page, GetCheckDepositsListFilterParameter filter, String sort, String include) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getCheckDepositsListRequestBuilder(page, filter, sort, include);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -5796,10 +6604,10 @@ public class UnitApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("getCheckDepositsList", localVarResponse);
         }
-        return new ApiResponse<UnitListCheckDepositsResponse>(
+        return new ApiResponse<UnitListCheckDepositResponse>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitListCheckDepositsResponse>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitListCheckDepositResponse>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -5823,11 +6631,17 @@ public class UnitApi {
     String localVarQueryParameterBaseName;
     localVarQueryParameterBaseName = "page";
     if (page != null) {
-      localVarQueryStringJoiner.add(page.toUrlQueryString("page"));
+      String queryString = page.toUrlQueryString("page");
+      if (!queryString.isBlank()) {
+        localVarQueryStringJoiner.add(queryString);
+      }
     }
     localVarQueryParameterBaseName = "filter";
     if (filter != null) {
-      localVarQueryStringJoiner.add(filter.toUrlQueryString("filter"));
+      String queryString = filter.toUrlQueryString("filter");
+      if (!queryString.isBlank()) {
+        localVarQueryStringJoiner.add(queryString);
+      }
     }
     localVarQueryParameterBaseName = "sort";
     localVarQueryParams.addAll(ApiClient.parameterToPairs("sort", sort));
@@ -5937,8 +6751,8 @@ public class UnitApi {
    * @return File
    * @throws ApiException if fails to make API call
    */
-  public File getCheckPaymentBack(String checkPaymentId) throws ApiException {
-    ApiResponse<File> localVarResponse = getCheckPaymentBackWithHttpInfo(checkPaymentId);
+  public InputStream getCheckPaymentBack(String checkPaymentId) throws ApiException {
+    ApiResponse<InputStream> localVarResponse = getCheckPaymentBackWithHttpInfo(checkPaymentId);
     return localVarResponse.getData();
   }
 
@@ -5949,7 +6763,7 @@ public class UnitApi {
    * @return ApiResponse&lt;File&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<File> getCheckPaymentBackWithHttpInfo(String checkPaymentId) throws ApiException {
+  public ApiResponse<InputStream> getCheckPaymentBackWithHttpInfo(String checkPaymentId) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getCheckPaymentBackRequestBuilder(checkPaymentId);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -5962,10 +6776,10 @@ public class UnitApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("getCheckPaymentBack", localVarResponse);
         }
-        return new ApiResponse<File>(
+        return new ApiResponse<InputStream>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<File>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : localVarResponse.body()
         );
       } finally {
       }
@@ -6010,8 +6824,8 @@ public class UnitApi {
    * @return File
    * @throws ApiException if fails to make API call
    */
-  public File getCheckPaymentFront(String checkPaymentId) throws ApiException {
-    ApiResponse<File> localVarResponse = getCheckPaymentFrontWithHttpInfo(checkPaymentId);
+  public InputStream getCheckPaymentFront(String checkPaymentId) throws ApiException {
+    ApiResponse<InputStream> localVarResponse = getCheckPaymentFrontWithHttpInfo(checkPaymentId);
     return localVarResponse.getData();
   }
 
@@ -6022,7 +6836,7 @@ public class UnitApi {
    * @return ApiResponse&lt;File&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<File> getCheckPaymentFrontWithHttpInfo(String checkPaymentId) throws ApiException {
+  public ApiResponse<InputStream> getCheckPaymentFrontWithHttpInfo(String checkPaymentId) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getCheckPaymentFrontRequestBuilder(checkPaymentId);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -6035,10 +6849,10 @@ public class UnitApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("getCheckPaymentFront", localVarResponse);
         }
-        return new ApiResponse<File>(
+        return new ApiResponse<InputStream>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<File>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : localVarResponse.body()
         );
       } finally {
       }
@@ -6141,7 +6955,10 @@ public class UnitApi {
     String localVarQueryParameterBaseName;
     localVarQueryParameterBaseName = "page";
     if (page != null) {
-      localVarQueryStringJoiner.add(page.toUrlQueryString("page"));
+      String queryString = page.toUrlQueryString("page");
+      if (!queryString.isBlank()) {
+        localVarQueryStringJoiner.add(queryString);
+      }
     }
     localVarQueryParameterBaseName = "filter";
     localVarQueryParams.addAll(ApiClient.parameterToPairs("accountId", filter.getAccountId()));
@@ -6244,11 +7061,17 @@ public class UnitApi {
     String localVarQueryParameterBaseName;
     localVarQueryParameterBaseName = "page";
     if (page != null) {
-      localVarQueryStringJoiner.add(page.toUrlQueryString("page"));
+      String queryString = page.toUrlQueryString("page");
+      if (!queryString.isBlank()) {
+        localVarQueryStringJoiner.add(queryString);
+      }
     }
     localVarQueryParameterBaseName = "filter";
     if (filter != null) {
-      localVarQueryStringJoiner.add(filter.toUrlQueryString("filter"));
+      String queryString = filter.toUrlQueryString("filter");
+      if (!queryString.isBlank()) {
+        localVarQueryStringJoiner.add(queryString);
+      }
     }
     localVarQueryParameterBaseName = "sort";
     localVarQueryParams.addAll(ApiClient.parameterToPairs("sort", sort));
@@ -6280,12 +7103,11 @@ public class UnitApi {
    * Get Counterparty by Id
    * Get a Counterparty from API 
    * @param counterpartyId ID of the counterparty to get (required)
-   * @param included  (optional)
    * @return UnitCounterpartyResponse
    * @throws ApiException if fails to make API call
    */
-  public UnitCounterpartyResponse getCounterparty(String counterpartyId, String included) throws ApiException {
-    ApiResponse<UnitCounterpartyResponse> localVarResponse = getCounterpartyWithHttpInfo(counterpartyId, included);
+  public UnitCounterpartyResponse getCounterparty(String counterpartyId) throws ApiException {
+    ApiResponse<UnitCounterpartyResponse> localVarResponse = getCounterpartyWithHttpInfo(counterpartyId);
     return localVarResponse.getData();
   }
 
@@ -6293,12 +7115,11 @@ public class UnitApi {
    * Get Counterparty by Id
    * Get a Counterparty from API 
    * @param counterpartyId ID of the counterparty to get (required)
-   * @param included  (optional)
    * @return ApiResponse&lt;UnitCounterpartyResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<UnitCounterpartyResponse> getCounterpartyWithHttpInfo(String counterpartyId, String included) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = getCounterpartyRequestBuilder(counterpartyId, included);
+  public ApiResponse<UnitCounterpartyResponse> getCounterpartyWithHttpInfo(String counterpartyId) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getCounterpartyRequestBuilder(counterpartyId);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -6326,7 +7147,7 @@ public class UnitApi {
     }
   }
 
-  private HttpRequest.Builder getCounterpartyRequestBuilder(String counterpartyId, String included) throws ApiException {
+  private HttpRequest.Builder getCounterpartyRequestBuilder(String counterpartyId) throws ApiException {
     // verify the required parameter 'counterpartyId' is set
     if (counterpartyId == null) {
       throw new ApiException(400, "Missing the required parameter 'counterpartyId' when calling getCounterparty");
@@ -6337,22 +7158,7 @@ public class UnitApi {
     String localVarPath = "/counterparties/{counterpartyId}"
         .replace("{counterpartyId}", ApiClient.urlEncode(counterpartyId.toString()));
 
-    List<Pair> localVarQueryParams = new ArrayList<>();
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    localVarQueryParameterBaseName = "included";
-    localVarQueryParams.addAll(ApiClient.parameterToPairs("included", included));
-
-    if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
-      StringJoiner queryJoiner = new StringJoiner("&");
-      localVarQueryParams.forEach(p -> queryJoiner.add(p.getName() + '=' + p.getValue()));
-      if (localVarQueryStringJoiner.length() != 0) {
-        queryJoiner.add(localVarQueryStringJoiner.toString());
-      }
-      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath + '?' + queryJoiner.toString()));
-    } else {
-      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
-    }
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
 
     localVarRequestBuilder.header("Accept", "application/vnd.api+json; charset=utf-8");
 
@@ -6370,11 +7176,11 @@ public class UnitApi {
    * Get Counterparty Balance
    * Get Recurring Payment from API 
    * @param counterpartyId ID of the counterparty to get (required)
-   * @return UnitCounterpartyResponse1
+   * @return UnitCounterpartyBalanceResponse
    * @throws ApiException if fails to make API call
    */
-  public UnitCounterpartyResponse1 getCounterpartyBalance(String counterpartyId) throws ApiException {
-    ApiResponse<UnitCounterpartyResponse1> localVarResponse = getCounterpartyBalanceWithHttpInfo(counterpartyId);
+  public UnitCounterpartyBalanceResponse getCounterpartyBalance(String counterpartyId) throws ApiException {
+    ApiResponse<UnitCounterpartyBalanceResponse> localVarResponse = getCounterpartyBalanceWithHttpInfo(counterpartyId);
     return localVarResponse.getData();
   }
 
@@ -6382,10 +7188,10 @@ public class UnitApi {
    * Get Counterparty Balance
    * Get Recurring Payment from API 
    * @param counterpartyId ID of the counterparty to get (required)
-   * @return ApiResponse&lt;UnitCounterpartyResponse1&gt;
+   * @return ApiResponse&lt;UnitCounterpartyBalanceResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<UnitCounterpartyResponse1> getCounterpartyBalanceWithHttpInfo(String counterpartyId) throws ApiException {
+  public ApiResponse<UnitCounterpartyBalanceResponse> getCounterpartyBalanceWithHttpInfo(String counterpartyId) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getCounterpartyBalanceRequestBuilder(counterpartyId);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -6398,10 +7204,10 @@ public class UnitApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("getCounterpartyBalance", localVarResponse);
         }
-        return new ApiResponse<UnitCounterpartyResponse1>(
+        return new ApiResponse<UnitCounterpartyBalanceResponse>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitCounterpartyResponse1>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitCounterpartyBalanceResponse>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -6575,11 +7381,17 @@ public class UnitApi {
     String localVarQueryParameterBaseName;
     localVarQueryParameterBaseName = "page";
     if (page != null) {
-      localVarQueryStringJoiner.add(page.toUrlQueryString("page"));
+      String queryString = page.toUrlQueryString("page");
+      if (!queryString.isBlank()) {
+        localVarQueryStringJoiner.add(queryString);
+      }
     }
     localVarQueryParameterBaseName = "filter";
     if (filter != null) {
-      localVarQueryStringJoiner.add(filter.toUrlQueryString("filter"));
+      String queryString = filter.toUrlQueryString("filter");
+      if (!queryString.isBlank()) {
+        localVarQueryStringJoiner.add(queryString);
+      }
     }
     localVarQueryParameterBaseName = "sort";
     localVarQueryParams.addAll(ApiClient.parameterToPairs("sort", sort));
@@ -6594,6 +7406,79 @@ public class UnitApi {
     } else {
       localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
     }
+
+    localVarRequestBuilder.header("Accept", "application/vnd.api+json; charset=utf-8");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
+   * Get Deposit Products
+   * Retrieve the list of available deposit products compatible to the account.
+   * @param accountId ID of the account to get deposit products for (required)
+   * @return UnitDepositProductsResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UnitDepositProductsResponse getDepositProductsList(String accountId) throws ApiException {
+    ApiResponse<UnitDepositProductsResponse> localVarResponse = getDepositProductsListWithHttpInfo(accountId);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Get Deposit Products
+   * Retrieve the list of available deposit products compatible to the account.
+   * @param accountId ID of the account to get deposit products for (required)
+   * @return ApiResponse&lt;UnitDepositProductsResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<UnitDepositProductsResponse> getDepositProductsListWithHttpInfo(String accountId) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getDepositProductsListRequestBuilder(accountId);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("getDepositProductsList", localVarResponse);
+        }
+        return new ApiResponse<UnitDepositProductsResponse>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitDepositProductsResponse>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder getDepositProductsListRequestBuilder(String accountId) throws ApiException {
+    // verify the required parameter 'accountId' is set
+    if (accountId == null) {
+      throw new ApiException(400, "Missing the required parameter 'accountId' when calling getDepositProductsList");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/accounts/{accountId}/deposit-products"
+        .replace("{accountId}", ApiClient.urlEncode(accountId.toString()));
+
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
 
     localVarRequestBuilder.header("Accept", "application/vnd.api+json; charset=utf-8");
 
@@ -6741,11 +7626,17 @@ public class UnitApi {
     String localVarQueryParameterBaseName;
     localVarQueryParameterBaseName = "page";
     if (page != null) {
-      localVarQueryStringJoiner.add(page.toUrlQueryString("page"));
+      String queryString = page.toUrlQueryString("page");
+      if (!queryString.isBlank()) {
+        localVarQueryStringJoiner.add(queryString);
+      }
     }
     localVarQueryParameterBaseName = "filter";
     if (filter != null) {
-      localVarQueryStringJoiner.add(filter.toUrlQueryString("filter"));
+      String queryString = filter.toUrlQueryString("filter");
+      if (!queryString.isBlank()) {
+        localVarQueryStringJoiner.add(queryString);
+      }
     }
 
     if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
@@ -6905,11 +7796,17 @@ public class UnitApi {
     String localVarQueryParameterBaseName;
     localVarQueryParameterBaseName = "page";
     if (page != null) {
-      localVarQueryStringJoiner.add(page.toUrlQueryString("page"));
+      String queryString = page.toUrlQueryString("page");
+      if (!queryString.isBlank()) {
+        localVarQueryStringJoiner.add(queryString);
+      }
     }
     localVarQueryParameterBaseName = "filter";
     if (filter != null) {
-      localVarQueryStringJoiner.add(filter.toUrlQueryString("filter"));
+      String queryString = filter.toUrlQueryString("filter");
+      if (!queryString.isBlank()) {
+        localVarQueryStringJoiner.add(queryString);
+      }
     }
 
     if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
@@ -7082,105 +7979,6 @@ public class UnitApi {
   }
 
   /**
-   * Get Rewards List
-   * Get Rewards List from API 
-   * @param page  (optional)
-   * @param filter  (optional)
-   * @param sort  (optional)
-   * @param include  (optional)
-   * @return UnitRewardsListResponse
-   * @throws ApiException if fails to make API call
-   */
-  public UnitRewardsListResponse getListRewards(ListPageParameters page, GetListRewardsFilterParameter filter, String sort, String include) throws ApiException {
-    ApiResponse<UnitRewardsListResponse> localVarResponse = getListRewardsWithHttpInfo(page, filter, sort, include);
-    return localVarResponse.getData();
-  }
-
-  /**
-   * Get Rewards List
-   * Get Rewards List from API 
-   * @param page  (optional)
-   * @param filter  (optional)
-   * @param sort  (optional)
-   * @param include  (optional)
-   * @return ApiResponse&lt;UnitRewardsListResponse&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public ApiResponse<UnitRewardsListResponse> getListRewardsWithHttpInfo(ListPageParameters page, GetListRewardsFilterParameter filter, String sort, String include) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = getListRewardsRequestBuilder(page, filter, sort, include);
-    try {
-      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
-          localVarRequestBuilder.build(),
-          HttpResponse.BodyHandlers.ofInputStream());
-      if (memberVarResponseInterceptor != null) {
-        memberVarResponseInterceptor.accept(localVarResponse);
-      }
-      try {
-        if (localVarResponse.statusCode()/ 100 != 2) {
-          throw getApiException("getListRewards", localVarResponse);
-        }
-        return new ApiResponse<UnitRewardsListResponse>(
-          localVarResponse.statusCode(),
-          localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitRewardsListResponse>() {}) // closes the InputStream
-        );
-      } finally {
-      }
-    } catch (IOException e) {
-      throw new ApiException(e);
-    }
-    catch (InterruptedException e) {
-      Thread.currentThread().interrupt();
-      throw new ApiException(e);
-    }
-  }
-
-  private HttpRequest.Builder getListRewardsRequestBuilder(ListPageParameters page, GetListRewardsFilterParameter filter, String sort, String include) throws ApiException {
-
-    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
-
-    String localVarPath = "/rewards";
-
-    List<Pair> localVarQueryParams = new ArrayList<>();
-    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
-    String localVarQueryParameterBaseName;
-    localVarQueryParameterBaseName = "page";
-    if (page != null) {
-      localVarQueryStringJoiner.add(page.toUrlQueryString("page"));
-    }
-    localVarQueryParameterBaseName = "filter";
-    if (filter != null) {
-      localVarQueryStringJoiner.add(filter.toUrlQueryString("filter"));
-    }
-    localVarQueryParameterBaseName = "sort";
-    localVarQueryParams.addAll(ApiClient.parameterToPairs("sort", sort));
-    localVarQueryParameterBaseName = "include";
-    localVarQueryParams.addAll(ApiClient.parameterToPairs("include", include));
-
-    if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
-      StringJoiner queryJoiner = new StringJoiner("&");
-      localVarQueryParams.forEach(p -> queryJoiner.add(p.getName() + '=' + p.getValue()));
-      if (localVarQueryStringJoiner.length() != 0) {
-        queryJoiner.add(localVarQueryStringJoiner.toString());
-      }
-      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath + '?' + queryJoiner.toString()));
-    } else {
-      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
-    }
-
-    localVarRequestBuilder.header("Accept", "application/vnd.api+json; charset=utf-8");
-
-    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
-    if (memberVarReadTimeout != null) {
-      localVarRequestBuilder.timeout(memberVarReadTimeout);
-    }
-    if (memberVarInterceptor != null) {
-      memberVarInterceptor.accept(localVarRequestBuilder);
-    }
-    return localVarRequestBuilder;
-  }
-
-  /**
    * Get Payment by Id
    * Get a Payment from API 
    * @param paymentId ID of the payment to get (required)
@@ -7335,11 +8133,17 @@ public class UnitApi {
     String localVarQueryParameterBaseName;
     localVarQueryParameterBaseName = "page";
     if (page != null) {
-      localVarQueryStringJoiner.add(page.toUrlQueryString("page"));
+      String queryString = page.toUrlQueryString("page");
+      if (!queryString.isBlank()) {
+        localVarQueryStringJoiner.add(queryString);
+      }
     }
     localVarQueryParameterBaseName = "filter";
     if (filter != null) {
-      localVarQueryStringJoiner.add(filter.toUrlQueryString("filter"));
+      String queryString = filter.toUrlQueryString("filter");
+      if (!queryString.isBlank()) {
+        localVarQueryStringJoiner.add(queryString);
+      }
     }
     localVarQueryParameterBaseName = "include";
     localVarQueryParams.addAll(ApiClient.parameterToPairs("include", include));
@@ -7462,24 +8266,30 @@ public class UnitApi {
   /**
    * Get Received Payments List
    * Get Received Payments from API 
-   * @param included  (optional)
+   * @param page  (optional)
+   * @param filter  (optional)
+   * @param include  (optional)
+   * @param sort  (optional)
    * @return UnitReceivedPaymentListResponse
    * @throws ApiException if fails to make API call
    */
-  public UnitReceivedPaymentListResponse getReceivedPaymentsList(String included) throws ApiException {
-    ApiResponse<UnitReceivedPaymentListResponse> localVarResponse = getReceivedPaymentsListWithHttpInfo(included);
+  public UnitReceivedPaymentListResponse getReceivedPaymentsList(ListPageParameters page, GetReceivedPaymentsListFilterParameter filter, String include, String sort) throws ApiException {
+    ApiResponse<UnitReceivedPaymentListResponse> localVarResponse = getReceivedPaymentsListWithHttpInfo(page, filter, include, sort);
     return localVarResponse.getData();
   }
 
   /**
    * Get Received Payments List
    * Get Received Payments from API 
-   * @param included  (optional)
+   * @param page  (optional)
+   * @param filter  (optional)
+   * @param include  (optional)
+   * @param sort  (optional)
    * @return ApiResponse&lt;UnitReceivedPaymentListResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<UnitReceivedPaymentListResponse> getReceivedPaymentsListWithHttpInfo(String included) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = getReceivedPaymentsListRequestBuilder(included);
+  public ApiResponse<UnitReceivedPaymentListResponse> getReceivedPaymentsListWithHttpInfo(ListPageParameters page, GetReceivedPaymentsListFilterParameter filter, String include, String sort) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getReceivedPaymentsListRequestBuilder(page, filter, include, sort);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -7507,7 +8317,7 @@ public class UnitApi {
     }
   }
 
-  private HttpRequest.Builder getReceivedPaymentsListRequestBuilder(String included) throws ApiException {
+  private HttpRequest.Builder getReceivedPaymentsListRequestBuilder(ListPageParameters page, GetReceivedPaymentsListFilterParameter filter, String include, String sort) throws ApiException {
 
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
@@ -7516,8 +8326,24 @@ public class UnitApi {
     List<Pair> localVarQueryParams = new ArrayList<>();
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
-    localVarQueryParameterBaseName = "included";
-    localVarQueryParams.addAll(ApiClient.parameterToPairs("included", included));
+    localVarQueryParameterBaseName = "page";
+    if (page != null) {
+      String queryString = page.toUrlQueryString("page");
+      if (!queryString.isBlank()) {
+        localVarQueryStringJoiner.add(queryString);
+      }
+    }
+    localVarQueryParameterBaseName = "filter";
+    if (filter != null) {
+      String queryString = filter.toUrlQueryString("filter");
+      if (!queryString.isBlank()) {
+        localVarQueryStringJoiner.add(queryString);
+      }
+    }
+    localVarQueryParameterBaseName = "include";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("include", include));
+    localVarQueryParameterBaseName = "sort";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("sort", sort));
 
     if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
       StringJoiner queryJoiner = new StringJoiner("&");
@@ -7678,11 +8504,17 @@ public class UnitApi {
     String localVarQueryParameterBaseName;
     localVarQueryParameterBaseName = "page";
     if (page != null) {
-      localVarQueryStringJoiner.add(page.toUrlQueryString("page"));
+      String queryString = page.toUrlQueryString("page");
+      if (!queryString.isBlank()) {
+        localVarQueryStringJoiner.add(queryString);
+      }
     }
     localVarQueryParameterBaseName = "filter";
     if (filter != null) {
-      localVarQueryStringJoiner.add(filter.toUrlQueryString("filter"));
+      String queryString = filter.toUrlQueryString("filter");
+      if (!queryString.isBlank()) {
+        localVarQueryStringJoiner.add(queryString);
+      }
     }
     localVarQueryParameterBaseName = "sort";
     localVarQueryParams.addAll(ApiClient.parameterToPairs("sort", sort));
@@ -7863,11 +8695,17 @@ public class UnitApi {
     String localVarQueryParameterBaseName;
     localVarQueryParameterBaseName = "page";
     if (page != null) {
-      localVarQueryStringJoiner.add(page.toUrlQueryString("page"));
+      String queryString = page.toUrlQueryString("page");
+      if (!queryString.isBlank()) {
+        localVarQueryStringJoiner.add(queryString);
+      }
     }
     localVarQueryParameterBaseName = "filter";
     if (filter != null) {
-      localVarQueryStringJoiner.add(filter.toUrlQueryString("filter"));
+      String queryString = filter.toUrlQueryString("filter");
+      if (!queryString.isBlank()) {
+        localVarQueryStringJoiner.add(queryString);
+      }
     }
     localVarQueryParameterBaseName = "sort";
     localVarQueryParams.addAll(ApiClient.parameterToPairs("sort", sort));
@@ -7986,6 +8824,79 @@ public class UnitApi {
   }
 
   /**
+   * Get Repayment Information
+   * Retrieve the repayment information for a specific account via API
+   * @param accountId ID of the account to get repayment information for (required)
+   * @return UnitRepaymentInformationResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UnitRepaymentInformationResponse getRepaymentInformation(String accountId) throws ApiException {
+    ApiResponse<UnitRepaymentInformationResponse> localVarResponse = getRepaymentInformationWithHttpInfo(accountId);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Get Repayment Information
+   * Retrieve the repayment information for a specific account via API
+   * @param accountId ID of the account to get repayment information for (required)
+   * @return ApiResponse&lt;UnitRepaymentInformationResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<UnitRepaymentInformationResponse> getRepaymentInformationWithHttpInfo(String accountId) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getRepaymentInformationRequestBuilder(accountId);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("getRepaymentInformation", localVarResponse);
+        }
+        return new ApiResponse<UnitRepaymentInformationResponse>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitRepaymentInformationResponse>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder getRepaymentInformationRequestBuilder(String accountId) throws ApiException {
+    // verify the required parameter 'accountId' is set
+    if (accountId == null) {
+      throw new ApiException(400, "Missing the required parameter 'accountId' when calling getRepaymentInformation");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/accounts/{accountId}/repayment-information"
+        .replace("{accountId}", ApiClient.urlEncode(accountId.toString()));
+
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/vnd.api+json; charset=utf-8");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
    * Get List Repayments
    * Get List Repayments from API 
    * @param page  (optional)
@@ -8046,11 +8957,17 @@ public class UnitApi {
     String localVarQueryParameterBaseName;
     localVarQueryParameterBaseName = "page";
     if (page != null) {
-      localVarQueryStringJoiner.add(page.toUrlQueryString("page"));
+      String queryString = page.toUrlQueryString("page");
+      if (!queryString.isBlank()) {
+        localVarQueryStringJoiner.add(queryString);
+      }
     }
     localVarQueryParameterBaseName = "filter";
     if (filter != null) {
-      localVarQueryStringJoiner.add(filter.toUrlQueryString("filter"));
+      String queryString = filter.toUrlQueryString("filter");
+      if (!queryString.isBlank()) {
+        localVarQueryStringJoiner.add(queryString);
+      }
     }
 
     if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
@@ -8150,14 +9067,119 @@ public class UnitApi {
   }
 
   /**
+   * Get Rewards List
+   * Get Rewards List from API 
+   * @param page  (optional)
+   * @param filter  (optional)
+   * @param sort  (optional)
+   * @param include  (optional)
+   * @return UnitRewardsListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UnitRewardsListResponse getRewardsList(ListPageParameters page, GetRewardsListFilterParameter filter, String sort, String include) throws ApiException {
+    ApiResponse<UnitRewardsListResponse> localVarResponse = getRewardsListWithHttpInfo(page, filter, sort, include);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Get Rewards List
+   * Get Rewards List from API 
+   * @param page  (optional)
+   * @param filter  (optional)
+   * @param sort  (optional)
+   * @param include  (optional)
+   * @return ApiResponse&lt;UnitRewardsListResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<UnitRewardsListResponse> getRewardsListWithHttpInfo(ListPageParameters page, GetRewardsListFilterParameter filter, String sort, String include) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getRewardsListRequestBuilder(page, filter, sort, include);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("getRewardsList", localVarResponse);
+        }
+        return new ApiResponse<UnitRewardsListResponse>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitRewardsListResponse>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder getRewardsListRequestBuilder(ListPageParameters page, GetRewardsListFilterParameter filter, String sort, String include) throws ApiException {
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/rewards";
+
+    List<Pair> localVarQueryParams = new ArrayList<>();
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    localVarQueryParameterBaseName = "page";
+    if (page != null) {
+      String queryString = page.toUrlQueryString("page");
+      if (!queryString.isBlank()) {
+        localVarQueryStringJoiner.add(queryString);
+      }
+    }
+    localVarQueryParameterBaseName = "filter";
+    if (filter != null) {
+      String queryString = filter.toUrlQueryString("filter");
+      if (!queryString.isBlank()) {
+        localVarQueryStringJoiner.add(queryString);
+      }
+    }
+    localVarQueryParameterBaseName = "sort";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("sort", sort));
+    localVarQueryParameterBaseName = "include";
+    localVarQueryParams.addAll(ApiClient.parameterToPairs("include", include));
+
+    if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
+      StringJoiner queryJoiner = new StringJoiner("&");
+      localVarQueryParams.forEach(p -> queryJoiner.add(p.getName() + '=' + p.getValue()));
+      if (localVarQueryStringJoiner.length() != 0) {
+        queryJoiner.add(localVarQueryStringJoiner.toString());
+      }
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath + '?' + queryJoiner.toString()));
+    } else {
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+    }
+
+    localVarRequestBuilder.header("Accept", "application/vnd.api+json; charset=utf-8");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
    * Get Bank verification PDF
    * Get Get Bank verification PDF from API 
    * @param accountId ID of the account to get (required)
    * @return File
    * @throws ApiException if fails to make API call
    */
-  public File getStatementBankPdf(String accountId) throws ApiException {
-    ApiResponse<File> localVarResponse = getStatementBankPdfWithHttpInfo(accountId);
+  public InputStream getStatementBankPdf(String accountId) throws ApiException {
+    ApiResponse<InputStream> localVarResponse = getStatementBankPdfWithHttpInfo(accountId);
     return localVarResponse.getData();
   }
 
@@ -8168,7 +9190,7 @@ public class UnitApi {
    * @return ApiResponse&lt;File&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<File> getStatementBankPdfWithHttpInfo(String accountId) throws ApiException {
+  public ApiResponse<InputStream> getStatementBankPdfWithHttpInfo(String accountId) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getStatementBankPdfRequestBuilder(accountId);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -8181,10 +9203,10 @@ public class UnitApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("getStatementBankPdf", localVarResponse);
         }
-        return new ApiResponse<File>(
+        return new ApiResponse<InputStream>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<File>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : localVarResponse.body()
         );
       } finally {
       }
@@ -8257,7 +9279,7 @@ public class UnitApi {
         return new ApiResponse<String>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<String>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : IOUtils.toString(localVarResponse.body(), StandardCharsets.UTF_8)
         );
       } finally {
       }
@@ -8302,8 +9324,8 @@ public class UnitApi {
    * @return File
    * @throws ApiException if fails to make API call
    */
-  public File getStatementPdf(String statementId) throws ApiException {
-    ApiResponse<File> localVarResponse = getStatementPdfWithHttpInfo(statementId);
+  public InputStream getStatementPdf(String statementId) throws ApiException {
+    ApiResponse<InputStream> localVarResponse = getStatementPdfWithHttpInfo(statementId);
     return localVarResponse.getData();
   }
 
@@ -8314,7 +9336,7 @@ public class UnitApi {
    * @return ApiResponse&lt;File&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<File> getStatementPdfWithHttpInfo(String statementId) throws ApiException {
+  public ApiResponse<InputStream> getStatementPdfWithHttpInfo(String statementId) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getStatementPdfRequestBuilder(statementId);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -8327,10 +9349,10 @@ public class UnitApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("getStatementPdf", localVarResponse);
         }
-        return new ApiResponse<File>(
+        return new ApiResponse<InputStream>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<File>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : localVarResponse.body()
         );
       } finally {
       }
@@ -8431,11 +9453,17 @@ public class UnitApi {
     String localVarQueryParameterBaseName;
     localVarQueryParameterBaseName = "page";
     if (page != null) {
-      localVarQueryStringJoiner.add(page.toUrlQueryString("page"));
+      String queryString = page.toUrlQueryString("page");
+      if (!queryString.isBlank()) {
+        localVarQueryStringJoiner.add(queryString);
+      }
     }
     localVarQueryParameterBaseName = "filter";
     if (filter != null) {
-      localVarQueryStringJoiner.add(filter.toUrlQueryString("filter"));
+      String queryString = filter.toUrlQueryString("filter");
+      if (!queryString.isBlank()) {
+        localVarQueryStringJoiner.add(queryString);
+      }
     }
     localVarQueryParameterBaseName = "sort";
     localVarQueryParams.addAll(ApiClient.parameterToPairs("sort", sort));
@@ -8599,7 +9627,10 @@ public class UnitApi {
     String localVarQueryParameterBaseName;
     localVarQueryParameterBaseName = "page";
     if (page != null) {
-      localVarQueryStringJoiner.add(page.toUrlQueryString("page"));
+      String queryString = page.toUrlQueryString("page");
+      if (!queryString.isBlank()) {
+        localVarQueryStringJoiner.add(queryString);
+      }
     }
     localVarQueryParameterBaseName = "filter";
     localVarQueryParams.addAll(ApiClient.parameterToPairs("accountId", filter.getAccountId()));
@@ -8626,6 +9657,249 @@ public class UnitApi {
     }
 
     localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
+   * Get Tax Form by Id
+   * Get a Tax Form from API 
+   * @param taxFormId ID of the reward to get (required)
+   * @return UnitTaxFormResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UnitTaxFormResponse getTaxForm(String taxFormId) throws ApiException {
+    ApiResponse<UnitTaxFormResponse> localVarResponse = getTaxFormWithHttpInfo(taxFormId);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Get Tax Form by Id
+   * Get a Tax Form from API 
+   * @param taxFormId ID of the reward to get (required)
+   * @return ApiResponse&lt;UnitTaxFormResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<UnitTaxFormResponse> getTaxFormWithHttpInfo(String taxFormId) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getTaxFormRequestBuilder(taxFormId);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("getTaxForm", localVarResponse);
+        }
+        return new ApiResponse<UnitTaxFormResponse>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitTaxFormResponse>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder getTaxFormRequestBuilder(String taxFormId) throws ApiException {
+    // verify the required parameter 'taxFormId' is set
+    if (taxFormId == null) {
+      throw new ApiException(400, "Missing the required parameter 'taxFormId' when calling getTaxForm");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/tax-forms/{taxFormId}"
+        .replace("{taxFormId}", ApiClient.urlEncode(taxFormId.toString()));
+
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/vnd.api+json; charset=utf-8");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
+   * Get Tax Form pdf by Id
+   * Get a Tax Form pdf from API 
+   * @param taxFormId ID of the reward to get (required)
+   * @return File
+   * @throws ApiException if fails to make API call
+   */
+  public InputStream getTaxFormPdf(String taxFormId) throws ApiException {
+    ApiResponse<InputStream> localVarResponse = getTaxFormPdfWithHttpInfo(taxFormId);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Get Tax Form pdf by Id
+   * Get a Tax Form pdf from API 
+   * @param taxFormId ID of the reward to get (required)
+   * @return ApiResponse&lt;File&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<InputStream> getTaxFormPdfWithHttpInfo(String taxFormId) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getTaxFormPdfRequestBuilder(taxFormId);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("getTaxFormPdf", localVarResponse);
+        }
+        return new ApiResponse<InputStream>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : localVarResponse.body()
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder getTaxFormPdfRequestBuilder(String taxFormId) throws ApiException {
+    // verify the required parameter 'taxFormId' is set
+    if (taxFormId == null) {
+      throw new ApiException(400, "Missing the required parameter 'taxFormId' when calling getTaxFormPdf");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/tax-forms/{taxFormId}/pdf"
+        .replace("{taxFormId}", ApiClient.urlEncode(taxFormId.toString()));
+
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/pdf");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
+   * Get Tax Forms List 
+   * Get Tax Forms List from API 
+   * @param page  (optional)
+   * @param filter  (optional)
+   * @return UnitTaxFormsListResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UnitTaxFormsListResponse getTaxFormsList(ListPageParameters page, GetTaxFormsListFilterParameter filter) throws ApiException {
+    ApiResponse<UnitTaxFormsListResponse> localVarResponse = getTaxFormsListWithHttpInfo(page, filter);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Get Tax Forms List 
+   * Get Tax Forms List from API 
+   * @param page  (optional)
+   * @param filter  (optional)
+   * @return ApiResponse&lt;UnitTaxFormsListResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<UnitTaxFormsListResponse> getTaxFormsListWithHttpInfo(ListPageParameters page, GetTaxFormsListFilterParameter filter) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getTaxFormsListRequestBuilder(page, filter);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("getTaxFormsList", localVarResponse);
+        }
+        return new ApiResponse<UnitTaxFormsListResponse>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitTaxFormsListResponse>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder getTaxFormsListRequestBuilder(ListPageParameters page, GetTaxFormsListFilterParameter filter) throws ApiException {
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/tax-forms";
+
+    List<Pair> localVarQueryParams = new ArrayList<>();
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    localVarQueryParameterBaseName = "page";
+    if (page != null) {
+      String queryString = page.toUrlQueryString("page");
+      if (!queryString.isBlank()) {
+        localVarQueryStringJoiner.add(queryString);
+      }
+    }
+    localVarQueryParameterBaseName = "filter";
+    if (filter != null) {
+      String queryString = filter.toUrlQueryString("filter");
+      if (!queryString.isBlank()) {
+        localVarQueryStringJoiner.add(queryString);
+      }
+    }
+
+    if (!localVarQueryParams.isEmpty() || localVarQueryStringJoiner.length() != 0) {
+      StringJoiner queryJoiner = new StringJoiner("&");
+      localVarQueryParams.forEach(p -> queryJoiner.add(p.getName() + '=' + p.getValue()));
+      if (localVarQueryStringJoiner.length() != 0) {
+        queryJoiner.add(localVarQueryStringJoiner.toString());
+      }
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath + '?' + queryJoiner.toString()));
+    } else {
+      localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+    }
+
+    localVarRequestBuilder.header("Accept", "application/vnd.api+json; charset=utf-8");
 
     localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
     if (memberVarReadTimeout != null) {
@@ -8782,11 +10056,17 @@ public class UnitApi {
     String localVarQueryParameterBaseName;
     localVarQueryParameterBaseName = "page";
     if (page != null) {
-      localVarQueryStringJoiner.add(page.toUrlQueryString("page"));
+      String queryString = page.toUrlQueryString("page");
+      if (!queryString.isBlank()) {
+        localVarQueryStringJoiner.add(queryString);
+      }
     }
     localVarQueryParameterBaseName = "filter";
     if (filter != null) {
-      localVarQueryStringJoiner.add(filter.toUrlQueryString("filter"));
+      String queryString = filter.toUrlQueryString("filter");
+      if (!queryString.isBlank()) {
+        localVarQueryStringJoiner.add(queryString);
+      }
     }
     localVarQueryParameterBaseName = "sort";
     localVarQueryParams.addAll(ApiClient.parameterToPairs("sort", sort));
@@ -8820,11 +10100,11 @@ public class UnitApi {
    * Get Webhook Id
    * Get a Webhook from API 
    * @param webhookId ID of the webhook to get (required)
-   * @return WebhookResponse
+   * @return UnitWebhookResponse
    * @throws ApiException if fails to make API call
    */
-  public WebhookResponse getWebhook(String webhookId) throws ApiException {
-    ApiResponse<WebhookResponse> localVarResponse = getWebhookWithHttpInfo(webhookId);
+  public UnitWebhookResponse getWebhook(String webhookId) throws ApiException {
+    ApiResponse<UnitWebhookResponse> localVarResponse = getWebhookWithHttpInfo(webhookId);
     return localVarResponse.getData();
   }
 
@@ -8832,10 +10112,10 @@ public class UnitApi {
    * Get Webhook Id
    * Get a Webhook from API 
    * @param webhookId ID of the webhook to get (required)
-   * @return ApiResponse&lt;WebhookResponse&gt;
+   * @return ApiResponse&lt;UnitWebhookResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<WebhookResponse> getWebhookWithHttpInfo(String webhookId) throws ApiException {
+  public ApiResponse<UnitWebhookResponse> getWebhookWithHttpInfo(String webhookId) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getWebhookRequestBuilder(webhookId);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -8848,10 +10128,10 @@ public class UnitApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("getWebhook", localVarResponse);
         }
-        return new ApiResponse<WebhookResponse>(
+        return new ApiResponse<UnitWebhookResponse>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<WebhookResponse>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitWebhookResponse>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -8952,11 +10232,17 @@ public class UnitApi {
     String localVarQueryParameterBaseName;
     localVarQueryParameterBaseName = "page";
     if (page != null) {
-      localVarQueryStringJoiner.add(page.toUrlQueryString("page"));
+      String queryString = page.toUrlQueryString("page");
+      if (!queryString.isBlank()) {
+        localVarQueryStringJoiner.add(queryString);
+      }
     }
     localVarQueryParameterBaseName = "filter";
     if (filter != null) {
-      localVarQueryStringJoiner.add(filter.toUrlQueryString("filter"));
+      String queryString = filter.toUrlQueryString("filter");
+      if (!queryString.isBlank()) {
+        localVarQueryStringJoiner.add(queryString);
+      }
     }
     localVarQueryParameterBaseName = "sort";
     localVarQueryParams.addAll(ApiClient.parameterToPairs("sort", sort));
@@ -9057,6 +10343,91 @@ public class UnitApi {
     try {
       byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(updateReceivedPaymentRequest);
       localVarRequestBuilder.method("PATCH", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
+   * Remove Owners from Account by Id
+   * Remove Owners from Account via API 
+   * @param accountId ID of the account to add owners to (required)
+   * @param removeAccountOwnersRequest Remove Account Owners Request (required)
+   * @return UnitDepositAccountResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UnitDepositAccountResponse removeAccountOwners(String accountId, RemoveAccountOwnersRequest removeAccountOwnersRequest) throws ApiException {
+    ApiResponse<UnitDepositAccountResponse> localVarResponse = removeAccountOwnersWithHttpInfo(accountId, removeAccountOwnersRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Remove Owners from Account by Id
+   * Remove Owners from Account via API 
+   * @param accountId ID of the account to add owners to (required)
+   * @param removeAccountOwnersRequest Remove Account Owners Request (required)
+   * @return ApiResponse&lt;UnitDepositAccountResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<UnitDepositAccountResponse> removeAccountOwnersWithHttpInfo(String accountId, RemoveAccountOwnersRequest removeAccountOwnersRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = removeAccountOwnersRequestBuilder(accountId, removeAccountOwnersRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("removeAccountOwners", localVarResponse);
+        }
+        return new ApiResponse<UnitDepositAccountResponse>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitDepositAccountResponse>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder removeAccountOwnersRequestBuilder(String accountId, RemoveAccountOwnersRequest removeAccountOwnersRequest) throws ApiException {
+    // verify the required parameter 'accountId' is set
+    if (accountId == null) {
+      throw new ApiException(400, "Missing the required parameter 'accountId' when calling removeAccountOwners");
+    }
+    // verify the required parameter 'removeAccountOwnersRequest' is set
+    if (removeAccountOwnersRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'removeAccountOwnersRequest' when calling removeAccountOwners");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/accounts/{accountId}/relationships/customers"
+        .replace("{accountId}", ApiClient.urlEncode(accountId.toString()));
+
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/vnd.api+json");
+    localVarRequestBuilder.header("Accept", "application/vnd.api+json; charset=utf-8");
+
+    try {
+      byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(removeAccountOwnersRequest);
+      localVarRequestBuilder.method("DELETE", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
     } catch (IOException e) {
       throw new ApiException(e);
     }
@@ -9228,14 +10599,99 @@ public class UnitApi {
   }
 
   /**
+   * Replace a Card
+   * Replace a Card via API 
+   * @param cardId ID of the card to replace (required)
+   * @param replaceCardRequest  (required)
+   * @return UnitCardResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UnitCardResponse replaceCard(String cardId, ReplaceCardRequest replaceCardRequest) throws ApiException {
+    ApiResponse<UnitCardResponse> localVarResponse = replaceCardWithHttpInfo(cardId, replaceCardRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Replace a Card
+   * Replace a Card via API 
+   * @param cardId ID of the card to replace (required)
+   * @param replaceCardRequest  (required)
+   * @return ApiResponse&lt;UnitCardResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<UnitCardResponse> replaceCardWithHttpInfo(String cardId, ReplaceCardRequest replaceCardRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = replaceCardRequestBuilder(cardId, replaceCardRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("replaceCard", localVarResponse);
+        }
+        return new ApiResponse<UnitCardResponse>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitCardResponse>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder replaceCardRequestBuilder(String cardId, ReplaceCardRequest replaceCardRequest) throws ApiException {
+    // verify the required parameter 'cardId' is set
+    if (cardId == null) {
+      throw new ApiException(400, "Missing the required parameter 'cardId' when calling replaceCard");
+    }
+    // verify the required parameter 'replaceCardRequest' is set
+    if (replaceCardRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'replaceCardRequest' when calling replaceCard");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/cards/{cardId}/replace"
+        .replace("{cardId}", ApiClient.urlEncode(cardId.toString()));
+
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/vnd.api+json");
+    localVarRequestBuilder.header("Accept", "application/vnd.api+json; charset=utf-8");
+
+    try {
+      byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(replaceCardRequest);
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
    * Report lost as stolen
    * Report lost as stolen via API 
    * @param cardId ID of the card (required)
-   * @return UnitReportLostCardResponse
+   * @return UnitCardResponse
    * @throws ApiException if fails to make API call
    */
-  public UnitReportLostCardResponse reportCardAsLost(String cardId) throws ApiException {
-    ApiResponse<UnitReportLostCardResponse> localVarResponse = reportCardAsLostWithHttpInfo(cardId);
+  public UnitCardResponse reportCardAsLost(String cardId) throws ApiException {
+    ApiResponse<UnitCardResponse> localVarResponse = reportCardAsLostWithHttpInfo(cardId);
     return localVarResponse.getData();
   }
 
@@ -9243,10 +10699,10 @@ public class UnitApi {
    * Report lost as stolen
    * Report lost as stolen via API 
    * @param cardId ID of the card (required)
-   * @return ApiResponse&lt;UnitReportLostCardResponse&gt;
+   * @return ApiResponse&lt;UnitCardResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<UnitReportLostCardResponse> reportCardAsLostWithHttpInfo(String cardId) throws ApiException {
+  public ApiResponse<UnitCardResponse> reportCardAsLostWithHttpInfo(String cardId) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = reportCardAsLostRequestBuilder(cardId);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -9259,10 +10715,10 @@ public class UnitApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("reportCardAsLost", localVarResponse);
         }
-        return new ApiResponse<UnitReportLostCardResponse>(
+        return new ApiResponse<UnitCardResponse>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitReportLostCardResponse>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitCardResponse>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -9304,11 +10760,11 @@ public class UnitApi {
    * Report card as stolen
    * Report card as stolen via API 
    * @param cardId ID of the card (required)
-   * @return UnitReportStolenCardResponse
+   * @return UnitCardResponse
    * @throws ApiException if fails to make API call
    */
-  public UnitReportStolenCardResponse reportCardAsStolen(String cardId) throws ApiException {
-    ApiResponse<UnitReportStolenCardResponse> localVarResponse = reportCardAsStolenWithHttpInfo(cardId);
+  public UnitCardResponse reportCardAsStolen(String cardId) throws ApiException {
+    ApiResponse<UnitCardResponse> localVarResponse = reportCardAsStolenWithHttpInfo(cardId);
     return localVarResponse.getData();
   }
 
@@ -9316,10 +10772,10 @@ public class UnitApi {
    * Report card as stolen
    * Report card as stolen via API 
    * @param cardId ID of the card (required)
-   * @return ApiResponse&lt;UnitReportStolenCardResponse&gt;
+   * @return ApiResponse&lt;UnitCardResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<UnitReportStolenCardResponse> reportCardAsStolenWithHttpInfo(String cardId) throws ApiException {
+  public ApiResponse<UnitCardResponse> reportCardAsStolenWithHttpInfo(String cardId) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = reportCardAsStolenRequestBuilder(cardId);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -9332,10 +10788,10 @@ public class UnitApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("reportCardAsStolen", localVarResponse);
         }
-        return new ApiResponse<UnitReportStolenCardResponse>(
+        return new ApiResponse<UnitCardResponse>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitReportStolenCardResponse>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitCardResponse>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -9358,6 +10814,79 @@ public class UnitApi {
 
     String localVarPath = "/cards/{cardId}/report-stolen"
         .replace("{cardId}", ApiClient.urlEncode(cardId.toString()));
+
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/vnd.api+json; charset=utf-8");
+
+    localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
+   * Reprocess Received Payment by Id
+   * Reprocess a Received Payment via API 
+   * @param paymentId ID of the payment to advance (required)
+   * @return UnitReceivedPaymentResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UnitReceivedPaymentResponse reprocessReceivedPayment(String paymentId) throws ApiException {
+    ApiResponse<UnitReceivedPaymentResponse> localVarResponse = reprocessReceivedPaymentWithHttpInfo(paymentId);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Reprocess Received Payment by Id
+   * Reprocess a Received Payment via API 
+   * @param paymentId ID of the payment to advance (required)
+   * @return ApiResponse&lt;UnitReceivedPaymentResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<UnitReceivedPaymentResponse> reprocessReceivedPaymentWithHttpInfo(String paymentId) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = reprocessReceivedPaymentRequestBuilder(paymentId);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("reprocessReceivedPayment", localVarResponse);
+        }
+        return new ApiResponse<UnitReceivedPaymentResponse>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitReceivedPaymentResponse>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder reprocessReceivedPaymentRequestBuilder(String paymentId) throws ApiException {
+    // verify the required parameter 'paymentId' is set
+    if (paymentId == null) {
+      throw new ApiException(400, "Missing the required parameter 'paymentId' when calling reprocessReceivedPayment");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/received-payments/{paymentId}/reprocess"
+        .replace("{paymentId}", ApiClient.urlEncode(paymentId.toString()));
 
     localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
 
@@ -9459,6 +10988,169 @@ public class UnitApi {
   }
 
   /**
+   * Return Received ACH Transaction
+   * Return Received ACH Transaction via API 
+   * @param transactionId ID of the transaction to return (required)
+   * @param returnReceivedACHTransactionRequest Pass empty object in order for content-type to be aquired correctly (required)
+   * @return UnitReturnedReceivedAchTransactionResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UnitReturnedReceivedAchTransactionResponse returnReceivedACHTransaction(String transactionId, ReturnReceivedACHTransactionRequest returnReceivedACHTransactionRequest) throws ApiException {
+    ApiResponse<UnitReturnedReceivedAchTransactionResponse> localVarResponse = returnReceivedACHTransactionWithHttpInfo(transactionId, returnReceivedACHTransactionRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Return Received ACH Transaction
+   * Return Received ACH Transaction via API 
+   * @param transactionId ID of the transaction to return (required)
+   * @param returnReceivedACHTransactionRequest Pass empty object in order for content-type to be aquired correctly (required)
+   * @return ApiResponse&lt;UnitReturnedReceivedAchTransactionResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<UnitReturnedReceivedAchTransactionResponse> returnReceivedACHTransactionWithHttpInfo(String transactionId, ReturnReceivedACHTransactionRequest returnReceivedACHTransactionRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = returnReceivedACHTransactionRequestBuilder(transactionId, returnReceivedACHTransactionRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("returnReceivedACHTransaction", localVarResponse);
+        }
+        return new ApiResponse<UnitReturnedReceivedAchTransactionResponse>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitReturnedReceivedAchTransactionResponse>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder returnReceivedACHTransactionRequestBuilder(String transactionId, ReturnReceivedACHTransactionRequest returnReceivedACHTransactionRequest) throws ApiException {
+    // verify the required parameter 'transactionId' is set
+    if (transactionId == null) {
+      throw new ApiException(400, "Missing the required parameter 'transactionId' when calling returnReceivedACHTransaction");
+    }
+    // verify the required parameter 'returnReceivedACHTransactionRequest' is set
+    if (returnReceivedACHTransactionRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'returnReceivedACHTransactionRequest' when calling returnReceivedACHTransaction");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/returns/{transactionId}"
+        .replace("{transactionId}", ApiClient.urlEncode(transactionId.toString()));
+
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/vnd.api+json");
+    localVarRequestBuilder.header("Accept", "application/vnd.api+json; charset=utf-8");
+
+    try {
+      byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(returnReceivedACHTransactionRequest);
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
+   * Reverse Fee
+   * Reverse a Fee via API 
+   * @param reverseFeeRequest Reverse Fee Request (required)
+   * @return UnitFeeReversalResponse
+   * @throws ApiException if fails to make API call
+   */
+  public UnitFeeReversalResponse reverseFee(ReverseFeeRequest reverseFeeRequest) throws ApiException {
+    ApiResponse<UnitFeeReversalResponse> localVarResponse = reverseFeeWithHttpInfo(reverseFeeRequest);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Reverse Fee
+   * Reverse a Fee via API 
+   * @param reverseFeeRequest Reverse Fee Request (required)
+   * @return ApiResponse&lt;UnitFeeReversalResponse&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<UnitFeeReversalResponse> reverseFeeWithHttpInfo(ReverseFeeRequest reverseFeeRequest) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = reverseFeeRequestBuilder(reverseFeeRequest);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("reverseFee", localVarResponse);
+        }
+        return new ApiResponse<UnitFeeReversalResponse>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitFeeReversalResponse>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder reverseFeeRequestBuilder(ReverseFeeRequest reverseFeeRequest) throws ApiException {
+    // verify the required parameter 'reverseFeeRequest' is set
+    if (reverseFeeRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'reverseFeeRequest' when calling reverseFee");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/fees/reverse";
+
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Content-Type", "application/vnd.api+json");
+    localVarRequestBuilder.header("Accept", "application/vnd.api+json");
+
+    try {
+      byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(reverseFeeRequest);
+      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
    * Unfreeze Account by Id
    * Unfreeze an Account via API 
    * @param accountId ID of the account to get (required)
@@ -9535,11 +11227,11 @@ public class UnitApi {
    * Unfreeze a Card
    * Unfreeze a Card via API 
    * @param cardId ID of the card to unfreeze (required)
-   * @return UnitUnfreezeCardResponse
+   * @return UnitCardResponse
    * @throws ApiException if fails to make API call
    */
-  public UnitUnfreezeCardResponse unfreezeCard(String cardId) throws ApiException {
-    ApiResponse<UnitUnfreezeCardResponse> localVarResponse = unfreezeCardWithHttpInfo(cardId);
+  public UnitCardResponse unfreezeCard(String cardId) throws ApiException {
+    ApiResponse<UnitCardResponse> localVarResponse = unfreezeCardWithHttpInfo(cardId);
     return localVarResponse.getData();
   }
 
@@ -9547,10 +11239,10 @@ public class UnitApi {
    * Unfreeze a Card
    * Unfreeze a Card via API 
    * @param cardId ID of the card to unfreeze (required)
-   * @return ApiResponse&lt;UnitUnfreezeCardResponse&gt;
+   * @return ApiResponse&lt;UnitCardResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<UnitUnfreezeCardResponse> unfreezeCardWithHttpInfo(String cardId) throws ApiException {
+  public ApiResponse<UnitCardResponse> unfreezeCardWithHttpInfo(String cardId) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = unfreezeCardRequestBuilder(cardId);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -9563,10 +11255,10 @@ public class UnitApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("unfreezeCard", localVarResponse);
         }
-        return new ApiResponse<UnitUnfreezeCardResponse>(
+        return new ApiResponse<UnitCardResponse>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitUnfreezeCardResponse>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitCardResponse>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -9864,11 +11556,11 @@ public class UnitApi {
    * Update a Card via API 
    * @param cardId ID of the card to update (required)
    * @param updateCardRequest Update Card Request (required)
-   * @return UnitUpdateCardResponse
+   * @return UnitCardResponse
    * @throws ApiException if fails to make API call
    */
-  public UnitUpdateCardResponse updateCard(String cardId, UpdateCardRequest updateCardRequest) throws ApiException {
-    ApiResponse<UnitUpdateCardResponse> localVarResponse = updateCardWithHttpInfo(cardId, updateCardRequest);
+  public UnitCardResponse updateCard(String cardId, UpdateCardRequest updateCardRequest) throws ApiException {
+    ApiResponse<UnitCardResponse> localVarResponse = updateCardWithHttpInfo(cardId, updateCardRequest);
     return localVarResponse.getData();
   }
 
@@ -9877,10 +11569,10 @@ public class UnitApi {
    * Update a Card via API 
    * @param cardId ID of the card to update (required)
    * @param updateCardRequest Update Card Request (required)
-   * @return ApiResponse&lt;UnitUpdateCardResponse&gt;
+   * @return ApiResponse&lt;UnitCardResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<UnitUpdateCardResponse> updateCardWithHttpInfo(String cardId, UpdateCardRequest updateCardRequest) throws ApiException {
+  public ApiResponse<UnitCardResponse> updateCardWithHttpInfo(String cardId, UpdateCardRequest updateCardRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = updateCardRequestBuilder(cardId, updateCardRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -9893,10 +11585,10 @@ public class UnitApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("updateCard", localVarResponse);
         }
-        return new ApiResponse<UnitUpdateCardResponse>(
+        return new ApiResponse<UnitCardResponse>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitUpdateCardResponse>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitCardResponse>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -9949,11 +11641,11 @@ public class UnitApi {
    * Update a Check Deposit via API 
    * @param checkDepositId ID of the check deposit to update (required)
    * @param updateCheckDepositRequest Update Check Deposit Request (required)
-   * @return UnitUpdateCheckDepositResponse
+   * @return UnitCheckDepositResponse
    * @throws ApiException if fails to make API call
    */
-  public UnitUpdateCheckDepositResponse updateCheckDeposit(String checkDepositId, UpdateCheckDepositRequest updateCheckDepositRequest) throws ApiException {
-    ApiResponse<UnitUpdateCheckDepositResponse> localVarResponse = updateCheckDepositWithHttpInfo(checkDepositId, updateCheckDepositRequest);
+  public UnitCheckDepositResponse updateCheckDeposit(String checkDepositId, UpdateCheckDepositRequest updateCheckDepositRequest) throws ApiException {
+    ApiResponse<UnitCheckDepositResponse> localVarResponse = updateCheckDepositWithHttpInfo(checkDepositId, updateCheckDepositRequest);
     return localVarResponse.getData();
   }
 
@@ -9962,10 +11654,10 @@ public class UnitApi {
    * Update a Check Deposit via API 
    * @param checkDepositId ID of the check deposit to update (required)
    * @param updateCheckDepositRequest Update Check Deposit Request (required)
-   * @return ApiResponse&lt;UnitUpdateCheckDepositResponse&gt;
+   * @return ApiResponse&lt;UnitCheckDepositResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<UnitUpdateCheckDepositResponse> updateCheckDepositWithHttpInfo(String checkDepositId, UpdateCheckDepositRequest updateCheckDepositRequest) throws ApiException {
+  public ApiResponse<UnitCheckDepositResponse> updateCheckDepositWithHttpInfo(String checkDepositId, UpdateCheckDepositRequest updateCheckDepositRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = updateCheckDepositRequestBuilder(checkDepositId, updateCheckDepositRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -9978,10 +11670,10 @@ public class UnitApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("updateCheckDeposit", localVarResponse);
         }
-        return new ApiResponse<UnitUpdateCheckDepositResponse>(
+        return new ApiResponse<UnitCheckDepositResponse>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitUpdateCheckDepositResponse>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitCheckDepositResponse>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -10466,11 +12158,11 @@ public class UnitApi {
    * Update a Webhook via API 
    * @param webhookId ID of the Webhook to update (required)
    * @param updateWebhookRequest Update Webhook Request (required)
-   * @return WebhookResponse
+   * @return UnitWebhookResponse
    * @throws ApiException if fails to make API call
    */
-  public WebhookResponse updateWebhook(String webhookId, UpdateWebhookRequest updateWebhookRequest) throws ApiException {
-    ApiResponse<WebhookResponse> localVarResponse = updateWebhookWithHttpInfo(webhookId, updateWebhookRequest);
+  public UnitWebhookResponse updateWebhook(String webhookId, UpdateWebhookRequest updateWebhookRequest) throws ApiException {
+    ApiResponse<UnitWebhookResponse> localVarResponse = updateWebhookWithHttpInfo(webhookId, updateWebhookRequest);
     return localVarResponse.getData();
   }
 
@@ -10479,10 +12171,10 @@ public class UnitApi {
    * Update a Webhook via API 
    * @param webhookId ID of the Webhook to update (required)
    * @param updateWebhookRequest Update Webhook Request (required)
-   * @return ApiResponse&lt;WebhookResponse&gt;
+   * @return ApiResponse&lt;UnitWebhookResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<WebhookResponse> updateWebhookWithHttpInfo(String webhookId, UpdateWebhookRequest updateWebhookRequest) throws ApiException {
+  public ApiResponse<UnitWebhookResponse> updateWebhookWithHttpInfo(String webhookId, UpdateWebhookRequest updateWebhookRequest) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = updateWebhookRequestBuilder(webhookId, updateWebhookRequest);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
@@ -10495,10 +12187,10 @@ public class UnitApi {
         if (localVarResponse.statusCode()/ 100 != 2) {
           throw getApiException("updateWebhook", localVarResponse);
         }
-        return new ApiResponse<WebhookResponse>(
+        return new ApiResponse<UnitWebhookResponse>(
           localVarResponse.statusCode(),
           localVarResponse.headers().map(),
-          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<WebhookResponse>() {}) // closes the InputStream
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<UnitWebhookResponse>() {}) // closes the InputStream
         );
       } finally {
       }
@@ -10551,12 +12243,13 @@ public class UnitApi {
    * 
    * @param applicationId ID of the application to upload a file to (required)
    * @param documentId ID of the document to upload a file for (required)
-   * @param body An application document file. SDK only temporarily supports only ... files (required)
+   * @param _file  (required)
+   * @param fileType  (required)
    * @return UnitDocumentResponse
    * @throws ApiException if fails to make API call
    */
-  public UnitDocumentResponse uploadApplicationDocumentFile(String applicationId, String documentId, File body) throws ApiException {
-    ApiResponse<UnitDocumentResponse> localVarResponse = uploadApplicationDocumentFileWithHttpInfo(applicationId, documentId, body);
+  public UnitDocumentResponse uploadApplicationDocumentFile(String applicationId, String documentId, File _file, UploadApplicationDocumentContentType fileType) throws ApiException {
+    ApiResponse<UnitDocumentResponse> localVarResponse = uploadApplicationDocumentFileWithHttpInfo(applicationId, documentId, _file, fileType);
     return localVarResponse.getData();
   }
 
@@ -10565,12 +12258,13 @@ public class UnitApi {
    * 
    * @param applicationId ID of the application to upload a file to (required)
    * @param documentId ID of the document to upload a file for (required)
-   * @param body An application document file. SDK only temporarily supports only ... files (required)
+   * @param _file  (required)
+   * @param fileType  (required)
    * @return ApiResponse&lt;UnitDocumentResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<UnitDocumentResponse> uploadApplicationDocumentFileWithHttpInfo(String applicationId, String documentId, File body) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = uploadApplicationDocumentFileRequestBuilder(applicationId, documentId, body);
+  public ApiResponse<UnitDocumentResponse> uploadApplicationDocumentFileWithHttpInfo(String applicationId, String documentId, File _file, UploadApplicationDocumentContentType fileType) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = uploadApplicationDocumentFileRequestBuilder(applicationId, documentId, _file, fileType);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -10598,7 +12292,7 @@ public class UnitApi {
     }
   }
 
-  private HttpRequest.Builder uploadApplicationDocumentFileRequestBuilder(String applicationId, String documentId, File body) throws ApiException {
+  private HttpRequest.Builder uploadApplicationDocumentFileRequestBuilder(String applicationId, String documentId, File _file, UploadApplicationDocumentContentType fileType) throws ApiException {
     // verify the required parameter 'applicationId' is set
     if (applicationId == null) {
       throw new ApiException(400, "Missing the required parameter 'applicationId' when calling uploadApplicationDocumentFile");
@@ -10607,28 +12301,60 @@ public class UnitApi {
     if (documentId == null) {
       throw new ApiException(400, "Missing the required parameter 'documentId' when calling uploadApplicationDocumentFile");
     }
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling uploadApplicationDocumentFile");
+    // verify the required parameter '_file' is set
+    if (_file == null) {
+      throw new ApiException(400, "Missing the required parameter '_file' when calling uploadApplicationDocumentFile");
+    }
+    // verify the required parameter 'fileType' is set
+    if (fileType == null) {
+      throw new ApiException(400, "Missing the required parameter 'fileType' when calling uploadApplicationDocumentFile");
     }
 
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
-    String localVarPath = "/applications/{applicationId}/documents/{documentId}"
+    String localVarPath = "/applications/{applicationId}/documents/{documentId}/multipart"
         .replace("{applicationId}", ApiClient.urlEncode(applicationId.toString()))
         .replace("{documentId}", ApiClient.urlEncode(documentId.toString()));
 
     localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
 
-    localVarRequestBuilder.header("Content-Type", "application/pdf");
     localVarRequestBuilder.header("Accept", "application/vnd.api+json; charset=utf-8");
 
-    try {
-      byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(body);
-      localVarRequestBuilder.method("PUT", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
-    } catch (IOException e) {
-      throw new ApiException(e);
+    MultipartEntityBuilder multiPartBuilder = MultipartEntityBuilder.create();
+    boolean hasFiles = false;
+    multiPartBuilder.addBinaryBody("file", _file);
+    hasFiles = true;
+    multiPartBuilder.addTextBody("fileType", fileType.toString());
+    HttpEntity entity = multiPartBuilder.build();
+    HttpRequest.BodyPublisher formDataPublisher;
+    if (hasFiles) {
+        Pipe pipe;
+        try {
+            pipe = Pipe.open();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        new Thread(() -> {
+            try (OutputStream outputStream = Channels.newOutputStream(pipe.sink())) {
+                entity.writeTo(outputStream);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }).start();
+        formDataPublisher = HttpRequest.BodyPublishers.ofInputStream(() -> Channels.newInputStream(pipe.source()));
+    } else {
+        ByteArrayOutputStream formOutputStream = new ByteArrayOutputStream();
+        try {
+            entity.writeTo(formOutputStream);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        formDataPublisher = HttpRequest.BodyPublishers
+            .ofInputStream(() -> new ByteArrayInputStream(formOutputStream.toByteArray()));
     }
+    localVarRequestBuilder
+        .header("Content-Type", entity.getContentType().getValue())
+        .method("PUT", formDataPublisher);
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }
@@ -10643,12 +12369,13 @@ public class UnitApi {
    * Upload an application file via API - Back Side. Supports PDF, PNG and JPG files
    * @param applicationId ID of the application to upload a file to (required)
    * @param documentId ID of the document to upload a file for (required)
-   * @param body Upload an application document file - Back Side. Supports PDF, PNG and JPG files (required)
+   * @param _file  (required)
+   * @param fileType  (required)
    * @return UnitDocumentResponse
    * @throws ApiException if fails to make API call
    */
-  public UnitDocumentResponse uploadApplicationDocumentFileBackSide(String applicationId, String documentId, Object body) throws ApiException {
-    ApiResponse<UnitDocumentResponse> localVarResponse = uploadApplicationDocumentFileBackSideWithHttpInfo(applicationId, documentId, body);
+  public UnitDocumentResponse uploadApplicationDocumentFileBackSide(String applicationId, String documentId, File _file, UploadApplicationDocumentContentType fileType) throws ApiException {
+    ApiResponse<UnitDocumentResponse> localVarResponse = uploadApplicationDocumentFileBackSideWithHttpInfo(applicationId, documentId, _file, fileType);
     return localVarResponse.getData();
   }
 
@@ -10657,12 +12384,13 @@ public class UnitApi {
    * Upload an application file via API - Back Side. Supports PDF, PNG and JPG files
    * @param applicationId ID of the application to upload a file to (required)
    * @param documentId ID of the document to upload a file for (required)
-   * @param body Upload an application document file - Back Side. Supports PDF, PNG and JPG files (required)
+   * @param _file  (required)
+   * @param fileType  (required)
    * @return ApiResponse&lt;UnitDocumentResponse&gt;
    * @throws ApiException if fails to make API call
    */
-  public ApiResponse<UnitDocumentResponse> uploadApplicationDocumentFileBackSideWithHttpInfo(String applicationId, String documentId, Object body) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = uploadApplicationDocumentFileBackSideRequestBuilder(applicationId, documentId, body);
+  public ApiResponse<UnitDocumentResponse> uploadApplicationDocumentFileBackSideWithHttpInfo(String applicationId, String documentId, File _file, UploadApplicationDocumentContentType fileType) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = uploadApplicationDocumentFileBackSideRequestBuilder(applicationId, documentId, _file, fileType);
     try {
       HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
           localVarRequestBuilder.build(),
@@ -10690,7 +12418,7 @@ public class UnitApi {
     }
   }
 
-  private HttpRequest.Builder uploadApplicationDocumentFileBackSideRequestBuilder(String applicationId, String documentId, Object body) throws ApiException {
+  private HttpRequest.Builder uploadApplicationDocumentFileBackSideRequestBuilder(String applicationId, String documentId, File _file, UploadApplicationDocumentContentType fileType) throws ApiException {
     // verify the required parameter 'applicationId' is set
     if (applicationId == null) {
       throw new ApiException(400, "Missing the required parameter 'applicationId' when calling uploadApplicationDocumentFileBackSide");
@@ -10699,28 +12427,60 @@ public class UnitApi {
     if (documentId == null) {
       throw new ApiException(400, "Missing the required parameter 'documentId' when calling uploadApplicationDocumentFileBackSide");
     }
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling uploadApplicationDocumentFileBackSide");
+    // verify the required parameter '_file' is set
+    if (_file == null) {
+      throw new ApiException(400, "Missing the required parameter '_file' when calling uploadApplicationDocumentFileBackSide");
+    }
+    // verify the required parameter 'fileType' is set
+    if (fileType == null) {
+      throw new ApiException(400, "Missing the required parameter 'fileType' when calling uploadApplicationDocumentFileBackSide");
     }
 
     HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
 
-    String localVarPath = "/applications/{applicationId}/documents/{documentId}/back"
+    String localVarPath = "/applications/{applicationId}/documents/{documentId}/back/multipart"
         .replace("{applicationId}", ApiClient.urlEncode(applicationId.toString()))
         .replace("{documentId}", ApiClient.urlEncode(documentId.toString()));
 
     localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
 
-    localVarRequestBuilder.header("Content-Type", "application/pdf");
     localVarRequestBuilder.header("Accept", "application/vnd.api+json; charset=utf-8");
 
-    try {
-      byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(body);
-      localVarRequestBuilder.method("PUT", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
-    } catch (IOException e) {
-      throw new ApiException(e);
+    MultipartEntityBuilder multiPartBuilder = MultipartEntityBuilder.create();
+    boolean hasFiles = false;
+    multiPartBuilder.addBinaryBody("file", _file);
+    hasFiles = true;
+    multiPartBuilder.addTextBody("fileType", fileType.toString());
+    HttpEntity entity = multiPartBuilder.build();
+    HttpRequest.BodyPublisher formDataPublisher;
+    if (hasFiles) {
+        Pipe pipe;
+        try {
+            pipe = Pipe.open();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        new Thread(() -> {
+            try (OutputStream outputStream = Channels.newOutputStream(pipe.sink())) {
+                entity.writeTo(outputStream);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }).start();
+        formDataPublisher = HttpRequest.BodyPublishers.ofInputStream(() -> Channels.newInputStream(pipe.source()));
+    } else {
+        ByteArrayOutputStream formOutputStream = new ByteArrayOutputStream();
+        try {
+            entity.writeTo(formOutputStream);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        formDataPublisher = HttpRequest.BodyPublishers
+            .ofInputStream(() -> new ByteArrayInputStream(formOutputStream.toByteArray()));
     }
+    localVarRequestBuilder
+        .header("Content-Type", entity.getContentType().getValue())
+        .method("PUT", formDataPublisher);
     if (memberVarReadTimeout != null) {
       localVarRequestBuilder.timeout(memberVarReadTimeout);
     }

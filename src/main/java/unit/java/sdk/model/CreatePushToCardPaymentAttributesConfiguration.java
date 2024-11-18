@@ -29,13 +29,14 @@ import unit.java.sdk.model.Astra;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * CreatePushToCardPaymentAttributesConfiguration
  */
 @JsonPropertyOrder({
   CreatePushToCardPaymentAttributesConfiguration.JSON_PROPERTY_ASTRA
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CreatePushToCardPaymentAttributesConfiguration {
   public static final String JSON_PROPERTY_ASTRA = "astra";
   private Astra astra;
@@ -48,14 +49,13 @@ public class CreatePushToCardPaymentAttributesConfiguration {
     return this;
   }
 
-   /**
+  /**
    * Get astra
    * @return astra
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ASTRA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Astra getAstra() {
     return astra;
   }

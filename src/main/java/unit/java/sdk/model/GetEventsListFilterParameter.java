@@ -30,6 +30,7 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * GetEventsListFilterParameter
  */
@@ -38,7 +39,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   GetEventsListFilterParameter.JSON_PROPERTY_UNTIL,
   GetEventsListFilterParameter.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class GetEventsListFilterParameter {
   public static final String JSON_PROPERTY_SINCE = "since";
   private String since;
@@ -57,14 +58,13 @@ public class GetEventsListFilterParameter {
     return this;
   }
 
-   /**
+  /**
    * Get since
    * @return since
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSince() {
     return since;
   }
@@ -82,14 +82,13 @@ public class GetEventsListFilterParameter {
     return this;
   }
 
-   /**
+  /**
    * Get until
    * @return until
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_UNTIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getUntil() {
     return until;
   }
@@ -115,14 +114,13 @@ public class GetEventsListFilterParameter {
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getType() {
     return type;
   }
@@ -213,12 +211,12 @@ public class GetEventsListFilterParameter {
 
     // add `since` to the URL query string
     if (getSince() != null) {
-      joiner.add(String.format("%ssince%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSince()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%ssince%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getSince()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `until` to the URL query string
     if (getUntil() != null) {
-      joiner.add(String.format("%suntil%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUntil()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%suntil%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getUntil()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `type` to the URL query string
@@ -226,7 +224,7 @@ public class GetEventsListFilterParameter {
       for (int i = 0; i < getType().size(); i++) {
         joiner.add(String.format("%stype%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
-            URLEncoder.encode(String.valueOf(getType().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+            URLEncoder.encode(ApiClient.valueToString(getType().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
     }
 

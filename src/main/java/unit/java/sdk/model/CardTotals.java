@@ -28,6 +28,7 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * CardTotals
  */
@@ -37,7 +38,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CardTotals.JSON_PROPERTY_PURCHASES,
   CardTotals.JSON_PROPERTY_CARD_TRANSACTIONS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CardTotals {
   public static final String JSON_PROPERTY_WITHDRAWALS = "withdrawals";
   private Integer withdrawals;
@@ -59,14 +60,13 @@ public class CardTotals {
     return this;
   }
 
-   /**
+  /**
    * Get withdrawals
    * @return withdrawals
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_WITHDRAWALS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Integer getWithdrawals() {
     return withdrawals;
   }
@@ -84,14 +84,13 @@ public class CardTotals {
     return this;
   }
 
-   /**
+  /**
    * Get deposits
    * @return deposits
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_DEPOSITS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Integer getDeposits() {
     return deposits;
   }
@@ -109,14 +108,13 @@ public class CardTotals {
     return this;
   }
 
-   /**
+  /**
    * Get purchases
    * @return purchases
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_PURCHASES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Integer getPurchases() {
     return purchases;
   }
@@ -134,14 +132,13 @@ public class CardTotals {
     return this;
   }
 
-   /**
+  /**
    * Get cardTransactions
    * @return cardTransactions
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_CARD_TRANSACTIONS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Integer getCardTransactions() {
     return cardTransactions;
   }
@@ -234,22 +231,22 @@ public class CardTotals {
 
     // add `withdrawals` to the URL query string
     if (getWithdrawals() != null) {
-      joiner.add(String.format("%swithdrawals%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getWithdrawals()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%swithdrawals%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getWithdrawals()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `deposits` to the URL query string
     if (getDeposits() != null) {
-      joiner.add(String.format("%sdeposits%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDeposits()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sdeposits%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDeposits()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `purchases` to the URL query string
     if (getPurchases() != null) {
-      joiner.add(String.format("%spurchases%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPurchases()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%spurchases%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getPurchases()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `cardTransactions` to the URL query string
     if (getCardTransactions() != null) {
-      joiner.add(String.format("%scardTransactions%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCardTransactions()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%scardTransactions%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCardTransactions()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

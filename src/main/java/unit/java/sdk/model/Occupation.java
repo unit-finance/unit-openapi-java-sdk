@@ -30,49 +30,49 @@ import com.fasterxml.jackson.annotation.JsonValue;
  */
 public enum Occupation {
   
-  ARCHITECTORENGINEER("ArchitectOrEngineer"),
+  ARCHITECT_OR_ENGINEER("ArchitectOrEngineer"),
   
-  BUSINESSANALYSTACCOUNTANTORFINANCIALADVISOR("BusinessAnalystAccountantOrFinancialAdvisor"),
+  BUSINESS_ANALYST_ACCOUNTANT_OR_FINANCIAL_ADVISOR("BusinessAnalystAccountantOrFinancialAdvisor"),
   
-  COMMUNITYANDSOCIALSERVICESWORKER("CommunityAndSocialServicesWorker"),
+  COMMUNITY_AND_SOCIAL_SERVICES_WORKER("CommunityAndSocialServicesWorker"),
   
-  CONSTRUCTIONMECHANICORMAINTENANCEWORKER("ConstructionMechanicOrMaintenanceWorker"),
+  CONSTRUCTION_MECHANIC_OR_MAINTENANCE_WORKER("ConstructionMechanicOrMaintenanceWorker"),
   
   DOCTOR("Doctor"),
   
   EDUCATOR("Educator"),
   
-  ENTERTAINMENTSPORTSARTSORMEDIA("EntertainmentSportsArtsOrMedia"),
+  ENTERTAINMENT_SPORTS_ARTS_OR_MEDIA("EntertainmentSportsArtsOrMedia"),
   
-  EXECUTIVEORMANAGER("ExecutiveOrManager"),
+  EXECUTIVE_OR_MANAGER("ExecutiveOrManager"),
   
-  FARMERFISHERMANFORESTER("FarmerFishermanForester"),
+  FARMER_FISHERMAN_FORESTER("FarmerFishermanForester"),
   
-  FOODSERVICEWORKER("FoodServiceWorker"),
+  FOOD_SERVICE_WORKER("FoodServiceWorker"),
   
-  GIGWORKER("GigWorker"),
+  GIG_WORKER("GigWorker"),
   
-  HOSPITALITYOFFICEORADMINISTRATIVESUPPORTWORKER("HospitalityOfficeOrAdministrativeSupportWorker"),
+  HOSPITALITY_OFFICE_OR_ADMINISTRATIVE_SUPPORT_WORKER("HospitalityOfficeOrAdministrativeSupportWorker"),
   
-  HOUSEHOLDMANAGER("HouseholdManager"),
+  HOUSEHOLD_MANAGER("HouseholdManager"),
   
-  JANITORHOUSEKEEPERLANDSCAPER("JanitorHousekeeperLandscaper"),
+  JANITOR_HOUSEKEEPER_LANDSCAPER("JanitorHousekeeperLandscaper"),
   
   LAWYER("Lawyer"),
   
-  MANUFACTURINGORPRODUCTIONWORKER("ManufacturingOrProductionWorker"),
+  MANUFACTURING_OR_PRODUCTION_WORKER("ManufacturingOrProductionWorker"),
   
-  MILITARYORPUBLICSAFETY("MilitaryOrPublicSafety"),
+  MILITARY_OR_PUBLIC_SAFETY("MilitaryOrPublicSafety"),
   
-  NURSEHEALTHCARETECHNICIANORHEALTHCARESUPPORT("NurseHealthcareTechnicianOrHealthcareSupport"),
+  NURSE_HEALTHCARE_TECHNICIAN_OR_HEALTHCARE_SUPPORT("NurseHealthcareTechnicianOrHealthcareSupport"),
   
-  PERSONALCAREORSERVICEWORKER("PersonalCareOrServiceWorker"),
+  PERSONAL_CARE_OR_SERVICE_WORKER("PersonalCareOrServiceWorker"),
   
-  PILOTDRIVEROPERATOR("PilotDriverOperator"),
+  PILOT_DRIVER_OPERATOR("PilotDriverOperator"),
   
-  SALESREPRESENTATIVEBROKERAGENT("SalesRepresentativeBrokerAgent"),
+  SALES_REPRESENTATIVE_BROKER_AGENT("SalesRepresentativeBrokerAgent"),
   
-  SCIENTISTORTECHNOLOGIST("ScientistOrTechnologist"),
+  SCIENTIST_OR_TECHNOLOGIST("ScientistOrTechnologist"),
   
   STUDENT("Student");
 

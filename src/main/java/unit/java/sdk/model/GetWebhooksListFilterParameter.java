@@ -28,6 +28,7 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * GetWebhooksListFilterParameter
  */
@@ -37,7 +38,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   GetWebhooksListFilterParameter.JSON_PROPERTY_FROM_ID,
   GetWebhooksListFilterParameter.JSON_PROPERTY_TO_ID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class GetWebhooksListFilterParameter {
   public static final String JSON_PROPERTY_SINCE = "since";
   private String since;
@@ -59,14 +60,13 @@ public class GetWebhooksListFilterParameter {
     return this;
   }
 
-   /**
+  /**
    * Get since
    * @return since
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSince() {
     return since;
   }
@@ -84,14 +84,13 @@ public class GetWebhooksListFilterParameter {
     return this;
   }
 
-   /**
+  /**
    * Get until
    * @return until
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_UNTIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getUntil() {
     return until;
   }
@@ -109,14 +108,13 @@ public class GetWebhooksListFilterParameter {
     return this;
   }
 
-   /**
+  /**
    * Get fromId
    * @return fromId
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FROM_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getFromId() {
     return fromId;
   }
@@ -134,14 +132,13 @@ public class GetWebhooksListFilterParameter {
     return this;
   }
 
-   /**
+  /**
    * Get toId
    * @return toId
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TO_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getToId() {
     return toId;
   }
@@ -234,22 +231,22 @@ public class GetWebhooksListFilterParameter {
 
     // add `since` to the URL query string
     if (getSince() != null) {
-      joiner.add(String.format("%ssince%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSince()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%ssince%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getSince()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `until` to the URL query string
     if (getUntil() != null) {
-      joiner.add(String.format("%suntil%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUntil()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%suntil%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getUntil()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `fromId` to the URL query string
     if (getFromId() != null) {
-      joiner.add(String.format("%sfromId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getFromId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sfromId%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getFromId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `toId` to the URL query string
     if (getToId() != null) {
-      joiner.add(String.format("%stoId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getToId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%stoId%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getToId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

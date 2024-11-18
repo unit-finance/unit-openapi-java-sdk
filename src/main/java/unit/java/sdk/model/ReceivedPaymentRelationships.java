@@ -34,6 +34,7 @@ import unit.java.sdk.model.RepayPaymentAdvanceTransactionRelationship;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * ReceivedPaymentRelationships
  */
@@ -44,7 +45,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   ReceivedPaymentRelationships.JSON_PROPERTY_PAYMENT_ADVANCE_TRANSACTION,
   ReceivedPaymentRelationships.JSON_PROPERTY_REPAY_PAYMENT_ADVANCE_TRANSACTION
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ReceivedPaymentRelationships {
   public static final String JSON_PROPERTY_ACCOUNT = "account";
   private AccountRelationship account;
@@ -69,14 +70,13 @@ public class ReceivedPaymentRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get account
    * @return account
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public AccountRelationship getAccount() {
     return account;
   }
@@ -94,14 +94,13 @@ public class ReceivedPaymentRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get customer
    * @return customer
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_CUSTOMER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public CustomerRelationship getCustomer() {
     return customer;
   }
@@ -119,14 +118,13 @@ public class ReceivedPaymentRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get receivePaymentTransaction
    * @return receivePaymentTransaction
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RECEIVE_PAYMENT_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ReceivePaymentTransactionRelationship getReceivePaymentTransaction() {
     return receivePaymentTransaction;
   }
@@ -144,14 +142,13 @@ public class ReceivedPaymentRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get paymentAdvanceTransaction
    * @return paymentAdvanceTransaction
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PAYMENT_ADVANCE_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public PaymentAdvanceTransactionRelationship getPaymentAdvanceTransaction() {
     return paymentAdvanceTransaction;
   }
@@ -169,14 +166,13 @@ public class ReceivedPaymentRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get repayPaymentAdvanceTransaction
    * @return repayPaymentAdvanceTransaction
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REPAY_PAYMENT_ADVANCE_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public RepayPaymentAdvanceTransactionRelationship getRepayPaymentAdvanceTransaction() {
     return repayPaymentAdvanceTransaction;
   }

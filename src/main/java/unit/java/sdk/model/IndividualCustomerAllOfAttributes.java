@@ -42,6 +42,7 @@ import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * IndividualCustomerAllOfAttributes
  */
@@ -69,7 +70,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   IndividualCustomerAllOfAttributes.JSON_PROPERTY_STATUS,
   IndividualCustomerAllOfAttributes.JSON_PROPERTY_ARCHIVE_REASON
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class IndividualCustomerAllOfAttributes {
   public static final String JSON_PROPERTY_CREATED_AT = "createdAt";
   private OffsetDateTime createdAt;
@@ -212,19 +213,19 @@ public class IndividualCustomerAllOfAttributes {
   public enum ArchiveReasonEnum {
     INACTIVE("Inactive"),
     
-    FRAUDACHACTIVITY("FraudACHActivity"),
+    FRAUD_ACH_ACTIVITY("FraudACHActivity"),
     
-    FRAUDCARDACTIVITY("FraudCardActivity"),
+    FRAUD_CARD_ACTIVITY("FraudCardActivity"),
     
-    FRAUDCHECKACTIVITY("FraudCheckActivity"),
+    FRAUD_CHECK_ACTIVITY("FraudCheckActivity"),
     
-    FRAUDAPPLICATIONHISTORY("FraudApplicationHistory"),
+    FRAUD_APPLICATION_HISTORY("FraudApplicationHistory"),
     
-    FRAUDACCOUNTACTIVITY("FraudAccountActivity"),
+    FRAUD_ACCOUNT_ACTIVITY("FraudAccountActivity"),
     
-    FRAUDCLIENTIDENTIFIED("FraudClientIdentified"),
+    FRAUD_CLIENT_IDENTIFIED("FraudClientIdentified"),
     
-    FRAUDLINKEDTOFRAUDULENTCUSTOMER("FraudLinkedToFraudulentCustomer");
+    FRAUD_LINKED_TO_FRAUDULENT_CUSTOMER("FraudLinkedToFraudulentCustomer");
 
     private String value;
 
@@ -264,14 +265,13 @@ public class IndividualCustomerAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get createdAt
    * @return createdAt
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
@@ -289,14 +289,13 @@ public class IndividualCustomerAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get fullName
    * @return fullName
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_FULL_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public FullName getFullName() {
     return fullName;
   }
@@ -314,14 +313,13 @@ public class IndividualCustomerAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get email
    * @return email
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getEmail() {
     return email;
   }
@@ -339,14 +337,13 @@ public class IndividualCustomerAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get phone
    * @return phone
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PHONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Phone getPhone() {
     return phone;
   }
@@ -364,14 +361,13 @@ public class IndividualCustomerAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get ssn
    * @return ssn
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SSN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSsn() {
     return ssn;
   }
@@ -389,14 +385,13 @@ public class IndividualCustomerAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get passport
    * @return passport
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PASSPORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPassport() {
     return passport;
   }
@@ -414,14 +409,13 @@ public class IndividualCustomerAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get nationality
    * @return nationality
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NATIONALITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getNationality() {
     return nationality;
   }
@@ -439,14 +433,13 @@ public class IndividualCustomerAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get matriculaConsular
    * @return matriculaConsular
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MATRICULA_CONSULAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMatriculaConsular() {
     return matriculaConsular;
   }
@@ -464,14 +457,13 @@ public class IndividualCustomerAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get address
    * @return address
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Address getAddress() {
     return address;
   }
@@ -489,14 +481,13 @@ public class IndividualCustomerAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get dateOfBirth
    * @return dateOfBirth
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATE_OF_BIRTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LocalDate getDateOfBirth() {
     return dateOfBirth;
   }
@@ -514,14 +505,13 @@ public class IndividualCustomerAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get ein
    * @return ein
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getEin() {
     return ein;
   }
@@ -539,14 +529,13 @@ public class IndividualCustomerAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get dba
    * @return dba
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DBA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDba() {
     return dba;
   }
@@ -564,14 +553,13 @@ public class IndividualCustomerAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get soleProprietorship
    * @return soleProprietorship
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SOLE_PROPRIETORSHIP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getSoleProprietorship() {
     return soleProprietorship;
   }
@@ -597,14 +585,13 @@ public class IndividualCustomerAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get tags
    * @return tags
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getTags() {
     return tags;
   }
@@ -622,14 +609,13 @@ public class IndividualCustomerAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get riskRate
    * @return riskRate
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RISK_RATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public RiskRateEnum getRiskRate() {
     return riskRate;
   }
@@ -647,14 +633,13 @@ public class IndividualCustomerAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get maskedSSN
    * @return maskedSSN
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MASKED_S_S_N)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMaskedSSN() {
     return maskedSSN;
   }
@@ -672,14 +657,13 @@ public class IndividualCustomerAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get maskedPassport
    * @return maskedPassport
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MASKED_PASSPORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMaskedPassport() {
     return maskedPassport;
   }
@@ -697,14 +681,13 @@ public class IndividualCustomerAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get maskedMatriculaConsular
    * @return maskedMatriculaConsular
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MASKED_MATRICULA_CONSULAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMaskedMatriculaConsular() {
     return maskedMatriculaConsular;
   }
@@ -730,14 +713,13 @@ public class IndividualCustomerAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get authorizedUsers
    * @return authorizedUsers
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AUTHORIZED_USERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<AuthorizedUser> getAuthorizedUsers() {
     return authorizedUsers;
   }
@@ -755,13 +737,12 @@ public class IndividualCustomerAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get jwtSubject
    * @return jwtSubject
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonIgnore
-
   public String getJwtSubject() {
         return jwtSubject.orElse(null);
   }
@@ -788,14 +769,13 @@ public class IndividualCustomerAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get status
    * @return status
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public StatusEnum getStatus() {
     return status;
   }
@@ -813,14 +793,13 @@ public class IndividualCustomerAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get archiveReason
    * @return archiveReason
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ARCHIVE_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ArchiveReasonEnum getArchiveReason() {
     return archiveReason;
   }
@@ -960,7 +939,7 @@ public class IndividualCustomerAllOfAttributes {
 
     // add `createdAt` to the URL query string
     if (getCreatedAt() != null) {
-      joiner.add(String.format("%screatedAt%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%screatedAt%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCreatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `fullName` to the URL query string
@@ -970,7 +949,7 @@ public class IndividualCustomerAllOfAttributes {
 
     // add `email` to the URL query string
     if (getEmail() != null) {
-      joiner.add(String.format("%semail%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEmail()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%semail%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getEmail()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `phone` to the URL query string
@@ -980,22 +959,22 @@ public class IndividualCustomerAllOfAttributes {
 
     // add `ssn` to the URL query string
     if (getSsn() != null) {
-      joiner.add(String.format("%sssn%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSsn()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sssn%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getSsn()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `passport` to the URL query string
     if (getPassport() != null) {
-      joiner.add(String.format("%spassport%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPassport()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%spassport%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getPassport()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `nationality` to the URL query string
     if (getNationality() != null) {
-      joiner.add(String.format("%snationality%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getNationality()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%snationality%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getNationality()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `matriculaConsular` to the URL query string
     if (getMatriculaConsular() != null) {
-      joiner.add(String.format("%smatriculaConsular%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMatriculaConsular()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%smatriculaConsular%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getMatriculaConsular()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `address` to the URL query string
@@ -1005,22 +984,22 @@ public class IndividualCustomerAllOfAttributes {
 
     // add `dateOfBirth` to the URL query string
     if (getDateOfBirth() != null) {
-      joiner.add(String.format("%sdateOfBirth%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDateOfBirth()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sdateOfBirth%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDateOfBirth()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `ein` to the URL query string
     if (getEin() != null) {
-      joiner.add(String.format("%sein%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEin()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sein%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getEin()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `dba` to the URL query string
     if (getDba() != null) {
-      joiner.add(String.format("%sdba%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDba()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sdba%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDba()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `soleProprietorship` to the URL query string
     if (getSoleProprietorship() != null) {
-      joiner.add(String.format("%ssoleProprietorship%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSoleProprietorship()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%ssoleProprietorship%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getSoleProprietorship()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `tags` to the URL query string
@@ -1028,28 +1007,28 @@ public class IndividualCustomerAllOfAttributes {
       for (String _key : getTags().keySet()) {
         joiner.add(String.format("%stags%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
-            getTags().get(_key), URLEncoder.encode(String.valueOf(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+            getTags().get(_key), URLEncoder.encode(ApiClient.valueToString(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
     }
 
     // add `riskRate` to the URL query string
     if (getRiskRate() != null) {
-      joiner.add(String.format("%sriskRate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getRiskRate()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sriskRate%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getRiskRate()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `maskedSSN` to the URL query string
     if (getMaskedSSN() != null) {
-      joiner.add(String.format("%smaskedSSN%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMaskedSSN()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%smaskedSSN%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getMaskedSSN()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `maskedPassport` to the URL query string
     if (getMaskedPassport() != null) {
-      joiner.add(String.format("%smaskedPassport%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMaskedPassport()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%smaskedPassport%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getMaskedPassport()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `maskedMatriculaConsular` to the URL query string
     if (getMaskedMatriculaConsular() != null) {
-      joiner.add(String.format("%smaskedMatriculaConsular%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMaskedMatriculaConsular()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%smaskedMatriculaConsular%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getMaskedMatriculaConsular()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `authorizedUsers` to the URL query string
@@ -1064,17 +1043,17 @@ public class IndividualCustomerAllOfAttributes {
 
     // add `jwtSubject` to the URL query string
     if (getJwtSubject() != null) {
-      joiner.add(String.format("%sjwtSubject%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getJwtSubject()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sjwtSubject%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getJwtSubject()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `status` to the URL query string
     if (getStatus() != null) {
-      joiner.add(String.format("%sstatus%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStatus()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sstatus%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getStatus()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `archiveReason` to the URL query string
     if (getArchiveReason() != null) {
-      joiner.add(String.format("%sarchiveReason%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getArchiveReason()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sarchiveReason%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getArchiveReason()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

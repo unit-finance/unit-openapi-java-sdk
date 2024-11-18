@@ -36,11 +36,11 @@ public enum EntityType {
   
   PARTNERSHIP("Partnership"),
   
-  PUBLICLYTRADEDCORPORATION("PubliclyTradedCorporation"),
+  PUBLICLY_TRADED_CORPORATION("PubliclyTradedCorporation"),
   
-  PRIVATELYHELDCORPORATION("PrivatelyHeldCorporation"),
+  PRIVATELY_HELD_CORPORATION("PrivatelyHeldCorporation"),
   
-  NOTFORPROFITORGANIZATION("NotForProfitOrganization");
+  NOT_FOR_PROFIT_ORGANIZATION("NotForProfitOrganization");
 
   private String value;
 

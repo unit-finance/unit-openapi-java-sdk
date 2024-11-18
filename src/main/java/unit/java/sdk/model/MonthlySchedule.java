@@ -29,6 +29,7 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * MonthlySchedule
  */
@@ -40,7 +41,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   MonthlySchedule.JSON_PROPERTY_TOTAL_NUMBER_OF_PAYMENTS,
   MonthlySchedule.JSON_PROPERTY_INTERVAL
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class MonthlySchedule {
   public static final String JSON_PROPERTY_START_TIME = "startTime";
   private LocalDate startTime;
@@ -106,7 +107,7 @@ public class MonthlySchedule {
    * Gets or Sets interval
    */
   public enum IntervalEnum {
-    MONTLY("Montly");
+    MONTHLY("Monthly");
 
     private String value;
 
@@ -136,7 +137,7 @@ public class MonthlySchedule {
   }
 
   public static final String JSON_PROPERTY_INTERVAL = "interval";
-  private IntervalEnum interval = IntervalEnum.MONTLY;
+  private IntervalEnum interval = IntervalEnum.MONTHLY;
 
   public MonthlySchedule() { 
   }
@@ -146,14 +147,13 @@ public class MonthlySchedule {
     return this;
   }
 
-   /**
+  /**
    * Get startTime
    * @return startTime
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_START_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LocalDate getStartTime() {
     return startTime;
   }
@@ -171,14 +171,13 @@ public class MonthlySchedule {
     return this;
   }
 
-   /**
+  /**
    * Get endTime
    * @return endTime
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_END_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LocalDate getEndTime() {
     return endTime;
   }
@@ -196,16 +195,15 @@ public class MonthlySchedule {
     return this;
   }
 
-   /**
+  /**
    * Get dayOfMonth
    * minimum: -5
    * maximum: 28
    * @return dayOfMonth
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DAY_OF_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getDayOfMonth() {
     return dayOfMonth;
   }
@@ -223,14 +221,13 @@ public class MonthlySchedule {
     return this;
   }
 
-   /**
+  /**
    * Get dayOfWeek
    * @return dayOfWeek
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DAY_OF_WEEK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public DayOfWeekEnum getDayOfWeek() {
     return dayOfWeek;
   }
@@ -248,15 +245,14 @@ public class MonthlySchedule {
     return this;
   }
 
-   /**
+  /**
    * Get totalNumberOfPayments
    * minimum: 1
    * @return totalNumberOfPayments
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TOTAL_NUMBER_OF_PAYMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getTotalNumberOfPayments() {
     return totalNumberOfPayments;
   }
@@ -274,14 +270,13 @@ public class MonthlySchedule {
     return this;
   }
 
-   /**
+  /**
    * Get interval
    * @return interval
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_INTERVAL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public IntervalEnum getInterval() {
     return interval;
   }
@@ -378,32 +373,32 @@ public class MonthlySchedule {
 
     // add `startTime` to the URL query string
     if (getStartTime() != null) {
-      joiner.add(String.format("%sstartTime%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStartTime()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sstartTime%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getStartTime()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `endTime` to the URL query string
     if (getEndTime() != null) {
-      joiner.add(String.format("%sendTime%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEndTime()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sendTime%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getEndTime()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `dayOfMonth` to the URL query string
     if (getDayOfMonth() != null) {
-      joiner.add(String.format("%sdayOfMonth%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDayOfMonth()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sdayOfMonth%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDayOfMonth()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `dayOfWeek` to the URL query string
     if (getDayOfWeek() != null) {
-      joiner.add(String.format("%sdayOfWeek%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDayOfWeek()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sdayOfWeek%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDayOfWeek()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `totalNumberOfPayments` to the URL query string
     if (getTotalNumberOfPayments() != null) {
-      joiner.add(String.format("%stotalNumberOfPayments%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTotalNumberOfPayments()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%stotalNumberOfPayments%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getTotalNumberOfPayments()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `interval` to the URL query string
     if (getInterval() != null) {
-      joiner.add(String.format("%sinterval%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getInterval()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sinterval%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getInterval()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

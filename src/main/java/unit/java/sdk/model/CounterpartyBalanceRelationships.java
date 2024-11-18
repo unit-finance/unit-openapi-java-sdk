@@ -30,6 +30,7 @@ import unit.java.sdk.model.CustomerRelationship;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * CounterpartyBalanceRelationships
  */
@@ -37,7 +38,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CounterpartyBalanceRelationships.JSON_PROPERTY_COUNTERPARTY,
   CounterpartyBalanceRelationships.JSON_PROPERTY_CUSTOMER
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CounterpartyBalanceRelationships {
   public static final String JSON_PROPERTY_COUNTERPARTY = "counterparty";
   private CounterpartyRelationship counterparty;
@@ -53,14 +54,13 @@ public class CounterpartyBalanceRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get counterparty
    * @return counterparty
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public CounterpartyRelationship getCounterparty() {
     return counterparty;
   }
@@ -78,14 +78,13 @@ public class CounterpartyBalanceRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get customer
    * @return customer
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_CUSTOMER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public CustomerRelationship getCustomer() {
     return customer;
   }

@@ -44,15 +44,15 @@ public enum Industry {
   
   UNIONS("Unions"),
   
-  REALESTATE("RealEstate"),
+  REAL_ESTATE("RealEstate"),
   
-  FREELANCEPROFESSIONAL("FreelanceProfessional"),
+  FREELANCE_PROFESSIONAL("FreelanceProfessional"),
   
-  OTHERPROFESSIONALSERVICES("OtherProfessionalServices"),
+  OTHER_PROFESSIONAL_SERVICES("OtherProfessionalServices"),
   
-  ONLINERETAILER("OnlineRetailer"),
+  ONLINE_RETAILER("OnlineRetailer"),
   
-  OTHEREDUCATIONSERVICES("OtherEducationServices");
+  OTHER_EDUCATION_SERVICES("OtherEducationServices");
 
   private String value;
 

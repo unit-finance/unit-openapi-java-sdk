@@ -31,6 +31,7 @@ import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * CreditAccountAllOfAttributes
  */
@@ -51,7 +52,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreditAccountAllOfAttributes.JSON_PROPERTY_CREDIT_LIMIT,
   CreditAccountAllOfAttributes.JSON_PROPERTY_UPDATED_AT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CreditAccountAllOfAttributes {
   public static final String JSON_PROPERTY_CREATED_AT = "createdAt";
   private OffsetDateTime createdAt;
@@ -121,21 +122,21 @@ public class CreditAccountAllOfAttributes {
    * Gets or Sets closeReason
    */
   public enum CloseReasonEnum {
-    BYCUSTOMER("ByCustomer"),
+    BY_CUSTOMER("ByCustomer"),
     
     FRAUD("Fraud"),
     
     OVERDUE("Overdue"),
     
-    NEGATIVEBALANCE("NegativeBalance"),
+    NEGATIVE_BALANCE("NegativeBalance"),
     
-    BYBANK("ByBank"),
+    BY_BANK("ByBank"),
     
-    BREACHOFTERMSANDCONDITIONS("BreachOfTermsAndConditions"),
+    BREACH_OF_TERMS_AND_CONDITIONS("BreachOfTermsAndConditions"),
     
-    NOACCOUNTACTIVITY("NoAccountActivity"),
+    NO_ACCOUNT_ACTIVITY("NoAccountActivity"),
     
-    PROGRAMCHANGE("ProgramChange");
+    PROGRAM_CHANGE("ProgramChange");
 
     private String value;
 
@@ -171,21 +172,21 @@ public class CreditAccountAllOfAttributes {
    * Gets or Sets fraudReason
    */
   public enum FraudReasonEnum {
-    ACHACTIVITY("ACHActivity"),
+    ACH_ACTIVITY("ACHActivity"),
     
-    CARDACTIVITY("CardActivity"),
+    CARD_ACTIVITY("CardActivity"),
     
-    CHECKACTIVITY("CheckActivity"),
+    CHECK_ACTIVITY("CheckActivity"),
     
-    APPLICATIONHISTORY("ApplicationHistory"),
+    APPLICATION_HISTORY("ApplicationHistory"),
     
-    ACCOUNTACTIVITY("AccountActivity"),
+    ACCOUNT_ACTIVITY("AccountActivity"),
     
-    CLIENTIDENTIFIED("ClientIdentified"),
+    CLIENT_IDENTIFIED("ClientIdentified"),
     
-    IDENTITYTHEFT("IdentityTheft"),
+    IDENTITY_THEFT("IdentityTheft"),
     
-    LINKEDTOFRAUDULENTCUSTOMER("LinkedToFraudulentCustomer");
+    LINKED_TO_FRAUDULENT_CUSTOMER("LinkedToFraudulentCustomer");
 
     private String value;
 
@@ -237,14 +238,13 @@ public class CreditAccountAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get createdAt
    * @return createdAt
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
@@ -262,14 +262,13 @@ public class CreditAccountAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get name
    * @return name
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getName() {
     return name;
   }
@@ -287,14 +286,13 @@ public class CreditAccountAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get creditTerms
    * @return creditTerms
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_CREDIT_TERMS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getCreditTerms() {
     return creditTerms;
   }
@@ -312,14 +310,13 @@ public class CreditAccountAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get currency
    * @return currency
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getCurrency() {
     return currency;
   }
@@ -337,14 +334,13 @@ public class CreditAccountAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get balance
    * @return balance
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_BALANCE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Integer getBalance() {
     return balance;
   }
@@ -362,14 +358,13 @@ public class CreditAccountAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get hold
    * @return hold
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_HOLD)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Integer getHold() {
     return hold;
   }
@@ -387,14 +382,13 @@ public class CreditAccountAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get available
    * @return available
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_AVAILABLE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Integer getAvailable() {
     return available;
   }
@@ -420,14 +414,13 @@ public class CreditAccountAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get tags
    * @return tags
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Map<String, String> getTags() {
     return tags;
   }
@@ -445,14 +438,13 @@ public class CreditAccountAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get status
    * @return status
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public StatusEnum getStatus() {
     return status;
   }
@@ -470,14 +462,13 @@ public class CreditAccountAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get closeReason
    * @return closeReason
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CLOSE_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CloseReasonEnum getCloseReason() {
     return closeReason;
   }
@@ -495,14 +486,13 @@ public class CreditAccountAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get fraudReason
    * @return fraudReason
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FRAUD_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public FraudReasonEnum getFraudReason() {
     return fraudReason;
   }
@@ -520,14 +510,13 @@ public class CreditAccountAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get closeReasonText
    * @return closeReasonText
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CLOSE_REASON_TEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCloseReasonText() {
     return closeReasonText;
   }
@@ -545,14 +534,13 @@ public class CreditAccountAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get freezeReason
    * @return freezeReason
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FREEZE_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getFreezeReason() {
     return freezeReason;
   }
@@ -570,15 +558,14 @@ public class CreditAccountAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get creditLimit
    * minimum: 0
    * @return creditLimit
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_CREDIT_LIMIT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Integer getCreditLimit() {
     return creditLimit;
   }
@@ -596,14 +583,13 @@ public class CreditAccountAllOfAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get updatedAt
    * @return updatedAt
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_UPDATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getUpdatedAt() {
     return updatedAt;
   }
@@ -718,37 +704,37 @@ public class CreditAccountAllOfAttributes {
 
     // add `createdAt` to the URL query string
     if (getCreatedAt() != null) {
-      joiner.add(String.format("%screatedAt%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%screatedAt%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCreatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `name` to the URL query string
     if (getName() != null) {
-      joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `creditTerms` to the URL query string
     if (getCreditTerms() != null) {
-      joiner.add(String.format("%screditTerms%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreditTerms()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%screditTerms%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCreditTerms()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `currency` to the URL query string
     if (getCurrency() != null) {
-      joiner.add(String.format("%scurrency%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCurrency()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%scurrency%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCurrency()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `balance` to the URL query string
     if (getBalance() != null) {
-      joiner.add(String.format("%sbalance%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getBalance()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sbalance%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getBalance()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `hold` to the URL query string
     if (getHold() != null) {
-      joiner.add(String.format("%shold%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getHold()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%shold%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getHold()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `available` to the URL query string
     if (getAvailable() != null) {
-      joiner.add(String.format("%savailable%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAvailable()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%savailable%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getAvailable()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `tags` to the URL query string
@@ -756,43 +742,43 @@ public class CreditAccountAllOfAttributes {
       for (String _key : getTags().keySet()) {
         joiner.add(String.format("%stags%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
-            getTags().get(_key), URLEncoder.encode(String.valueOf(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+            getTags().get(_key), URLEncoder.encode(ApiClient.valueToString(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
     }
 
     // add `status` to the URL query string
     if (getStatus() != null) {
-      joiner.add(String.format("%sstatus%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStatus()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sstatus%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getStatus()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `closeReason` to the URL query string
     if (getCloseReason() != null) {
-      joiner.add(String.format("%scloseReason%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCloseReason()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%scloseReason%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCloseReason()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `fraudReason` to the URL query string
     if (getFraudReason() != null) {
-      joiner.add(String.format("%sfraudReason%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getFraudReason()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sfraudReason%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getFraudReason()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `closeReasonText` to the URL query string
     if (getCloseReasonText() != null) {
-      joiner.add(String.format("%scloseReasonText%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCloseReasonText()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%scloseReasonText%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCloseReasonText()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `freezeReason` to the URL query string
     if (getFreezeReason() != null) {
-      joiner.add(String.format("%sfreezeReason%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getFreezeReason()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sfreezeReason%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getFreezeReason()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `creditLimit` to the URL query string
     if (getCreditLimit() != null) {
-      joiner.add(String.format("%screditLimit%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreditLimit()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%screditLimit%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCreditLimit()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `updatedAt` to the URL query string
     if (getUpdatedAt() != null) {
-      joiner.add(String.format("%supdatedAt%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUpdatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%supdatedAt%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getUpdatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

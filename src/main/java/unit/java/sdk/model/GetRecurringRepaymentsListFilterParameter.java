@@ -31,6 +31,7 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * GetRecurringRepaymentsListFilterParameter
  */
@@ -41,7 +42,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   GetRecurringRepaymentsListFilterParameter.JSON_PROPERTY_FROM_START_TIME,
   GetRecurringRepaymentsListFilterParameter.JSON_PROPERTY_TO_START_TIME
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class GetRecurringRepaymentsListFilterParameter {
   public static final String JSON_PROPERTY_CREDIT_ACCOUNT_ID = "creditAccountId";
   private String creditAccountId;
@@ -101,14 +102,13 @@ public class GetRecurringRepaymentsListFilterParameter {
     return this;
   }
 
-   /**
+  /**
    * Get creditAccountId
    * @return creditAccountId
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREDIT_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCreditAccountId() {
     return creditAccountId;
   }
@@ -126,14 +126,13 @@ public class GetRecurringRepaymentsListFilterParameter {
     return this;
   }
 
-   /**
+  /**
    * Get customerId
    * @return customerId
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOMER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCustomerId() {
     return customerId;
   }
@@ -159,14 +158,13 @@ public class GetRecurringRepaymentsListFilterParameter {
     return this;
   }
 
-   /**
+  /**
    * Get status
    * @return status
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<StatusEnum> getStatus() {
     return status;
   }
@@ -184,14 +182,13 @@ public class GetRecurringRepaymentsListFilterParameter {
     return this;
   }
 
-   /**
+  /**
    * Get fromStartTime
    * @return fromStartTime
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FROM_START_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LocalDate getFromStartTime() {
     return fromStartTime;
   }
@@ -209,14 +206,13 @@ public class GetRecurringRepaymentsListFilterParameter {
     return this;
   }
 
-   /**
+  /**
    * Get toStartTime
    * @return toStartTime
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TO_START_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LocalDate getToStartTime() {
     return toStartTime;
   }
@@ -311,12 +307,12 @@ public class GetRecurringRepaymentsListFilterParameter {
 
     // add `creditAccountId` to the URL query string
     if (getCreditAccountId() != null) {
-      joiner.add(String.format("%screditAccountId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreditAccountId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%screditAccountId%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCreditAccountId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `customerId` to the URL query string
     if (getCustomerId() != null) {
-      joiner.add(String.format("%scustomerId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCustomerId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%scustomerId%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCustomerId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `status` to the URL query string
@@ -324,18 +320,18 @@ public class GetRecurringRepaymentsListFilterParameter {
       for (int i = 0; i < getStatus().size(); i++) {
         joiner.add(String.format("%sstatus%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
-            URLEncoder.encode(String.valueOf(getStatus().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+            URLEncoder.encode(ApiClient.valueToString(getStatus().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
     }
 
     // add `fromStartTime` to the URL query string
     if (getFromStartTime() != null) {
-      joiner.add(String.format("%sfromStartTime%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getFromStartTime()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sfromStartTime%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getFromStartTime()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `toStartTime` to the URL query string
     if (getToStartTime() != null) {
-      joiner.add(String.format("%stoStartTime%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getToStartTime()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%stoStartTime%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getToStartTime()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

@@ -31,6 +31,7 @@ import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * ReceivedPaymentAttributes
  */
@@ -53,7 +54,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   ReceivedPaymentAttributes.JSON_PROPERTY_RECEIVING_ENTITY_NAME,
   ReceivedPaymentAttributes.JSON_PROPERTY_TAGS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ReceivedPaymentAttributes {
   public static final String JSON_PROPERTY_CREATED_AT = "createdAt";
   private OffsetDateTime createdAt;
@@ -66,9 +67,13 @@ public class ReceivedPaymentAttributes {
     
     ADVANCED("Advanced"),
     
-    COMPLETED("Completed"),
+    PENDING_REVIEW("PendingReview"),
     
-    RETURNED("Returned");
+    MARKED_FOR_RETURN("MarkedForReturn"),
+    
+    RETURNED("Returned"),
+    
+    COMPLETED("Completed");
 
     private String value;
 
@@ -188,14 +193,13 @@ public class ReceivedPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get createdAt
    * @return createdAt
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
@@ -213,14 +217,13 @@ public class ReceivedPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get status
    * @return status
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public StatusEnum getStatus() {
     return status;
   }
@@ -238,15 +241,14 @@ public class ReceivedPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get amount
    * minimum: 1
    * @return amount
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Integer getAmount() {
     return amount;
   }
@@ -264,14 +266,13 @@ public class ReceivedPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get completionDate
    * @return completionDate
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_COMPLETION_DATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getCompletionDate() {
     return completionDate;
   }
@@ -289,14 +290,13 @@ public class ReceivedPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get direction
    * @return direction
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_DIRECTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public DirectionEnum getDirection() {
     return direction;
   }
@@ -314,14 +314,13 @@ public class ReceivedPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get wasAdvanced
    * @return wasAdvanced
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_WAS_ADVANCED)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Boolean getWasAdvanced() {
     return wasAdvanced;
   }
@@ -339,14 +338,13 @@ public class ReceivedPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get isAdvanceable
    * @return isAdvanceable
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IS_ADVANCEABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getIsAdvanceable() {
     return isAdvanceable;
   }
@@ -364,14 +362,13 @@ public class ReceivedPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get isAdvaceable
    * @return isAdvaceable
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IS_ADVACEABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getIsAdvaceable() {
     return isAdvaceable;
   }
@@ -389,14 +386,13 @@ public class ReceivedPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get companyName
    * @return companyName
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_COMPANY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getCompanyName() {
     return companyName;
   }
@@ -414,14 +410,13 @@ public class ReceivedPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get counterpartyRoutingNumber
    * @return counterpartyRoutingNumber
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY_ROUTING_NUMBER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getCounterpartyRoutingNumber() {
     return counterpartyRoutingNumber;
   }
@@ -439,14 +434,13 @@ public class ReceivedPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get description
    * @return description
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getDescription() {
     return description;
   }
@@ -464,14 +458,13 @@ public class ReceivedPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get addenda
    * @return addenda
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ADDENDA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAddenda() {
     return addenda;
   }
@@ -489,14 +482,13 @@ public class ReceivedPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get traceNumber
    * @return traceNumber
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_TRACE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getTraceNumber() {
     return traceNumber;
   }
@@ -514,14 +506,13 @@ public class ReceivedPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get secCode
    * @return secCode
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_SEC_CODE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getSecCode() {
     return secCode;
   }
@@ -539,14 +530,13 @@ public class ReceivedPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get returnReason
    * @return returnReason
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RETURN_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getReturnReason() {
     return returnReason;
   }
@@ -564,14 +554,13 @@ public class ReceivedPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get receivingEntityName
    * @return receivingEntityName
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RECEIVING_ENTITY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getReceivingEntityName() {
     return receivingEntityName;
   }
@@ -597,14 +586,13 @@ public class ReceivedPaymentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get tags
    * @return tags
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getTags() {
     return tags;
   }
@@ -723,82 +711,82 @@ public class ReceivedPaymentAttributes {
 
     // add `createdAt` to the URL query string
     if (getCreatedAt() != null) {
-      joiner.add(String.format("%screatedAt%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%screatedAt%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCreatedAt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `status` to the URL query string
     if (getStatus() != null) {
-      joiner.add(String.format("%sstatus%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStatus()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sstatus%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getStatus()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `amount` to the URL query string
     if (getAmount() != null) {
-      joiner.add(String.format("%samount%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAmount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%samount%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getAmount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `completionDate` to the URL query string
     if (getCompletionDate() != null) {
-      joiner.add(String.format("%scompletionDate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCompletionDate()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%scompletionDate%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCompletionDate()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `direction` to the URL query string
     if (getDirection() != null) {
-      joiner.add(String.format("%sdirection%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDirection()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sdirection%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDirection()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `wasAdvanced` to the URL query string
     if (getWasAdvanced() != null) {
-      joiner.add(String.format("%swasAdvanced%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getWasAdvanced()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%swasAdvanced%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getWasAdvanced()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `isAdvanceable` to the URL query string
     if (getIsAdvanceable() != null) {
-      joiner.add(String.format("%sisAdvanceable%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIsAdvanceable()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sisAdvanceable%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getIsAdvanceable()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `isAdvaceable` to the URL query string
     if (getIsAdvaceable() != null) {
-      joiner.add(String.format("%sisAdvaceable%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIsAdvaceable()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sisAdvaceable%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getIsAdvaceable()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `companyName` to the URL query string
     if (getCompanyName() != null) {
-      joiner.add(String.format("%scompanyName%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCompanyName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%scompanyName%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCompanyName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `counterpartyRoutingNumber` to the URL query string
     if (getCounterpartyRoutingNumber() != null) {
-      joiner.add(String.format("%scounterpartyRoutingNumber%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCounterpartyRoutingNumber()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%scounterpartyRoutingNumber%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCounterpartyRoutingNumber()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `description` to the URL query string
     if (getDescription() != null) {
-      joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDescription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDescription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `addenda` to the URL query string
     if (getAddenda() != null) {
-      joiner.add(String.format("%saddenda%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAddenda()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%saddenda%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getAddenda()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `traceNumber` to the URL query string
     if (getTraceNumber() != null) {
-      joiner.add(String.format("%straceNumber%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTraceNumber()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%straceNumber%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getTraceNumber()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `secCode` to the URL query string
     if (getSecCode() != null) {
-      joiner.add(String.format("%ssecCode%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSecCode()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%ssecCode%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getSecCode()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `returnReason` to the URL query string
     if (getReturnReason() != null) {
-      joiner.add(String.format("%sreturnReason%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getReturnReason()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sreturnReason%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getReturnReason()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `receivingEntityName` to the URL query string
     if (getReceivingEntityName() != null) {
-      joiner.add(String.format("%sreceivingEntityName%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getReceivingEntityName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sreceivingEntityName%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getReceivingEntityName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `tags` to the URL query string
@@ -806,7 +794,7 @@ public class ReceivedPaymentAttributes {
       for (String _key : getTags().keySet()) {
         joiner.add(String.format("%stags%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
-            getTags().get(_key), URLEncoder.encode(String.valueOf(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+            getTags().get(_key), URLEncoder.encode(ApiClient.valueToString(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
     }
 

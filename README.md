@@ -63,7 +63,7 @@ p.setNumber("5555555555");
 p.setCountryCode("1");
 attr.setPhone(p);
 attr.setIdempotencyKey("3a1a33be-4e12-4603-9ed0-820922389fb8");
-attr.setOccupation(Occupation.ARCHITECTORENGINEER);
+attr.setOccupation(Occupation.ARCHITECT_OR_ENGINEER);
 
 createIndividualApplication.setAttributes(attr);
 

@@ -25,10 +25,11 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import unit.java.sdk.model.UpdateAchPaymentAttributes;
+import unit.java.sdk.model.UpdateAchReceivedPaymentAttributes;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * UpdateAchReceivedPayment
  */
@@ -36,13 +37,13 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   UpdateAchReceivedPayment.JSON_PROPERTY_TYPE,
   UpdateAchReceivedPayment.JSON_PROPERTY_ATTRIBUTES
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class UpdateAchReceivedPayment {
   /**
    * Gets or Sets type
    */
   public enum TypeEnum {
-    ACHRECEIVEDPAYMENT("achReceivedPayment");
+    ACH_RECEIVED_PAYMENT("achReceivedPayment");
 
     private String value;
 
@@ -72,10 +73,10 @@ public class UpdateAchReceivedPayment {
   }
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private TypeEnum type = TypeEnum.ACHRECEIVEDPAYMENT;
+  private TypeEnum type = TypeEnum.ACH_RECEIVED_PAYMENT;
 
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private UpdateAchPaymentAttributes attributes;
+  private UpdateAchReceivedPaymentAttributes attributes;
 
   public UpdateAchReceivedPayment() { 
   }
@@ -85,14 +86,13 @@ public class UpdateAchReceivedPayment {
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public TypeEnum getType() {
     return type;
   }
@@ -105,27 +105,26 @@ public class UpdateAchReceivedPayment {
   }
 
 
-  public UpdateAchReceivedPayment attributes(UpdateAchPaymentAttributes attributes) {
+  public UpdateAchReceivedPayment attributes(UpdateAchReceivedPaymentAttributes attributes) {
     this.attributes = attributes;
     return this;
   }
 
-   /**
+  /**
    * Get attributes
    * @return attributes
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public UpdateAchPaymentAttributes getAttributes() {
+  public UpdateAchReceivedPaymentAttributes getAttributes() {
     return attributes;
   }
 
 
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAttributes(UpdateAchPaymentAttributes attributes) {
+  public void setAttributes(UpdateAchReceivedPaymentAttributes attributes) {
     this.attributes = attributes;
   }
 
@@ -206,7 +205,7 @@ public class UpdateAchReceivedPayment {
 
     // add `type` to the URL query string
     if (getType() != null) {
-      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `attributes` to the URL query string

@@ -33,6 +33,7 @@ import unit.java.sdk.model.PaginationMeta;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * UnitAccountsListResponse
  */
@@ -41,7 +42,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   UnitAccountsListResponse.JSON_PROPERTY_INCLUDED,
   UnitAccountsListResponse.JSON_PROPERTY_META
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class UnitAccountsListResponse {
   public static final String JSON_PROPERTY_DATA = "data";
   private List<Account> data = new ArrayList<>();
@@ -68,14 +69,13 @@ public class UnitAccountsListResponse {
     return this;
   }
 
-   /**
+  /**
    * Get data
    * @return data
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<Account> getData() {
     return data;
   }
@@ -101,14 +101,13 @@ public class UnitAccountsListResponse {
     return this;
   }
 
-   /**
+  /**
    * Get included
    * @return included
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INCLUDED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<Customer> getIncluded() {
     return included;
   }
@@ -126,14 +125,13 @@ public class UnitAccountsListResponse {
     return this;
   }
 
-   /**
+  /**
    * Get meta
    * @return meta
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public PaginationMeta getMeta() {
     return meta;
   }

@@ -30,6 +30,7 @@ import unit.java.sdk.model.Address;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * ApplicationDocumentAttributes
  */
@@ -55,7 +56,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   ApplicationDocumentAttributes.JSON_PROPERTY_FRONT_DOCUMENT_STORE_ID,
   ApplicationDocumentAttributes.JSON_PROPERTY_BACK_DOCUMENT_STORE_ID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ApplicationDocumentAttributes {
   public static final String JSON_PROPERTY_DOCUMENT_TYPE = "documentType";
   private String documentType;
@@ -125,14 +126,13 @@ public class ApplicationDocumentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get documentType
    * @return documentType
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DOCUMENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDocumentType() {
     return documentType;
   }
@@ -150,14 +150,13 @@ public class ApplicationDocumentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get status
    * @return status
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getStatus() {
     return status;
   }
@@ -175,14 +174,13 @@ public class ApplicationDocumentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get description
    * @return description
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDescription() {
     return description;
   }
@@ -200,14 +198,13 @@ public class ApplicationDocumentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get nationality
    * @return nationality
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NATIONALITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getNationality() {
     return nationality;
   }
@@ -225,14 +222,13 @@ public class ApplicationDocumentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get ssn
    * @return ssn
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SSN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSsn() {
     return ssn;
   }
@@ -250,14 +246,13 @@ public class ApplicationDocumentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get passport
    * @return passport
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PASSPORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPassport() {
     return passport;
   }
@@ -275,14 +270,13 @@ public class ApplicationDocumentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get matriculaConsular
    * @return matriculaConsular
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MATRICULA_CONSULAR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMatriculaConsular() {
     return matriculaConsular;
   }
@@ -300,14 +294,13 @@ public class ApplicationDocumentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get name
    * @return name
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getName() {
     return name;
   }
@@ -325,14 +318,13 @@ public class ApplicationDocumentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get address
    * @return address
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Address getAddress() {
     return address;
   }
@@ -350,14 +342,13 @@ public class ApplicationDocumentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get dateOfIncorporation
    * @return dateOfIncorporation
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATE_OF_INCORPORATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LocalDate getDateOfIncorporation() {
     return dateOfIncorporation;
   }
@@ -375,14 +366,13 @@ public class ApplicationDocumentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get stateOfIncorporation
    * @return stateOfIncorporation
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE_OF_INCORPORATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStateOfIncorporation() {
     return stateOfIncorporation;
   }
@@ -400,14 +390,13 @@ public class ApplicationDocumentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get dateOfBirth
    * @return dateOfBirth
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATE_OF_BIRTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LocalDate getDateOfBirth() {
     return dateOfBirth;
   }
@@ -425,14 +414,13 @@ public class ApplicationDocumentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get ein
    * @return ein
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getEin() {
     return ein;
   }
@@ -450,14 +438,13 @@ public class ApplicationDocumentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get reasonCode
    * @return reasonCode
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REASON_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getReasonCode() {
     return reasonCode;
   }
@@ -475,14 +462,13 @@ public class ApplicationDocumentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get reason
    * @return reason
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getReason() {
     return reason;
   }
@@ -500,14 +486,13 @@ public class ApplicationDocumentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get evaluationId
    * @return evaluationId
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EVALUATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getEvaluationId() {
     return evaluationId;
   }
@@ -525,14 +510,13 @@ public class ApplicationDocumentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get frontDocumentId
    * @return frontDocumentId
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FRONT_DOCUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getFrontDocumentId() {
     return frontDocumentId;
   }
@@ -550,14 +534,13 @@ public class ApplicationDocumentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get backDocumentId
    * @return backDocumentId
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BACK_DOCUMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBackDocumentId() {
     return backDocumentId;
   }
@@ -575,14 +558,13 @@ public class ApplicationDocumentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get frontDocumentStoreId
    * @return frontDocumentStoreId
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FRONT_DOCUMENT_STORE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getFrontDocumentStoreId() {
     return frontDocumentStoreId;
   }
@@ -600,14 +582,13 @@ public class ApplicationDocumentAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get backDocumentStoreId
    * @return backDocumentStoreId
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BACK_DOCUMENT_STORE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBackDocumentStoreId() {
     return backDocumentStoreId;
   }
@@ -732,42 +713,42 @@ public class ApplicationDocumentAttributes {
 
     // add `documentType` to the URL query string
     if (getDocumentType() != null) {
-      joiner.add(String.format("%sdocumentType%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDocumentType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sdocumentType%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDocumentType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `status` to the URL query string
     if (getStatus() != null) {
-      joiner.add(String.format("%sstatus%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStatus()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sstatus%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getStatus()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `description` to the URL query string
     if (getDescription() != null) {
-      joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDescription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDescription()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `nationality` to the URL query string
     if (getNationality() != null) {
-      joiner.add(String.format("%snationality%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getNationality()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%snationality%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getNationality()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `ssn` to the URL query string
     if (getSsn() != null) {
-      joiner.add(String.format("%sssn%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSsn()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sssn%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getSsn()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `passport` to the URL query string
     if (getPassport() != null) {
-      joiner.add(String.format("%spassport%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPassport()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%spassport%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getPassport()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `matriculaConsular` to the URL query string
     if (getMatriculaConsular() != null) {
-      joiner.add(String.format("%smatriculaConsular%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMatriculaConsular()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%smatriculaConsular%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getMatriculaConsular()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `name` to the URL query string
     if (getName() != null) {
-      joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getName()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `address` to the URL query string
@@ -777,57 +758,57 @@ public class ApplicationDocumentAttributes {
 
     // add `dateOfIncorporation` to the URL query string
     if (getDateOfIncorporation() != null) {
-      joiner.add(String.format("%sdateOfIncorporation%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDateOfIncorporation()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sdateOfIncorporation%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDateOfIncorporation()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `stateOfIncorporation` to the URL query string
     if (getStateOfIncorporation() != null) {
-      joiner.add(String.format("%sstateOfIncorporation%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStateOfIncorporation()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sstateOfIncorporation%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getStateOfIncorporation()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `dateOfBirth` to the URL query string
     if (getDateOfBirth() != null) {
-      joiner.add(String.format("%sdateOfBirth%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDateOfBirth()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sdateOfBirth%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDateOfBirth()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `ein` to the URL query string
     if (getEin() != null) {
-      joiner.add(String.format("%sein%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEin()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sein%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getEin()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `reasonCode` to the URL query string
     if (getReasonCode() != null) {
-      joiner.add(String.format("%sreasonCode%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getReasonCode()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sreasonCode%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getReasonCode()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `reason` to the URL query string
     if (getReason() != null) {
-      joiner.add(String.format("%sreason%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getReason()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sreason%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getReason()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `evaluationId` to the URL query string
     if (getEvaluationId() != null) {
-      joiner.add(String.format("%sevaluationId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEvaluationId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sevaluationId%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getEvaluationId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `frontDocumentId` to the URL query string
     if (getFrontDocumentId() != null) {
-      joiner.add(String.format("%sfrontDocumentId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getFrontDocumentId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sfrontDocumentId%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getFrontDocumentId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `backDocumentId` to the URL query string
     if (getBackDocumentId() != null) {
-      joiner.add(String.format("%sbackDocumentId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getBackDocumentId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sbackDocumentId%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getBackDocumentId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `frontDocumentStoreId` to the URL query string
     if (getFrontDocumentStoreId() != null) {
-      joiner.add(String.format("%sfrontDocumentStoreId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getFrontDocumentStoreId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sfrontDocumentStoreId%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getFrontDocumentStoreId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `backDocumentStoreId` to the URL query string
     if (getBackDocumentStoreId() != null) {
-      joiner.add(String.format("%sbackDocumentStoreId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getBackDocumentStoreId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sbackDocumentStoreId%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getBackDocumentStoreId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

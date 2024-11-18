@@ -35,6 +35,7 @@ import unit.java.sdk.model.RecurringRepaymentRelationship;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * BookRepaymentRelationships
  */
@@ -47,7 +48,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   BookRepaymentRelationships.JSON_PROPERTY_PAYMENT,
   BookRepaymentRelationships.JSON_PROPERTY_RECURRING_REPAYMENT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class BookRepaymentRelationships {
   public static final String JSON_PROPERTY_ACCOUNT = "account";
   private AccountRelationship account;
@@ -78,14 +79,13 @@ public class BookRepaymentRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get account
    * @return account
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public AccountRelationship getAccount() {
     return account;
   }
@@ -103,14 +103,13 @@ public class BookRepaymentRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get creditAccount
    * @return creditAccount
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_CREDIT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public CreditAccountRelationship getCreditAccount() {
     return creditAccount;
   }
@@ -128,14 +127,13 @@ public class BookRepaymentRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get org
    * @return org
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ORG)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public OrgRelationship getOrg() {
     return org;
   }
@@ -153,14 +151,13 @@ public class BookRepaymentRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get customer
    * @return customer
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOMER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CustomerRelationship getCustomer() {
     return customer;
   }
@@ -178,14 +175,13 @@ public class BookRepaymentRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get counterpartyAccount
    * @return counterpartyAccount
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public CounterpartyAccountRelationship getCounterpartyAccount() {
     return counterpartyAccount;
   }
@@ -203,14 +199,13 @@ public class BookRepaymentRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get payment
    * @return payment
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_PAYMENT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public PaymentRelationship getPayment() {
     return payment;
   }
@@ -228,14 +223,13 @@ public class BookRepaymentRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get recurringRepayment
    * @return recurringRepayment
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RECURRING_REPAYMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public RecurringRepaymentRelationship getRecurringRepayment() {
     return recurringRepayment;
   }

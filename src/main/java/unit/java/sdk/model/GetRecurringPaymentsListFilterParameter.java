@@ -30,6 +30,7 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * GetRecurringPaymentsListFilterParameter
  */
@@ -43,7 +44,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   GetRecurringPaymentsListFilterParameter.JSON_PROPERTY_FROM_END_TIME,
   GetRecurringPaymentsListFilterParameter.JSON_PROPERTY_TO_END_TIME
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class GetRecurringPaymentsListFilterParameter {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "accountId";
   private String accountId;
@@ -58,11 +59,11 @@ public class GetRecurringPaymentsListFilterParameter {
    * Gets or Sets type
    */
   public enum TypeEnum {
-    RECURRINGCREDITACHPAYMENT("recurringCreditAchPayment"),
+    RECURRING_CREDIT_ACH_PAYMENT("recurringCreditAchPayment"),
     
-    RECURRINGDEBITACHPAYMENT("recurringDebitAchPayment"),
+    RECURRING_DEBIT_ACH_PAYMENT("recurringDebitAchPayment"),
     
-    RECURRINGCREDITBOOKPAYMENT("recurringCreditBookPayment");
+    RECURRING_CREDIT_BOOK_PAYMENT("recurringCreditBookPayment");
 
     private String value;
 
@@ -114,14 +115,13 @@ public class GetRecurringPaymentsListFilterParameter {
     return this;
   }
 
-   /**
+  /**
    * Get accountId
    * @return accountId
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAccountId() {
     return accountId;
   }
@@ -139,14 +139,13 @@ public class GetRecurringPaymentsListFilterParameter {
     return this;
   }
 
-   /**
+  /**
    * Get customerId
    * @return customerId
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOMER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCustomerId() {
     return customerId;
   }
@@ -172,14 +171,13 @@ public class GetRecurringPaymentsListFilterParameter {
     return this;
   }
 
-   /**
+  /**
    * Get status
    * @return status
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getStatus() {
     return status;
   }
@@ -205,14 +203,13 @@ public class GetRecurringPaymentsListFilterParameter {
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<TypeEnum> getType() {
     return type;
   }
@@ -230,14 +227,13 @@ public class GetRecurringPaymentsListFilterParameter {
     return this;
   }
 
-   /**
+  /**
    * Get fromStartTime
    * @return fromStartTime
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FROM_START_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getFromStartTime() {
     return fromStartTime;
   }
@@ -255,14 +251,13 @@ public class GetRecurringPaymentsListFilterParameter {
     return this;
   }
 
-   /**
+  /**
    * Get toStartTime
    * @return toStartTime
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TO_START_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getToStartTime() {
     return toStartTime;
   }
@@ -280,14 +275,13 @@ public class GetRecurringPaymentsListFilterParameter {
     return this;
   }
 
-   /**
+  /**
    * Get fromEndTime
    * @return fromEndTime
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FROM_END_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getFromEndTime() {
     return fromEndTime;
   }
@@ -305,14 +299,13 @@ public class GetRecurringPaymentsListFilterParameter {
     return this;
   }
 
-   /**
+  /**
    * Get toEndTime
    * @return toEndTime
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TO_END_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getToEndTime() {
     return toEndTime;
   }
@@ -413,12 +406,12 @@ public class GetRecurringPaymentsListFilterParameter {
 
     // add `accountId` to the URL query string
     if (getAccountId() != null) {
-      joiner.add(String.format("%saccountId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAccountId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%saccountId%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getAccountId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `customerId` to the URL query string
     if (getCustomerId() != null) {
-      joiner.add(String.format("%scustomerId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCustomerId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%scustomerId%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCustomerId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `status` to the URL query string
@@ -426,7 +419,7 @@ public class GetRecurringPaymentsListFilterParameter {
       for (int i = 0; i < getStatus().size(); i++) {
         joiner.add(String.format("%sstatus%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
-            URLEncoder.encode(String.valueOf(getStatus().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+            URLEncoder.encode(ApiClient.valueToString(getStatus().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
     }
 
@@ -435,28 +428,28 @@ public class GetRecurringPaymentsListFilterParameter {
       for (int i = 0; i < getType().size(); i++) {
         joiner.add(String.format("%stype%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
-            URLEncoder.encode(String.valueOf(getType().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+            URLEncoder.encode(ApiClient.valueToString(getType().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
     }
 
     // add `fromStartTime` to the URL query string
     if (getFromStartTime() != null) {
-      joiner.add(String.format("%sfromStartTime%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getFromStartTime()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sfromStartTime%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getFromStartTime()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `toStartTime` to the URL query string
     if (getToStartTime() != null) {
-      joiner.add(String.format("%stoStartTime%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getToStartTime()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%stoStartTime%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getToStartTime()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `fromEndTime` to the URL query string
     if (getFromEndTime() != null) {
-      joiner.add(String.format("%sfromEndTime%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getFromEndTime()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sfromEndTime%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getFromEndTime()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `toEndTime` to the URL query string
     if (getToEndTime() != null) {
-      joiner.add(String.format("%stoEndTime%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getToEndTime()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%stoEndTime%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getToEndTime()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

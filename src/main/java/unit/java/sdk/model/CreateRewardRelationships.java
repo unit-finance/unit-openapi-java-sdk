@@ -31,6 +31,7 @@ import unit.java.sdk.model.RewardedTransactionRelationship;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * CreateRewardRelationships
  */
@@ -39,7 +40,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateRewardRelationships.JSON_PROPERTY_RECEIVING_ACCOUNT,
   CreateRewardRelationships.JSON_PROPERTY_REWARDED_TRANSACTION
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CreateRewardRelationships {
   public static final String JSON_PROPERTY_FUNDING_ACCOUNT = "fundingAccount";
   private FundingAccountRelationship fundingAccount;
@@ -58,14 +59,13 @@ public class CreateRewardRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get fundingAccount
    * @return fundingAccount
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FUNDING_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public FundingAccountRelationship getFundingAccount() {
     return fundingAccount;
   }
@@ -83,14 +83,13 @@ public class CreateRewardRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get receivingAccount
    * @return receivingAccount
-  **/
+   */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_RECEIVING_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public ReceivingAccountRelationship getReceivingAccount() {
     return receivingAccount;
   }
@@ -108,14 +107,13 @@ public class CreateRewardRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get rewardedTransaction
    * @return rewardedTransaction
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REWARDED_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public RewardedTransactionRelationship getRewardedTransaction() {
     return rewardedTransaction;
   }

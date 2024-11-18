@@ -31,13 +31,14 @@ import unit.java.sdk.model.AuthorizedUser;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * AddAuthorizedUsersRequestDataAttributes
  */
 @JsonPropertyOrder({
   AddAuthorizedUsersRequestDataAttributes.JSON_PROPERTY_AUTHORIZED_USERS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class AddAuthorizedUsersRequestDataAttributes {
   public static final String JSON_PROPERTY_AUTHORIZED_USERS = "authorizedUsers";
   private List<AuthorizedUser> authorizedUsers = new ArrayList<>();
@@ -58,14 +59,13 @@ public class AddAuthorizedUsersRequestDataAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get authorizedUsers
    * @return authorizedUsers
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AUTHORIZED_USERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<AuthorizedUser> getAuthorizedUsers() {
     return authorizedUsers;
   }

@@ -32,6 +32,7 @@ import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * GetPaymentsListFilterParameter
  */
@@ -50,7 +51,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   GetPaymentsListFilterParameter.JSON_PROPERTY_FEATURE,
   GetPaymentsListFilterParameter.JSON_PROPERTY_TAGS
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class GetPaymentsListFilterParameter {
   public static final String JSON_PROPERTY_ACCOUNT_ID = "accountId";
   private String accountId;
@@ -113,11 +114,11 @@ public class GetPaymentsListFilterParameter {
    * Gets or Sets type
    */
   public enum TypeEnum {
-    ACHPAYMENT("AchPayment"),
+    ACH_PAYMENT("AchPayment"),
     
-    BOOKPAYMENT("BookPayment"),
+    BOOK_PAYMENT("BookPayment"),
     
-    WIREPAYMENT("WirePayment");
+    WIRE_PAYMENT("WirePayment");
 
     private String value;
 
@@ -206,9 +207,9 @@ public class GetPaymentsListFilterParameter {
    * Gets or Sets feature
    */
   public enum FeatureEnum {
-    SAMEDAY("SameDay"),
+    SAME_DAY("SameDay"),
     
-    RECURRINGPAYMENT("RecurringPayment");
+    RECURRING_PAYMENT("RecurringPayment");
 
     private String value;
 
@@ -251,14 +252,13 @@ public class GetPaymentsListFilterParameter {
     return this;
   }
 
-   /**
+  /**
    * Get accountId
    * @return accountId
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAccountId() {
     return accountId;
   }
@@ -276,14 +276,13 @@ public class GetPaymentsListFilterParameter {
     return this;
   }
 
-   /**
+  /**
    * Get customerId
    * @return customerId
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOMER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCustomerId() {
     return customerId;
   }
@@ -301,14 +300,13 @@ public class GetPaymentsListFilterParameter {
     return this;
   }
 
-   /**
+  /**
    * Get counterpartyAccountId
    * @return counterpartyAccountId
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COUNTERPARTY_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCounterpartyAccountId() {
     return counterpartyAccountId;
   }
@@ -334,14 +332,13 @@ public class GetPaymentsListFilterParameter {
     return this;
   }
 
-   /**
+  /**
    * Get status
    * @return status
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<StatusEnum> getStatus() {
     return status;
   }
@@ -367,14 +364,13 @@ public class GetPaymentsListFilterParameter {
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<TypeEnum> getType() {
     return type;
   }
@@ -400,14 +396,13 @@ public class GetPaymentsListFilterParameter {
     return this;
   }
 
-   /**
+  /**
    * Get direction
    * @return direction
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DIRECTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<DirectionEnum> getDirection() {
     return direction;
   }
@@ -425,14 +420,13 @@ public class GetPaymentsListFilterParameter {
     return this;
   }
 
-   /**
+  /**
    * Get since
    * @return since
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSince() {
     return since;
   }
@@ -450,14 +444,13 @@ public class GetPaymentsListFilterParameter {
     return this;
   }
 
-   /**
+  /**
    * Get until
    * @return until
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_UNTIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getUntil() {
     return until;
   }
@@ -475,14 +468,13 @@ public class GetPaymentsListFilterParameter {
     return this;
   }
 
-   /**
+  /**
    * Get fromAmount
    * @return fromAmount
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FROM_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getFromAmount() {
     return fromAmount;
   }
@@ -500,14 +492,13 @@ public class GetPaymentsListFilterParameter {
     return this;
   }
 
-   /**
+  /**
    * Get toAmount
    * @return toAmount
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TO_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getToAmount() {
     return toAmount;
   }
@@ -525,14 +516,13 @@ public class GetPaymentsListFilterParameter {
     return this;
   }
 
-   /**
+  /**
    * Get recurringPaymentId
    * @return recurringPaymentId
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RECURRING_PAYMENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getRecurringPaymentId() {
     return recurringPaymentId;
   }
@@ -558,14 +548,13 @@ public class GetPaymentsListFilterParameter {
     return this;
   }
 
-   /**
+  /**
    * Get feature
    * @return feature
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FEATURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<FeatureEnum> getFeature() {
     return feature;
   }
@@ -591,14 +580,13 @@ public class GetPaymentsListFilterParameter {
     return this;
   }
 
-   /**
+  /**
    * Get tags
    * @return tags
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, String> getTags() {
     return tags;
   }
@@ -709,17 +697,17 @@ public class GetPaymentsListFilterParameter {
 
     // add `accountId` to the URL query string
     if (getAccountId() != null) {
-      joiner.add(String.format("%saccountId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAccountId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%saccountId%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getAccountId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `customerId` to the URL query string
     if (getCustomerId() != null) {
-      joiner.add(String.format("%scustomerId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCustomerId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%scustomerId%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCustomerId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `counterpartyAccountId` to the URL query string
     if (getCounterpartyAccountId() != null) {
-      joiner.add(String.format("%scounterpartyAccountId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCounterpartyAccountId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%scounterpartyAccountId%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCounterpartyAccountId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `status` to the URL query string
@@ -727,7 +715,7 @@ public class GetPaymentsListFilterParameter {
       for (int i = 0; i < getStatus().size(); i++) {
         joiner.add(String.format("%sstatus%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
-            URLEncoder.encode(String.valueOf(getStatus().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+            URLEncoder.encode(ApiClient.valueToString(getStatus().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
     }
 
@@ -736,7 +724,7 @@ public class GetPaymentsListFilterParameter {
       for (int i = 0; i < getType().size(); i++) {
         joiner.add(String.format("%stype%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
-            URLEncoder.encode(String.valueOf(getType().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+            URLEncoder.encode(ApiClient.valueToString(getType().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
     }
 
@@ -745,33 +733,33 @@ public class GetPaymentsListFilterParameter {
       for (int i = 0; i < getDirection().size(); i++) {
         joiner.add(String.format("%sdirection%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
-            URLEncoder.encode(String.valueOf(getDirection().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+            URLEncoder.encode(ApiClient.valueToString(getDirection().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
     }
 
     // add `since` to the URL query string
     if (getSince() != null) {
-      joiner.add(String.format("%ssince%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSince()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%ssince%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getSince()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `until` to the URL query string
     if (getUntil() != null) {
-      joiner.add(String.format("%suntil%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUntil()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%suntil%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getUntil()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `fromAmount` to the URL query string
     if (getFromAmount() != null) {
-      joiner.add(String.format("%sfromAmount%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getFromAmount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sfromAmount%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getFromAmount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `toAmount` to the URL query string
     if (getToAmount() != null) {
-      joiner.add(String.format("%stoAmount%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getToAmount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%stoAmount%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getToAmount()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `recurringPaymentId` to the URL query string
     if (getRecurringPaymentId() != null) {
-      joiner.add(String.format("%srecurringPaymentId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getRecurringPaymentId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%srecurringPaymentId%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getRecurringPaymentId()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `feature` to the URL query string
@@ -779,7 +767,7 @@ public class GetPaymentsListFilterParameter {
       for (int i = 0; i < getFeature().size(); i++) {
         joiner.add(String.format("%sfeature%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
-            URLEncoder.encode(String.valueOf(getFeature().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+            URLEncoder.encode(ApiClient.valueToString(getFeature().get(i)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
     }
 
@@ -788,7 +776,7 @@ public class GetPaymentsListFilterParameter {
       for (String _key : getTags().keySet()) {
         joiner.add(String.format("%stags%s%s=%s", prefix, suffix,
             "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
-            getTags().get(_key), URLEncoder.encode(String.valueOf(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+            getTags().get(_key), URLEncoder.encode(ApiClient.valueToString(getTags().get(_key)), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
       }
     }
 

@@ -33,6 +33,7 @@ import unit.java.sdk.model.Relationship;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import unit.java.sdk.ApiClient;
 /**
  * BusinessApplicationRelationships
  */
@@ -43,7 +44,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   BusinessApplicationRelationships.JSON_PROPERTY_ORG,
   BusinessApplicationRelationships.JSON_PROPERTY_APPLICATION_FORM
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.5.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class BusinessApplicationRelationships {
   public static final String JSON_PROPERTY_CUSTOMER = "customer";
   private CustomerRelationship customer;
@@ -68,14 +69,13 @@ public class BusinessApplicationRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get customer
    * @return customer
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOMER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public CustomerRelationship getCustomer() {
     return customer;
   }
@@ -93,14 +93,13 @@ public class BusinessApplicationRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get documents
    * @return documents
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DOCUMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public DocumentsRelationship getDocuments() {
     return documents;
   }
@@ -118,14 +117,13 @@ public class BusinessApplicationRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get beneficialOwners
    * @return beneficialOwners
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BENEFICIAL_OWNERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public BeneficialOwnersRelationship getBeneficialOwners() {
     return beneficialOwners;
   }
@@ -143,14 +141,13 @@ public class BusinessApplicationRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get org
    * @return org
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ORG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OrgRelationship getOrg() {
     return org;
   }
@@ -168,14 +165,13 @@ public class BusinessApplicationRelationships {
     return this;
   }
 
-   /**
+  /**
    * Get applicationForm
    * @return applicationForm
-  **/
+   */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_APPLICATION_FORM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Relationship getApplicationForm() {
     return applicationForm;
   }

@@ -30,17 +30,17 @@ import com.fasterxml.jackson.annotation.JsonValue;
  */
 public enum SourceOfIncome {
   
-  EMPLOYMENTORPAYROLLINCOME("EmploymentOrPayrollIncome"),
+  EMPLOYMENT_OR_PAYROLL_INCOME("EmploymentOrPayrollIncome"),
   
-  PARTTIMEORCONTRACTORINCOME("PartTimeOrContractorIncome"),
+  PART_TIME_OR_CONTRACTOR_INCOME("PartTimeOrContractorIncome"),
   
-  INHERITANCESANDGIFTS("InheritancesAndGifts"),
+  INHERITANCES_AND_GIFTS("InheritancesAndGifts"),
   
-  PERSONALINVESTMENTS("PersonalInvestments"),
+  PERSONAL_INVESTMENTS("PersonalInvestments"),
   
-  BUSINESSOWNERSHIPINTERESTS("BusinessOwnershipInterests"),
+  BUSINESS_OWNERSHIP_INTERESTS("BusinessOwnershipInterests"),
   
-  GOVERNMENTBENEFITS("GovernmentBenefits");
+  GOVERNMENT_BENEFITS("GovernmentBenefits");
 
   private String value;
 

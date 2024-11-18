@@ -27,6 +27,9 @@ jobs:
           UNIT_API_URL: ${{ secrets.UNIT_API_URL }}
           UNIT_TOKEN: ${{ secrets.UNIT_TOKEN }}
           access_token: ${{ secrets.UNIT_TOKEN }}
+          token_tests_user_id: ${{ secrets.TOKEN_TEST_USER_ID }}
+          test_plaid_counterparty_token: ${{ secrets.TEST_PLAID_COUNTERPARTY_TOKEN }}
+          wallet_terms: ${{ secrets.WALLET_TERMS }}
 
       - name: Store reports
         if: failure()

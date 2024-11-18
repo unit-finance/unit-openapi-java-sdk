@@ -298,7 +298,7 @@ public class PaymentTests {
     @Test
     public void CancelAchPaymentTest() throws ApiException {
         AchPayment payment = CreateAchPayment();
-        System.err.println(payment.getAttributes().getStatus());
+
         UnitPaymentResponse res = unitApi.cancelPayment(payment.getId(), new Object());
         assert res.getData().getType().equals(Payment.TypeEnum.ACH_PAYMENT);
     }

@@ -44,7 +44,9 @@ public class TestHelpers {
         ObjectMapper mapper = cl.getObjectMapper();
         mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
         cl.setObjectMapper(mapper);
-        cl.setRequestInterceptor(r -> r.header("Authorization", "Bearer " + access_token));
+        cl.setRequestInterceptor(r -> {
+            r.header("Authorization", "Bearer " + access_token);
+        });
         unitApi = new UnitApi(cl);
         }
 

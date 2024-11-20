@@ -168,7 +168,7 @@ public class ApiClient {
     this.mapper = createDefaultObjectMapper();
     updateBaseUri(getDefaultBaseUri());
     interceptor = (req) -> {
-      req.setHeader("X-UNIT-SDK", "unit-node-sdk@v0.39.0");
+      req.setHeader("X-UNIT-SDK", "unit-openapi-java-sdk@v0.2.0");
     };
     readTimeout = null;
     connectTimeout = null;
@@ -188,7 +188,7 @@ public class ApiClient {
     this.mapper = mapper;
     updateBaseUri(baseUri != null ? baseUri : getDefaultBaseUri());
     interceptor = (req) -> {
-      req.setHeader("X-UNIT-SDK", "unit-node-sdk@v0.39.0");
+      req.setHeader("X-UNIT-SDK", "unit-openapi-java-sdk@v0.2.0");
     };
     readTimeout = null;
     connectTimeout = null;
@@ -343,7 +343,7 @@ public class ApiClient {
    */
   public ApiClient setRequestInterceptor(Consumer<HttpRequest.Builder> interceptor) {
     this.interceptor = (req) -> {
-      req.setHeader("X-UNIT-SDK", "unit-node-sdk@v0.39.0");
+      req.setHeader("X-UNIT-SDK", "unit-openapi-java-sdk@v0.2.0");
       interceptor.accept(req);
     };
     return this;

@@ -32,20 +32,23 @@ Add this dependency to your project's POM:
 
 ## Basic Usage Examples
 
-For more examples of basic usage, see the [Test suites](https://github.com/unit-finance/unit-openapi-java-sdk/tree/main/src/test/java/org/openapitools/client) or [API Reference documentation](https://docs.unit.co/).
+For more examples of basic usage, see the [Test suites](https://github.com/unit-finance/unit-openapi-java-sdk/tree/main/src/test/java/unit/java/sdk) or [API Reference documentation](https://docs.unit.co/).
 
 ```java
-String access_token = System.getenv("access_token");
-ApiClient apiClient = new ApiClient();
-apiClient.setRequestInterceptor(r -> r.header("Authorization", "Bearer " + access_token));
+String access_token = "access_token";
+ApiClient cl = new ApiClient();
+ObjectMapper mapper = cl.getObjectMapper();
+mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false); // To allow certain requests with empty bodies
+cl.setObjectMapper(mapper);
+cl.setRequestInterceptor(r -> {
+    r.header("Authorization", "Bearer " + access_token);
+});
+UnitApi unitApi = new UnitApi(cl);
 
-CreateIndividualApplication createIndividualApplication = new CreateIndividualApplication();
-CreateIndividualApplicationAttributes attr = new CreateIndividualApplicationAttributes();
+CreateBusinessApplication createBusinessApplication = new CreateBusinessApplication();
+CreateBusinessApplicationAttributes attr = new CreateBusinessApplicationAttributes();
 
-FullName fn = new FullName();
-fn.setFirst("Peter");
-fn.setLast("Parker");
-attr.setFullName(fn);
+attr.setName("Peter Parker");
 
 Address address = new Address();
 address.setStreet("20 Ingram St");
@@ -55,33 +58,78 @@ address.setCountry("US");
 address.setState("NY");
 attr.setAddress(address);
 
-attr.setSsn("721074426");
-attr.setDateOfBirth(LocalDate.parse("2001-08-10"));
-attr.setEmail("peter@oscorp.com");
+
 Phone p = new Phone();
 p.setNumber("5555555555");
 p.setCountryCode("1");
 attr.setPhone(p);
-attr.setIdempotencyKey("3a1a33be-4e12-4603-9ed0-820922389fb8");
-attr.setOccupation(Occupation.ARCHITECT_OR_ENGINEER);
 
-createIndividualApplication.setAttributes(attr);
+attr.setStateOfIncorporation("DE");
+attr.setEin("123456789");
+attr.setEntityType(EntityType.CORPORATION);
+attr.setIp("127.0.0.1");
+attr.setAnnualRevenue(BusinessAnnualRevenue.BETWEEN250K_AND500K);
+attr.setNumberOfEmployees(BusinessNumberOfEmployees.BETWEEN100_AND500);
+attr.setCashFlow(CashFlow.PREDICTABLE);
+attr.setYearOfIncorporation("1999");
+List<String> countriesOfOperation = new ArrayList<String>();
+countriesOfOperation.add("US");
+countriesOfOperation.add("CA");
 
-CreateApplication ca = new CreateApplication();
-ca.data(new CreateApplicationData(createIndividualApplication));
+attr.setCountriesOfOperation(countriesOfOperation);
 
-CreateApplicationApi createApiClient = new CreateApplicationApi(apiClient);
-UnitCreateApplicationResponse res = apiClient.execute(request);
+attr.setWebsite(null);
+
+String email = "richard@piedpiper.com";
+Contact contact = new Contact();
+contact.setEmail(email);
+contact.setPhone(p);
+FullName fn = new FullName();
+fn.setFirst("Peter");
+fn.setLast("Parker");
+contact.setFullName(fn);
+attr.setContact(contact);
+
+
+CreateOfficer officer = new CreateOfficer();
+officer.setAnnualIncome(AnnualIncome.BETWEEN50K_AND100K);
+officer.setFullName(fn);
+officer.setAddress(address);
+officer.setEmail(email);
+officer.setPhone(p);
+LocalDate dateOfBirh = LocalDate.of(1997, 11, 1);
+officer.setDateOfBirth(dateOfBirh);
+officer.setTitle(CreateOfficer.TitleEnum.CEO);
+officer.setOccupation(Occupation.ARCHITECT_OR_ENGINEER);
+officer.setSourceOfIncome(SourceOfIncome.BUSINESS_OWNERSHIP_INTERESTS);
+officer.setSsn("123456789");
+
+attr.setOfficer(officer);
+attr.setBusinessVertical(BusinessVertical.ARTS_ENTERTAINMENT_AND_RECREATION);
+
+List<CreateBeneficialOwner> beneficialOwners = new ArrayList<CreateBeneficialOwner>();
+CreateBeneficialOwner beneficialOwner = new CreateBeneficialOwner();
+beneficialOwner.setAddress(address);
+beneficialOwner.setFullName(fn);
+beneficialOwner.setDateOfBirth(dateOfBirh);
+beneficialOwner.setSsn("721074426");
+beneficialOwner.setEmail(email);
+beneficialOwner.setPhone(p);
+beneficialOwner.setOccupation(Occupation.ARCHITECT_OR_ENGINEER);
+beneficialOwner.setAnnualIncome(AnnualIncome.BETWEEN100K_AND250K);
+beneficialOwner.setSourceOfIncome(SourceOfIncome.BUSINESS_OWNERSHIP_INTERESTS);
+beneficialOwners.add(beneficialOwner);
+attr.setBeneficialOwners(beneficialOwners);
+
+createBusinessApplication.setAttributes(attr);
+
+CreateApplicationRequest ca = new CreateApplicationRequest();
+ca.data(new CreateApplicationRequestData(createBusinessApplication));
+
+UnitCreateApplicationResponse res = unitApi.createApplication(ca)
 ```
 
 ## About
 
 To generate a customized version of the unit-java-sdk using our [OpenAPI project](https://github.com/unit-finance/openapi-unit-sdk)
-we suggest using the open-generator-cli to generate the Java client using the following command:
-
-```commandline
-openapi-generator-cli generate -g java -i openapi.json -o unit
--p hideGenerationTimestamp=true -p packageName=unit.java.sdk
--p modelPackage=unit.java.sdk.model -p apiPackage=unit.java.sdk.api
---library native -p useJakartaEe=true
-```
+we suggest modifying `npm run generate-java` command in our [openapi-unit-sdk repo](https://github.com/unit-finance/openapi-unit-sdk/tree/main) [package.json](https://github.com/unit-finance/openapi-unit-sdk/blob/main/package.json), which uses open-generator-cli as it's base

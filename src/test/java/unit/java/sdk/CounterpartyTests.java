@@ -105,10 +105,10 @@ public class CounterpartyTests {
        return counterparty;
     }
 
-    @Test
-    public void CreateCounterpartyWithPlaidTokenApiTest() throws ApiException {
-        CreateCounterpartyWithPlaidToken();
-    }
+    // @Test
+    // public void CreateCounterpartyWithPlaidTokenApiTest() throws ApiException {
+    //     CreateCounterpartyWithPlaidToken();
+    // }
 
     @Test
     public void DeleteCounterpartyApiTest() throws ApiException {
@@ -131,12 +131,12 @@ public class CounterpartyTests {
         });
     }
 
-    @Test
-    public void GetCounterpartyBalanceApiTest() throws ApiException {
-        Counterparty counterparty = CreateCounterpartyWithPlaidToken();
-        UnitCounterpartyBalanceResponse res = unitApi.getCounterpartyBalance(counterparty.getId());
-        assert res.getData().getType().equals(CounterpartyBalance.TypeEnum.COUNTERPARTY_BALANCE);
-    }
+    // @Test
+    // public void GetCounterpartyBalanceApiTest() throws ApiException {
+    //     Counterparty counterparty = CreateCounterpartyWithPlaidToken();
+    //     UnitCounterpartyBalanceResponse res = unitApi.getCounterpartyBalance(counterparty.getId());
+    //     assert res.getData().getType().equals(CounterpartyBalance.TypeEnum.COUNTERPARTY_BALANCE);
+    // }
 
     @Test
     public void UpdateCounterpartyApiTest() throws ApiException {

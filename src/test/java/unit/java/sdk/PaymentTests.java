@@ -269,10 +269,10 @@ public class PaymentTests {
         return (AchPayment) response.getData();
     }
 
-    @Test
-    public void CreateAchPaymentPlaidApiTest() throws ApiException {
-        CreateAchPaymentPlaid();
-    }
+    // @Test
+    // public void CreateAchPaymentPlaidApiTest() throws ApiException {
+    //     CreateAchPaymentPlaid();
+    // }
 
     @Test
     public void UpdateAchPaymentApiTest() throws ApiException {

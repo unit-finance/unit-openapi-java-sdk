@@ -2,7 +2,7 @@ openapi: 3.0.2
 info:
   description: An OpenAPI specifications for unit-sdk clients
   title: Unit OpenAPI specifications
-  version: 0.2.0
+  version: 0.2.1
 servers:
 - url: https://api.s.unit.sh
 security:
@@ -7131,13 +7131,9 @@ components:
       title: ATM
       type: object
     RelatedTransactionRelationship:
-      additionalProperties: false
       properties:
-        data:
-          $ref: '#/components/schemas/Receive_Payment_Transaction_Relationship_data'
-      required:
-      - data
-      title: Related Transaction Relationship
+        relatedTransaction:
+          $ref: '#/components/schemas/Related_Transaction_Relationship'
       type: object
     FeeTransactionRelationships:
       allOf:
@@ -7162,16 +7158,16 @@ components:
         type: object
       title: Fee
       type: object
-    CardReversalTransactionRelationships:
+    CardTransactionRelationships:
       allOf:
       - required:
         - account
+        - authorization
         - card
-        - relatedTransaction
         type: object
       - $ref: '#/components/schemas/DefaultTransactionRelationships'
+      - $ref: '#/components/schemas/AuthorizationRelationship'
       - $ref: '#/components/schemas/CardRelationship'
-      - $ref: '#/components/schemas/RelatedTransactionRelationship'
     CardTransaction:
       allOf:
       - $ref: '#/components/schemas/Transaction'
@@ -7180,7 +7176,7 @@ components:
           attributes:
             $ref: '#/components/schemas/CardTransaction_allOf_attributes'
           relationships:
-            $ref: '#/components/schemas/CardReversalTransactionRelationships'
+            $ref: '#/components/schemas/CardTransactionRelationships'
         required:
         - attributes
         - relationships
@@ -7699,6 +7695,16 @@ components:
         type: object
       title: Returned Check Payment Transaction
       type: object
+    CardReversalTransactionRelationships:
+      allOf:
+      - required:
+        - account
+        - card
+        - relatedTransaction
+        type: object
+      - $ref: '#/components/schemas/DefaultTransactionRelationships'
+      - $ref: '#/components/schemas/CardRelationship'
+      - $ref: '#/components/schemas/RelatedTransactionRelationship'
     CardReversalTransaction:
       allOf:
       - $ref: '#/components/schemas/Transaction'
@@ -8403,12 +8409,16 @@ components:
       additionalProperties: false
       properties:
         dailyWithdrawal:
+          format: int64
           type: integer
         dailyPurchase:
+          format: int64
           type: integer
         monthlyWithdrawal:
+          format: int64
           type: integer
         monthlyPurchase:
+          format: int64
           type: integer
       type: object
     Bin:
@@ -8732,12 +8742,16 @@ components:
       additionalProperties: false
       properties:
         withdrawals:
+          format: int64
           type: integer
         deposits:
+          format: int64
           type: integer
         purchases:
+          format: int64
           type: integer
         cardTransactions:
+          format: int64
           type: integer
       required:
       - cardTransactions
@@ -8819,16 +8833,22 @@ components:
       additionalProperties: false
       properties:
         transitAmount:
+          format: int64
           type: integer
         prescriptionRXAmount:
+          format: int64
           type: integer
         visionOpticalAmount:
+          format: int64
           type: integer
         clinicOtherQualifiedMedicalAmount:
+          format: int64
           type: integer
         dentalAmount:
+          format: int64
           type: integer
         totalHealthcareAmount:
+          format: int64
           type: integer
       required:
       - clinicOtherQualifiedMedicalAmount
@@ -10614,8 +10634,10 @@ components:
         until:
           type: string
         fromAmount:
+          format: int64
           type: integer
         toAmount:
+          format: int64
           type: integer
         recurringPaymentId:
           type: integer
@@ -10697,8 +10719,10 @@ components:
         until:
           type: string
         fromAmount:
+          format: int64
           type: integer
         toAmount:
+          format: int64
           type: integer
         includeCompleted:
           type: boolean
@@ -10843,8 +10867,10 @@ components:
         until:
           type: string
         fromAmount:
+          format: int64
           type: integer
         toAmount:
+          format: int64
           type: integer
         status:
           items:
@@ -10881,8 +10907,10 @@ components:
             type: string
           type: array
         fromAmount:
+          format: int64
           type: integer
         toAmount:
+          format: int64
           type: integer
       type: object
     Unit_List_Authorization_Requests_Response:
@@ -11173,6 +11201,10 @@ components:
       properties:
         accountId:
           type: string
+        accountIds:
+          items:
+            type: string
+          type: array
         customerId:
           type: string
         query:
@@ -11201,8 +11233,10 @@ components:
             type: string
           type: array
         fromAmount:
+          format: int64
           type: integer
         toAmount:
+          format: int64
           type: integer
         accountType:
           type: string
@@ -11331,8 +11365,10 @@ components:
         until:
           type: string
         fromAmount:
+          format: int64
           type: integer
         toAmount:
+          format: int64
           type: integer
         checkNumber:
           type: string
@@ -11402,8 +11438,10 @@ components:
         until:
           type: string
         fromAmount:
+          format: int64
           type: integer
         toAmount:
+          format: int64
           type: integer
         checkNumber:
           type: string
@@ -12407,13 +12445,17 @@ components:
           default: USD
           type: string
         balance:
+          format: int64
           type: integer
         overdraftLimit:
+          format: int64
           minimum: 0
           type: integer
         hold:
+          format: int64
           type: integer
         available:
+          format: int64
           type: integer
         tags:
           additionalProperties:
@@ -12498,10 +12540,13 @@ components:
           default: USD
           type: string
         balance:
+          format: int64
           type: integer
         hold:
+          format: int64
           type: integer
         available:
+          format: int64
           type: integer
         tags:
           additionalProperties:
@@ -12544,6 +12589,7 @@ components:
         freezeReason:
           type: string
         creditLimit:
+          format: int64
           minimum: 0
           type: integer
         updatedAt:
@@ -12592,10 +12638,13 @@ components:
           default: USD
           type: string
         balance:
+          format: int64
           type: integer
         hold:
+          format: int64
           type: integer
         available:
+          format: int64
           type: integer
         tags:
           additionalProperties:
@@ -12840,6 +12889,7 @@ components:
         creditTerms:
           type: string
         creditLimit:
+          format: int64
           type: integer
         tags:
           additionalProperties:
@@ -12960,6 +13010,7 @@ components:
           maxProperties: 15
           type: object
         creditLimit:
+          format: int64
           type: integer
       type: object
     UpdateAccountRequest_data:
@@ -13289,12 +13340,16 @@ components:
           format: date
           type: string
         balance:
+          format: int64
           type: integer
         hold:
+          format: int64
           type: integer
         available:
+          format: int64
           type: integer
         overdraftLimit:
+          format: int64
           type: integer
       required:
       - available
@@ -13306,10 +13361,13 @@ components:
       additionalProperties: false
       properties:
         remainingAmountDue:
+          format: int64
           type: integer
         remainingAmountOverdue:
+          format: int64
           type: integer
         initiatedRepayments:
+          format: int64
           type: integer
         statementPeriodStart:
           format: date
@@ -13531,6 +13589,7 @@ components:
           format: date-time
           type: string
         amount:
+          format: int64
           minimum: 1
           type: integer
         direction:
@@ -13644,6 +13703,7 @@ components:
           format: date-time
           type: string
         amount:
+          format: int64
           minimum: 1
           type: integer
         direction:
@@ -13695,6 +13755,7 @@ components:
           format: date-time
           type: string
         amount:
+          format: int64
           minimum: 1
           type: integer
         direction:
@@ -13734,6 +13795,7 @@ components:
       additionalProperties: false
       properties:
         amount:
+          format: int64
           type: integer
         description:
           type: string
@@ -13775,6 +13837,7 @@ components:
       additionalProperties: false
       properties:
         amount:
+          format: int64
           type: integer
         description:
           type: string
@@ -13816,6 +13879,7 @@ components:
       additionalProperties: false
       properties:
         amount:
+          format: int64
           type: integer
         description:
           type: string
@@ -13863,6 +13927,7 @@ components:
       additionalProperties: false
       properties:
         amount:
+          format: int64
           type: integer
         description:
           type: string
@@ -13887,6 +13952,7 @@ components:
       additionalProperties: false
       properties:
         amount:
+          format: int64
           type: integer
         direction:
           enum:
@@ -13921,6 +13987,7 @@ components:
       additionalProperties: false
       properties:
         amount:
+          format: int64
           type: integer
         idempotencyKey:
           maxLength: 255
@@ -14113,6 +14180,7 @@ components:
           - Completed
           type: string
         amount:
+          format: int64
           minimum: 1
           type: integer
         completionDate:
@@ -14231,8 +14299,10 @@ components:
           - Debit
           type: string
         amount:
+          format: int64
           type: integer
         balance:
+          format: int64
           type: integer
         summary:
           type: string
@@ -14273,8 +14343,10 @@ components:
           - Debit
           type: string
         amount:
+          format: int64
           type: integer
         balance:
+          format: int64
           type: integer
         summary:
           type: string
@@ -14322,8 +14394,10 @@ components:
           - Debit
           type: string
         amount:
+          format: int64
           type: integer
         balance:
+          format: int64
           type: integer
         summary:
           type: string
@@ -14366,8 +14440,10 @@ components:
           - Debit
           type: string
         amount:
+          format: int64
           type: integer
         balance:
+          format: int64
           type: integer
         summary:
           type: string
@@ -14402,8 +14478,10 @@ components:
           - Debit
           type: string
         amount:
+          format: int64
           type: integer
         balance:
+          format: int64
           type: integer
         summary:
           type: string
@@ -14462,7 +14540,7 @@ components:
       - data
       title: Card Relationship
       type: object
-    Authorization_Relationship_data_inner:
+    Authorization_Relationship_data:
       additionalProperties: false
       properties:
         type:
@@ -14471,17 +14549,18 @@ components:
         id:
           pattern: "^[1-9]\\d*$"
           type: string
+      required:
+      - id
+      - type
       type: object
     Authorization_Relationship:
       additionalProperties: false
       properties:
         data:
-          items:
-            $ref: '#/components/schemas/Authorization_Relationship_data_inner'
-          type: array
+          $ref: '#/components/schemas/Authorization_Relationship_data'
       title: Authorization Relationship
       type: object
-    Authorization_Request_Relationship_data_inner:
+    Authorization_Request_Relationship_data:
       additionalProperties: false
       properties:
         type:
@@ -14490,14 +14569,15 @@ components:
         id:
           pattern: "^[1-9]\\d*$"
           type: string
+      required:
+      - id
+      - type
       type: object
     Authorization_Request_Relationship:
       additionalProperties: false
       properties:
         data:
-          items:
-            $ref: '#/components/schemas/Authorization_Request_Relationship_data_inner'
-          type: array
+          $ref: '#/components/schemas/Authorization_Request_Relationship_data'
       title: Authorization Request Relationship
       type: object
     PurchaseTransaction_allOf_attributes:
@@ -14511,8 +14591,10 @@ components:
           - Debit
           type: string
         amount:
+          format: int64
           type: integer
         balance:
+          format: int64
           type: integer
         summary:
           type: string
@@ -14541,6 +14623,7 @@ components:
         cardPresent:
           type: boolean
         internationalServiceFee:
+          format: int64
           nullable: true
           type: integer
         paymentMethod:
@@ -14574,8 +14657,10 @@ components:
           - Debit
           type: string
         amount:
+          format: int64
           type: integer
         balance:
+          format: int64
           type: integer
         summary:
           type: string
@@ -14607,8 +14692,10 @@ components:
           - Debit
           type: string
         amount:
+          format: int64
           type: integer
         balance:
+          format: int64
           type: integer
         summary:
           type: string
@@ -14619,6 +14706,7 @@ components:
         atmLocation:
           type: string
         surcharge:
+          format: int64
           type: integer
         tags:
           additionalProperties:
@@ -14647,6 +14735,13 @@ components:
       - summary
       - surcharge
       type: object
+    Related_Transaction_Relationship:
+      additionalProperties: false
+      properties:
+        data:
+          $ref: '#/components/schemas/Receive_Payment_Transaction_Relationship_data'
+      title: Related Transaction Relationship
+      type: object
     FeeTransaction_allOf_attributes:
       properties:
         createdAt:
@@ -14658,8 +14753,10 @@ components:
           - Debit
           type: string
         amount:
+          format: int64
           type: integer
         balance:
+          format: int64
           type: integer
         summary:
           type: string
@@ -14688,8 +14785,10 @@ components:
           - Debit
           type: string
         amount:
+          format: int64
           type: integer
         balance:
+          format: int64
           type: integer
         summary:
           type: string
@@ -14708,6 +14807,7 @@ components:
           nullable: true
           type: string
         internationalServiceFee:
+          format: int64
           nullable: true
           type: integer
         merchant:
@@ -14743,8 +14843,10 @@ components:
           - Debit
           type: string
         amount:
+          format: int64
           type: integer
         balance:
+          format: int64
           type: integer
         summary:
           type: string
@@ -14785,8 +14887,10 @@ components:
           - Debit
           type: string
         amount:
+          format: int64
           type: integer
         balance:
+          format: int64
           type: integer
         summary:
           type: string
@@ -14832,8 +14936,10 @@ components:
           - Debit
           type: string
         amount:
+          format: int64
           type: integer
         balance:
+          format: int64
           type: integer
         summary:
           type: string
@@ -14873,8 +14979,10 @@ components:
           - Debit
           type: string
         amount:
+          format: int64
           type: integer
         balance:
+          format: int64
           type: integer
         summary:
           type: string
@@ -14926,6 +15034,7 @@ components:
           format: date-time
           type: string
         amount:
+          format: int64
           type: integer
         direction:
           enum:
@@ -14933,6 +15042,7 @@ components:
           - Debit
           type: string
         balance:
+          format: int64
           type: integer
         summary:
           type: string
@@ -14956,6 +15066,7 @@ components:
           format: date-time
           type: string
         amount:
+          format: int64
           type: integer
         direction:
           enum:
@@ -14963,6 +15074,7 @@ components:
           - Debit
           type: string
         balance:
+          format: int64
           type: integer
         summary:
           type: string
@@ -15039,8 +15151,10 @@ components:
         counterparty:
           $ref: '#/components/schemas/PaymentCounterparty'
         amount:
+          format: int64
           type: integer
         balance:
+          format: int64
           type: integer
         summary:
           type: string
@@ -15116,8 +15230,10 @@ components:
         receiverCounterparty:
           $ref: '#/components/schemas/PaymentCounterparty'
         amount:
+          format: int64
           type: integer
         balance:
+          format: int64
           type: integer
         summary:
           type: string
@@ -15147,8 +15263,10 @@ components:
           - Debit
           type: string
         amount:
+          format: int64
           type: integer
         balance:
+          format: int64
           type: integer
         summary:
           type: string
@@ -15201,8 +15319,10 @@ components:
           - Debit
           type: string
         amount:
+          format: int64
           type: integer
         balance:
+          format: int64
           type: integer
         summary:
           type: string
@@ -15234,8 +15354,10 @@ components:
           - Debit
           type: string
         amount:
+          format: int64
           type: integer
         balance:
+          format: int64
           type: integer
         summary:
           type: string
@@ -15308,6 +15430,7 @@ components:
           format: date-time
           type: string
         amount:
+          format: int64
           type: integer
         direction:
           enum:
@@ -15315,6 +15438,7 @@ components:
           - Debit
           type: string
         balance:
+          format: int64
           type: integer
         summary:
           type: string
@@ -15346,8 +15470,10 @@ components:
           - Debit
           type: string
         amount:
+          format: int64
           type: integer
         balance:
+          format: int64
           type: integer
         summary:
           type: string
@@ -15628,6 +15754,7 @@ components:
           format: date-time
           type: string
         amount:
+          format: int64
           minimum: 1
           type: integer
         description:
@@ -15673,6 +15800,7 @@ components:
           format: date-time
           type: string
         amount:
+          format: int64
           minimum: 1
           type: integer
         description:
@@ -15724,6 +15852,7 @@ components:
           format: date-time
           type: string
         amount:
+          format: int64
           minimum: 1
           type: integer
         description:
@@ -15761,6 +15890,7 @@ components:
       additionalProperties: false
       properties:
         amount:
+          format: int64
           minimum: 1
           type: integer
         description:
@@ -15793,6 +15923,7 @@ components:
       additionalProperties: false
       properties:
         amount:
+          format: int64
           minimum: 1
           type: integer
         description:
@@ -15834,6 +15965,7 @@ components:
       additionalProperties: false
       properties:
         amount:
+          format: int64
           minimum: 1
           type: integer
         description:
@@ -16361,6 +16493,7 @@ components:
           format: date-time
           type: string
         amount:
+          format: int64
           type: integer
         cardLast4Digits:
           type: string
@@ -16390,6 +16523,7 @@ components:
         cardNetwork:
           type: string
         cashWithdrawalAmount:
+          format: int64
           type: integer
       required:
       - amount
@@ -16427,12 +16561,14 @@ components:
           format: date-time
           type: string
         amount:
+          format: int64
           type: integer
         status:
           type: string
         partialApprovalAllowed:
           type: boolean
         approvedAmount:
+          format: int64
           type: integer
         declineReason:
           type: string
@@ -16462,6 +16598,7 @@ components:
         cardNetwork:
           type: string
         cashWithdrawalAmount:
+          format: int64
           type: integer
       required:
       - amount
@@ -16477,12 +16614,14 @@ components:
           format: date-time
           type: string
         amount:
+          format: int64
           type: integer
         status:
           type: string
         partialApprovalAllowed:
           type: boolean
         approvedAmount:
+          format: int64
           type: integer
         declineReason:
           type: string
@@ -16519,12 +16658,14 @@ components:
           format: date-time
           type: string
         amount:
+          format: int64
           type: integer
         status:
           type: string
         partialApprovalAllowed:
           type: boolean
         approvedAmount:
+          format: int64
           type: integer
         declineReason:
           type: string
@@ -16535,6 +16676,7 @@ components:
         atmLocation:
           type: string
         surcharge:
+          format: int64
           type: integer
         internationalServiceFee:
           nullable: true
@@ -16560,6 +16702,7 @@ components:
     ApproveAuthorizationRequest_attributes:
       properties:
         amount:
+          format: int64
           type: integer
         fundingAccount:
           type: string
@@ -16606,6 +16749,7 @@ components:
           format: date-time
           type: string
         amount:
+          format: int64
           minimum: 1
           type: integer
         description:
@@ -16636,6 +16780,7 @@ components:
       additionalProperties: false
       properties:
         amount:
+          format: int64
           minimum: 1
           type: integer
         description:
@@ -16696,6 +16841,7 @@ components:
       additionalProperties: false
       properties:
         amount:
+          format: int64
           minimum: 1
           type: integer
         description:
@@ -16737,6 +16883,7 @@ components:
       additionalProperties: false
       properties:
         amount:
+          format: int64
           minimum: 1
           type: integer
         description:
@@ -16817,6 +16964,7 @@ components:
           format: date
           type: string
         amount:
+          format: int64
           minimum: 1
           type: integer
         description:
@@ -16874,6 +17022,7 @@ components:
       additionalProperties: false
       properties:
         amount:
+          format: int64
           minimum: 1
           type: integer
         clearingDaysOverride:
@@ -17236,6 +17385,7 @@ components:
           maxLength: 1024
           type: string
         amount:
+          format: int64
           type: integer
         status:
           type: string
@@ -17666,6 +17816,7 @@ components:
           format: date-time
           type: string
         amount:
+          format: int64
           minimum: 1
           type: integer
         returnCutoffTime:
@@ -17767,6 +17918,7 @@ components:
         counterparty:
           $ref: '#/components/schemas/CreateCheckPaymentRequest_data_attributes_counterparty'
         amount:
+          format: int64
           minimum: 1
           type: integer
         idempotencyKey:
@@ -17829,6 +17981,7 @@ components:
           format: date-time
           type: string
         amount:
+          format: int64
           type: integer
         status:
           $ref: '#/components/schemas/CheckStopPaymentStatus'
@@ -17858,6 +18011,7 @@ components:
           format: date
           type: string
         minAmount:
+          format: int64
           type: integer
         originatorName:
           items:
@@ -17905,6 +18059,7 @@ components:
           key: tags
       properties:
         amount:
+          format: int64
           minimum: 1
           type: integer
         checkNumber:
@@ -17927,6 +18082,7 @@ components:
     CreateAchStopPayment_attributes:
       properties:
         minAmount:
+          format: int64
           type: integer
         originatorName:
           items:
@@ -17994,6 +18150,7 @@ components:
     CreateAtmDepositSimulationRequest_data_attributes:
       properties:
         amount:
+          format: int64
           type: integer
         atmName:
           type: string
@@ -18012,6 +18169,7 @@ components:
           - Other
           type: string
         surcharge:
+          format: int64
           type: integer
       required:
       - amount
@@ -18037,6 +18195,7 @@ components:
     CreateACHReceivedPaymentTransactionRequest_data_attributes:
       properties:
         amount:
+          format: int64
           type: integer
         completionDate:
           format: date
@@ -18075,6 +18234,7 @@ components:
     CreateIncomingAchPaymentRequest_data_attributes:
       properties:
         amount:
+          format: int64
           type: integer
         settlementDate:
           format: date

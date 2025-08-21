@@ -175,7 +175,7 @@ test {
     testLogging {
         showStandardStreams = true
     }
-    
+
     useJUnit()
 }
 //    // Enable JUnit 5 (Gradle 4.6+).

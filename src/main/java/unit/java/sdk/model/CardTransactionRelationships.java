@@ -26,7 +26,8 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import unit.java.sdk.model.AccountRelationship;
-import unit.java.sdk.model.CheckDepositRelationship;
+import unit.java.sdk.model.AuthorizationRelationship;
+import unit.java.sdk.model.CardRelationship;
 import unit.java.sdk.model.CustomerRelationship;
 import unit.java.sdk.model.CustomersRelationship;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -34,16 +35,17 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import unit.java.sdk.ApiClient;
 /**
- * ReturnedCheckDepositTransactionRelationships
+ * CardTransactionRelationships
  */
 @JsonPropertyOrder({
-  ReturnedCheckDepositTransactionRelationships.JSON_PROPERTY_ACCOUNT,
-  ReturnedCheckDepositTransactionRelationships.JSON_PROPERTY_CUSTOMER,
-  ReturnedCheckDepositTransactionRelationships.JSON_PROPERTY_CUSTOMERS,
-  ReturnedCheckDepositTransactionRelationships.JSON_PROPERTY_CHECK_DEPOSIT
+  CardTransactionRelationships.JSON_PROPERTY_ACCOUNT,
+  CardTransactionRelationships.JSON_PROPERTY_CUSTOMER,
+  CardTransactionRelationships.JSON_PROPERTY_CUSTOMERS,
+  CardTransactionRelationships.JSON_PROPERTY_AUTHORIZATION,
+  CardTransactionRelationships.JSON_PROPERTY_CARD
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
-public class ReturnedCheckDepositTransactionRelationships {
+public class CardTransactionRelationships {
   public static final String JSON_PROPERTY_ACCOUNT = "account";
   private AccountRelationship account;
 
@@ -53,13 +55,16 @@ public class ReturnedCheckDepositTransactionRelationships {
   public static final String JSON_PROPERTY_CUSTOMERS = "customers";
   private CustomersRelationship customers;
 
-  public static final String JSON_PROPERTY_CHECK_DEPOSIT = "checkDeposit";
-  private CheckDepositRelationship checkDeposit;
+  public static final String JSON_PROPERTY_AUTHORIZATION = "authorization";
+  private AuthorizationRelationship authorization;
 
-  public ReturnedCheckDepositTransactionRelationships() { 
+  public static final String JSON_PROPERTY_CARD = "card";
+  private CardRelationship card;
+
+  public CardTransactionRelationships() { 
   }
 
-  public ReturnedCheckDepositTransactionRelationships account(AccountRelationship account) {
+  public CardTransactionRelationships account(AccountRelationship account) {
     this.account = account;
     return this;
   }
@@ -83,7 +88,7 @@ public class ReturnedCheckDepositTransactionRelationships {
   }
 
 
-  public ReturnedCheckDepositTransactionRelationships customer(CustomerRelationship customer) {
+  public CardTransactionRelationships customer(CustomerRelationship customer) {
     this.customer = customer;
     return this;
   }
@@ -107,7 +112,7 @@ public class ReturnedCheckDepositTransactionRelationships {
   }
 
 
-  public ReturnedCheckDepositTransactionRelationships customers(CustomersRelationship customers) {
+  public CardTransactionRelationships customers(CustomersRelationship customers) {
     this.customers = customers;
     return this;
   }
@@ -131,32 +136,56 @@ public class ReturnedCheckDepositTransactionRelationships {
   }
 
 
-  public ReturnedCheckDepositTransactionRelationships checkDeposit(CheckDepositRelationship checkDeposit) {
-    this.checkDeposit = checkDeposit;
+  public CardTransactionRelationships authorization(AuthorizationRelationship authorization) {
+    this.authorization = authorization;
     return this;
   }
 
   /**
-   * Get checkDeposit
-   * @return checkDeposit
+   * Get authorization
+   * @return authorization
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_CHECK_DEPOSIT)
+  @JsonProperty(JSON_PROPERTY_AUTHORIZATION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public CheckDepositRelationship getCheckDeposit() {
-    return checkDeposit;
+  public AuthorizationRelationship getAuthorization() {
+    return authorization;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CHECK_DEPOSIT)
+  @JsonProperty(JSON_PROPERTY_AUTHORIZATION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCheckDeposit(CheckDepositRelationship checkDeposit) {
-    this.checkDeposit = checkDeposit;
+  public void setAuthorization(AuthorizationRelationship authorization) {
+    this.authorization = authorization;
+  }
+
+
+  public CardTransactionRelationships card(CardRelationship card) {
+    this.card = card;
+    return this;
+  }
+
+  /**
+   * Get card
+   * @return card
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_CARD)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public CardRelationship getCard() {
+    return card;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CARD)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setCard(CardRelationship card) {
+    this.card = card;
   }
 
 
   /**
-   * Return true if this ReturnedCheckDepositTransactionRelationships object is equal to o.
+   * Return true if this CardTransactionRelationships object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -166,26 +195,28 @@ public class ReturnedCheckDepositTransactionRelationships {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ReturnedCheckDepositTransactionRelationships returnedCheckDepositTransactionRelationships = (ReturnedCheckDepositTransactionRelationships) o;
-    return Objects.equals(this.account, returnedCheckDepositTransactionRelationships.account) &&
-        Objects.equals(this.customer, returnedCheckDepositTransactionRelationships.customer) &&
-        Objects.equals(this.customers, returnedCheckDepositTransactionRelationships.customers) &&
-        Objects.equals(this.checkDeposit, returnedCheckDepositTransactionRelationships.checkDeposit);
+    CardTransactionRelationships cardTransactionRelationships = (CardTransactionRelationships) o;
+    return Objects.equals(this.account, cardTransactionRelationships.account) &&
+        Objects.equals(this.customer, cardTransactionRelationships.customer) &&
+        Objects.equals(this.customers, cardTransactionRelationships.customers) &&
+        Objects.equals(this.authorization, cardTransactionRelationships.authorization) &&
+        Objects.equals(this.card, cardTransactionRelationships.card);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(account, customer, customers, checkDeposit);
+    return Objects.hash(account, customer, customers, authorization, card);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ReturnedCheckDepositTransactionRelationships {\n");
+    sb.append("class CardTransactionRelationships {\n");
     sb.append("    account: ").append(toIndentedString(account)).append("\n");
     sb.append("    customer: ").append(toIndentedString(customer)).append("\n");
     sb.append("    customers: ").append(toIndentedString(customers)).append("\n");
-    sb.append("    checkDeposit: ").append(toIndentedString(checkDeposit)).append("\n");
+    sb.append("    authorization: ").append(toIndentedString(authorization)).append("\n");
+    sb.append("    card: ").append(toIndentedString(card)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -248,9 +279,14 @@ public class ReturnedCheckDepositTransactionRelationships {
       joiner.add(getCustomers().toUrlQueryString(prefix + "customers" + suffix));
     }
 
-    // add `checkDeposit` to the URL query string
-    if (getCheckDeposit() != null) {
-      joiner.add(getCheckDeposit().toUrlQueryString(prefix + "checkDeposit" + suffix));
+    // add `authorization` to the URL query string
+    if (getAuthorization() != null) {
+      joiner.add(getAuthorization().toUrlQueryString(prefix + "authorization" + suffix));
+    }
+
+    // add `card` to the URL query string
+    if (getCard() != null) {
+      joiner.add(getCard().toUrlQueryString(prefix + "card" + suffix));
     }
 
     return joiner.toString();

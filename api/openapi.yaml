@@ -2,7 +2,7 @@ openapi: 3.0.2
 info:
   description: An OpenAPI specifications for unit-sdk clients
   title: Unit OpenAPI specifications
-  version: 0.2.1
+  version: 0.2.2
 servers:
 - url: https://api.s.unit.sh
 security:
@@ -5029,7 +5029,7 @@ components:
           type: string
         percentage:
           maximum: 100
-          minimum: 0
+          minimum: 25
           type: integer
         evaluationFlags:
           items:
@@ -7131,13 +7131,9 @@ components:
       title: ATM
       type: object
     RelatedTransactionRelationship:
-      additionalProperties: false
       properties:
-        data:
-          $ref: '#/components/schemas/Receive_Payment_Transaction_Relationship_data'
-      required:
-      - data
-      title: Related Transaction Relationship
+        relatedTransaction:
+          $ref: '#/components/schemas/Related_Transaction_Relationship'
       type: object
     FeeTransactionRelationships:
       allOf:
@@ -7162,16 +7158,16 @@ components:
         type: object
       title: Fee
       type: object
-    CardReversalTransactionRelationships:
+    CardTransactionRelationships:
       allOf:
       - required:
         - account
+        - authorization
         - card
-        - relatedTransaction
         type: object
       - $ref: '#/components/schemas/DefaultTransactionRelationships'
+      - $ref: '#/components/schemas/AuthorizationRelationship'
       - $ref: '#/components/schemas/CardRelationship'
-      - $ref: '#/components/schemas/RelatedTransactionRelationship'
     CardTransaction:
       allOf:
       - $ref: '#/components/schemas/Transaction'
@@ -7180,7 +7176,7 @@ components:
           attributes:
             $ref: '#/components/schemas/CardTransaction_allOf_attributes'
           relationships:
-            $ref: '#/components/schemas/CardReversalTransactionRelationships'
+            $ref: '#/components/schemas/CardTransactionRelationships'
         required:
         - attributes
         - relationships
@@ -7699,6 +7695,16 @@ components:
         type: object
       title: Returned Check Payment Transaction
       type: object
+    CardReversalTransactionRelationships:
+      allOf:
+      - required:
+        - account
+        - card
+        - relatedTransaction
+        type: object
+      - $ref: '#/components/schemas/DefaultTransactionRelationships'
+      - $ref: '#/components/schemas/CardRelationship'
+      - $ref: '#/components/schemas/RelatedTransactionRelationship'
     CardReversalTransaction:
       allOf:
       - $ref: '#/components/schemas/Transaction'
@@ -11195,6 +11201,10 @@ components:
       properties:
         accountId:
           type: string
+        accountIds:
+          items:
+            type: string
+          type: array
         customerId:
           type: string
         query:
@@ -14530,7 +14540,7 @@ components:
       - data
       title: Card Relationship
       type: object
-    Authorization_Relationship_data_inner:
+    Authorization_Relationship_data:
       additionalProperties: false
       properties:
         type:
@@ -14539,17 +14549,18 @@ components:
         id:
           pattern: "^[1-9]\\d*$"
           type: string
+      required:
+      - id
+      - type
       type: object
     Authorization_Relationship:
       additionalProperties: false
       properties:
         data:
-          items:
-            $ref: '#/components/schemas/Authorization_Relationship_data_inner'
-          type: array
+          $ref: '#/components/schemas/Authorization_Relationship_data'
       title: Authorization Relationship
       type: object
-    Authorization_Request_Relationship_data_inner:
+    Authorization_Request_Relationship_data:
       additionalProperties: false
       properties:
         type:
@@ -14558,14 +14569,15 @@ components:
         id:
           pattern: "^[1-9]\\d*$"
           type: string
+      required:
+      - id
+      - type
       type: object
     Authorization_Request_Relationship:
       additionalProperties: false
       properties:
         data:
-          items:
-            $ref: '#/components/schemas/Authorization_Request_Relationship_data_inner'
-          type: array
+          $ref: '#/components/schemas/Authorization_Request_Relationship_data'
       title: Authorization Request Relationship
       type: object
     PurchaseTransaction_allOf_attributes:
@@ -14722,6 +14734,13 @@ components:
       - direction
       - summary
       - surcharge
+      type: object
+    Related_Transaction_Relationship:
+      additionalProperties: false
+      properties:
+        data:
+          $ref: '#/components/schemas/Receive_Payment_Transaction_Relationship_data'
+      title: Related Transaction Relationship
       type: object
     FeeTransaction_allOf_attributes:
       properties:

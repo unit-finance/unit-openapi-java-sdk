@@ -86,6 +86,7 @@ if(hasProperty('target') && target == 'android') {
 
     apply plugin: 'java'
     apply plugin: 'maven-publish'
+    apply plugin: 'signing'
 
     sourceCompatibility = JavaVersion.VERSION_11
     targetCompatibility = JavaVersion.VERSION_11
@@ -104,8 +105,37 @@ if(hasProperty('target') && target == 'android') {
                 pom {
                     name = 'Unit Java SDK'
                     description = "This library provides a Java SDK to Unit's API."
+                    url = 'https://github.com/unit-finance/unit-openapi-java-sdk'
+                    licenses {
+                        license {
+                            name = 'Mozilla Public License Version 2.0'
+                            url = 'https://www.mozilla.org/MPL/2.0/'
+                            distribution = 'repo'
+                        }
+                    }
+                    scm {
+                        connection = 'scm:git:git://github.com/unit-finance/unit-openapi-java-sdk.git'
+                        developerConnection = 'scm:git:ssh://git@github.com:unit-finance/unit-openapi-java-sdk.git'
+                        url = 'https://github.com/unit-finance/unit-openapi-java-sdk'
+                    }
+                    developers {
+                        developer {
+                            name = 'Unit'
+                            organization = 'Unit Finance'
+                            organizationUrl = 'https://unit.co'
+                        }
+                    }
                 }
             }
+        }
+    }
+
+    signing {
+        def signingKey = System.getenv("MAVEN_GPG_PRIVATE_KEY")
+        def signingPassphrase = System.getenv("MAVEN_GPG_PASSPHRASE")
+        if (signingKey && signingPassphrase) {
+            useInMemoryPgpKeys(signingKey, signingPassphrase)
+            sign publishing.publications.maven
         }
     }
 

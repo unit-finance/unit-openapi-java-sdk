@@ -3,7 +3,7 @@ apply plugin: 'eclipse'
 apply plugin: 'java'
 apply plugin: 'com.diffplug.spotless'
 
-group = 'co.unit.sdk'
+group = 'co.unit'
 version = '0.2.3'
 
 buildscript {
@@ -86,12 +86,15 @@ if(hasProperty('target') && target == 'android') {
     sourceCompatibility = JavaVersion.VERSION_11
     targetCompatibility = JavaVersion.VERSION_11
 
+    java {
+        withSourcesJar()
+        withJavadocJar()
+    }
+
     publishing {
         publications {
             maven(MavenPublication) {
-                groupId = 'co.unit'
                 artifactId = 'java-sdk'
-                version = '0.2.3'
                 from components.java
 
                 pom {
@@ -103,15 +106,16 @@ if(hasProperty('target') && target == 'android') {
 
         repositories {
             maven {
-                name = "OSSRH"
-                url = "https://s01.oss.sonatype.org/content/repositories/releases/"
+                name = "MavenCentral"
+                url = uri("https://ossrh-staging-api.central.sonatype.com/service/local/staging/deploy/maven2/")
                 credentials {
-                    username = System.getenv("MAVEN_USERNAME")
-                    password = System.getenv("MAVEN_PASSWORD")
+                    username = System.getenv("MAVEN_CENTRAL_USERNAME")
+                    password = System.getenv("MAVEN_CENTRAL_PASSWORD")
                 }
             }
         }
     }
+
 
     task execute(type:JavaExec) {
        main = System.getProperty('mainClass')
@@ -134,7 +138,6 @@ dependencies {
     implementation "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:$jackson_version"
     implementation "org.openapitools:jackson-databind-nullable:0.2.2"
     implementation "jakarta.annotation:jakarta.annotation-api:$jakarta_annotation_version"
-    implementation 'jakarta.annotation:jakarta.annotation-api:2.1.1'
     implementation "org.apache.httpcomponents:httpmime:$httpmime_version"
     implementation "commons-io:commons-io:2.5"
     testImplementation "junit:junit:$junit_version"

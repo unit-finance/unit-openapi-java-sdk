@@ -11,24 +11,32 @@ Building the API client library requires:
 
 ## Installation
 
-Add this dependency to your project's POM:
+Installation options for Maven and Gradle using Maven Central:
 
 ```xml
-<repositories>
-    <repository>
-        <id>sonatype-release</id>
-        <url>https://s01.oss.sonatype.org/content/repositories/releases/</url>
-    </repository>
-</repositories>
-
-<dependencies>
-    <dependency>
-        <groupId>co.unit</groupId>
-        <artifactId>java-sdk</artifactId>
-        <version>0.2.2</version>
-    </dependency>
-</dependencies>
+<!-- Maven (no repository block needed; Maven Central is default) -->
+<dependency>
+  <groupId>co.unit</groupId>
+  <artifactId>java-sdk</artifactId>
+  <version>YOUR_VERSION</version>
+  <!-- replace YOUR_VERSION with the latest released version -->
+  <!-- https://central.sonatype.com/artifact/co.unit/java-sdk -->
+  
+</dependency>
 ```
+
+```groovy
+// Gradle
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  implementation 'co.unit:java-sdk:YOUR_VERSION'
+}
+```
+
+See the [Maven Central artifact page](https://central.sonatype.com/artifact/co.unit/java-sdk) for the latest version.
 
 ## Basic Usage Examples
 

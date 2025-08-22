@@ -4,7 +4,7 @@ apply plugin: 'java'
 apply plugin: 'com.diffplug.spotless'
 
 group = 'co.unit.sdk'
-version = '0.2.2'
+version = '0.2.3'
 
 buildscript {
     repositories {
@@ -91,7 +91,7 @@ if(hasProperty('target') && target == 'android') {
             maven(MavenPublication) {
                 groupId = 'co.unit'
                 artifactId = 'java-sdk'
-                version = '0.2.2'
+                version = '0.2.3'
                 from components.java
 
                 pom {
@@ -175,7 +175,7 @@ test {
     testLogging {
         showStandardStreams = true
     }
-    
+
     useJUnit()
 }
 //    // Enable JUnit 5 (Gradle 4.6+).

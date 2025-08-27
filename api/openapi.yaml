@@ -2,7 +2,7 @@ openapi: 3.0.2
 info:
   description: An OpenAPI specifications for unit-sdk clients
   title: Unit OpenAPI specifications
-  version: 0.2.2
+  version: 0.2.3
 servers:
 - url: https://api.s.unit.sh
 security:
@@ -6854,6 +6854,7 @@ components:
           cardReversalTransaction: '#/components/schemas/CardReversalTransaction'
           feeReversalTransaction: '#/components/schemas/FeeReversalTransaction'
           pushToCardReversalTransaction: '#/components/schemas/PushToCardReversalTransaction'
+          paymentCanceledTransaction: '#/components/schemas/PaymentCanceledTransaction'
         propertyName: type
       properties:
         id:
@@ -6895,6 +6896,7 @@ components:
           - cardReversalTransaction
           - feeReversalTransaction
           - pushToCardReversalTransaction
+          - paymentCanceledTransaction
           type: string
       title: Transaction Resource
       type: object
@@ -7773,6 +7775,31 @@ components:
         - relationships
         type: object
       title: Card Reversal Transaction
+      type: object
+    PaymentCanceledTransactionRelationships:
+      allOf:
+      - required:
+        - account
+        - org
+        - relatedTransaction
+        type: object
+      - $ref: '#/components/schemas/DefaultTransactionRelationships'
+      - $ref: '#/components/schemas/OrgRelationship'
+      - $ref: '#/components/schemas/RelatedTransactionRelationship'
+    PaymentCanceledTransaction:
+      allOf:
+      - $ref: '#/components/schemas/Transaction'
+      - additionalProperties: false
+        properties:
+          attributes:
+            $ref: '#/components/schemas/ReturnedCheckDepositTransaction_allOf_attributes'
+          relationships:
+            $ref: '#/components/schemas/PaymentCanceledTransactionRelationships'
+        required:
+        - attributes
+        - relationships
+        type: object
+      title: Payment Canceled Transaction
       type: object
     ReturnedRelationship:
       properties:
@@ -14740,6 +14767,8 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/Receive_Payment_Transaction_Relationship_data'
+      required:
+      - data
       title: Related Transaction Relationship
       type: object
     FeeTransaction_allOf_attributes:

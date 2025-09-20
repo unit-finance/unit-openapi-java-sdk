@@ -2,7 +2,7 @@ openapi: 3.0.2
 info:
   description: An OpenAPI specifications for unit-sdk clients
   title: Unit OpenAPI specifications
-  version: 0.2.3
+  version: 0.2.4
 servers:
 - url: https://api.s.unit.sh
 security:
@@ -6832,6 +6832,7 @@ components:
           cardTransaction: '#/components/schemas/CardTransaction'
           releaseTransaction: '#/components/schemas/ReleaseTransaction'
           wireTransaction: '#/components/schemas/WireTransaction'
+          returnedWireTransaction: '#/components/schemas/ReturnedWireTransaction'
           interestShareTransaction: '#/components/schemas/InterestShareTransaction'
           interestTransaction: '#/components/schemas/InterestTransaction'
           adjustmentTransaction: '#/components/schemas/AdjustmentTransaction'
@@ -6853,8 +6854,10 @@ components:
           returnedCheckPaymentTransaction: '#/components/schemas/ReturnedCheckPaymentTransaction'
           cardReversalTransaction: '#/components/schemas/CardReversalTransaction'
           feeReversalTransaction: '#/components/schemas/FeeReversalTransaction'
+          pushToCardTransaction: '#/components/schemas/PushToCardTransaction'
           pushToCardReversalTransaction: '#/components/schemas/PushToCardReversalTransaction'
           paymentCanceledTransaction: '#/components/schemas/PaymentCanceledTransaction'
+          writeOffTransaction: '#/components/schemas/WriteOffTransaction'
         propertyName: type
       properties:
         id:
@@ -6874,6 +6877,7 @@ components:
           - cardTransaction
           - releaseTransaction
           - wireTransaction
+          - returnedWireTransaction
           - interestShareTransaction
           - interestTransaction
           - adjustmentTransaction
@@ -6895,8 +6899,10 @@ components:
           - returnedCheckPaymentTransaction
           - cardReversalTransaction
           - feeReversalTransaction
+          - pushToCardTransaction
           - pushToCardReversalTransaction
           - paymentCanceledTransaction
+          - writeOffTransaction
           type: string
       title: Transaction Resource
       type: object
@@ -7224,6 +7230,29 @@ components:
         - relationships
         type: object
       title: Wire Transaction
+      type: object
+    ReturnedWireTransactionRelationships:
+      allOf:
+      - required:
+        - account
+        - payment
+        type: object
+      - $ref: '#/components/schemas/DefaultTransactionRelationships'
+      - $ref: '#/components/schemas/PaymentRelationship'
+    ReturnedWireTransaction:
+      allOf:
+      - $ref: '#/components/schemas/Transaction'
+      - additionalProperties: false
+        properties:
+          attributes:
+            $ref: '#/components/schemas/ReturnedWireTransaction_allOf_attributes'
+          relationships:
+            $ref: '#/components/schemas/ReturnedWireTransactionRelationships'
+        required:
+        - attributes
+        - relationships
+        type: object
+      title: Returned Wire Transaction
       type: object
     InterestShareTransactionRelationships:
       allOf:
@@ -7745,6 +7774,30 @@ components:
         type: object
       title: FeeReversal
       type: object
+    PushToCardTransactionRelationships:
+      allOf:
+      - required:
+        - account
+        - org
+        type: object
+      - $ref: '#/components/schemas/DefaultTransactionRelationships'
+      - $ref: '#/components/schemas/PaymentRelationship'
+      - $ref: '#/components/schemas/OrgRelationship'
+    PushToCardTransaction:
+      allOf:
+      - $ref: '#/components/schemas/Transaction'
+      - additionalProperties: false
+        properties:
+          attributes:
+            $ref: '#/components/schemas/FeeTransaction_allOf_attributes'
+          relationships:
+            $ref: '#/components/schemas/PushToCardTransactionRelationships'
+        required:
+        - attributes
+        - relationships
+        type: object
+      title: Push To Card Transaction
+      type: object
     OriginalTransactionRelationship:
       properties:
         originalTransaction:
@@ -7792,7 +7845,7 @@ components:
       - additionalProperties: false
         properties:
           attributes:
-            $ref: '#/components/schemas/ReturnedCheckDepositTransaction_allOf_attributes'
+            $ref: '#/components/schemas/CheckDepositTransaction_allOf_attributes'
           relationships:
             $ref: '#/components/schemas/PaymentCanceledTransactionRelationships'
         required:
@@ -7800,6 +7853,25 @@ components:
         - relationships
         type: object
       title: Payment Canceled Transaction
+      type: object
+    WriteOffTransactionRelationships:
+      allOf:
+      - title: Write Off Transaction Relationships
+      - $ref: '#/components/schemas/DefaultTransactionRelationships'
+    WriteOffTransaction:
+      allOf:
+      - $ref: '#/components/schemas/Transaction'
+      - additionalProperties: false
+        properties:
+          attributes:
+            $ref: '#/components/schemas/FeeTransaction_allOf_attributes'
+          relationships:
+            $ref: '#/components/schemas/WriteOffTransactionRelationships'
+        required:
+        - attributes
+        - relationships
+        type: object
+      title: Write Off Transaction
       type: object
     ReturnedRelationship:
       properties:
@@ -14952,6 +15024,47 @@ components:
       - counterparty
       - createdAt
       - direction
+      - summary
+      type: object
+    ReturnedWireTransaction_allOf_attributes:
+      properties:
+        createdAt:
+          format: date-time
+          type: string
+        direction:
+          enum:
+          - Credit
+          - Debit
+          type: string
+        amount:
+          format: int64
+          type: integer
+        balance:
+          format: int64
+          type: integer
+        summary:
+          type: string
+        reason:
+          type: string
+        imad:
+          type: string
+        omad:
+          type: string
+        tags:
+          additionalProperties:
+            maxLength: 255
+            minLength: 1
+            type: string
+          maxProperties: 15
+          type: object
+      required:
+      - amount
+      - balance
+      - counterparty
+      - createdAt
+      - direction
+      - imad
+      - reason
       - summary
       type: object
     AdjustmentTransaction_allOf_attributes:

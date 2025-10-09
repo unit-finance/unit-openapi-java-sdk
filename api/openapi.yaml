@@ -2,7 +2,7 @@ openapi: 3.0.2
 info:
   description: An OpenAPI specifications for unit-sdk clients
   title: Unit OpenAPI specifications
-  version: 0.2.4
+  version: 0.2.5
 servers:
 - url: https://api.s.unit.sh
 security:
@@ -11900,6 +11900,8 @@ components:
           type: string
         businessVertical:
           $ref: '#/components/schemas/BusinessVertical'
+        operatingAddress:
+          $ref: '#/components/schemas/Address'
       required:
       - beneficialOwners
       - contact
@@ -12351,6 +12353,8 @@ components:
           type: string
         businessVertical:
           $ref: '#/components/schemas/BusinessVertical'
+        operatingAddress:
+          $ref: '#/components/schemas/Address'
       required:
       - address
       - beneficialOwners

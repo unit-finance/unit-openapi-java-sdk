@@ -19,7 +19,7 @@ apply plugin: 'java'
 apply plugin: 'com.diffplug.spotless'
 
 group = 'co.unit'
-version = '0.2.6'
+version = '0.3.0'
 
 repositories {
     mavenCentral()
@@ -175,6 +175,7 @@ dependencies {
     implementation "org.apache.httpcomponents:httpmime:$httpmime_version"
     implementation "commons-io:commons-io:2.5"
     testImplementation "junit:junit:$junit_version"
+    testImplementation "io.github.cdimascio:dotenv-java:3.0.0"
 } 
 
 javadoc {

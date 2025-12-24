@@ -30,6 +30,7 @@ jobs:
           token_tests_user_id: ${{ secrets.TOKEN_TESTS_USER_ID }}
           test_plaid_counterparty_token: ${{ secrets.TEST_PLAID_COUNTERPARTY_TOKEN }}
           wallet_terms: ${{ secrets.WALLET_TERMS }}
+          thread_access_token: ${{ secrets.THREAD_ACCESS_TOKEN }}
 
       - name: Store reports
         if: failure()

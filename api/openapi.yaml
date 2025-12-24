@@ -2,7 +2,7 @@ openapi: 3.0.2
 info:
   description: An OpenAPI specifications for unit-sdk clients
   title: Unit OpenAPI specifications
-  version: 0.2.5
+  version: 0.3.0
 servers:
 - url: https://api.s.unit.sh
 security:
@@ -5216,6 +5216,51 @@ components:
       - type
       title: Update Business Officer
       type: object
+    UpdateIndividualThreadApplication:
+      additionalProperties: false
+      properties:
+        type:
+          default: individualApplication
+          enum:
+          - individualApplication
+          type: string
+        attributes:
+          $ref: '#/components/schemas/UpdateIndividualThreadApplication_attributes'
+      required:
+      - attributes
+      - type
+      title: Update Individual Thread Application
+      type: object
+    UpdateSoleProprietorThreadApplication:
+      additionalProperties: false
+      properties:
+        type:
+          default: individualApplication
+          enum:
+          - individualApplication
+          type: string
+        attributes:
+          $ref: '#/components/schemas/UpdateIndividualThreadApplication_attributes'
+      required:
+      - attributes
+      - type
+      title: Update Sole Proprietor Thread Application
+      type: object
+    UpdateBusinessThreadApplication:
+      additionalProperties: false
+      properties:
+        type:
+          default: businessApplication
+          enum:
+          - businessApplication
+          type: string
+        attributes:
+          $ref: '#/components/schemas/UpdateIndividualThreadApplication_attributes'
+      required:
+      - attributes
+      - type
+      title: Update Business Thread Application
+      type: object
     UpdateApplicationRequest:
       additionalProperties: false
       properties:
@@ -5486,6 +5531,302 @@ components:
       - type
       title: Create Business Application
       type: object
+    ThreadIndividualAccountPurpose:
+      enum:
+      - PayrollOrDirectDeposit
+      - PersonalSavingsOrEmergencyFund
+      - EverydaySpending
+      - DomesticP2PAndBillPay
+      - InternationalRemittances
+      - CashHeavyPersonalIncome
+      - PropertyPurchaseOrInvestment
+      - EducationOrStudentUse
+      - TrustOrEstateDistributions
+      - Cryptocurrency
+      type: string
+    ThreadIndividualSourceOfFunds:
+      enum:
+      - SalaryOrWages
+      - BusinessIncome
+      - InvestmentIncome
+      - RetirementSavings
+      - Inheritance
+      - Gift
+      - SaleOfAssets
+      - LegalSettlement
+      - LoanProceeds
+      type: string
+    ThreadIndividualTransactionVolume:
+      enum:
+      - LessThan1K
+      - Between1KAnd5K
+      - Between5KAnd15K
+      - Between15KAnd30K
+      - Between30KAnd60K
+      - GreaterThan60K
+      type: string
+    ThreadIndividualProfession:
+      enum:
+      - Accountant
+      - Actor
+      - Administrator
+      - Analyst
+      - Architect
+      - Artist
+      - Attorney
+      - Auditor
+      - Banker
+      - Barber
+      - Bartender
+      - Bookkeeper
+      - Broker
+      - BusinessOwner
+      - Chef
+      - Clergy
+      - Coach
+      - Consultant
+      - Contractor
+      - CustomerServiceRepresentative
+      - Dentist
+      - Designer
+      - Developer
+      - Doctor
+      - Driver
+      - Economist
+      - Educator
+      - Electrician
+      - Engineer
+      - Entrepreneur
+      - EventPlanner
+      - Executive
+      - Farmer
+      - FinancialAdvisor
+      - Firefighter
+      - Fisherman
+      - FlightAttendant
+      - Freelancer
+      - GovernmentEmployee
+      - GraphicDesigner
+      - HealthcareWorker
+      - HRProfessional
+      - InsuranceAgent
+      - Investor
+      - ITSpecialist
+      - Janitor
+      - Journalist
+      - Laborer
+      - LawEnforcementOfficer
+      - Lawyer
+      - Librarian
+      - LogisticsCoordinator
+      - Manager
+      - MarketingProfessional
+      - Mechanic
+      - MilitaryPersonnel
+      - Musician
+      - Nurse
+      - Optometrist
+      - Painter
+      - Pharmacist
+      - Photographer
+      - PhysicalTherapist
+      - Pilot
+      - Plumber
+      - PoliceOfficer
+      - Professor
+      - Programmer
+      - ProjectManager
+      - RealEstateAgent
+      - Receptionist
+      - Researcher
+      - RetailWorker
+      - Salesperson
+      - Scientist
+      - SocialWorker
+      - SoftwareEngineer
+      - Student
+      - Surgeon
+      - Teacher
+      - Technician
+      - Therapist
+      - Trainer
+      - Veterinarian
+      - WaiterWaitress
+      - Writer
+      type: string
+    CreateIndividualThreadApplication:
+      additionalProperties: false
+      properties:
+        type:
+          default: individualApplication
+          enum:
+          - individualApplication
+          type: string
+        attributes:
+          $ref: '#/components/schemas/CreateIndividualThreadApplication_attributes'
+      required:
+      - attributes
+      - type
+      title: Create Individual Thread Application
+      type: object
+    ThreadBusinessSourceOfFunds:
+      enum:
+      - SalesOfGoods
+      - SalesOfServices
+      - CustomerPayments
+      - InvestmentCapital
+      - BusinessLoans
+      - OwnerContributions
+      - FranchiseRevenue
+      - RentalIncome
+      - GovernmentContractsOrGrants
+      - DonationsOrFundraising
+      - MembershipFeesOrSubscriptions
+      - LicensingOrRoyalties
+      - CommissionIncome
+      - ImportExportRevenue
+      - CryptocurrencyRelatedActivity
+      type: string
+    ThreadBusinessIndustry:
+      enum:
+      - GroceryStoresOrSupermarkets
+      - ConvenienceStores
+      - SpecialtyFoodRetailers
+      - GasStationsWithRetail
+      - GeneralMerchandiseOrDepartmentStores
+      - OnlineRetailOrECommerce
+      - SubscriptionAndMembershipPlatforms
+      - DirectToConsumerBrands
+      - Cannabis
+      - BanksOrCreditUnions
+      - FinTechOrPaymentProcessing
+      - InsuranceProviders
+      - InvestmentAdvisorsOrBrokerDealers
+      - LendingOrMortgageCompanies
+      - TreasuryManagementPlatforms
+      - PersonalFinanceAppsOrAIAssistants
+      - RetirementPlanning
+      - RealEstateInvestmentPlatforms
+      - MoneyServiceBusinesses
+      - Cryptocurrency
+      - DebtCollection
+      - PaydayLending
+      - Gambling
+      - FarmsOrAgriculturalProducers
+      - FoodWholesalersOrDistributors
+      - RestaurantsOrCafes
+      - BarsOrNightclubs
+      - CateringServices
+      - FarmersMarkets
+      - RestaurantTechAndPOSProviders
+      - HospitalsOrClinics
+      - Pharmacies
+      - MedicalEquipmentSuppliers
+      - BiotechnologyFirms
+      - HomeHealthServices
+      - HealthcareStaffingPlatforms
+      - WellnessAndBenefitsPlatforms
+      - HealthcareAndSocialAssistance
+      - LegalServices
+      - AccountingOrAuditingFirms
+      - ConsultingFirms
+      - MarketingOrAdvertisingAgencies
+      - RealEstateAgentsOrPropertyManagers
+      - CorporateServicesAndIncorporation
+      - HRAndWorkforceManagementPlatforms
+      - DirectMarketingOrTelemarketing
+      - LegalAccountingConsultingOrComputerProgramming
+      - ChemicalManufacturing
+      - ElectronicsOrHardwareManufacturing
+      - AutomotiveManufacturing
+      - ConstructionMaterials
+      - TextilesOrApparel
+      - Mining
+      - RealEstate
+      - Construction
+      - TransportationOrWarehousing
+      - WholesaleTrade
+      - BusinessSupportOrBuildingServices
+      - EscortServices
+      - DatingOrAdultEntertainment
+      type: string
+    ThreadBusinessUsNexus:
+      enum:
+      - Employees
+      - Customers
+      - PhysicalOfficeOrFacility
+      - BankingRelationships
+      - NotAvailable
+      type: string
+    ThreadSoleProprietorshipTransactionVolume:
+      enum:
+      - LessThan5K
+      - Between5KAnd20K
+      - Between20KAnd75K
+      - Between75KAnd150K
+      - Between150KAnd300K
+      - GreaterThan300K
+      type: string
+    ThreadBusinessAccountPurpose:
+      enum:
+      - RetailSalesInPerson
+      - EcommerceSales
+      - CashHeavyIncomeAndOperations
+      - ImportExportTradeOperations
+      - ProfessionalServicesNotHandlingFunds
+      - ProfessionalServicesHandlingFunds
+      - HoldingOrInvestmentCompanyOperations
+      - PropertyManagementOrRealEstateOperations
+      - CharitableOrNonProfitOrganizationOperations
+      - ConstructionAndContractingOperations
+      - CommercialCashOperations
+      - FreightForwardingOrLogisticsOperations
+      - ThirdPartyPaymentProcessing
+      - TechnologyStartupOperations
+      - WholesaleDistributionOperations
+      - FranchiseOperationOperations
+      - HealthcareProviderOperations
+      - EducationalInstitutionOperations
+      type: string
+    CreateSoleProprietorThreadApplication:
+      additionalProperties: false
+      properties:
+        type:
+          default: individualApplication
+          enum:
+          - individualApplication
+          type: string
+        attributes:
+          $ref: '#/components/schemas/CreateSoleProprietorThreadApplication_attributes'
+      required:
+      - attributes
+      - type
+      title: Create Sole Proprietor Thread Application
+      type: object
+    ThreadBusinessTransactionVolume:
+      enum:
+      - LessThan10K
+      - Between10KAnd50K
+      - Between50KAnd250K
+      - Between250KAnd1M
+      - Between1MAnd2M
+      - GreaterThan2M
+      type: string
+    CreateBusinessThreadApplication:
+      additionalProperties: false
+      properties:
+        type:
+          default: businessApplication
+          enum:
+          - businessApplication
+          type: string
+        attributes:
+          $ref: '#/components/schemas/CreateBusinessThreadApplication_attributes'
+      required:
+      - attributes
+      - type
+      title: Create Business Thread Application
+      type: object
     CreateApplicationRequest:
       additionalProperties: false
       properties:
@@ -5696,6 +6037,23 @@ components:
       - relationships
       - type
       title: Update Business Beneficial Owner
+      type: object
+    UpdateThreadBusinessBeneficialOwner:
+      properties:
+        type:
+          default: beneficialOwner
+          enum:
+          - beneficialOwner
+          type: string
+        attributes:
+          $ref: '#/components/schemas/UpdateThreadBusinessBeneficialOwner_attributes'
+        relationships:
+          $ref: '#/components/schemas/UpdateThreadBusinessBeneficialOwner_relationships'
+      required:
+      - attributes
+      - relationships
+      - type
+      title: Update Thread Business Beneficial Owner
       type: object
     UpdateBusinessBeneficialOwnerRequest:
       properties:
@@ -7901,7 +8259,7 @@ components:
           - achReceivedPayment
           type: string
         attributes:
-          $ref: '#/components/schemas/schemas_UpdateAchReceivedPayment_attributes'
+          $ref: '#/components/schemas/UpdateIndividualThreadApplication_attributes'
       required:
       - attributes
       - type
@@ -12032,6 +12390,17 @@ components:
         officer:
           $ref: '#/components/schemas/BusinessOfficer'
       type: object
+    UpdateIndividualThreadApplication_attributes:
+      additionalProperties: false
+      properties:
+        tags:
+          additionalProperties:
+            maxLength: 255
+            minLength: 1
+            type: string
+          maxProperties: 15
+          type: object
+      type: object
     UpdateApplicationRequest_data:
       oneOf:
       - $ref: '#/components/schemas/UpdateBusinessApplication'
@@ -12039,6 +12408,9 @@ components:
       - $ref: '#/components/schemas/UpdateSoleProprietorApplication'
       - $ref: '#/components/schemas/UpdateIndividualApplication'
       - $ref: '#/components/schemas/UpdateBusinessOfficer'
+      - $ref: '#/components/schemas/UpdateIndividualThreadApplication'
+      - $ref: '#/components/schemas/UpdateSoleProprietorThreadApplication'
+      - $ref: '#/components/schemas/UpdateBusinessThreadApplication'
     ApplicationDocument_attributes:
       additionalProperties: false
       properties:
@@ -12366,11 +12738,301 @@ components:
       - phone
       - stateOfIncorporation
       type: object
+    CreateIndividualThreadApplication_attributes:
+      additionalProperties: false
+      properties:
+        ssn:
+          pattern: "^\\d{9}$"
+          type: string
+        passport:
+          type: string
+        nationality:
+          pattern: ^(A(D|E|F|G|I|L|M|N|O|R|S|T|Q|U|W|X|Z)|B(A|B|D|E|F|G|H|I|J|L|M|N|O|Q|R|S|T|V|W|Y|Z)|C(A|C|D|F|G|H|I|K|L|M|N|O|R|U|V|W|X|Y|Z)|D(E|J|K|M|O|Z)|E(C|E|G|H|R|S|T)|F(I|J|K|M|O|R)|G(A|B|D|E|F|G|H|I|L|M|N|P|Q|R|S|T|U|W|Y)|H(K|M|N|R|T|U)|I(D|E|Q|L|M|N|O|R|S|T)|J(E|M|O|P)|K(E|G|H|I|M|N|P|R|W|Y|Z)|L(A|B|C|I|K|R|S|T|U|V|Y)|M(A|C|D|E|F|G|H|K|L|M|N|O|Q|P|R|S|T|U|V|W|X|Y|Z)|N(A|C|E|F|G|I|L|O|P|R|U|Z)|OM|P(A|E|F|G|H|K|L|M|N|R|S|T|W|Y)|QA|R(E|O|S|U|W)|S(A|B|C|D|E|G|H|I|J|K|L|M|N|O|R|T|V|X|Y|Z)|T(C|D|F|G|H|J|K|L|M|N|O|R|T|V|W|Z)|U(A|G|M|S|Y|Z)|V(A|C|E|G|I|N|U)|W(F|S)|XK|Y(E|T)|Z(A|M|W))$
+          type: string
+        fullName:
+          $ref: '#/components/schemas/FullName'
+        dateOfBirth:
+          format: date
+          type: string
+        address:
+          $ref: '#/components/schemas/Address'
+        phone:
+          $ref: '#/components/schemas/Phone'
+        email:
+          format: email
+          type: string
+        evaluationParams:
+          $ref: '#/components/schemas/EvaluationParams'
+        ip:
+          type: string
+        tags:
+          additionalProperties:
+            maxLength: 255
+            minLength: 1
+            type: string
+          maxProperties: 15
+          type: object
+        idempotencyKey:
+          maxLength: 255
+          minLength: 1
+          type: string
+        deviceFingerprints:
+          items:
+            $ref: '#/components/schemas/DeviceFingerprint'
+          maxItems: 1
+          nullable: true
+          type: array
+        jwtSubject:
+          nullable: true
+          type: string
+        banks:
+          items:
+            type: string
+          nullable: true
+          type: array
+        accountPurpose:
+          $ref: '#/components/schemas/ThreadIndividualAccountPurpose'
+        accountPurposeDescription:
+          type: string
+        sourceOfFunds:
+          $ref: '#/components/schemas/ThreadIndividualSourceOfFunds'
+        transactionVolume:
+          $ref: '#/components/schemas/ThreadIndividualTransactionVolume'
+        transactionVolumeDescription:
+          type: string
+        profession:
+          $ref: '#/components/schemas/ThreadIndividualProfession'
+      required:
+      - accountPurpose
+      - address
+      - dateOfBirth
+      - email
+      - fullName
+      - phone
+      - profession
+      - sourceOfFunds
+      - transactionVolume
+      type: object
+    CreateSoleProprietorThreadApplication_attributes:
+      additionalProperties: false
+      properties:
+        ssn:
+          pattern: "^\\d{9}$"
+          type: string
+        passport:
+          type: string
+        nationality:
+          pattern: ^(A(D|E|F|G|I|L|M|N|O|R|S|T|Q|U|W|X|Z)|B(A|B|D|E|F|G|H|I|J|L|M|N|O|Q|R|S|T|V|W|Y|Z)|C(A|C|D|F|G|H|I|K|L|M|N|O|R|U|V|W|X|Y|Z)|D(E|J|K|M|O|Z)|E(C|E|G|H|R|S|T)|F(I|J|K|M|O|R)|G(A|B|D|E|F|G|H|I|L|M|N|P|Q|R|S|T|U|W|Y)|H(K|M|N|R|T|U)|I(D|E|Q|L|M|N|O|R|S|T)|J(E|M|O|P)|K(E|G|H|I|M|N|P|R|W|Y|Z)|L(A|B|C|I|K|R|S|T|U|V|Y)|M(A|C|D|E|F|G|H|K|L|M|N|O|Q|P|R|S|T|U|V|W|X|Y|Z)|N(A|C|E|F|G|I|L|O|P|R|U|Z)|OM|P(A|E|F|G|H|K|L|M|N|R|S|T|W|Y)|QA|R(E|O|S|U|W)|S(A|B|C|D|E|G|H|I|J|K|L|M|N|O|R|T|V|X|Y|Z)|T(C|D|F|G|H|J|K|L|M|N|O|R|T|V|W|Z)|U(A|G|M|S|Y|Z)|V(A|C|E|G|I|N|U)|W(F|S)|XK|Y(E|T)|Z(A|M|W))$
+          type: string
+        fullName:
+          $ref: '#/components/schemas/FullName'
+        dateOfBirth:
+          format: date
+          type: string
+        address:
+          $ref: '#/components/schemas/Address'
+        phone:
+          $ref: '#/components/schemas/Phone'
+        email:
+          format: email
+          type: string
+        soleProprietorship:
+          default: true
+          type: boolean
+        ein:
+          pattern: "^\\d{9}$"
+          type: string
+        dba:
+          type: string
+        evaluationParams:
+          $ref: '#/components/schemas/EvaluationParams'
+        website:
+          type: string
+        ip:
+          type: string
+        tags:
+          additionalProperties:
+            maxLength: 255
+            minLength: 1
+            type: string
+          maxProperties: 15
+          type: object
+        idempotencyKey:
+          maxLength: 255
+          minLength: 1
+          type: string
+        deviceFingerprints:
+          items:
+            $ref: '#/components/schemas/DeviceFingerprint'
+          maxItems: 1
+          type: array
+        jwtSubject:
+          nullable: true
+          type: string
+        banks:
+          items:
+            type: string
+          nullable: true
+          type: array
+        sourceOfFunds:
+          $ref: '#/components/schemas/ThreadBusinessSourceOfFunds'
+        sourceOfFundsDescription:
+          type: string
+        businessIndustry:
+          $ref: '#/components/schemas/ThreadBusinessIndustry'
+        isIncorporated:
+          default: false
+          type: boolean
+        stateOfIncorporation:
+          type: string
+        yearOfIncorporation:
+          pattern: "^\\d{4}$"
+          type: string
+        countriesOfOperation:
+          items:
+            $ref: '#/components/schemas/Country'
+          minItems: 1
+          type: array
+        usNexus:
+          items:
+            $ref: '#/components/schemas/ThreadBusinessUsNexus'
+          type: array
+        transactionVolume:
+          $ref: '#/components/schemas/ThreadSoleProprietorshipTransactionVolume'
+        transactionVolumeDescription:
+          type: string
+        accountPurpose:
+          $ref: '#/components/schemas/ThreadBusinessAccountPurpose'
+        accountPurposeDescription:
+          type: string
+        businessDescription:
+          type: string
+      required:
+      - accountPurpose
+      - address
+      - dateOfBirth
+      - email
+      - fullName
+      - phone
+      - profession
+      - sourceOfFunds
+      - transactionVolume
+      type: object
+    CreateBusinessThreadApplication_attributes:
+      additionalProperties: false
+      properties:
+        name:
+          maxLength: 255
+          minLength: 1
+          type: string
+        dba:
+          maxLength: 255
+          minLength: 1
+          type: string
+        address:
+          $ref: '#/components/schemas/Address'
+        phone:
+          $ref: '#/components/schemas/Phone'
+        stateOfIncorporation:
+          maxLength: 2
+          minLength: 2
+          type: string
+        ein:
+          pattern: "^\\d{9}$"
+          type: string
+        website:
+          type: string
+        contact:
+          $ref: '#/components/schemas/Contact'
+        officer:
+          $ref: '#/components/schemas/CreateOfficer'
+        beneficialOwners:
+          items:
+            $ref: '#/components/schemas/CreateBeneficialOwner'
+          type: array
+        ip:
+          type: string
+        tags:
+          additionalProperties:
+            maxLength: 255
+            minLength: 1
+            type: string
+          maxProperties: 15
+          type: object
+        idempotencyKey:
+          maxLength: 255
+          minLength: 1
+          type: string
+        deviceFingerprints:
+          items:
+            $ref: '#/components/schemas/DeviceFingerprint'
+          maxItems: 1
+          type: array
+        banks:
+          items:
+            type: string
+          nullable: true
+          type: array
+        sourceOfFunds:
+          $ref: '#/components/schemas/ThreadBusinessSourceOfFunds'
+        sourceOfFundsDescription:
+          type: string
+        businessIndustry:
+          $ref: '#/components/schemas/ThreadBusinessIndustry'
+        businessDescription:
+          type: string
+        isRegulated:
+          type: boolean
+        regulatorName:
+          type: string
+        usNexus:
+          items:
+            $ref: '#/components/schemas/ThreadBusinessUsNexus'
+          type: array
+        accountPurpose:
+          $ref: '#/components/schemas/ThreadBusinessAccountPurpose'
+        accountPurposeDescription:
+          type: string
+        transactionVolume:
+          $ref: '#/components/schemas/ThreadBusinessTransactionVolume'
+        transactionVolumeDescription:
+          type: string
+        stockExchangeName:
+          type: string
+        stockSymbol:
+          type: string
+        countriesOfOperation:
+          items:
+            $ref: '#/components/schemas/Country'
+          minItems: 1
+          type: array
+        yearOfIncorporation:
+          pattern: "^\\d{4}$"
+          type: string
+        entityType:
+          $ref: '#/components/schemas/EntityType'
+      required:
+      - accountPurpose
+      - address
+      - beneficialOwners
+      - contact
+      - ein
+      - entityType
+      - name
+      - officer
+      - phone
+      - sourceOfFunds
+      - stateOfIncorporation
+      - transactionVolume
+      type: object
     CreateApplicationRequest_data:
       oneOf:
       - $ref: '#/components/schemas/CreateIndividualApplication'
       - $ref: '#/components/schemas/CreateSoleProprietorApplication'
       - $ref: '#/components/schemas/CreateBusinessApplication'
+      - $ref: '#/components/schemas/CreateIndividualThreadApplication'
+      - $ref: '#/components/schemas/CreateSoleProprietorThreadApplication'
+      - $ref: '#/components/schemas/CreateBusinessThreadApplication'
     ApplicationFormAdditionalDisclosures_inner:
       properties:
         title:
@@ -12499,9 +13161,25 @@ components:
         title: Update Business Beneficial Owner Relationships
         type: object
       - $ref: '#/components/schemas/ApplicationRelationship'
+    UpdateThreadBusinessBeneficialOwner_attributes:
+      properties:
+        percentage:
+          maximum: 100
+          minimum: 25
+          type: integer
+      type: object
+    UpdateThreadBusinessBeneficialOwner_relationships:
+      allOf:
+      - additionalProperties: true
+        required:
+        - application
+        title: Update Thread Business Beneficial Owner Relationships
+        type: object
+      - $ref: '#/components/schemas/ApplicationRelationship'
     UpdateBusinessBeneficialOwnerRequest_data:
       oneOf:
       - $ref: '#/components/schemas/UpdateBusinessBeneficialOwner'
+      - $ref: '#/components/schemas/UpdateThreadBusinessBeneficialOwner'
     UnitBeneficialOwnerResponse_data:
       properties:
         id:
@@ -15670,17 +16348,6 @@ components:
       required:
       - data
       title: Returned Transaction Relationship
-      type: object
-    schemas_UpdateAchReceivedPayment_attributes:
-      additionalProperties: false
-      properties:
-        tags:
-          additionalProperties:
-            maxLength: 255
-            minLength: 1
-            type: string
-          maxProperties: 15
-          type: object
       type: object
     UpdateReceivedPaymentRequest_data:
       oneOf:

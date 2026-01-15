@@ -26,23 +26,37 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * Gets or Sets SoleProprietorshipAnnualRevenue
+ * Gets or Sets ThreadApplicationEntityType
  */
-public enum SoleProprietorshipAnnualRevenue {
+public enum ThreadApplicationEntityType {
   
-  UP_TO50K("UpTo50k"),
+  ESTATE("Estate"),
   
-  BETWEEN50K_AND100K("Between50kAnd100k"),
+  TRUST("Trust"),
   
-  BETWEEN100K_AND200K("Between100kAnd200k"),
+  FOREIGN_FINANCIAL_INSTITUTION("ForeignFinancialInstitution"),
   
-  BETWEEN200K_AND500K("Between200kAnd500k"),
+  DOMESTIC_FINANCIAL_INSTITUTION("DomesticFinancialInstitution"),
   
-  OVER500K("Over500k");
+  GOVERNMENT_ENTITY_OR_AGENCY("GovernmentEntityOrAgency"),
+  
+  RELIGIOUS_ORGANIZATION("ReligiousOrganization"),
+  
+  CHARITY("Charity"),
+  
+  LLC("LLC"),
+  
+  PARTNERSHIP("Partnership"),
+  
+  PUBLICLY_TRADED_CORPORATION("PubliclyTradedCorporation"),
+  
+  PRIVATELY_HELD_CORPORATION("PrivatelyHeldCorporation"),
+  
+  NOT_FOR_PROFIT_ORGANIZATION("NotForProfitOrganization");
 
   private String value;
 
-  SoleProprietorshipAnnualRevenue(String value) {
+  ThreadApplicationEntityType(String value) {
     this.value = value;
   }
 
@@ -57,8 +71,8 @@ public enum SoleProprietorshipAnnualRevenue {
   }
 
   @JsonCreator
-  public static SoleProprietorshipAnnualRevenue fromValue(String value) {
-    for (SoleProprietorshipAnnualRevenue b : SoleProprietorshipAnnualRevenue.values()) {
+  public static ThreadApplicationEntityType fromValue(String value) {
+    for (ThreadApplicationEntityType b : ThreadApplicationEntityType.values()) {
       if (b.value.equals(value)) {
         return b;
       }

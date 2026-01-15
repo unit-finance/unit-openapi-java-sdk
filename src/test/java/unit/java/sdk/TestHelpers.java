@@ -27,6 +27,7 @@ import unit.java.sdk.model.CreateOfficer;
 import unit.java.sdk.model.CreateSoleProprietorApplication;
 import unit.java.sdk.model.CreateSoleProprietorApplicationAttributes;
 import unit.java.sdk.model.EntityType;
+import unit.java.sdk.model.ThreadApplicationEntityType;
 import unit.java.sdk.model.FullName;
 import unit.java.sdk.model.Occupation;
 import unit.java.sdk.model.PaymentCounterparty;
@@ -347,7 +348,7 @@ public class TestHelpers {
         // Basic business information
         attr.setName("Tech Startup LLC");
         attr.setEin("123456789");
-        attr.setEntityType(EntityType.LLC);
+        attr.setEntityType(ThreadApplicationEntityType.LLC);
         attr.setStateOfIncorporation("DE");
         attr.setYearOfIncorporation("2020");
 

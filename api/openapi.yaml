@@ -2,7 +2,7 @@ openapi: 3.0.2
 info:
   description: An OpenAPI specifications for unit-sdk clients
   title: Unit OpenAPI specifications
-  version: 0.3.0
+  version: 0.3.1
 servers:
 - url: https://api.s.unit.sh
 security:
@@ -5811,6 +5811,21 @@ components:
       - Between250KAnd1M
       - Between1MAnd2M
       - GreaterThan2M
+      type: string
+    ThreadApplicationEntityType:
+      enum:
+      - Estate
+      - Trust
+      - ForeignFinancialInstitution
+      - DomesticFinancialInstitution
+      - GovernmentEntityOrAgency
+      - ReligiousOrganization
+      - Charity
+      - LLC
+      - Partnership
+      - PubliclyTradedCorporation
+      - PrivatelyHeldCorporation
+      - NotForProfitOrganization
       type: string
     CreateBusinessThreadApplication:
       additionalProperties: false
@@ -13010,7 +13025,7 @@ components:
           pattern: "^\\d{4}$"
           type: string
         entityType:
-          $ref: '#/components/schemas/EntityType'
+          $ref: '#/components/schemas/ThreadApplicationEntityType'
       required:
       - accountPurpose
       - address

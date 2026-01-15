@@ -19,7 +19,7 @@ apply plugin: 'java'
 apply plugin: 'com.diffplug.spotless'
 
 group = 'co.unit'
-version = '0.3.0'
+version = '0.3.1'
 
 repositories {
     mavenCentral()

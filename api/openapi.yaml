@@ -2,7 +2,7 @@ openapi: 3.0.2
 info:
   description: An OpenAPI specifications for unit-sdk clients
   title: Unit OpenAPI specifications
-  version: 0.3.1
+  version: 0.3.2
 servers:
 - url: https://api.s.unit.sh
 security:
@@ -12807,7 +12807,7 @@ components:
           type: array
         accountPurpose:
           $ref: '#/components/schemas/ThreadIndividualAccountPurpose'
-        accountPurposeDescription:
+        accountPurposeDetail:
           type: string
         sourceOfFunds:
           $ref: '#/components/schemas/ThreadIndividualSourceOfFunds'
@@ -12918,7 +12918,7 @@ components:
           type: string
         accountPurpose:
           $ref: '#/components/schemas/ThreadBusinessAccountPurpose'
-        accountPurposeDescription:
+        accountPurposeDetail:
           type: string
         businessDescription:
           type: string
@@ -13006,7 +13006,7 @@ components:
           type: array
         accountPurpose:
           $ref: '#/components/schemas/ThreadBusinessAccountPurpose'
-        accountPurposeDescription:
+        accountPurposeDetail:
           type: string
         transactionVolume:
           $ref: '#/components/schemas/ThreadBusinessTransactionVolume'

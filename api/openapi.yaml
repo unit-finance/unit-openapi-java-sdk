@@ -2,7 +2,7 @@ openapi: 3.0.2
 info:
   description: An OpenAPI specifications for unit-sdk clients
   title: Unit OpenAPI specifications
-  version: 0.3.2
+  version: 0.4.0
 servers:
 - url: https://api.s.unit.sh
 security:
@@ -550,6 +550,31 @@ paths:
       tags:
       - unit
       x-content-type: application/vnd.api+json
+      x-accepts:
+      - application/vnd.api+json; charset=utf-8
+  /applications/{applicationId}/missing-fields:
+    get:
+      description: Get list of missing due diligence fields by application id
+      operationId: getApplicationMissingFields
+      parameters:
+      - description: ID of the application to get missing fields for
+        explode: false
+        in: path
+        name: applicationId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/vnd.api+json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/UnitApplicationMissingFieldsResponse'
+          description: Successful Response
+      summary: Get Missing Fields by Application ID
+      tags:
+      - unit
       x-accepts:
       - application/vnd.api+json; charset=utf-8
   /accounts:
@@ -4843,6 +4868,129 @@ components:
       - Utilities
       - WholesaleTrade
       type: string
+    ThreadIndividualAccountPurpose:
+      enum:
+      - PayrollOrDirectDeposit
+      - PersonalSavingsOrEmergencyFund
+      - EverydaySpending
+      - DomesticP2PAndBillPay
+      - InternationalRemittances
+      - CashHeavyPersonalIncome
+      - PropertyPurchaseOrInvestment
+      - EducationOrStudentUse
+      - TrustOrEstateDistributions
+      - Cryptocurrency
+      type: string
+    ThreadIndividualSourceOfFunds:
+      enum:
+      - SalaryOrWages
+      - BusinessIncome
+      - InvestmentIncome
+      - RetirementSavings
+      - Inheritance
+      - Gift
+      - SaleOfAssets
+      - LegalSettlement
+      - LoanProceeds
+      type: string
+    ThreadIndividualTransactionVolume:
+      enum:
+      - LessThan1K
+      - Between1KAnd5K
+      - Between5KAnd15K
+      - Between15KAnd30K
+      - Between30KAnd60K
+      - GreaterThan60K
+      type: string
+    ThreadIndividualProfession:
+      enum:
+      - Accountant
+      - Actor
+      - Administrator
+      - Analyst
+      - Architect
+      - Artist
+      - Attorney
+      - Auditor
+      - Banker
+      - Barber
+      - Bartender
+      - Bookkeeper
+      - Broker
+      - BusinessOwner
+      - Chef
+      - Clergy
+      - Coach
+      - Consultant
+      - Contractor
+      - CustomerServiceRepresentative
+      - Dentist
+      - Designer
+      - Developer
+      - Doctor
+      - Driver
+      - Economist
+      - Educator
+      - Electrician
+      - Engineer
+      - Entrepreneur
+      - EventPlanner
+      - Executive
+      - Farmer
+      - FinancialAdvisor
+      - Firefighter
+      - Fisherman
+      - FlightAttendant
+      - Freelancer
+      - GovernmentEmployee
+      - GraphicDesigner
+      - HealthcareWorker
+      - HRProfessional
+      - InsuranceAgent
+      - Investor
+      - ITSpecialist
+      - Janitor
+      - Journalist
+      - Laborer
+      - LawEnforcementOfficer
+      - Lawyer
+      - Librarian
+      - LogisticsCoordinator
+      - Manager
+      - MarketingProfessional
+      - Mechanic
+      - MilitaryPersonnel
+      - Musician
+      - Nurse
+      - Optometrist
+      - Painter
+      - Pharmacist
+      - Photographer
+      - PhysicalTherapist
+      - Pilot
+      - Plumber
+      - PoliceOfficer
+      - Professor
+      - Programmer
+      - ProjectManager
+      - RealEstateAgent
+      - Receptionist
+      - Researcher
+      - RetailWorker
+      - Salesperson
+      - Scientist
+      - SocialWorker
+      - SoftwareEngineer
+      - Student
+      - Surgeon
+      - Teacher
+      - Technician
+      - Therapist
+      - Trainer
+      - Veterinarian
+      - WaiterWaitress
+      - Writer
+      type: string
     Identifier:
       pattern: "^[1-9]\\d*$"
       type: string
@@ -5079,6 +5227,125 @@ components:
       type: string
     Year:
       pattern: "^\\d{4}$"
+      type: string
+    ThreadBusinessSourceOfFunds:
+      enum:
+      - SalesOfGoods
+      - SalesOfServices
+      - CustomerPayments
+      - InvestmentCapital
+      - BusinessLoans
+      - OwnerContributions
+      - FranchiseRevenue
+      - RentalIncome
+      - GovernmentContractsOrGrants
+      - DonationsOrFundraising
+      - MembershipFeesOrSubscriptions
+      - LicensingOrRoyalties
+      - CommissionIncome
+      - ImportExportRevenue
+      - CryptocurrencyRelatedActivity
+      type: string
+    ThreadBusinessIndustry:
+      enum:
+      - GroceryStoresOrSupermarkets
+      - ConvenienceStores
+      - SpecialtyFoodRetailers
+      - GasStationsWithRetail
+      - GeneralMerchandiseOrDepartmentStores
+      - OnlineRetailOrECommerce
+      - SubscriptionAndMembershipPlatforms
+      - DirectToConsumerBrands
+      - Cannabis
+      - BanksOrCreditUnions
+      - FinTechOrPaymentProcessing
+      - InsuranceProviders
+      - InvestmentAdvisorsOrBrokerDealers
+      - LendingOrMortgageCompanies
+      - TreasuryManagementPlatforms
+      - PersonalFinanceAppsOrAIAssistants
+      - RetirementPlanning
+      - RealEstateInvestmentPlatforms
+      - MoneyServiceBusinesses
+      - Cryptocurrency
+      - DebtCollection
+      - PaydayLending
+      - Gambling
+      - FarmsOrAgriculturalProducers
+      - FoodWholesalersOrDistributors
+      - RestaurantsOrCafes
+      - BarsOrNightclubs
+      - CateringServices
+      - FarmersMarkets
+      - RestaurantTechAndPOSProviders
+      - HospitalsOrClinics
+      - Pharmacies
+      - MedicalEquipmentSuppliers
+      - BiotechnologyFirms
+      - HomeHealthServices
+      - HealthcareStaffingPlatforms
+      - WellnessAndBenefitsPlatforms
+      - HealthcareAndSocialAssistance
+      - LegalServices
+      - AccountingOrAuditingFirms
+      - ConsultingFirms
+      - MarketingOrAdvertisingAgencies
+      - RealEstateAgentsOrPropertyManagers
+      - CorporateServicesAndIncorporation
+      - HRAndWorkforceManagementPlatforms
+      - DirectMarketingOrTelemarketing
+      - LegalAccountingConsultingOrComputerProgramming
+      - ChemicalManufacturing
+      - ElectronicsOrHardwareManufacturing
+      - AutomotiveManufacturing
+      - ConstructionMaterials
+      - TextilesOrApparel
+      - Mining
+      - RealEstate
+      - Construction
+      - TransportationOrWarehousing
+      - WholesaleTrade
+      - BusinessSupportOrBuildingServices
+      - EscortServices
+      - DatingOrAdultEntertainment
+      type: string
+    ThreadBusinessUsNexus:
+      enum:
+      - Employees
+      - Customers
+      - PhysicalOfficeOrFacility
+      - BankingRelationships
+      - NotAvailable
+      type: string
+    ThreadBusinessAccountPurpose:
+      enum:
+      - RetailSalesInPerson
+      - EcommerceSales
+      - CashHeavyIncomeAndOperations
+      - ImportExportTradeOperations
+      - ProfessionalServicesNotHandlingFunds
+      - ProfessionalServicesHandlingFunds
+      - HoldingOrInvestmentCompanyOperations
+      - PropertyManagementOrRealEstateOperations
+      - CharitableOrNonProfitOrganizationOperations
+      - ConstructionAndContractingOperations
+      - CommercialCashOperations
+      - FreightForwardingOrLogisticsOperations
+      - ThirdPartyPaymentProcessing
+      - TechnologyStartupOperations
+      - WholesaleDistributionOperations
+      - FranchiseOperationOperations
+      - HealthcareProviderOperations
+      - EducationalInstitutionOperations
+      type: string
+    ThreadBusinessTransactionVolume:
+      enum:
+      - LessThan10K
+      - Between10KAnd50K
+      - Between50KAnd250K
+      - Between250KAnd1M
+      - Between1MAnd2M
+      - GreaterThan2M
       type: string
     BeneficialOwnersRelationship:
       properties:
@@ -5467,8 +5734,8 @@ components:
       - dateOfBirth
       - email
       - fullName
-      - occupation
       - phone
+      - title
       title: Create Officer
       type: object
     CreateBeneficialOwner:
@@ -5498,7 +5765,7 @@ components:
           type: string
         percentage:
           maximum: 100
-          minimum: 0
+          minimum: 25
           type: integer
         EvaluationParams:
           $ref: '#/components/schemas/EvaluationParams'
@@ -5531,129 +5798,6 @@ components:
       - type
       title: Create Business Application
       type: object
-    ThreadIndividualAccountPurpose:
-      enum:
-      - PayrollOrDirectDeposit
-      - PersonalSavingsOrEmergencyFund
-      - EverydaySpending
-      - DomesticP2PAndBillPay
-      - InternationalRemittances
-      - CashHeavyPersonalIncome
-      - PropertyPurchaseOrInvestment
-      - EducationOrStudentUse
-      - TrustOrEstateDistributions
-      - Cryptocurrency
-      type: string
-    ThreadIndividualSourceOfFunds:
-      enum:
-      - SalaryOrWages
-      - BusinessIncome
-      - InvestmentIncome
-      - RetirementSavings
-      - Inheritance
-      - Gift
-      - SaleOfAssets
-      - LegalSettlement
-      - LoanProceeds
-      type: string
-    ThreadIndividualTransactionVolume:
-      enum:
-      - LessThan1K
-      - Between1KAnd5K
-      - Between5KAnd15K
-      - Between15KAnd30K
-      - Between30KAnd60K
-      - GreaterThan60K
-      type: string
-    ThreadIndividualProfession:
-      enum:
-      - Accountant
-      - Actor
-      - Administrator
-      - Analyst
-      - Architect
-      - Artist
-      - Attorney
-      - Auditor
-      - Banker
-      - Barber
-      - Bartender
-      - Bookkeeper
-      - Broker
-      - BusinessOwner
-      - Chef
-      - Clergy
-      - Coach
-      - Consultant
-      - Contractor
-      - CustomerServiceRepresentative
-      - Dentist
-      - Designer
-      - Developer
-      - Doctor
-      - Driver
-      - Economist
-      - Educator
-      - Electrician
-      - Engineer
-      - Entrepreneur
-      - EventPlanner
-      - Executive
-      - Farmer
-      - FinancialAdvisor
-      - Firefighter
-      - Fisherman
-      - FlightAttendant
-      - Freelancer
-      - GovernmentEmployee
-      - GraphicDesigner
-      - HealthcareWorker
-      - HRProfessional
-      - InsuranceAgent
-      - Investor
-      - ITSpecialist
-      - Janitor
-      - Journalist
-      - Laborer
-      - LawEnforcementOfficer
-      - Lawyer
-      - Librarian
-      - LogisticsCoordinator
-      - Manager
-      - MarketingProfessional
-      - Mechanic
-      - MilitaryPersonnel
-      - Musician
-      - Nurse
-      - Optometrist
-      - Painter
-      - Pharmacist
-      - Photographer
-      - PhysicalTherapist
-      - Pilot
-      - Plumber
-      - PoliceOfficer
-      - Professor
-      - Programmer
-      - ProjectManager
-      - RealEstateAgent
-      - Receptionist
-      - Researcher
-      - RetailWorker
-      - Salesperson
-      - Scientist
-      - SocialWorker
-      - SoftwareEngineer
-      - Student
-      - Surgeon
-      - Teacher
-      - Technician
-      - Therapist
-      - Trainer
-      - Veterinarian
-      - WaiterWaitress
-      - Writer
-      type: string
     CreateIndividualThreadApplication:
       additionalProperties: false
       properties:
@@ -5669,95 +5813,6 @@ components:
       - type
       title: Create Individual Thread Application
       type: object
-    ThreadBusinessSourceOfFunds:
-      enum:
-      - SalesOfGoods
-      - SalesOfServices
-      - CustomerPayments
-      - InvestmentCapital
-      - BusinessLoans
-      - OwnerContributions
-      - FranchiseRevenue
-      - RentalIncome
-      - GovernmentContractsOrGrants
-      - DonationsOrFundraising
-      - MembershipFeesOrSubscriptions
-      - LicensingOrRoyalties
-      - CommissionIncome
-      - ImportExportRevenue
-      - CryptocurrencyRelatedActivity
-      type: string
-    ThreadBusinessIndustry:
-      enum:
-      - GroceryStoresOrSupermarkets
-      - ConvenienceStores
-      - SpecialtyFoodRetailers
-      - GasStationsWithRetail
-      - GeneralMerchandiseOrDepartmentStores
-      - OnlineRetailOrECommerce
-      - SubscriptionAndMembershipPlatforms
-      - DirectToConsumerBrands
-      - Cannabis
-      - BanksOrCreditUnions
-      - FinTechOrPaymentProcessing
-      - InsuranceProviders
-      - InvestmentAdvisorsOrBrokerDealers
-      - LendingOrMortgageCompanies
-      - TreasuryManagementPlatforms
-      - PersonalFinanceAppsOrAIAssistants
-      - RetirementPlanning
-      - RealEstateInvestmentPlatforms
-      - MoneyServiceBusinesses
-      - Cryptocurrency
-      - DebtCollection
-      - PaydayLending
-      - Gambling
-      - FarmsOrAgriculturalProducers
-      - FoodWholesalersOrDistributors
-      - RestaurantsOrCafes
-      - BarsOrNightclubs
-      - CateringServices
-      - FarmersMarkets
-      - RestaurantTechAndPOSProviders
-      - HospitalsOrClinics
-      - Pharmacies
-      - MedicalEquipmentSuppliers
-      - BiotechnologyFirms
-      - HomeHealthServices
-      - HealthcareStaffingPlatforms
-      - WellnessAndBenefitsPlatforms
-      - HealthcareAndSocialAssistance
-      - LegalServices
-      - AccountingOrAuditingFirms
-      - ConsultingFirms
-      - MarketingOrAdvertisingAgencies
-      - RealEstateAgentsOrPropertyManagers
-      - CorporateServicesAndIncorporation
-      - HRAndWorkforceManagementPlatforms
-      - DirectMarketingOrTelemarketing
-      - LegalAccountingConsultingOrComputerProgramming
-      - ChemicalManufacturing
-      - ElectronicsOrHardwareManufacturing
-      - AutomotiveManufacturing
-      - ConstructionMaterials
-      - TextilesOrApparel
-      - Mining
-      - RealEstate
-      - Construction
-      - TransportationOrWarehousing
-      - WholesaleTrade
-      - BusinessSupportOrBuildingServices
-      - EscortServices
-      - DatingOrAdultEntertainment
-      type: string
-    ThreadBusinessUsNexus:
-      enum:
-      - Employees
-      - Customers
-      - PhysicalOfficeOrFacility
-      - BankingRelationships
-      - NotAvailable
-      type: string
     ThreadSoleProprietorshipTransactionVolume:
       enum:
       - LessThan5K
@@ -5766,27 +5821,6 @@ components:
       - Between75KAnd150K
       - Between150KAnd300K
       - GreaterThan300K
-      type: string
-    ThreadBusinessAccountPurpose:
-      enum:
-      - RetailSalesInPerson
-      - EcommerceSales
-      - CashHeavyIncomeAndOperations
-      - ImportExportTradeOperations
-      - ProfessionalServicesNotHandlingFunds
-      - ProfessionalServicesHandlingFunds
-      - HoldingOrInvestmentCompanyOperations
-      - PropertyManagementOrRealEstateOperations
-      - CharitableOrNonProfitOrganizationOperations
-      - ConstructionAndContractingOperations
-      - CommercialCashOperations
-      - FreightForwardingOrLogisticsOperations
-      - ThirdPartyPaymentProcessing
-      - TechnologyStartupOperations
-      - WholesaleDistributionOperations
-      - FranchiseOperationOperations
-      - HealthcareProviderOperations
-      - EducationalInstitutionOperations
       type: string
     CreateSoleProprietorThreadApplication:
       additionalProperties: false
@@ -5803,15 +5837,6 @@ components:
       - type
       title: Create Sole Proprietor Thread Application
       type: object
-    ThreadBusinessTransactionVolume:
-      enum:
-      - LessThan10K
-      - Between10KAnd50K
-      - Between50KAnd250K
-      - Between250KAnd1M
-      - Between1MAnd2M
-      - GreaterThan2M
-      type: string
     ThreadApplicationEntityType:
       enum:
       - Estate
@@ -6085,6 +6110,69 @@ components:
       required:
       - data
       title: Unit Beneficial Owner Response
+      type: object
+    MissingField:
+      additionalProperties: false
+      properties:
+        fieldName:
+          description: The name of the application field that is missing
+          type: string
+        description:
+          description: Human-readable description which will indicate dependant fields
+            that are also required
+          type: string
+      required:
+      - description
+      - fieldName
+      title: Missing Field
+      type: object
+    IndividualApplicationMissingFields:
+      additionalProperties: false
+      properties:
+        type:
+          default: individualApplicationMissingFields
+          enum:
+          - individualApplicationMissingFields
+          type: string
+        attributes:
+          $ref: '#/components/schemas/IndividualApplicationMissingFields_attributes'
+      required:
+      - attributes
+      - type
+      title: Individual Application Missing Fields
+      type: object
+    BusinessApplicationMissingFields:
+      additionalProperties: false
+      properties:
+        type:
+          default: businessApplicationMissingFields
+          enum:
+          - businessApplicationMissingFields
+          type: string
+        attributes:
+          $ref: '#/components/schemas/IndividualApplicationMissingFields_attributes'
+      required:
+      - attributes
+      - type
+      title: Business Application Missing Fields
+      type: object
+    ApplicationMissingFields:
+      discriminator:
+        mapping:
+          individualApplicationMissingFields: '#/components/schemas/IndividualApplicationMissingFields'
+          businessApplicationMissingFields: '#/components/schemas/BusinessApplicationMissingFields'
+        propertyName: type
+      oneOf:
+      - $ref: '#/components/schemas/IndividualApplicationMissingFields'
+      - $ref: '#/components/schemas/BusinessApplicationMissingFields'
+      title: Application Missing Fields
+    UnitApplicationMissingFieldsResponse:
+      properties:
+        data:
+          $ref: '#/components/schemas/ApplicationMissingFields'
+      required:
+      - data
+      title: Unit Application Missing Fields Response
       type: object
     Account:
       discriminator:
@@ -8274,7 +8362,7 @@ components:
           - achReceivedPayment
           type: string
         attributes:
-          $ref: '#/components/schemas/UpdateIndividualThreadApplication_attributes'
+          $ref: '#/components/schemas/schemas_UpdateAchReceivedPayment_attributes'
       required:
       - attributes
       - type
@@ -12142,6 +12230,18 @@ components:
           $ref: '#/components/schemas/BusinessVertical'
         website:
           type: string
+        accountPurpose:
+          $ref: '#/components/schemas/ThreadIndividualAccountPurpose'
+        accountPurposeDetail:
+          type: string
+        sourceOfFunds:
+          $ref: '#/components/schemas/ThreadIndividualSourceOfFunds'
+        transactionVolume:
+          $ref: '#/components/schemas/ThreadIndividualTransactionVolume'
+        transactionVolumeDescription:
+          type: string
+        profession:
+          $ref: '#/components/schemas/ThreadIndividualProfession'
       required:
       - createdAt
       - fullName
@@ -12275,6 +12375,34 @@ components:
           $ref: '#/components/schemas/BusinessVertical'
         operatingAddress:
           $ref: '#/components/schemas/Address'
+        sourceOfFunds:
+          $ref: '#/components/schemas/ThreadBusinessSourceOfFunds'
+        sourceOfFundsDescription:
+          type: string
+        businessIndustry:
+          $ref: '#/components/schemas/ThreadBusinessIndustry'
+        businessDescription:
+          type: string
+        isRegulated:
+          type: boolean
+        regulatorName:
+          type: string
+        usNexus:
+          items:
+            $ref: '#/components/schemas/ThreadBusinessUsNexus'
+          type: array
+        accountPurpose:
+          $ref: '#/components/schemas/ThreadBusinessAccountPurpose'
+        accountPurposeDescription:
+          type: string
+        accountPurposeDetail:
+          type: string
+        transactionVolume:
+          $ref: '#/components/schemas/ThreadBusinessTransactionVolume'
+        transactionVolumeDescription:
+          type: string
+        stockExchangeName:
+          type: string
       required:
       - beneficialOwners
       - contact
@@ -12326,6 +12454,8 @@ components:
           type: string
         businessVertical:
           $ref: '#/components/schemas/BusinessVertical'
+        operatingAddress:
+          $ref: '#/components/schemas/Address'
       type: object
     Application_Relationship_data:
       additionalProperties: false
@@ -12382,6 +12512,8 @@ components:
           $ref: '#/components/schemas/BusinessVertical'
         website:
           type: string
+        operatingAddress:
+          $ref: '#/components/schemas/Address'
       type: object
     UpdateIndividualApplication_attributes:
       additionalProperties: false
@@ -12399,6 +12531,8 @@ components:
           $ref: '#/components/schemas/AnnualIncome'
         sourceOfIncome:
           $ref: '#/components/schemas/SourceOfIncome'
+        operatingAddress:
+          $ref: '#/components/schemas/Address'
       type: object
     UpdateBusinessOfficer_attributes:
       properties:
@@ -12415,6 +12549,8 @@ components:
             type: string
           maxProperties: 15
           type: object
+        operatingAddress:
+          $ref: '#/components/schemas/Address'
       type: object
     UpdateApplicationRequest_data:
       oneOf:
@@ -12566,6 +12702,8 @@ components:
           $ref: '#/components/schemas/AnnualIncome'
         sourceOfIncome:
           $ref: '#/components/schemas/SourceOfIncome'
+        operatingAddress:
+          $ref: '#/components/schemas/Address'
       required:
       - address
       - dateOfBirth
@@ -12652,6 +12790,8 @@ components:
           $ref: '#/components/schemas/BusinessVertical'
         website:
           type: string
+        operatingAddress:
+          $ref: '#/components/schemas/Address'
       required:
       - address
       - dateOfBirth
@@ -12817,6 +12957,8 @@ components:
           type: string
         profession:
           $ref: '#/components/schemas/ThreadIndividualProfession'
+        operatingAddress:
+          $ref: '#/components/schemas/Address'
       required:
       - accountPurpose
       - address
@@ -12922,14 +13064,16 @@ components:
           type: string
         businessDescription:
           type: string
+        operatingAddress:
+          $ref: '#/components/schemas/Address'
       required:
       - accountPurpose
       - address
+      - businessIndustry
       - dateOfBirth
       - email
       - fullName
       - phone
-      - profession
       - sourceOfFunds
       - transactionVolume
       type: object
@@ -13026,19 +13170,28 @@ components:
           type: string
         entityType:
           $ref: '#/components/schemas/ThreadApplicationEntityType'
+        operatingAddress:
+          $ref: '#/components/schemas/Address'
       required:
       - accountPurpose
       - address
       - beneficialOwners
+      - businessDescription
+      - businessIndustry
       - contact
+      - countriesOfOperation
       - ein
       - entityType
+      - isRegulated
       - name
       - officer
       - phone
       - sourceOfFunds
       - stateOfIncorporation
       - transactionVolume
+      - usNexus
+      - website
+      - yearOfIncorporation
       type: object
     CreateApplicationRequest_data:
       oneOf:
@@ -13207,6 +13360,18 @@ components:
           type: string
         attributes:
           $ref: '#/components/schemas/BeneficialOwner'
+      type: object
+    IndividualApplicationMissingFields_attributes:
+      additionalProperties: false
+      properties:
+        missingFields:
+          description: An array of missing field objects. Empty when there are no
+            missing fields.
+          items:
+            $ref: '#/components/schemas/MissingField'
+          type: array
+      required:
+      - missingFields
       type: object
     DepositAccount_allOf_attributes_secondaryAccountNumber:
       properties:
@@ -16363,6 +16528,17 @@ components:
       required:
       - data
       title: Returned Transaction Relationship
+      type: object
+    schemas_UpdateAchReceivedPayment_attributes:
+      additionalProperties: false
+      properties:
+        tags:
+          additionalProperties:
+            maxLength: 255
+            minLength: 1
+            type: string
+          maxProperties: 15
+          type: object
       type: object
     UpdateReceivedPaymentRequest_data:
       oneOf:

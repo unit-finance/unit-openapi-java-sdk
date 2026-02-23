@@ -37,6 +37,9 @@ import unit.java.sdk.model.AnnualIncome;
 import unit.java.sdk.model.ApplicationStatus;
 import unit.java.sdk.model.BusinessVertical;
 import unit.java.sdk.model.FullName;
+import unit.java.sdk.model.IndividualApplicationAllOfAttributesAccountPurpose;
+import unit.java.sdk.model.IndividualApplicationAllOfAttributesSourceOfFunds;
+import unit.java.sdk.model.IndividualApplicationAllOfAttributesTransactionVolume;
 import unit.java.sdk.model.Industry;
 import unit.java.sdk.model.Occupation;
 import unit.java.sdk.model.Phone;
@@ -44,10 +47,7 @@ import unit.java.sdk.model.PowerOfAttorneyAgent;
 import unit.java.sdk.model.SoleProprietorshipAnnualRevenue;
 import unit.java.sdk.model.SoleProprietorshipNumberOfEmployees;
 import unit.java.sdk.model.SourceOfIncome;
-import unit.java.sdk.model.ThreadIndividualAccountPurpose;
 import unit.java.sdk.model.ThreadIndividualProfession;
-import unit.java.sdk.model.ThreadIndividualSourceOfFunds;
-import unit.java.sdk.model.ThreadIndividualTransactionVolume;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
@@ -321,16 +321,16 @@ public class IndividualApplicationAllOfAttributes {
   private String website;
 
   public static final String JSON_PROPERTY_ACCOUNT_PURPOSE = "accountPurpose";
-  private ThreadIndividualAccountPurpose accountPurpose;
+  private IndividualApplicationAllOfAttributesAccountPurpose accountPurpose;
 
   public static final String JSON_PROPERTY_ACCOUNT_PURPOSE_DETAIL = "accountPurposeDetail";
   private String accountPurposeDetail;
 
   public static final String JSON_PROPERTY_SOURCE_OF_FUNDS = "sourceOfFunds";
-  private ThreadIndividualSourceOfFunds sourceOfFunds;
+  private IndividualApplicationAllOfAttributesSourceOfFunds sourceOfFunds;
 
   public static final String JSON_PROPERTY_TRANSACTION_VOLUME = "transactionVolume";
-  private ThreadIndividualTransactionVolume transactionVolume;
+  private IndividualApplicationAllOfAttributesTransactionVolume transactionVolume;
 
   public static final String JSON_PROPERTY_TRANSACTION_VOLUME_DESCRIPTION = "transactionVolumeDescription";
   private String transactionVolumeDescription;
@@ -1445,7 +1445,7 @@ public class IndividualApplicationAllOfAttributes {
   }
 
 
-  public IndividualApplicationAllOfAttributes accountPurpose(ThreadIndividualAccountPurpose accountPurpose) {
+  public IndividualApplicationAllOfAttributes accountPurpose(IndividualApplicationAllOfAttributesAccountPurpose accountPurpose) {
     this.accountPurpose = accountPurpose;
     return this;
   }
@@ -1457,14 +1457,14 @@ public class IndividualApplicationAllOfAttributes {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ACCOUNT_PURPOSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ThreadIndividualAccountPurpose getAccountPurpose() {
+  public IndividualApplicationAllOfAttributesAccountPurpose getAccountPurpose() {
     return accountPurpose;
   }
 
 
   @JsonProperty(JSON_PROPERTY_ACCOUNT_PURPOSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAccountPurpose(ThreadIndividualAccountPurpose accountPurpose) {
+  public void setAccountPurpose(IndividualApplicationAllOfAttributesAccountPurpose accountPurpose) {
     this.accountPurpose = accountPurpose;
   }
 
@@ -1493,7 +1493,7 @@ public class IndividualApplicationAllOfAttributes {
   }
 
 
-  public IndividualApplicationAllOfAttributes sourceOfFunds(ThreadIndividualSourceOfFunds sourceOfFunds) {
+  public IndividualApplicationAllOfAttributes sourceOfFunds(IndividualApplicationAllOfAttributesSourceOfFunds sourceOfFunds) {
     this.sourceOfFunds = sourceOfFunds;
     return this;
   }
@@ -1505,19 +1505,19 @@ public class IndividualApplicationAllOfAttributes {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SOURCE_OF_FUNDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ThreadIndividualSourceOfFunds getSourceOfFunds() {
+  public IndividualApplicationAllOfAttributesSourceOfFunds getSourceOfFunds() {
     return sourceOfFunds;
   }
 
 
   @JsonProperty(JSON_PROPERTY_SOURCE_OF_FUNDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSourceOfFunds(ThreadIndividualSourceOfFunds sourceOfFunds) {
+  public void setSourceOfFunds(IndividualApplicationAllOfAttributesSourceOfFunds sourceOfFunds) {
     this.sourceOfFunds = sourceOfFunds;
   }
 
 
-  public IndividualApplicationAllOfAttributes transactionVolume(ThreadIndividualTransactionVolume transactionVolume) {
+  public IndividualApplicationAllOfAttributes transactionVolume(IndividualApplicationAllOfAttributesTransactionVolume transactionVolume) {
     this.transactionVolume = transactionVolume;
     return this;
   }
@@ -1529,14 +1529,14 @@ public class IndividualApplicationAllOfAttributes {
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TRANSACTION_VOLUME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ThreadIndividualTransactionVolume getTransactionVolume() {
+  public IndividualApplicationAllOfAttributesTransactionVolume getTransactionVolume() {
     return transactionVolume;
   }
 
 
   @JsonProperty(JSON_PROPERTY_TRANSACTION_VOLUME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTransactionVolume(ThreadIndividualTransactionVolume transactionVolume) {
+  public void setTransactionVolume(IndividualApplicationAllOfAttributesTransactionVolume transactionVolume) {
     this.transactionVolume = transactionVolume;
   }
 
@@ -2007,7 +2007,7 @@ public class IndividualApplicationAllOfAttributes {
 
     // add `accountPurpose` to the URL query string
     if (getAccountPurpose() != null) {
-      joiner.add(String.format("%saccountPurpose%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getAccountPurpose()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(getAccountPurpose().toUrlQueryString(prefix + "accountPurpose" + suffix));
     }
 
     // add `accountPurposeDetail` to the URL query string
@@ -2017,12 +2017,12 @@ public class IndividualApplicationAllOfAttributes {
 
     // add `sourceOfFunds` to the URL query string
     if (getSourceOfFunds() != null) {
-      joiner.add(String.format("%ssourceOfFunds%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getSourceOfFunds()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(getSourceOfFunds().toUrlQueryString(prefix + "sourceOfFunds" + suffix));
     }
 
     // add `transactionVolume` to the URL query string
     if (getTransactionVolume() != null) {
-      joiner.add(String.format("%stransactionVolume%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getTransactionVolume()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(getTransactionVolume().toUrlQueryString(prefix + "transactionVolume" + suffix));
     }
 
     // add `transactionVolumeDescription` to the URL query string

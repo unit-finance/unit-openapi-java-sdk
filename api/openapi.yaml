@@ -2,7 +2,7 @@ openapi: 3.0.2
 info:
   description: An OpenAPI specifications for unit-sdk clients
   title: Unit OpenAPI specifications
-  version: 0.4.0
+  version: 0.4.1
 servers:
 - url: https://api.s.unit.sh
 security:
@@ -4881,6 +4881,27 @@ components:
       - TrustOrEstateDistributions
       - Cryptocurrency
       type: string
+    ThreadBusinessAccountPurpose:
+      enum:
+      - RetailSalesInPerson
+      - EcommerceSales
+      - CashHeavyIncomeAndOperations
+      - ImportExportTradeOperations
+      - ProfessionalServicesNotHandlingFunds
+      - ProfessionalServicesHandlingFunds
+      - HoldingOrInvestmentCompanyOperations
+      - PropertyManagementOrRealEstateOperations
+      - CharitableOrNonProfitOrganizationOperations
+      - ConstructionAndContractingOperations
+      - CommercialCashOperations
+      - FreightForwardingOrLogisticsOperations
+      - ThirdPartyPaymentProcessing
+      - TechnologyStartupOperations
+      - WholesaleDistributionOperations
+      - FranchiseOperationOperations
+      - HealthcareProviderOperations
+      - EducationalInstitutionOperations
+      type: string
     ThreadIndividualSourceOfFunds:
       enum:
       - SalaryOrWages
@@ -4893,6 +4914,24 @@ components:
       - LegalSettlement
       - LoanProceeds
       type: string
+    ThreadBusinessSourceOfFunds:
+      enum:
+      - SalesOfGoods
+      - SalesOfServices
+      - CustomerPayments
+      - InvestmentCapital
+      - BusinessLoans
+      - OwnerContributions
+      - FranchiseRevenue
+      - RentalIncome
+      - GovernmentContractsOrGrants
+      - DonationsOrFundraising
+      - MembershipFeesOrSubscriptions
+      - LicensingOrRoyalties
+      - CommissionIncome
+      - ImportExportRevenue
+      - CryptocurrencyRelatedActivity
+      type: string
     ThreadIndividualTransactionVolume:
       enum:
       - LessThan1K
@@ -4901,6 +4940,15 @@ components:
       - Between15KAnd30K
       - Between30KAnd60K
       - GreaterThan60K
+      type: string
+    ThreadSoleProprietorshipTransactionVolume:
+      enum:
+      - LessThan5K
+      - Between5KAnd20K
+      - Between20KAnd75K
+      - Between75KAnd150K
+      - Between150KAnd300K
+      - GreaterThan300K
       type: string
     ThreadIndividualProfession:
       enum:
@@ -5228,24 +5276,6 @@ components:
     Year:
       pattern: "^\\d{4}$"
       type: string
-    ThreadBusinessSourceOfFunds:
-      enum:
-      - SalesOfGoods
-      - SalesOfServices
-      - CustomerPayments
-      - InvestmentCapital
-      - BusinessLoans
-      - OwnerContributions
-      - FranchiseRevenue
-      - RentalIncome
-      - GovernmentContractsOrGrants
-      - DonationsOrFundraising
-      - MembershipFeesOrSubscriptions
-      - LicensingOrRoyalties
-      - CommissionIncome
-      - ImportExportRevenue
-      - CryptocurrencyRelatedActivity
-      type: string
     ThreadBusinessIndustry:
       enum:
       - GroceryStoresOrSupermarkets
@@ -5316,27 +5346,6 @@ components:
       - PhysicalOfficeOrFacility
       - BankingRelationships
       - NotAvailable
-      type: string
-    ThreadBusinessAccountPurpose:
-      enum:
-      - RetailSalesInPerson
-      - EcommerceSales
-      - CashHeavyIncomeAndOperations
-      - ImportExportTradeOperations
-      - ProfessionalServicesNotHandlingFunds
-      - ProfessionalServicesHandlingFunds
-      - HoldingOrInvestmentCompanyOperations
-      - PropertyManagementOrRealEstateOperations
-      - CharitableOrNonProfitOrganizationOperations
-      - ConstructionAndContractingOperations
-      - CommercialCashOperations
-      - FreightForwardingOrLogisticsOperations
-      - ThirdPartyPaymentProcessing
-      - TechnologyStartupOperations
-      - WholesaleDistributionOperations
-      - FranchiseOperationOperations
-      - HealthcareProviderOperations
-      - EducationalInstitutionOperations
       type: string
     ThreadBusinessTransactionVolume:
       enum:
@@ -5813,15 +5822,6 @@ components:
       - type
       title: Create Individual Thread Application
       type: object
-    ThreadSoleProprietorshipTransactionVolume:
-      enum:
-      - LessThan5K
-      - Between5KAnd20K
-      - Between20KAnd75K
-      - Between75KAnd150K
-      - Between150KAnd300K
-      - GreaterThan300K
-      type: string
     CreateSoleProprietorThreadApplication:
       additionalProperties: false
       properties:
@@ -12114,6 +12114,18 @@ components:
       type: object
     IndividualApplication_allOf_attributes_evaluationScores:
       type: object
+    IndividualApplication_allOf_attributes_accountPurpose:
+      oneOf:
+      - $ref: '#/components/schemas/ThreadIndividualAccountPurpose'
+      - $ref: '#/components/schemas/ThreadBusinessAccountPurpose'
+    IndividualApplication_allOf_attributes_sourceOfFunds:
+      oneOf:
+      - $ref: '#/components/schemas/ThreadIndividualSourceOfFunds'
+      - $ref: '#/components/schemas/ThreadBusinessSourceOfFunds'
+    IndividualApplication_allOf_attributes_transactionVolume:
+      oneOf:
+      - $ref: '#/components/schemas/ThreadIndividualTransactionVolume'
+      - $ref: '#/components/schemas/ThreadSoleProprietorshipTransactionVolume'
     IndividualApplication_allOf_attributes:
       properties:
         createdAt:
@@ -12231,13 +12243,13 @@ components:
         website:
           type: string
         accountPurpose:
-          $ref: '#/components/schemas/ThreadIndividualAccountPurpose'
+          $ref: '#/components/schemas/IndividualApplication_allOf_attributes_accountPurpose'
         accountPurposeDetail:
           type: string
         sourceOfFunds:
-          $ref: '#/components/schemas/ThreadIndividualSourceOfFunds'
+          $ref: '#/components/schemas/IndividualApplication_allOf_attributes_sourceOfFunds'
         transactionVolume:
-          $ref: '#/components/schemas/ThreadIndividualTransactionVolume'
+          $ref: '#/components/schemas/IndividualApplication_allOf_attributes_transactionVolume'
         transactionVolumeDescription:
           type: string
         profession:
@@ -14578,6 +14590,7 @@ components:
         status:
           enum:
           - Pending
+          - PendingReview
           - Rejected
           - Clearing
           - Sent
@@ -14679,6 +14692,7 @@ components:
         status:
           enum:
           - Pending
+          - PendingReview
           - Rejected
           - Clearing
           - Sent
@@ -14732,6 +14746,7 @@ components:
         status:
           enum:
           - Pending
+          - PendingReview
           - Rejected
           - Clearing
           - Sent
